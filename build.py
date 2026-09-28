@@ -1,51 +1,127 @@
 #!/usr/bin/env python3
-"""Tiquet's site. One template, three languages (en at the root, /es/, /ca/). Edit S, run, commit the HTML.
+"""Tiquet's site. One template, three languages (Spanish at the root, /en/, /ca/). Edit S, run, commit the HTML.
 Same pattern as decksweep-site: static files, GitHub Pages, CNAME. Screenshots come from the app's sample data only
 (invented household, invented companies): never a capture of anyone's real data."""
 import os, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
-CSS_VERSION = 6
+CSS_VERSION = 7
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
-UPDATED = {"en": "23 September 2026", "es": "23 de septiembre de 2026", "ca": "23 de setembre de 2026"}
+UPDATED = {"en": "28 September 2026", "es": "28 de septiembre de 2026", "ca": "28 de setembre de 2026"}
 
 S = {
 "en": dict(lang="en", name_lang="English",
   title="Tiquet — what your household is signed up to, what it costs, and what runs out",
   desc="Contracts, insurance, warranties and spending, kept on your iPhone and iPad. Read on the device, no account, no bank login, no trackers.",
-  nav=[("#mission","What it's for"),("#features","Features"),("#month","The Month"),("#privacy","Privacy"),("#faq","FAQ")],
+  nav=[('#story', 'How it helps'), ('#pricing', 'Free and Plus'), ('#ai', 'Ask'), ('#privacy', 'Privacy')],
   h1a="Know what your home is ", h1b="signed up to.",
   sub="Insurance, subscriptions, utilities, warranties: what you have, what each one costs, how much you have paid so far, when it renews and who to call. Your spending is the context, not the chore.",
-  cta="Coming to the App Store", note="iPhone and iPad · Spanish, English, Catalan soon · nothing to sign up for",
+  cta="Coming to the App Store", note='iOS and iPadOS 27 or later · app in Spanish and English; Catalan coming soon',
   mission_k="What it's for", mission_h="Three questions every household has, answered from its own papers",
   mission_p="Most money apps start from your bank and end in a pie chart. Tiquet starts from what you agreed to pay, and keeps the paper that proves it.",
   pillars=[("What are we signed up to?","Every policy, subscription and bill as a card: number, price, period, renewal, last day to cancel, the phone to call, and the PDF attached.","c-green"),
            ("What does it really cost?","Paid so far, year by year, from your own bank statements. A rise from one year to the next is said in plain words, with the dates.","c-wine"),
            ("What is about to run out?","Renewals, last days to say no, return windows and warranties, on one time axis, with a reminder before each one costs you money.","c-sea")],
   feat_k="Features", feat_h="Everything it does, and nothing it doesn't need",
-  feats=[("Scan a receipt, keep the facts","Photograph it or share it from Mail. The on-device model reads shop, date, items, return policy and warranty. The photo stays as proof.","c-clay"),
-         ("Attach the policy, fill the card","Drop a PDF or a photo of a policy: number, premium, what it covers, who is insured and the claims phone are read and checked against the paper.","c-green"),
-         ("Bank and card statements, by file","Download them from your bank and open them with Tiquet: BBVA, Sabadell and more. No login, no connection. Card numbers are cut to their last four digits before anything is saved. Search any shop or word across all of them.","c-sea"),
-         ("Nothing counted twice","A receipt, its bank line and the contract's premium are one payment. Where there are statements, the statements rule. Two policies with one insurer, yours and your partner's, are two cards with two prices.","c-wine"),
-         ("Contracts that stop charging","If the bank stops showing a charge, Tiquet closes the contract on the last month it was seen, and says so.","c-night"),
-         ("Review: where to spend less","Silent rises, protection that has cost more than the thing, a paid warranty the law already gives you, bank fees. Your numbers and the question to ask, with every charge behind each one; never a company, a cover or a cancellation.","c-clay"),
-         ("One kind of tag","Every bank payment gets a tag by itself; one tap classifies the rest, past and future, one payee or many at once. A tag adds up its receipts, its contracts, its things and its bank payments, each counted once. Follow any tag month by month.","c-green"),
-         ("Places you ate","Your regulars on a shelf, your trips found by themselves, home's towns at a glance; then each place with its own stars and notes, all its visits, what it has cost and the dishes worth coming back for. Search a name the bank knows and it becomes a place.","c-sea"),
-         ("Ask in your own words","“How much on groceries this month?” “Which of our restaurants are near me?” “Where did I love the hot chocolate?” — and then “And in Sabadell?”. Answered on the device as it writes, from your data, by voice if you like. “How much at…?” gets the exact figure, and a tap shows each payment.","c-wine"),
-         ("Widgets, and a budget","A policy at hand on the Lock Screen, the next charge, the month against one number you choose. One budget, not twenty.","c-night"),
-         ("iPhone and iPad, in step","Your own iCloud keeps your devices the same, if you switch it on. For the family, one file by AirDrop with contracts and warranties: no receipts, no bank.","c-clay"),
-         ("Discreet mode","One tap turns every amount into •••, for the train or the sofa. The app switcher shows a cover, not your figures.","c-green"),
-         ("Anything strange?","A Bizum to someone new and far above your usual, a transfer to an account never seen, a charge abroad with no trip, a card being tried, a double charge. Tiquet asks if you recognise it, and if not, says what to do now. Worked out on your iPhone; it contacts no one.","c-sea"),
-         ("In and out","What came in against what went out and what was kept, each month. Money moved between your own accounts is recognised and left out; refunds and a friend's Bizum are money given back, not earnings. Each account shows how far its statements go; only the bank and the last four digits are kept.","c-sea"),
-         ("Saving for something","A trip, a car, a cushion: how much and by when. What you put aside and the transfers your bank shows fill the ring, with what is needed each month to arrive on time.","c-sea"),
-         ("Say it, and it's a receipt","“Dinner at Can Pere, 42, yesterday” in the question bar becomes a receipt as it will be saved: check it, tap Save. Nothing exists until you do.","c-sea"),
-         ("What a bill will charge next","Electricity, water, gas: the expected charge is the same month last year moved by this year's drift, never just the last receipt. The card says what is expected and why.","c-wine"),
-         ("Payments with an end, and free trials","A phone in 24 instalments says “payment 7 of 24, until March 2027” and retires itself after the last one. A free trial counts down to the day it starts charging, with a reminder while saying no is still free.","c-night"),
-         ("Review the classification","By merchant, by group, or let the on-device model point at what looks filed wrong. One tap fixes every payment of that merchant, past and future, on every device. Undo is one tap too.","c-clay"),
-         ("Many at once, everywhere","Select contracts, things, bank payments, tags or places and act on all of them: tag, move, merge, cancel, delete. Every delete asks first and says what stays.","c-sea"),
-         ("A place is one card","Where it is, its phone, its stars and your notes live on the place; every visit, scanned or from the bank, links to it. The next statement goes straight to the right place.","c-clay"),
-         ("What needs you, in whole sentences","Returns, renewals and warranties as a stack you read at a glance; mark done, or be reminded tomorrow or on Monday, one by one or many at once.","c-wine"),
-         ("On a plane","No connection, no fuss: everything works from the device, iCloud waits quietly, and a place import pauses and carries on by itself when the network is back.","c-green")],
+  feats=[('Scan a receipt, keep the facts',
+  'Photograph it or share it from Mail. The on-device model reads shop, date, items, return policy and '
+  'warranty. The photo stays as proof.',
+  'c-clay'),
+ ('Attach the policy, fill the card',
+  'Drop a PDF or a photo of a policy: number, premium, what it covers, who is insured and the claims phone '
+  'are read and checked against the paper.',
+  'c-green'),
+ ('Bank and card statements, by file',
+  'Download them from your bank and open them with Tiquet: BBVA, Sabadell and more. No login, no connection. '
+  'Card numbers are cut to their last four digits before anything is saved. Search any shop or word across '
+  'all of them.',
+  'c-sea'),
+ ('Nothing counted twice',
+  "A receipt, its bank line and the contract's premium are one payment. Where there are statements, the "
+  "statements rule. Two policies with one insurer, yours and your partner's, are two cards with two prices.",
+  'c-wine'),
+ ('Contracts that stop charging',
+  'If the bank stops showing a charge, Tiquet closes the contract on the last month it was seen, and says '
+  'so.',
+  'c-night'),
+ ('Review: where to spend less',
+  'Silent rises, protection that has cost more than the thing, a paid warranty the law already gives you, '
+  'bank fees. Your numbers and the question to ask, with every charge behind each one; never a company, a '
+  'cover or a cancellation.',
+  'c-clay'),
+ ('One kind of tag',
+  'Every bank payment gets a tag by itself; one tap classifies the rest, past and future, one payee or many '
+  'at once. A tag adds up its receipts, its contracts, its things and its bank payments, each counted once. '
+  'Follow any tag month by month.',
+  'c-green'),
+ ('Places you ate',
+  "Your regulars on a shelf, your trips found by themselves, home's towns at a glance; then each place with "
+  'its own stars and notes, all its visits, what it has cost and the dishes worth coming back for. Search a '
+  'name the bank knows and it becomes a place.',
+  'c-sea'),
+ ('Ask in your own words',
+  '“How much on groceries this month?” or “When is the next payment?”. Answers come from saved records, with '
+  'the payments behind them. Forecasts are distinguished from recorded charges; some questions require Apple '
+  'Intelligence.',
+  'c-wine'),
+ ('Widgets, and a budget',
+  'A policy at hand on the Lock Screen, the next charge, the month against one number you choose. One '
+  'budget, not twenty.',
+  'c-night'),
+ ('iPhone and iPad, in step',
+  'Your own iCloud keeps your devices the same, if you switch it on. For the family, one file by AirDrop '
+  'with contracts and warranties: no receipts, no bank.',
+  'c-clay'),
+ ('Discreet mode',
+  'One tap turns every amount into •••, for the train or the sofa. The app switcher shows a cover, not your '
+  'figures.',
+  'c-green'),
+ ('Anything strange?',
+  'A Bizum to someone new and far above your usual, a transfer to an account never seen, a charge abroad '
+  'with no trip, a card being tried, a double charge. Tiquet asks if you recognise it, and if not, says what '
+  'to do now. Worked out on your iPhone; it contacts no one.',
+  'c-sea'),
+ ('In and out',
+  'What came in against what went out and what was kept, each month. Money moved between your own accounts '
+  "is recognised and left out; refunds and a friend's Bizum are money given back, not earnings. Each account "
+  'shows how far its statements go; only the bank and the last four digits are kept.',
+  'c-sea'),
+ ('Saving for something',
+  'A trip, a car, a cushion: how much and by when. What you put aside and the transfers your bank shows fill '
+  'the ring, with what is needed each month to arrive on time.',
+  'c-sea'),
+ ("Say it, and it's a receipt",
+  '“Dinner at Can Pere, 42, yesterday” in the question bar becomes a receipt as it will be saved: check it, '
+  'tap Save. Nothing exists until you do.',
+  'c-sea'),
+ ('What a bill will charge next',
+  "Electricity, water, gas: the expected charge is the same month last year moved by this year's drift, "
+  'never just the last receipt. The card says what is expected and why.',
+  'c-wine'),
+ ('Payments with an end, and free trials',
+  'A phone in 24 instalments says “payment 7 of 24, until March 2027” and retires itself after the last one. '
+  'A free trial counts down to the day it starts charging, with a reminder while saying no is still free.',
+  'c-night'),
+ ('Review the classification',
+  'By merchant, by group, or let the on-device model point at what looks filed wrong. One tap fixes every '
+  'payment of that merchant, past and future, on every device. Undo is one tap too.',
+  'c-clay'),
+ ('Many at once, everywhere',
+  'Select contracts, things, bank payments, tags or places and act on all of them: tag, move, merge, cancel, '
+  'delete. Every delete asks first and says what stays.',
+  'c-sea'),
+ ('A place is one card',
+  'Where it is, its phone, its stars and your notes live on the place; every visit, scanned or from the '
+  'bank, links to it. The next statement goes straight to the right place.',
+  'c-clay'),
+ ('What needs you, in whole sentences',
+  'Returns, renewals and warranties as a stack you read at a glance; mark done, or be reminded tomorrow or '
+  'on Monday, one by one or many at once.',
+  'c-wine'),
+ ('On a plane',
+  'Your saved documents and local calculations remain available offline. Sync, map searches, logos and App '
+  'Store operations need a connection.',
+  'c-green')],
   fam_k="For the family", fam_h="If something happens to me",
   fam_p="The papers a household needs when one of its adults is not there to explain them. Made on the device, shared only by you.",
   fam=[("The household sheet","One PDF with everything the household is signed up to: insurance first, then subscriptions and bills. Company, policy number, who is insured, what it covers, the phone to report a claim, where the login is kept, when it renews. No prices unless asked for; never a password.","c-green"),
@@ -66,40 +142,121 @@ S = {
   priv_k="Privacy", priv_h="Your data stays with you", priv_p="Your financial AI runs on your device. We receive neither your statements nor your amounts: there is no server of ours. Sync through your own iCloud only if you choose; Apple Maps gets an address or a place name when you look one up.",
   where_h="Where your data is", where=["On your device, in Tiquet's own storage","In your own iCloud private database, only if you switch it on","Read by Apple's on-device model; nothing is sent away to be read"],
   never_h="What Tiquet never does", never=["No account, and no password of yours is ever stored","No connection to your bank","No trackers, no ads, no analytics, no third-party code"],
-  leaves_h="The only things that leave the device", leaves=["An address, a venue's name or a coordinate, to Apple Maps","A company's own website, once, for its logo","What you share yourself: a backup, the household file, an issue of The Month"],
+  leaves_h='Features that use a connection', leaves=['Your private iCloud database, only if you enable sync',
+ 'Apple Maps: a place name, address or coordinate, including place questions',
+ 'A company’s website to download its logo, if logos are enabled',
+ 'App Store: checking, buying or restoring Plus and the trial',
+ 'Anything you choose to export or share, to your chosen destination'],
   how_k="How it starts", how_h="Useful in ten minutes",
   steps=[("Add what you're signed up to","Type a contract, or attach its PDF and let the card fill itself."),
          ("Bring a year of statements","Download them from your bank as files. Tiquet finds what repeats and offers it as contracts."),
          ("Scan what matters","The receipt of anything with a warranty or a return window. The rest is optional."),
          ("Let it remind you","A month before a yearly policy renews: time to compare. Then the last days to say no.")],
   faq_k="Questions", faq_h="Short answers",
-  faqs=[("How much does it cost?","Tiquet is free to use: receipts, warranties, contracts, their reminders, the household sheet and the watch for strange charges, for ever. Tiquet Plus opens the rest (where to spend less, in and out, goals, what's coming, The Month, Ask without limits) with one payment, no subscription, for the whole household with Family Sharing. Try it all free for 14 days first; nothing is charged and nothing renews by itself."),
-        ("Does it connect to my bank?","No, and it never will. You download statements as files and open them with Tiquet. It keeps no bank login."),
-        ("Where is my data?","On your device. If you switch on iCloud sync, also in the private database of your own Apple Account, which the developer can't read."),
-        ("Does the AI send my receipts anywhere?","No. Reading is done by Apple's on-device model. On a device without it, Tiquet falls back to plain pattern reading."),
-        ("Can I share it with my partner?","Your own devices stay in step through iCloud. For another person, Tiquet makes one file with contracts, insurance and warranties that you send by AirDrop; it merges on their side."),
-        ("Can I get everything out?","Yes. One .zip with every receipt, photo, policy and movement, plus spreadsheets anyone can open."),
-        ("Does it give financial advice?","No. It reports your own numbers and the question worth asking. It never recommends a company, a cover or a cancellation.")],
+  faqs=[('How much does it cost?',
+  'Free includes receipts, warranties, contracts, reminders and 5 questions a day per device about free '
+  'features. Plus has a €9.99 launch price in Spain, paid once with no subscription, and supports Family '
+  'Sharing for the purchase. Try Plus free for 14 days with no automatic renewal.'),
+ ('Does it connect to my bank?',
+  'No, and it never will. You download statements as files and open them with Tiquet. It keeps no bank '
+  'login.'),
+ ('Where is my data?',
+  'On your device. If you switch on iCloud sync, also in the private database of your own Apple Account, '
+  "which the developer can't read."),
+ ('What if Apple Intelligence is unavailable?',
+  'You can save and view documents and use text recognition and rules. The local model needs a compatible '
+  'device, Apple Intelligence enabled and the model downloaded and available in your language. Some '
+  'questions and AI features will be unavailable.'),
+ ('Does Family Sharing share my spending?',
+  'No. It shares the Plus purchase, subject to Apple’s settings, with up to five family members. Each Apple '
+  'Account keeps separate data. To share documents with someone else, explicitly choose to export the '
+  'household file.'),
+ ('Can I get everything out?',
+  'Yes. One .zip with every receipt, photo, policy and movement, plus spreadsheets anyone can open.'),
+ ('Does it give financial advice?',
+  'No. It reports your own numbers and the question worth asking. It never recommends a company, a cover or '
+  'a cancellation.'),
+ ('What happens after the 14 days?',
+  'You return to the free features with no automatic charge. Everything you saved stays. Plus features '
+  'require a purchase; the trial is not shared through Family Sharing.')],
   f_privacy="Privacy", f_support="Support", f_terms="Terms", f_contact="Contact", home="Home",
   privacy_t="Tiquet privacy policy",
-  privacy_b=[("Summary","Tiquet does not collect, store or transmit any personal data to the developer or to any third party. There is no account and no server of ours."),
-             ("What is stored, and where","Receipts, contracts, policies, things under warranty, bank movements you import, photos, tags, your budget and your settings are stored on your device, in the app's own storage. If you switch on iCloud sync, the same data is kept in the private database of your own iCloud account, which only devices signed in with your Apple Account can read. The developer has no access to it."),
-             ("Reading on the device","Receipts, policies and the questions you ask are processed by Apple's on-device language model and on-device text and speech recognition. Nothing is sent to a server to be read."),
-             ("Bank and card statements","Statements are files you download from your bank and open with Tiquet. Tiquet never connects to a bank and never stores a bank login. Card numbers found in statements are reduced to their last four digits before anything is saved."),
-             ("What leaves the device","Only, and only when a feature you use needs it: an address, a venue's name and town, or a coordinate sent to Apple Maps to place a receipt, draw a map or show a street picture; a request to a company's own website, once, to fetch its logo, if logos are on; and whatever you choose to share yourself (a backup, the household file, an issue of The Month), which goes only where you send it. None of the requests to Apple Maps or to a company's website carries an amount, your name or a line from your bank."),
-             ("Permissions","Camera and photos, to scan receipts and attach documents. Location, only if you ask Tiquet to place a receipt where you are, ask for your places near you, or use the nearby-places widget. Microphone and speech recognition, only if you ask by voice; recognition runs on the device. Notifications, for the reminders you see in Settings."),
-             ("No tracking","No analytics, no advertising, no third-party code."),
-             ("Deleting your data","Settings → Backup and restore → Delete everything. With iCloud sync on, it is deleted from your iCloud and your other devices too. Deleting the app removes what is on the device."),
-             ("Children","Tiquet is not directed at children and collects nothing from anyone."),
-             ("Contact","Questions about this policy: <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL))],
+  privacy_b=[('Summary',
+  'Tiquet stores and processes your documents and figures on your device. It does not send your statements '
+  'or amounts to the developer for analysis. No Tiquet account is needed. Some features use external '
+  'services, as explained below: optional iCloud sync, maps, logos and App Store purchases.'),
+ ('What is stored, and where',
+  'Receipts, contracts, policies, things under warranty, bank movements you import, photos, tags, your '
+  "budget and your settings are stored on your device, in the app's own storage. If you switch on iCloud "
+  'sync, the same data is kept in the private database of your own iCloud account, which only devices signed '
+  'in with your Apple Account can read. The developer has no access to it.'),
+ ('Reading on the device',
+  'Text and speech recognition and Apple’s language model run on the device. We do not send documents or '
+  'figures to a remote AI. Model availability depends on your device and Apple Intelligence settings. Place '
+  'searches may query Apple Maps with a name, address or coordinate.'),
+ ('Bank and card statements',
+  'Statements are files you download from your bank and open with Tiquet. Tiquet never connects to a bank '
+  'and never stores a bank login. Card numbers found in statements are reduced to their last four digits '
+  'before anything is saved.'),
+ ('Maps, logos and shared files',
+  "Only, and only when a feature you use needs it: an address, a venue's name and town, or a coordinate sent "
+  "to Apple Maps to place a receipt, draw a map or show a street picture; a request to a company's own "
+  'website, once, to fetch its logo, if logos are on; and whatever you choose to share yourself (a backup, '
+  'the household file, an issue of The Month), which goes only where you send it. None of the requests to '
+  "Apple Maps or to a company's website carries an amount, your name or a line from your bank."),
+ ('Purchases and Family Sharing',
+  'Apple handles payments and restoration through the App Store. Tiquet checks your entitlement to Plus or '
+  'the trial; it does not receive your card details. Family Sharing shares the Plus entitlement, not your '
+  'documents or database.'),
+ ('If you contact support',
+  'We receive the email address and content you send, to answer your request. Do not attach financial '
+  'documents or other people’s personal data: describe the issue with invented data.'),
+ ('Permissions',
+  'Camera and photos, to scan receipts and attach documents. Location, only if you ask Tiquet to place a '
+  'receipt where you are, ask for your places near you, or use the nearby-places widget. Microphone and '
+  'speech recognition, only if you ask by voice; recognition runs on the device. Notifications, for the '
+  'reminders you see in Settings.'),
+ ('No tracking', 'No analytics, no advertising, no third-party code.'),
+ ('Deleting your data',
+  'Settings → Backup and restore → Delete everything. With iCloud sync on, it is deleted from your iCloud '
+  'and your other devices too. Deleting the app removes what is on the device.'),
+ ('Children', 'Tiquet is not directed at children. It includes no advertising or tracking.'),
+ ('Contact', 'Questions about this policy: <a href="mailto:a.estevez@gmail.com">a.estevez@gmail.com</a>.')],
   support_t="Tiquet support",
-  support_p="Email <a href=\"mailto:%s\">%s</a>. Say which device and iOS version you use and what you were doing. Nothing about your data ever reaches us, so please describe what you see; never send a bank statement." % (EMAIL, EMAIL),
+  support_p=('<a href="mailto:a.estevez@gmail.com">a.estevez@gmail.com</a>. Include your device, iOS or iPadOS version '
+ 'and what you were doing. The app does not automatically send us your financial records. If you email us, '
+ 'we receive your email and the information you choose to include. Use invented examples; do not send '
+ 'statements, personal documents or screenshots with real data.'),
   support_h="Common questions",
-  support_faq=[("My bank's file isn't read.","Export it as Excel or CSV from the bank's website, not as PDF. If it still isn't read, tell us the bank and the kind of export; never send the file itself."),
-               ("A charge is counted twice, or not at all.","Open the contract and check the provider's name matches what the bank prints. Where statements cover a month, only the bank's lines count."),
-               ("iPhone and iPad don't show the same.","Both need iCloud sync on (Settings → iPhone and iPad, in step), the same Apple Account, and a few minutes the first time."),
-               ("A place is on the wrong spot of the map.","Open its card and set the address, or tap “I'm here now” when you are there."),
-               ("How do I move to a new phone?","With iCloud sync on, just sign in. Without it: Settings → Backup and restore → Export everything, then Restore on the new phone.")],
+  support_faq=[("My bank's file isn't read.",
+  "Export it as Excel or CSV from the bank's website, not as PDF. If it still isn't read, tell us the bank "
+  'and the kind of export; never send the file itself.'),
+ ('A charge is counted twice, or not at all.',
+  "Open the contract and check the provider's name matches what the bank prints. Where statements cover a "
+  "month, only the bank's lines count."),
+ ("iPhone and iPad don't show the same.",
+  'Both need iCloud sync on (Settings → iPhone and iPad, in step), the same Apple Account, and a few minutes '
+  'the first time.'),
+ ('A place is on the wrong spot of the map.',
+  "Open its card and set the address, or tap “I'm here now” when you are there."),
+ ('How do I move to a new phone?',
+  'With iCloud sync on, just sign in. Without it: Settings → Backup and restore → Export everything, then '
+  'Restore on the new phone.'),
+ ('How do I restore Plus?',
+  'Open the Tiquet Plus offer in Settings and tap Restore purchases. Use the Apple Account you bought with '
+  'and an internet connection. If you receive Plus through Family Sharing, also check your group’s '
+  'purchase-sharing settings.'),
+ ('What happens after the 14 days?',
+  'You return to the free features with no automatic charge. Everything you saved stays. Plus features '
+  'require a purchase; the trial is not shared through Family Sharing.'),
+ ('What if Apple Intelligence is unavailable?',
+  'You can save and view documents and use text recognition and rules. The local model needs a compatible '
+  'device, Apple Intelligence enabled and the model downloaded and available in your language. Some '
+  'questions and AI features will be unavailable.'),
+ ('Does Family Sharing share my spending?',
+  'No. It shares the Plus purchase, subject to Apple’s settings, with up to five family members. Each Apple '
+  'Account keeps separate data. To share documents with someone else, explicitly choose to export the '
+  'household file.')],
   terms_t="Tiquet terms of use",
   terms_b=[("Licence","Tiquet is licensed under Apple's standard Licensed Application End User License Agreement (EULA): <a href=\"https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\">apple.com/legal/internet-services/itunes/dev/stdeula</a>."),
            ("Not financial, legal or insurance advice","Tiquet reports figures from the documents and statements you give it, and points at questions worth asking. It does not recommend companies, products, covers or cancellations, and nothing in it is advice. Decisions about your contracts and your money are yours."),
@@ -110,39 +267,119 @@ S = {
 "es": dict(lang="es", name_lang="Español",
   title="Tiquet — lo que tu casa tiene contratado, lo que cuesta y lo que caduca",
   desc="Contratos, seguros, garantías y gastos, guardados en tu iPhone y tu iPad. Se lee en el dispositivo: sin cuenta, sin acceso a tu banco, sin rastreadores.",
-  nav=[("#mission","Para qué sirve"),("#features","Funciones"),("#month","El Mes"),("#privacy","Privacidad"),("#faq","Preguntas")],
+  nav=[('#story', 'Cómo te ayuda'), ('#pricing', 'Gratis y Plus'), ('#ai', 'Pregunta'), ('#privacy', 'Privacidad')],
   h1a="Saber qué tiene tu casa ", h1b="contratado.",
   sub="Seguros, suscripciones, suministros, garantías: qué tienes, cuánto cuesta cada cosa, cuánto llevas pagado, cuándo renueva y a quién llamar. Tus gastos son el contexto, no una obligación.",
-  cta="Próximamente en el App Store", note="iPhone y iPad · español, inglés y pronto catalán · nada en lo que registrarse",
+  cta="Próximamente en el App Store", note='iOS y iPadOS 27 o posterior · app en español e inglés; catalán próximamente',
   mission_k="Para qué sirve", mission_h="Tres preguntas que se hace cualquier casa, respondidas con sus propios papeles",
   mission_p="Casi todas las apps de dinero empiezan en tu banco y acaban en un gráfico de tarta. Tiquet empieza en lo que acordaste pagar, y guarda el papel que lo demuestra.",
   pillars=[("¿Qué tenemos contratado?","Cada póliza, suscripción y recibo como una ficha: número, precio, periodo, renovación, último día para dar de baja, el teléfono al que llamar y el PDF adjunto.","c-green"),
            ("¿Cuánto cuesta de verdad?","Lo pagado hasta hoy, año a año, según tus propios extractos. Una subida de un año a otro se dice con palabras claras y con fechas.","c-wine"),
            ("¿Qué está a punto de caducar?","Renovaciones, últimos días para decir que no, plazos de devolución y garantías, en un solo eje de tiempo, con un aviso antes de que te cueste dinero.","c-sea")],
   feat_k="Funciones", feat_h="Todo lo que hace, y nada que no necesite",
-  feats=[("Escanea un tique, guarda los hechos","Hazle una foto o compártelo desde Mail. El modelo del dispositivo lee tienda, fecha, artículos, política de devolución y garantía. La foto queda como prueba.","c-clay"),
-         ("Adjunta la póliza y la ficha se rellena","Un PDF o una foto de la póliza: número, prima, qué cubre, quién está asegurado y el teléfono de siniestros se leen y se comprueban contra el papel.","c-green"),
-         ("Extractos de banco y de tarjeta, por archivo","Los descargas de tu banco y los abres con Tiquet: BBVA, Sabadell y más. Sin contraseña, sin conexión. Los números de tarjeta se recortan a sus cuatro últimas cifras antes de guardar nada. Busca cualquier tienda o palabra en todos ellos.","c-sea"),
-         ("Nada se cuenta dos veces","Un tique, su línea del banco y la cuota del contrato son un solo pago. Donde hay extracto, manda el extracto. Dos pólizas de una misma aseguradora, la tuya y la de tu pareja, son dos fichas con dos precios.","c-wine"),
-         ("Contratos que dejan de cobrarse","Si el banco deja de mostrar un cargo, Tiquet cierra el contrato en el último mes en que se vio, y lo dice.","c-night"),
-         ("Revisión: dónde gastar menos","Subidas silenciosas, protecciones que ya han costado más que la cosa, una garantía de pago que la ley ya te da, comisiones. Tus números y la pregunta que hacer, con cada cargo detrás de cada una; nunca una compañía, una cobertura ni una baja.","c-clay"),
-         ("Una sola clase de etiqueta","Cada pago del banco recibe su etiqueta solo; un toque clasifica el resto, pasado y futuro, de un comercio o de muchos a la vez. Una etiqueta suma sus tiques, sus contratos, sus cosas y sus pagos del banco, cada uno contado una vez. Sigue cualquier etiqueta mes a mes.","c-green"),
-         ("Sitios donde comisteis","Vuestros habituales en una estantería, los viajes detectados solos, las localidades de casa de un vistazo; y luego cada sitio con sus estrellas y notas, todas sus visitas, lo que ha costado y los platos para volver a pedir. Busca un nombre que tu banco conoce y pasa a ser un sitio.","c-sea"),
-         ("Pregunta con tus palabras","«¿Cuánto llevo en compra este mes?» «¿Qué restaurantes nuestros tengo cerca?» «¿Dónde me encantó el Cacaolat?», y luego «¿Y en Sabadell?». Se responde en el dispositivo mientras lo escribe, con tus datos, y por voz si quieres. «¿Cuánto en…?» da la cifra exacta, y un toque muestra cada pago.","c-wine"),
-         ("Widgets y un presupuesto","Una póliza a mano en la pantalla de bloqueo, el próximo cargo, el mes frente a un número que eliges tú. Un presupuesto, no veinte.","c-night"),
-         ("iPhone y iPad, a la par","Tu propio iCloud mantiene tus dispositivos iguales, si lo activas. Para la familia, un archivo por AirDrop con contratos y garantías: sin tiques, sin banco.","c-clay"),
-         ("Modo discreto","Un toque convierte cada importe en •••, para el tren o el sofá. El selector de apps muestra una tapa, no tus cifras.","c-green"),
-         ("¿Algo raro?","Un Bizum a alguien nuevo y muy por encima de lo habitual, una transferencia a una cuenta nunca vista, un cargo en el extranjero sin viaje, una tarjeta que están probando, un cobro doble. Tiquet te pregunta si lo reconoces y, si no, te dice qué hacer ya. Se calcula en tu iPhone y no contacta con nadie.","c-sea"),
-         ("Entra y sale","Lo que entró frente a lo que salió y lo que quedó, cada mes. El dinero que mueves entre tus propias cuentas se reconoce y no cuenta; las devoluciones y el Bizum de un amigo son dinero que vuelve, no ganancias. Cada cuenta dice hasta dónde llegan sus extractos; solo se guardan el banco y las cuatro últimas cifras.","c-sea"),
-         ("Ahorrando para algo","Un viaje, un coche, un colchón: cuánto y para cuándo. Lo que apartas y las transferencias que muestra tu banco llenan el anillo, con lo que hace falta cada mes para llegar a tiempo.","c-sea"),
-         ("Dilo, y ya es un tique","«Cena Can Pere 42 ayer» en la barra de preguntas se convierte en un tique tal como se guardará: lo revisas y tocas Guardar. Nada existe hasta que lo haces.","c-sea"),
-         ("Lo que cobrará el próximo recibo","Luz, agua, gas: el cargo previsto es el mismo mes del año pasado movido por la deriva de este año, nunca solo el último recibo. La ficha dice qué se espera y por qué.","c-wine"),
-         ("Pagos con final, y pruebas gratis","Un móvil a 24 plazos dice «pago 7 de 24, hasta marzo de 2027» y se retira solo tras el último. Una prueba gratis cuenta los días hasta que empieza a cobrar, con un aviso mientras decir que no sigue siendo gratis.","c-night"),
-         ("Revisar la clasificación","Por comercio, por grupo, o deja que el modelo del dispositivo señale lo que parece mal archivado. Un toque corrige cada pago de ese comercio, pasado y futuro, en todos tus dispositivos. Deshacer también es un toque.","c-clay"),
-         ("Muchos a la vez, en todas partes","Selecciona contratos, cosas, pagos del banco, etiquetas o sitios y actúa sobre todos: etiquetar, mover, fusionar, dar de baja, borrar. Todo borrado pregunta antes y dice qué se queda.","c-sea"),
-         ("Un sitio, una ficha","Dónde está, su teléfono, sus estrellas y tus notas viven en el sitio; cada visita, escaneada o del banco, se engancha a él. El siguiente extracto va directo al sitio correcto.","c-clay"),
-         ("Lo que te necesita, en frases enteras","Devoluciones, renovaciones y garantías en una pila que se lee de un vistazo; márcalas como hechas o que te lo recuerde mañana o el lunes, de una en una o muchas a la vez.","c-wine"),
-         ("En el avión","Sin conexión, sin agobios: todo funciona desde el dispositivo, iCloud espera en silencio y una importación de sitios se pausa y sigue sola cuando vuelve la red.","c-green")],
+  feats=[('Escanea un tique, guarda los hechos',
+  'Hazle una foto o compártelo desde Mail. El modelo del dispositivo lee tienda, fecha, artículos, política '
+  'de devolución y garantía. La foto queda como prueba.',
+  'c-clay'),
+ ('Adjunta la póliza y la ficha se rellena',
+  'Un PDF o una foto de la póliza: número, prima, qué cubre, quién está asegurado y el teléfono de '
+  'siniestros se leen y se comprueban contra el papel.',
+  'c-green'),
+ ('Extractos de banco y de tarjeta, por archivo',
+  'Los descargas de tu banco y los abres con Tiquet: BBVA, Sabadell y más. Sin contraseña, sin conexión. Los '
+  'números de tarjeta se recortan a sus cuatro últimas cifras antes de guardar nada. Busca cualquier tienda '
+  'o palabra en todos ellos.',
+  'c-sea'),
+ ('Nada se cuenta dos veces',
+  'Un tique, su línea del banco y la cuota del contrato son un solo pago. Donde hay extracto, manda el '
+  'extracto. Dos pólizas de una misma aseguradora, la tuya y la de tu pareja, son dos fichas con dos '
+  'precios.',
+  'c-wine'),
+ ('Contratos que dejan de cobrarse',
+  'Si el banco deja de mostrar un cargo, Tiquet cierra el contrato en el último mes en que se vio, y lo '
+  'dice.',
+  'c-night'),
+ ('Revisión: dónde gastar menos',
+  'Subidas silenciosas, protecciones que ya han costado más que la cosa, una garantía de pago que la ley ya '
+  'te da, comisiones. Tus números y la pregunta que hacer, con cada cargo detrás de cada una; nunca una '
+  'compañía, una cobertura ni una baja.',
+  'c-clay'),
+ ('Una sola clase de etiqueta',
+  'Cada pago del banco recibe su etiqueta solo; un toque clasifica el resto, pasado y futuro, de un comercio '
+  'o de muchos a la vez. Una etiqueta suma sus tiques, sus contratos, sus cosas y sus pagos del banco, cada '
+  'uno contado una vez. Sigue cualquier etiqueta mes a mes.',
+  'c-green'),
+ ('Sitios donde comisteis',
+  'Vuestros habituales en una estantería, los viajes detectados solos, las localidades de casa de un '
+  'vistazo; y luego cada sitio con sus estrellas y notas, todas sus visitas, lo que ha costado y los platos '
+  'para volver a pedir. Busca un nombre que tu banco conoce y pasa a ser un sitio.',
+  'c-sea'),
+ ('Pregunta con tus palabras',
+  '«¿Cuánto llevo en compra este mes?» o «¿Cuándo toca el próximo pago?». Respuestas a partir de tus '
+  'registros, con los pagos que las respaldan. Las previsiones se distinguen de los cobros ya registrados; '
+  'algunas preguntas requieren Apple Intelligence.',
+  'c-wine'),
+ ('Widgets y un presupuesto',
+  'Una póliza a mano en la pantalla de bloqueo, el próximo cargo, el mes frente a un número que eliges tú. '
+  'Un presupuesto, no veinte.',
+  'c-night'),
+ ('iPhone y iPad, a la par',
+  'Tu propio iCloud mantiene tus dispositivos iguales, si lo activas. Para la familia, un archivo por '
+  'AirDrop con contratos y garantías: sin tiques, sin banco.',
+  'c-clay'),
+ ('Modo discreto',
+  'Un toque convierte cada importe en •••, para el tren o el sofá. El selector de apps muestra una tapa, no '
+  'tus cifras.',
+  'c-green'),
+ ('¿Algo raro?',
+  'Un Bizum a alguien nuevo y muy por encima de lo habitual, una transferencia a una cuenta nunca vista, un '
+  'cargo en el extranjero sin viaje, una tarjeta que están probando, un cobro doble. Tiquet te pregunta si '
+  'lo reconoces y, si no, te dice qué hacer ya. Se calcula en tu iPhone y no contacta con nadie.',
+  'c-sea'),
+ ('Entra y sale',
+  'Lo que entró frente a lo que salió y lo que quedó, cada mes. El dinero que mueves entre tus propias '
+  'cuentas se reconoce y no cuenta; las devoluciones y el Bizum de un amigo son dinero que vuelve, no '
+  'ganancias. Cada cuenta dice hasta dónde llegan sus extractos; solo se guardan el banco y las cuatro '
+  'últimas cifras.',
+  'c-sea'),
+ ('Ahorrando para algo',
+  'Un viaje, un coche, un colchón: cuánto y para cuándo. Lo que apartas y las transferencias que muestra tu '
+  'banco llenan el anillo, con lo que hace falta cada mes para llegar a tiempo.',
+  'c-sea'),
+ ('Dilo, y ya es un tique',
+  '«Cena Can Pere 42 ayer» en la barra de preguntas se convierte en un tique tal como se guardará: lo '
+  'revisas y tocas Guardar. Nada existe hasta que lo haces.',
+  'c-sea'),
+ ('Lo que cobrará el próximo recibo',
+  'Luz, agua, gas: el cargo previsto es el mismo mes del año pasado movido por la deriva de este año, nunca '
+  'solo el último recibo. La ficha dice qué se espera y por qué.',
+  'c-wine'),
+ ('Pagos con final, y pruebas gratis',
+  'Un móvil a 24 plazos dice «pago 7 de 24, hasta marzo de 2027» y se retira solo tras el último. Una prueba '
+  'gratis cuenta los días hasta que empieza a cobrar, con un aviso mientras decir que no sigue siendo '
+  'gratis.',
+  'c-night'),
+ ('Revisar la clasificación',
+  'Por comercio, por grupo, o deja que el modelo del dispositivo señale lo que parece mal archivado. Un '
+  'toque corrige cada pago de ese comercio, pasado y futuro, en todos tus dispositivos. Deshacer también es '
+  'un toque.',
+  'c-clay'),
+ ('Muchos a la vez, en todas partes',
+  'Selecciona contratos, cosas, pagos del banco, etiquetas o sitios y actúa sobre todos: etiquetar, mover, '
+  'fusionar, dar de baja, borrar. Todo borrado pregunta antes y dice qué se queda.',
+  'c-sea'),
+ ('Un sitio, una ficha',
+  'Dónde está, su teléfono, sus estrellas y tus notas viven en el sitio; cada visita, escaneada o del banco, '
+  'se engancha a él. El siguiente extracto va directo al sitio correcto.',
+  'c-clay'),
+ ('Lo que te necesita, en frases enteras',
+  'Devoluciones, renovaciones y garantías en una pila que se lee de un vistazo; márcalas como hechas o que '
+  'te lo recuerde mañana o el lunes, de una en una o muchas a la vez.',
+  'c-wine'),
+ ('En el avión',
+  'Tus documentos guardados y los cálculos locales siguen disponibles sin conexión. La sincronización, las '
+  'búsquedas de mapas, los logos y las operaciones del App Store necesitan conexión.',
+  'c-green')],
   fam_k="Para la familia", fam_h="Si me pasa algo",
   fam_p="Los papeles que una casa necesita cuando uno de sus adultos no está para explicarlos. Hechos en el dispositivo, compartidos solo por ti.",
   fam=[("La hoja de la casa","Un PDF con todo lo que la casa tiene contratado: seguros primero, luego suscripciones y recibos. Compañía, número de póliza, quién está asegurado, qué cubre, el teléfono para dar un parte, dónde se guarda el acceso, cuándo renueva. Sin precios salvo que los pidas; nunca una contraseña.","c-green"),
@@ -163,40 +400,125 @@ S = {
   priv_k="Privacidad", priv_h="Tus datos se quedan contigo", priv_p="Tu IA financiera funciona en tu dispositivo. No recibimos ni tus extractos ni tus importes: no hay ningún servidor nuestro. Sincroniza con tu propio iCloud solo si quieres; Apple Maps recibe una dirección o el nombre de un sitio cuando lo buscas.",
   where_h="Dónde están tus datos", where=["En tu dispositivo, en el almacenamiento propio de Tiquet","En la base de datos privada de tu iCloud, solo si lo activas","Los lee el modelo de Apple del dispositivo; nada se envía fuera para leerlo"],
   never_h="Lo que Tiquet no hace nunca", never=["Sin cuenta, y nunca se guarda una contraseña tuya","Sin conexión con tu banco","Sin rastreadores, sin anuncios, sin analítica, sin código de terceros"],
-  leaves_h="Lo único que sale del dispositivo", leaves=["Una dirección, el nombre de un local o una coordenada, a Apple Maps","La web de cada empresa, una vez, para su logo","Lo que compartes tú: una copia, el archivo de casa, un número de El Mes"],
+  leaves_h='Funciones que usan conexión', leaves=['Tu base de datos privada de iCloud, solo si activas la sincronización',
+ 'Apple Maps: nombre de un lugar, dirección o coordenada, también en preguntas sobre sitios',
+ 'La web de una empresa para descargar su logo, si los logos están activados',
+ 'App Store: consultar, comprar o restaurar Plus y la prueba',
+ 'Lo que decidas exportar o compartir, al destino que elijas'],
   how_k="Cómo se empieza", how_h="Útil en diez minutos",
   steps=[("Añade lo que tienes contratado","Escribe un contrato, o adjunta su PDF y deja que la ficha se rellene sola."),
          ("Trae un año de extractos","Descárgalos de tu banco como archivos. Tiquet encuentra lo que se repite y te lo ofrece como contratos."),
          ("Escanea lo que importa","El tique de cualquier cosa con garantía o plazo de devolución. El resto es opcional."),
          ("Deja que te avise","Un mes antes de que renueve una póliza anual: momento de comparar. Después, los últimos días para decir que no.")],
   faq_k="Preguntas", faq_h="Respuestas cortas",
-  faqs=[("¿Cuánto cuesta?","Tiquet es gratis para usarlo: tiques, garantías, contratos, sus avisos, la hoja de la casa y la vigilancia de cargos raros, para siempre. Tiquet Plus abre el resto (dónde gastar menos, entra y sale, objetivos, lo que viene, El Mes, preguntas sin límite) con un solo pago, sin suscripción, para toda la casa con En Familia. Antes, pruébalo todo gratis 14 días; no se cobra nada ni se renueva solo."),
-        ("¿Se conecta a mi banco?","No, y no lo hará nunca. Descargas los extractos como archivos y los abres con Tiquet. No guarda ningún acceso al banco."),
-        ("¿Dónde están mis datos?","En tu dispositivo. Si activas la sincronización con iCloud, también en la base de datos privada de tu cuenta de Apple, que el desarrollador no puede leer."),
-        ("¿La IA envía mis tiques a algún sitio?","No. La lectura la hace el modelo de Apple que vive en el dispositivo. En un dispositivo que no lo tenga, Tiquet lee por patrones."),
-        ("¿Puedo compartirlo con mi pareja?","Tus propios dispositivos van a la par por iCloud. Para otra persona, Tiquet genera un archivo con contratos, seguros y garantías que envías por AirDrop; en su lado se fusiona."),
-        ("¿Puedo sacar todo?","Sí. Un .zip con cada tique, foto, póliza y movimiento, más hojas de cálculo que abre cualquiera."),
-        ("¿Da consejo financiero?","No. Te da tus propios números y la pregunta que vale la pena hacer. Nunca recomienda una compañía, una cobertura ni una baja.")],
+  faqs=[('¿Cuánto cuesta?',
+  'Gratis incluye tiques, garantías, contratos, recordatorios y 5 preguntas al día por dispositivo sobre '
+  'funciones gratuitas. Plus tiene un precio de lanzamiento de 9,99 € en España, en un solo pago, sin '
+  'suscripción, y permite compartir la compra con En Familia. Puedes probar Plus 14 días gratis, sin '
+  'renovación automática.'),
+ ('¿Se conecta a mi banco?',
+  'No, y no lo hará nunca. Descargas los extractos como archivos y los abres con Tiquet. No guarda ningún '
+  'acceso al banco.'),
+ ('¿Dónde están mis datos?',
+  'En tu dispositivo. Si activas la sincronización con iCloud, también en la base de datos privada de tu '
+  'cuenta de Apple, que el desarrollador no puede leer.'),
+ ('¿Y si Apple Intelligence no está disponible?',
+  'Puedes guardar y consultar documentos y usar la lectura de texto y las reglas. El modelo local exige un '
+  'dispositivo compatible, Apple Intelligence activado y el modelo descargado y disponible en tu idioma. '
+  'Algunas preguntas y funciones de IA no estarán disponibles.'),
+ ('¿En Familia comparte mis gastos?',
+  'No. Comparte la compra de Plus, sujeto a los ajustes de Apple, con hasta cinco familiares. Los datos de '
+  'cada cuenta de Apple siguen separados. Para compartir documentos con otra persona, elige expresamente la '
+  'exportación del archivo de casa.'),
+ ('¿Puedo sacar todo?',
+  'Sí. Un .zip con cada tique, foto, póliza y movimiento, más hojas de cálculo que abre cualquiera.'),
+ ('¿Da consejo financiero?',
+  'No. Te da tus propios números y la pregunta que vale la pena hacer. Nunca recomienda una compañía, una '
+  'cobertura ni una baja.'),
+ ('¿Qué pasa al terminar los 14 días?',
+  'Vuelves a las funciones gratuitas sin ningún cobro automático. Lo que hayas guardado se conserva. Las '
+  'funciones de Plus requieren comprarlo; la prueba no se comparte por En Familia.')],
   f_privacy="Privacidad", f_support="Soporte", f_terms="Condiciones", f_contact="Contacto", home="Inicio",
   privacy_t="Política de privacidad de Tiquet",
-  privacy_b=[("Resumen","Tiquet no recoge, almacena ni transmite ningún dato personal al desarrollador ni a terceros. No hay cuenta ni servidor nuestro."),
-             ("Qué se guarda y dónde","Tiques, contratos, pólizas, cosas en garantía, movimientos bancarios que importes, fotos, etiquetas, tu presupuesto y tus ajustes se guardan en tu dispositivo, en el almacenamiento propio de la app. Si activas la sincronización con iCloud, los mismos datos se guardan en la base de datos privada de tu cuenta de iCloud, que solo pueden leer los dispositivos con tu cuenta de Apple. El desarrollador no tiene acceso."),
-             ("Lectura en el dispositivo","Tiques, pólizas y las preguntas que haces se procesan con el modelo de lenguaje de Apple del dispositivo y con reconocimiento de texto y de voz en el dispositivo. Nada se envía a un servidor para leerlo."),
-             ("Extractos de banco y de tarjeta","Los extractos son archivos que descargas de tu banco y abres con Tiquet. Tiquet nunca se conecta a un banco ni guarda un acceso bancario. Los números de tarjeta que aparezcan se reducen a sus cuatro últimas cifras antes de guardar nada."),
-             ("Qué sale del dispositivo","Solo, y solo cuando lo necesita una función que usas: una dirección, el nombre y la población de un local, o una coordenada, enviados a Apple Maps para situar un tique, dibujar un mapa o mostrar la foto de una calle; una petición a la web de una empresa, una vez, para obtener su logo, si los logos están activados; y lo que decidas compartir tú (una copia, el archivo de casa, un número de El Mes), que va solo a donde lo envíes. Ninguna petición a Apple Maps ni a la web de una empresa lleva un importe, tu nombre ni una línea de tu banco."),
-             ("Permisos","Cámara y fotos, para escanear tiques y adjuntar documentos. Ubicación, solo si pides a Tiquet situar un tique donde estás, preguntas por tus sitios cercanos, o usas el widget de sitios cercanos. Micrófono y reconocimiento de voz, solo si preguntas hablando; el reconocimiento se hace en el dispositivo. Notificaciones, para los avisos que ves en Ajustes."),
-             ("Sin seguimiento","Sin analítica, sin publicidad, sin código de terceros."),
-             ("Borrar tus datos","Ajustes → Copia y restauración → Borrar todo. Con la sincronización activada, se borra también de tu iCloud y de tus otros dispositivos. Borrar la app elimina lo que hay en el dispositivo."),
-             ("Menores","Tiquet no está dirigida a menores y no recoge nada de nadie."),
-             ("Contacto","Dudas sobre esta política: <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL))],
+  privacy_b=[('Resumen',
+  'Tiquet guarda y procesa tus documentos y cifras en tu dispositivo. No envía tus extractos ni tus importes '
+  'al desarrollador para analizarlos. No necesitas una cuenta de Tiquet. Algunas funciones usan servicios '
+  'externos, como se explica a continuación: sincronización opcional con iCloud, mapas, logos y compras en '
+  'el App Store.'),
+ ('Qué se guarda y dónde',
+  'Tiques, contratos, pólizas, cosas en garantía, movimientos bancarios que importes, fotos, etiquetas, tu '
+  'presupuesto y tus ajustes se guardan en tu dispositivo, en el almacenamiento propio de la app. Si activas '
+  'la sincronización con iCloud, los mismos datos se guardan en la base de datos privada de tu cuenta de '
+  'iCloud, que solo pueden leer los dispositivos con tu cuenta de Apple. El desarrollador no tiene acceso.'),
+ ('Lectura en el dispositivo',
+  'El reconocimiento de texto y voz y el modelo de lenguaje de Apple se ejecutan en el dispositivo. No '
+  'enviamos documentos ni cifras a una IA remota. La disponibilidad del modelo depende del dispositivo y de '
+  'los ajustes de Apple Intelligence. Las búsquedas de lugares pueden consultar Apple Maps con un nombre, '
+  'dirección o coordenada.'),
+ ('Extractos de banco y de tarjeta',
+  'Los extractos son archivos que descargas de tu banco y abres con Tiquet. Tiquet nunca se conecta a un '
+  'banco ni guarda un acceso bancario. Los números de tarjeta que aparezcan se reducen a sus cuatro últimas '
+  'cifras antes de guardar nada.'),
+ ('Mapas, logos y archivos compartidos',
+  'Solo, y solo cuando lo necesita una función que usas: una dirección, el nombre y la población de un '
+  'local, o una coordenada, enviados a Apple Maps para situar un tique, dibujar un mapa o mostrar la foto de '
+  'una calle; una petición a la web de una empresa, una vez, para obtener su logo, si los logos están '
+  'activados; y lo que decidas compartir tú (una copia, el archivo de casa, un número de El Mes), que va '
+  'solo a donde lo envíes. Ninguna petición a Apple Maps ni a la web de una empresa lleva un importe, tu '
+  'nombre ni una línea de tu banco.'),
+ ('Compras y En Familia',
+  'Apple gestiona los pagos y la restauración mediante el App Store. Tiquet comprueba el derecho a usar Plus '
+  'o la prueba; no recibe tus datos de tarjeta. En Familia comparte el derecho a Plus, no tus documentos ni '
+  'tu base de datos.'),
+ ('Si contactas con soporte',
+  'Recibimos la dirección de correo y el contenido que tú envíes, para responder a tu consulta. No adjuntes '
+  'documentos financieros ni datos personales de terceros: describe el problema con datos ficticios.'),
+ ('Permisos',
+  'Cámara y fotos, para escanear tiques y adjuntar documentos. Ubicación, solo si pides a Tiquet situar un '
+  'tique donde estás, preguntas por tus sitios cercanos, o usas el widget de sitios cercanos. Micrófono y '
+  'reconocimiento de voz, solo si preguntas hablando; el reconocimiento se hace en el dispositivo. '
+  'Notificaciones, para los avisos que ves en Ajustes.'),
+ ('Sin seguimiento', 'Sin analítica, sin publicidad, sin código de terceros.'),
+ ('Borrar tus datos',
+  'Ajustes → Copia y restauración → Borrar todo. Con la sincronización activada, se borra también de tu '
+  'iCloud y de tus otros dispositivos. Borrar la app elimina lo que hay en el dispositivo.'),
+ ('Menores', 'Tiquet no está dirigida a menores. No incluye publicidad ni seguimiento.'),
+ ('Contacto', 'Dudas sobre esta política: <a href="mailto:a.estevez@gmail.com">a.estevez@gmail.com</a>.')],
   support_t="Soporte de Tiquet",
-  support_p="Escribe a <a href=\"mailto:%s\">%s</a>. Di qué dispositivo y versión de iOS usas y qué estabas haciendo. Nada de tus datos nos llega nunca, así que describe lo que ves; no envíes nunca un extracto bancario." % (EMAIL, EMAIL),
+  support_p=('<a href="mailto:a.estevez@gmail.com">a.estevez@gmail.com</a>. Indica tu dispositivo, la versión de iOS o '
+ 'iPadOS y qué estabas haciendo. La app no nos envía automáticamente tus registros financieros. Si escribes, '
+ 'recibimos tu correo y la información que decidas incluir. Usa ejemplos ficticios; no envíes extractos, '
+ 'documentos personales ni capturas con datos reales.'),
   support_h="Preguntas frecuentes",
-  support_faq=[("No lee el archivo de mi banco.","Expórtalo como Excel o CSV desde la web del banco, no como PDF. Si sigue sin leerse, dinos el banco y el tipo de exportación; no envíes nunca el archivo."),
-               ("Un cargo se cuenta dos veces, o no se cuenta.","Abre el contrato y comprueba que el nombre del proveedor coincide con el que imprime el banco. Donde un extracto cubre el mes, solo cuentan las líneas del banco."),
-               ("El iPhone y el iPad no muestran lo mismo.","Los dos necesitan la sincronización activada (Ajustes → iPhone y iPad, a la par), la misma cuenta de Apple, y unos minutos la primera vez."),
-               ("Un sitio está mal situado en el mapa.","Abre su ficha y pon la dirección, o toca «Estoy aquí ahora» cuando estés allí."),
-               ("¿Cómo paso a un teléfono nuevo?","Con la sincronización activada, basta con iniciar sesión. Sin ella: Ajustes → Copia y restauración → Exportar todo, y luego Restaurar en el teléfono nuevo.")],
+  support_faq=[('No lee el archivo de mi banco.',
+  'Expórtalo como Excel o CSV desde la web del banco, no como PDF. Si sigue sin leerse, dinos el banco y el '
+  'tipo de exportación; no envíes nunca el archivo.'),
+ ('Un cargo se cuenta dos veces, o no se cuenta.',
+  'Abre el contrato y comprueba que el nombre del proveedor coincide con el que imprime el banco. Donde un '
+  'extracto cubre el mes, solo cuentan las líneas del banco.'),
+ ('El iPhone y el iPad no muestran lo mismo.',
+  'Los dos necesitan la sincronización activada (Ajustes → iPhone y iPad, a la par), la misma cuenta de '
+  'Apple, y unos minutos la primera vez.'),
+ ('Un sitio está mal situado en el mapa.',
+  'Abre su ficha y pon la dirección, o toca «Estoy aquí ahora» cuando estés allí.'),
+ ('¿Cómo paso a un teléfono nuevo?',
+  'Con la sincronización activada, basta con iniciar sesión. Sin ella: Ajustes → Copia y restauración → '
+  'Exportar todo, y luego Restaurar en el teléfono nuevo.'),
+ ('¿Cómo restauro Plus?',
+  'Abre la oferta de Tiquet Plus en Ajustes y toca Restaurar compras. Usa la cuenta de Apple con la que '
+  'compraste y conexión a internet. Si recibes Plus por En Familia, comprueba también los ajustes de compras '
+  'compartidas de tu grupo.'),
+ ('¿Qué pasa al terminar los 14 días?',
+  'Vuelves a las funciones gratuitas sin ningún cobro automático. Lo que hayas guardado se conserva. Las '
+  'funciones de Plus requieren comprarlo; la prueba no se comparte por En Familia.'),
+ ('¿Y si Apple Intelligence no está disponible?',
+  'Puedes guardar y consultar documentos y usar la lectura de texto y las reglas. El modelo local exige un '
+  'dispositivo compatible, Apple Intelligence activado y el modelo descargado y disponible en tu idioma. '
+  'Algunas preguntas y funciones de IA no estarán disponibles.'),
+ ('¿En Familia comparte mis gastos?',
+  'No. Comparte la compra de Plus, sujeto a los ajustes de Apple, con hasta cinco familiares. Los datos de '
+  'cada cuenta de Apple siguen separados. Para compartir documentos con otra persona, elige expresamente la '
+  'exportación del archivo de casa.')],
   terms_t="Condiciones de uso de Tiquet",
   terms_b=[("Licencia","Tiquet se licencia bajo el acuerdo estándar de Apple para aplicaciones (EULA): <a href=\"https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\">apple.com/legal/internet-services/itunes/dev/stdeula</a>."),
            ("No es asesoramiento financiero, legal ni de seguros","Tiquet muestra cifras de los documentos y extractos que le das, y señala preguntas que vale la pena hacer. No recomienda compañías, productos, coberturas ni bajas, y nada en ella es asesoramiento. Las decisiones sobre tus contratos y tu dinero son tuyas."),
@@ -207,39 +529,119 @@ S = {
 "ca": dict(lang="ca", name_lang="Català",
   title="Tiquet — què té contractat casa teva, què costa i què caduca",
   desc="Contractes, assegurances, garanties i despeses, guardats al teu iPhone i al teu iPad. Es llegeix al dispositiu: sense compte, sense accés al banc, sense rastrejadors.",
-  nav=[("#mission","Per a què serveix"),("#features","Funcions"),("#month","El Mes"),("#privacy","Privadesa"),("#faq","Preguntes")],
+  nav=[('#story', 'Com t’ajuda'), ('#pricing', 'Gratis i Plus'), ('#ai', 'Pregunta'), ('#privacy', 'Privadesa')],
   h1a="Saber què té casa teva ", h1b="contractat.",
   sub="Assegurances, subscripcions, subministraments, garanties: què tens, què costa cada cosa, quant portes pagat, quan es renova i a qui trucar. Les despeses són el context, no una obligació.",
-  cta="Aviat a l'App Store", note="iPhone i iPad · castellà, anglès i aviat català · res on registrar-se",
+  cta="Aviat a l'App Store", note='iOS i iPadOS 27 o posterior · app en castellà i anglès; català aviat',
   mission_k="Per a què serveix", mission_h="Tres preguntes que es fa qualsevol casa, respostes amb els seus propis papers",
   mission_p="Gairebé totes les apps de diners comencen al teu banc i acaben en un gràfic de pastís. Tiquet comença en allò que vas acordar pagar, i guarda el paper que ho demostra.",
   pillars=[("Què tenim contractat?","Cada pòlissa, subscripció i rebut com una fitxa: número, preu, període, renovació, últim dia per donar-se de baixa, el telèfon on trucar i el PDF adjunt.","c-green"),
            ("Què costa de veritat?","El que has pagat fins avui, any a any, segons els teus propis extractes. Una pujada d'un any a l'altre es diu amb paraules clares i amb dates.","c-wine"),
            ("Què està a punt de caducar?","Renovacions, últims dies per dir que no, terminis de devolució i garanties, en un sol eix de temps, amb un avís abans que et costi diners.","c-sea")],
   feat_k="Funcions", feat_h="Tot el que fa, i res que no necessiti",
-  feats=[("Escaneja un tiquet, guarda els fets","Fes-li una foto o comparteix-lo des del Mail. El model del dispositiu llegeix botiga, data, articles, política de devolució i garantia. La foto queda com a prova.","c-clay"),
-         ("Adjunta la pòlissa i la fitxa s'omple","Un PDF o una foto de la pòlissa: número, prima, què cobreix, qui està assegurat i el telèfon de sinistres es llegeixen i es comproven contra el paper.","c-green"),
-         ("Extractes de banc i de targeta, per fitxer","Els descarregues del teu banc i els obres amb Tiquet: BBVA, Sabadell i més. Sense contrasenya, sense connexió. Els números de targeta es retallen a les quatre últimes xifres abans de guardar res. Busca qualsevol botiga o paraula en tots.","c-sea"),
-         ("Res es compta dues vegades","Un tiquet, la seva línia del banc i la quota del contracte són un sol pagament. On hi ha extracte, mana l'extracte. Dues pòlisses d'una mateixa asseguradora, la teva i la de la teva parella, són dues fitxes amb dos preus.","c-wine"),
-         ("Contractes que deixen de cobrar-se","Si el banc deixa de mostrar un càrrec, Tiquet tanca el contracte l'últim mes en què es va veure, i ho diu.","c-night"),
-         ("Revisió: on gastar menys","Pujades silencioses, proteccions que ja han costat més que la cosa, una garantia de pagament que la llei ja et dona, comissions. Els teus números i la pregunta a fer, amb cada càrrec darrere de cadascuna; mai una companyia, una cobertura ni una baixa.","c-clay"),
-         ("Una sola mena d'etiqueta","Cada pagament del banc rep la seva etiqueta tot sol; un toc classifica la resta, passat i futur, d'un comerç o de molts alhora. Una etiqueta suma els seus tiquets, contractes, coses i pagaments del banc, cadascun comptat un cop. Segueix qualsevol etiqueta mes a mes.","c-green"),
-         ("Llocs on vau menjar","Els vostres habituals en un prestatge, els viatges detectats sols, les poblacions de casa d'un cop d'ull; i després cada lloc amb les seves estrelles i notes, totes les visites, el que ha costat i els plats per tornar a demanar. Busca un nom que el teu banc coneix i passa a ser un lloc.","c-sea"),
-         ("Pregunta amb les teves paraules","«Quant porto en compra aquest mes?» «Quins dels nostres restaurants tinc a prop?» «On em va encantar el Cacaolat?», i després «I a Sabadell?». Es respon al dispositiu mentre ho escriu, amb les teves dades, i per veu si vols. «Quant a…?» dona la xifra exacta, i un toc mostra cada pagament.","c-wine"),
-         ("Widgets i un pressupost","Una pòlissa a mà a la pantalla de bloqueig, el proper càrrec, el mes davant d'un número que tries tu. Un pressupost, no vint.","c-night"),
-         ("iPhone i iPad, a la par","El teu propi iCloud manté els teus dispositius iguals, si l'actives. Per a la família, un fitxer per AirDrop amb contractes i garanties: sense tiquets, sense banc.","c-clay"),
-         ("Mode discret","Un toc converteix cada import en •••, per al tren o el sofà. El selector d'apps mostra una tapa, no les teves xifres.","c-green"),
-         ("Alguna cosa estranya?","Un Bizum a algú nou i molt per sobre del que és habitual, una transferència a un compte mai vist, un càrrec a l'estranger sense viatge, una targeta que estan provant, un cobrament doble. Tiquet et pregunta si ho reconeixes i, si no, et diu què fer ara. Es calcula al teu iPhone i no contacta amb ningú.","c-sea"),
-         ("Entra i surt","El que va entrar davant del que va sortir i el que va quedar, cada mes. Els diners que mous entre els teus propis comptes es reconeixen i no compten; les devolucions i el Bizum d'un amic són diners que tornen, no guanys. Cada compte diu fins on arriben els seus extractes; només es guarden el banc i les quatre últimes xifres.","c-sea"),
-         ("Estalviant per a alguna cosa","Un viatge, un cotxe, un coixí: quant i per a quan. El que aparties i les transferències que mostra el teu banc omplen l'anell, amb el que cal cada mes per arribar-hi a temps.","c-sea"),
-         ("Digues-ho, i ja és un tiquet","«Sopar Can Pere 42 ahir» a la barra de preguntes es converteix en un tiquet tal com es desarà: el revises i toques Desa. Res no existeix fins que ho fas.","c-sea"),
-         ("El que cobrarà el proper rebut","Llum, aigua, gas: el càrrec previst és el mateix mes de l'any passat mogut per la deriva d'enguany, mai només l'últim rebut. La fitxa diu què s'espera i per què.","c-wine"),
-         ("Pagaments amb final, i proves gratis","Un mòbil a 24 terminis diu «pagament 7 de 24, fins al març de 2027» i es retira sol després de l'últim. Una prova gratis compta els dies fins que comença a cobrar, amb un avís mentre dir que no encara és gratis.","c-night"),
-         ("Revisar la classificació","Per comerç, per grup, o deixa que el model del dispositiu assenyali el que sembla mal arxivat. Un toc corregeix cada pagament d'aquell comerç, passat i futur, a tots els teus dispositius. Desfer també és un toc.","c-clay"),
-         ("Molts alhora, a tot arreu","Selecciona contractes, coses, pagaments del banc, etiquetes o llocs i actua sobre tots: etiquetar, moure, fusionar, donar de baixa, esborrar. Tot esborrat pregunta abans i diu què es queda.","c-sea"),
-         ("Un lloc, una fitxa","On és, el seu telèfon, les seves estrelles i les teves notes viuen al lloc; cada visita, escanejada o del banc, s'hi enganxa. El següent extracte va directe al lloc correcte.","c-clay"),
-         ("El que et necessita, en frases senceres","Devolucions, renovacions i garanties en una pila que es llegeix d'un cop d'ull; marca-les com a fetes o que t'ho recordi demà o dilluns, d'una en una o moltes alhora.","c-wine"),
-         ("A l'avió","Sense connexió, sense neguits: tot funciona des del dispositiu, l'iCloud espera en silenci i una importació de llocs es pausa i continua sola quan torna la xarxa.","c-green")],
+  feats=[('Escaneja un tiquet, guarda els fets',
+  'Fes-li una foto o comparteix-lo des del Mail. El model del dispositiu llegeix botiga, data, articles, '
+  'política de devolució i garantia. La foto queda com a prova.',
+  'c-clay'),
+ ("Adjunta la pòlissa i la fitxa s'omple",
+  'Un PDF o una foto de la pòlissa: número, prima, què cobreix, qui està assegurat i el telèfon de sinistres '
+  'es llegeixen i es comproven contra el paper.',
+  'c-green'),
+ ('Extractes de banc i de targeta, per fitxer',
+  'Els descarregues del teu banc i els obres amb Tiquet: BBVA, Sabadell i més. Sense contrasenya, sense '
+  'connexió. Els números de targeta es retallen a les quatre últimes xifres abans de guardar res. Busca '
+  'qualsevol botiga o paraula en tots.',
+  'c-sea'),
+ ('Res es compta dues vegades',
+  'Un tiquet, la seva línia del banc i la quota del contracte són un sol pagament. On hi ha extracte, mana '
+  "l'extracte. Dues pòlisses d'una mateixa asseguradora, la teva i la de la teva parella, són dues fitxes "
+  'amb dos preus.',
+  'c-wine'),
+ ('Contractes que deixen de cobrar-se',
+  "Si el banc deixa de mostrar un càrrec, Tiquet tanca el contracte l'últim mes en què es va veure, i ho "
+  'diu.',
+  'c-night'),
+ ('Revisió: on gastar menys',
+  'Pujades silencioses, proteccions que ja han costat més que la cosa, una garantia de pagament que la llei '
+  'ja et dona, comissions. Els teus números i la pregunta a fer, amb cada càrrec darrere de cadascuna; mai '
+  'una companyia, una cobertura ni una baixa.',
+  'c-clay'),
+ ("Una sola mena d'etiqueta",
+  "Cada pagament del banc rep la seva etiqueta tot sol; un toc classifica la resta, passat i futur, d'un "
+  'comerç o de molts alhora. Una etiqueta suma els seus tiquets, contractes, coses i pagaments del banc, '
+  'cadascun comptat un cop. Segueix qualsevol etiqueta mes a mes.',
+  'c-green'),
+ ('Llocs on vau menjar',
+  "Els vostres habituals en un prestatge, els viatges detectats sols, les poblacions de casa d'un cop d'ull; "
+  'i després cada lloc amb les seves estrelles i notes, totes les visites, el que ha costat i els plats per '
+  'tornar a demanar. Busca un nom que el teu banc coneix i passa a ser un lloc.',
+  'c-sea'),
+ ('Pregunta amb les teves paraules',
+  '«Quant porto en compra aquest mes?» o «Quan toca el proper pagament?». Respostes a partir dels registres, '
+  'amb els pagaments que les sostenen. Les previsions es distingeixen dels càrrecs registrats; algunes '
+  'preguntes requereixen Apple Intelligence.',
+  'c-wine'),
+ ('Widgets i un pressupost',
+  "Una pòlissa a mà a la pantalla de bloqueig, el proper càrrec, el mes davant d'un número que tries tu. Un "
+  'pressupost, no vint.',
+  'c-night'),
+ ('iPhone i iPad, a la par',
+  "El teu propi iCloud manté els teus dispositius iguals, si l'actives. Per a la família, un fitxer per "
+  'AirDrop amb contractes i garanties: sense tiquets, sense banc.',
+  'c-clay'),
+ ('Mode discret',
+  "Un toc converteix cada import en •••, per al tren o el sofà. El selector d'apps mostra una tapa, no les "
+  'teves xifres.',
+  'c-green'),
+ ('Alguna cosa estranya?',
+  'Un Bizum a algú nou i molt per sobre del que és habitual, una transferència a un compte mai vist, un '
+  "càrrec a l'estranger sense viatge, una targeta que estan provant, un cobrament doble. Tiquet et pregunta "
+  'si ho reconeixes i, si no, et diu què fer ara. Es calcula al teu iPhone i no contacta amb ningú.',
+  'c-sea'),
+ ('Entra i surt',
+  'El que va entrar davant del que va sortir i el que va quedar, cada mes. Els diners que mous entre els '
+  "teus propis comptes es reconeixen i no compten; les devolucions i el Bizum d'un amic són diners que "
+  'tornen, no guanys. Cada compte diu fins on arriben els seus extractes; només es guarden el banc i les '
+  'quatre últimes xifres.',
+  'c-sea'),
+ ('Estalviant per a alguna cosa',
+  'Un viatge, un cotxe, un coixí: quant i per a quan. El que aparties i les transferències que mostra el teu '
+  "banc omplen l'anell, amb el que cal cada mes per arribar-hi a temps.",
+  'c-sea'),
+ ('Digues-ho, i ja és un tiquet',
+  '«Sopar Can Pere 42 ahir» a la barra de preguntes es converteix en un tiquet tal com es desarà: el revises '
+  'i toques Desa. Res no existeix fins que ho fas.',
+  'c-sea'),
+ ('El que cobrarà el proper rebut',
+  "Llum, aigua, gas: el càrrec previst és el mateix mes de l'any passat mogut per la deriva d'enguany, mai "
+  "només l'últim rebut. La fitxa diu què s'espera i per què.",
+  'c-wine'),
+ ('Pagaments amb final, i proves gratis',
+  "Un mòbil a 24 terminis diu «pagament 7 de 24, fins al març de 2027» i es retira sol després de l'últim. "
+  'Una prova gratis compta els dies fins que comença a cobrar, amb un avís mentre dir que no encara és '
+  'gratis.',
+  'c-night'),
+ ('Revisar la classificació',
+  'Per comerç, per grup, o deixa que el model del dispositiu assenyali el que sembla mal arxivat. Un toc '
+  "corregeix cada pagament d'aquell comerç, passat i futur, a tots els teus dispositius. Desfer també és un "
+  'toc.',
+  'c-clay'),
+ ('Molts alhora, a tot arreu',
+  'Selecciona contractes, coses, pagaments del banc, etiquetes o llocs i actua sobre tots: etiquetar, moure, '
+  'fusionar, donar de baixa, esborrar. Tot esborrat pregunta abans i diu què es queda.',
+  'c-sea'),
+ ('Un lloc, una fitxa',
+  'On és, el seu telèfon, les seves estrelles i les teves notes viuen al lloc; cada visita, escanejada o del '
+  "banc, s'hi enganxa. El següent extracte va directe al lloc correcte.",
+  'c-clay'),
+ ('El que et necessita, en frases senceres',
+  "Devolucions, renovacions i garanties en una pila que es llegeix d'un cop d'ull; marca-les com a fetes o "
+  "que t'ho recordi demà o dilluns, d'una en una o moltes alhora.",
+  'c-wine'),
+ ("A l'avió",
+  'Els documents desats i els càlculs locals continuen disponibles sense connexió. La sincronització, les '
+  'cerques de mapes, els logos i les operacions de l’App Store necessiten connexió.',
+  'c-green')],
   fam_k="Per a la família", fam_h="Si em passa res",
   fam_p="Els papers que una casa necessita quan un dels seus adults no hi és per explicar-los. Fets al dispositiu, compartits només per tu.",
   fam=[("El full de la casa","Un PDF amb tot el que la casa té contractat: assegurances primer, després subscripcions i rebuts. Companyia, número de pòlissa, qui està assegurat, què cobreix, el telèfon per donar un part, on es guarda l'accés, quan es renova. Sense preus si no els demanes; mai una contrasenya.","c-green"),
@@ -260,40 +662,125 @@ S = {
   priv_k="Privadesa", priv_h="Les teves dades es queden amb tu", priv_p="La teva IA financera funciona al teu dispositiu. No rebem ni els teus extractes ni els teus imports: no hi ha cap servidor nostre. Sincronitza amb el teu propi iCloud només si vols; Apple Maps rep una adreça o el nom d'un lloc quan el cerques.",
   where_h="On són les teves dades", where=["Al teu dispositiu, a l'emmagatzematge propi de Tiquet","A la base de dades privada del teu iCloud, només si l'actives","Les llegeix el model d'Apple del dispositiu; res s'envia fora per llegir-ho"],
   never_h="El que Tiquet no fa mai", never=["Sense compte, i mai es guarda cap contrasenya teva","Sense connexió amb el teu banc","Sense rastrejadors, sense anuncis, sense analítica, sense codi de tercers"],
-  leaves_h="L'únic que surt del dispositiu", leaves=["Una adreça, el nom d'un local o una coordenada, a Apple Maps","El web de cada empresa, una vegada, pel seu logo","El que comparteixes tu: una còpia, el fitxer de casa, un número d'El Mes"],
+  leaves_h='Funcions que fan servir connexió', leaves=['La base de dades privada d’iCloud, només si actives la sincronització',
+ 'Apple Maps: nom d’un lloc, adreça o coordenada, també en preguntes sobre llocs',
+ 'El web d’una empresa per descarregar-ne el logo, si els logos estan activats',
+ 'App Store: consultar, comprar o restaurar Plus i la prova',
+ 'El que decideixis exportar o compartir, a la destinació que triïs'],
   how_k="Com es comença", how_h="Útil en deu minuts",
   steps=[("Afegeix el que tens contractat","Escriu un contracte, o adjunta'n el PDF i deixa que la fitxa s'ompli sola."),
          ("Porta un any d'extractes","Descarrega'ls del teu banc com a fitxers. Tiquet troba el que es repeteix i t'ho ofereix com a contractes."),
          ("Escaneja el que importa","El tiquet de qualsevol cosa amb garantia o termini de devolució. La resta és opcional."),
          ("Deixa que t'avisi","Un mes abans que es renovi una pòlissa anual: moment de comparar. Després, els últims dies per dir que no.")],
   faq_k="Preguntes", faq_h="Respostes curtes",
-  faqs=[("Quant costa?","Tiquet és gratis per fer-lo servir: tiquets, garanties, contractes, els seus avisos, el full de la casa i la vigilància de càrrecs estranys, per sempre. Tiquet Plus obre la resta (on gastar menys, entra i surt, objectius, el que ve, El Mes, preguntes sense límit) amb un sol pagament, sense subscripció, per a tota la casa amb En Família. Abans, prova-ho tot gratis 14 dies; no es cobra res ni es renova sol."),
-        ("Es connecta al meu banc?","No, i no ho farà mai. Descarregues els extractes com a fitxers i els obres amb Tiquet. No guarda cap accés al banc."),
-        ("On són les meves dades?","Al teu dispositiu. Si actives la sincronització amb iCloud, també a la base de dades privada del teu compte d'Apple, que el desenvolupador no pot llegir."),
-        ("La IA envia els meus tiquets enlloc?","No. La lectura la fa el model d'Apple que viu al dispositiu. En un dispositiu que no el tingui, Tiquet llegeix per patrons."),
-        ("Ho puc compartir amb la meva parella?","Els teus propis dispositius van a la par per iCloud. Per a una altra persona, Tiquet genera un fitxer amb contractes, assegurances i garanties que envies per AirDrop; al seu costat es fusiona."),
-        ("Puc treure-ho tot?","Sí. Un .zip amb cada tiquet, foto, pòlissa i moviment, més fulls de càlcul que obre qualsevol."),
-        ("Dona consell financer?","No. Et dona els teus propis números i la pregunta que val la pena fer. Mai recomana una companyia, una cobertura ni una baixa.")],
+  faqs=[('Quant costa?',
+  'Gratis inclou tiquets, garanties, contractes, recordatoris i 5 preguntes al dia per dispositiu sobre '
+  'funcions gratuïtes. Plus té un preu de llançament de 9,99 € a Espanya, amb un sol pagament, sense '
+  'subscripció, i permet compartir la compra amb En Família. Pots provar Plus 14 dies gratis, sense '
+  'renovació automàtica.'),
+ ('Es connecta al meu banc?',
+  'No, i no ho farà mai. Descarregues els extractes com a fitxers i els obres amb Tiquet. No guarda cap '
+  'accés al banc.'),
+ ('On són les meves dades?',
+  'Al teu dispositiu. Si actives la sincronització amb iCloud, també a la base de dades privada del teu '
+  "compte d'Apple, que el desenvolupador no pot llegir."),
+ ('I si Apple Intelligence no està disponible?',
+  'Pots desar i consultar documents i fer servir el reconeixement de text i les regles. El model local '
+  'necessita un dispositiu compatible, Apple Intelligence activat i el model descarregat i disponible en el '
+  'teu idioma. Algunes preguntes i funcions d’IA no estaran disponibles.'),
+ ('En Família comparteix les meves despeses?',
+  'No. Comparteix la compra de Plus, segons els ajustos d’Apple, amb fins a cinc familiars. Les dades de '
+  'cada compte d’Apple continuen separades. Per compartir documents amb una altra persona, tria expressament '
+  'l’exportació del fitxer de casa.'),
+ ('Puc treure-ho tot?',
+  'Sí. Un .zip amb cada tiquet, foto, pòlissa i moviment, més fulls de càlcul que obre qualsevol.'),
+ ('Dona consell financer?',
+  'No. Et dona els teus propis números i la pregunta que val la pena fer. Mai recomana una companyia, una '
+  'cobertura ni una baixa.'),
+ ('Què passa quan s’acaben els 14 dies?',
+  'Tornes a les funcions gratuïtes sense cap càrrec automàtic. El que hagis desat es conserva. Les funcions '
+  'de Plus requereixen comprar-lo; la prova no es comparteix per En Família.')],
   f_privacy="Privadesa", f_support="Suport", f_terms="Condicions", f_contact="Contacte", home="Inici",
   privacy_t="Política de privadesa de Tiquet",
-  privacy_b=[("Resum","Tiquet no recull, emmagatzema ni transmet cap dada personal al desenvolupador ni a tercers. No hi ha compte ni servidor nostre."),
-             ("Què es guarda i on","Tiquets, contractes, pòlisses, coses en garantia, moviments bancaris que importis, fotos, etiquetes, el teu pressupost i els teus ajustos es guarden al teu dispositiu, a l'emmagatzematge propi de l'app. Si actives la sincronització amb iCloud, les mateixes dades es guarden a la base de dades privada del teu compte d'iCloud, que només poden llegir els dispositius amb el teu compte d'Apple. El desenvolupador no hi té accés."),
-             ("Lectura al dispositiu","Tiquets, pòlisses i les preguntes que fas es processen amb el model de llenguatge d'Apple del dispositiu i amb reconeixement de text i de veu al dispositiu. Res s'envia a un servidor per llegir-ho."),
-             ("Extractes de banc i de targeta","Els extractes són fitxers que descarregues del teu banc i obres amb Tiquet. Tiquet mai es connecta a un banc ni guarda un accés bancari. Els números de targeta que hi apareguin es redueixen a les quatre últimes xifres abans de guardar res."),
-             ("Què surt del dispositiu","Només, i només quan ho necessita una funció que fas servir: una adreça, el nom i la població d'un local, o una coordenada, enviats a Apple Maps per situar un tiquet, dibuixar un mapa o mostrar la foto d'un carrer; una petició al web d'una empresa, una vegada, per obtenir-ne el logo, si els logos estan activats; i el que decideixis compartir tu (una còpia, el fitxer de casa, un número d'El Mes), que va només on ho enviïs. Cap petició a Apple Maps ni al web d'una empresa porta un import, el teu nom ni una línia del teu banc."),
-             ("Permisos","Càmera i fotos, per escanejar tiquets i adjuntar documents. Ubicació, només si demanes a Tiquet situar un tiquet on ets, preguntes pels teus llocs propers, o fas servir el widget de llocs propers. Micròfon i reconeixement de veu, només si preguntes parlant; el reconeixement es fa al dispositiu. Notificacions, pels avisos que veus a Ajustos."),
-             ("Sense seguiment","Sense analítica, sense publicitat, sense codi de tercers."),
-             ("Esborrar les teves dades","Ajustos → Còpia i restauració → Esborrar-ho tot. Amb la sincronització activada, s'esborra també del teu iCloud i dels teus altres dispositius. Esborrar l'app elimina el que hi ha al dispositiu."),
-             ("Menors","Tiquet no està adreçada a menors i no recull res de ningú."),
-             ("Contacte","Dubtes sobre aquesta política: <a href=\"mailto:%s\">%s</a>." % (EMAIL, EMAIL))],
+  privacy_b=[('Resum',
+  'Tiquet desa i processa els teus documents i xifres al dispositiu. No envia els extractes ni els imports '
+  'al desenvolupador per analitzar-los. No cal cap compte de Tiquet. Algunes funcions fan servir serveis '
+  'externs, com s’explica a continuació: sincronització opcional amb iCloud, mapes, logos i compres a l’App '
+  'Store.'),
+ ('Què es guarda i on',
+  'Tiquets, contractes, pòlisses, coses en garantia, moviments bancaris que importis, fotos, etiquetes, el '
+  "teu pressupost i els teus ajustos es guarden al teu dispositiu, a l'emmagatzematge propi de l'app. Si "
+  'actives la sincronització amb iCloud, les mateixes dades es guarden a la base de dades privada del teu '
+  "compte d'iCloud, que només poden llegir els dispositius amb el teu compte d'Apple. El desenvolupador no "
+  'hi té accés.'),
+ ('Lectura al dispositiu',
+  'El reconeixement de text i veu i el model de llenguatge d’Apple s’executen al dispositiu. No enviem '
+  'documents ni xifres a una IA remota. La disponibilitat del model depèn del dispositiu i dels ajustos '
+  'd’Apple Intelligence. Les cerques de llocs poden consultar Apple Maps amb un nom, adreça o coordenada.'),
+ ('Extractes de banc i de targeta',
+  'Els extractes són fitxers que descarregues del teu banc i obres amb Tiquet. Tiquet mai es connecta a un '
+  'banc ni guarda un accés bancari. Els números de targeta que hi apareguin es redueixen a les quatre '
+  'últimes xifres abans de guardar res.'),
+ ('Mapes, logos i fitxers compartits',
+  "Només, i només quan ho necessita una funció que fas servir: una adreça, el nom i la població d'un local, "
+  "o una coordenada, enviats a Apple Maps per situar un tiquet, dibuixar un mapa o mostrar la foto d'un "
+  "carrer; una petició al web d'una empresa, una vegada, per obtenir-ne el logo, si els logos estan "
+  "activats; i el que decideixis compartir tu (una còpia, el fitxer de casa, un número d'El Mes), que va "
+  "només on ho enviïs. Cap petició a Apple Maps ni al web d'una empresa porta un import, el teu nom ni una "
+  'línia del teu banc.'),
+ ('Compres i En Família',
+  'Apple gestiona els pagaments i la restauració a través de l’App Store. Tiquet comprova el dret a fer '
+  'servir Plus o la prova; no rep les dades de la targeta. En Família comparteix el dret a Plus, no els '
+  'documents ni la base de dades.'),
+ ('Si contactes amb suport',
+  'Rebem l’adreça de correu i el contingut que enviïs, per respondre a la consulta. No adjuntis documents '
+  'financers ni dades personals d’altres persones: descriu el problema amb dades fictícies.'),
+ ('Permisos',
+  'Càmera i fotos, per escanejar tiquets i adjuntar documents. Ubicació, només si demanes a Tiquet situar un '
+  'tiquet on ets, preguntes pels teus llocs propers, o fas servir el widget de llocs propers. Micròfon i '
+  'reconeixement de veu, només si preguntes parlant; el reconeixement es fa al dispositiu. Notificacions, '
+  'pels avisos que veus a Ajustos.'),
+ ('Sense seguiment', 'Sense analítica, sense publicitat, sense codi de tercers.'),
+ ('Esborrar les teves dades',
+  "Ajustos → Còpia i restauració → Esborrar-ho tot. Amb la sincronització activada, s'esborra també del teu "
+  "iCloud i dels teus altres dispositius. Esborrar l'app elimina el que hi ha al dispositiu."),
+ ('Menors', 'Tiquet no està dirigida a menors. No inclou publicitat ni seguiment.'),
+ ('Contacte', 'Dubtes sobre aquesta política: <a href="mailto:a.estevez@gmail.com">a.estevez@gmail.com</a>.')],
   support_t="Suport de Tiquet",
-  support_p="Escriu a <a href=\"mailto:%s\">%s</a>. Digues quin dispositiu i versió d'iOS fas servir i què estaves fent. Res de les teves dades ens arriba mai, així que descriu el que veus; no enviïs mai un extracte bancari." % (EMAIL, EMAIL),
+  support_p=('<a href="mailto:a.estevez@gmail.com">a.estevez@gmail.com</a>. Indica el dispositiu, la versió d’iOS o '
+ 'iPadOS i què estaves fent. L’app no ens envia automàticament els teus registres financers. Si ens escrius, '
+ 'rebem el correu i la informació que hi incloguis. Fes servir exemples ficticis; no enviïs extractes, '
+ 'documents personals ni captures amb dades reals.'),
   support_h="Preguntes freqüents",
-  support_faq=[("No llegeix el fitxer del meu banc.","Exporta'l com a Excel o CSV des del web del banc, no com a PDF. Si encara no es llegeix, digues-nos el banc i el tipus d'exportació; no enviïs mai el fitxer."),
-               ("Un càrrec es compta dues vegades, o no es compta.","Obre el contracte i comprova que el nom del proveïdor coincideix amb el que imprimeix el banc. On un extracte cobreix el mes, només compten les línies del banc."),
-               ("L'iPhone i l'iPad no mostren el mateix.","Tots dos necessiten la sincronització activada (Ajustos → iPhone i iPad, a la par), el mateix compte d'Apple, i uns minuts la primera vegada."),
-               ("Un lloc està mal situat al mapa.","Obre la seva fitxa i posa-hi l'adreça, o toca «Soc aquí ara» quan hi siguis."),
-               ("Com passo a un telèfon nou?","Amb la sincronització activada, n'hi ha prou d'iniciar sessió. Sense: Ajustos → Còpia i restauració → Exportar-ho tot, i després Restaurar al telèfon nou.")],
+  support_faq=[('No llegeix el fitxer del meu banc.',
+  "Exporta'l com a Excel o CSV des del web del banc, no com a PDF. Si encara no es llegeix, digues-nos el "
+  "banc i el tipus d'exportació; no enviïs mai el fitxer."),
+ ('Un càrrec es compta dues vegades, o no es compta.',
+  'Obre el contracte i comprova que el nom del proveïdor coincideix amb el que imprimeix el banc. On un '
+  'extracte cobreix el mes, només compten les línies del banc.'),
+ ("L'iPhone i l'iPad no mostren el mateix.",
+  'Tots dos necessiten la sincronització activada (Ajustos → iPhone i iPad, a la par), el mateix compte '
+  "d'Apple, i uns minuts la primera vegada."),
+ ('Un lloc està mal situat al mapa.',
+  "Obre la seva fitxa i posa-hi l'adreça, o toca «Soc aquí ara» quan hi siguis."),
+ ('Com passo a un telèfon nou?',
+  "Amb la sincronització activada, n'hi ha prou d'iniciar sessió. Sense: Ajustos → Còpia i restauració → "
+  'Exportar-ho tot, i després Restaurar al telèfon nou.'),
+ ('Com restauro Plus?',
+  'Obre l’oferta de Tiquet Plus a Configuració i toca Restaurar compres. Fes servir el compte d’Apple amb '
+  'què vas comprar i connexió a internet. Si reps Plus per En Família, comprova també els ajustos de compres '
+  'compartides del grup.'),
+ ('Què passa quan s’acaben els 14 dies?',
+  'Tornes a les funcions gratuïtes sense cap càrrec automàtic. El que hagis desat es conserva. Les funcions '
+  'de Plus requereixen comprar-lo; la prova no es comparteix per En Família.'),
+ ('I si Apple Intelligence no està disponible?',
+  'Pots desar i consultar documents i fer servir el reconeixement de text i les regles. El model local '
+  'necessita un dispositiu compatible, Apple Intelligence activat i el model descarregat i disponible en el '
+  'teu idioma. Algunes preguntes i funcions d’IA no estaran disponibles.'),
+ ('En Família comparteix les meves despeses?',
+  'No. Comparteix la compra de Plus, segons els ajustos d’Apple, amb fins a cinc familiars. Les dades de '
+  'cada compte d’Apple continuen separades. Per compartir documents amb una altra persona, tria expressament '
+  'l’exportació del fitxer de casa.')],
   terms_t="Condicions d'ús de Tiquet",
   terms_b=[("Llicència","Tiquet es llicencia sota l'acord estàndard d'Apple per a aplicacions (EULA): <a href=\"https://www.apple.com/legal/internet-services/itunes/dev/stdeula/\">apple.com/legal/internet-services/itunes/dev/stdeula</a>."),
            ("No és assessorament financer, legal ni d'assegurances","Tiquet mostra xifres dels documents i extractes que li dones, i assenyala preguntes que val la pena fer. No recomana companyies, productes, cobertures ni baixes, i res del que conté és assessorament. Les decisions sobre els teus contractes i els teus diners són teves."),
@@ -302,51 +789,204 @@ S = {
            ("Contacte","<a href=\"mailto:%s\">%s</a>" % (EMAIL, EMAIL))]),
 }
 
-# The landing as a story (2026-09-27): AI first, privacy in numbers, one phone that changes as you scroll, and the
+# The landing: household benefits first, accurate privacy, one phone that changes as you scroll, and the
 # rest of the features as a strip instead of a wall of cards. Screens in img/s are the app's sample household.
 X = {
 "en": dict(
-  h1a="AI that understands your household. ", h1b="And never leaves your iPhone.",
-  sub="Tiquet reads your receipts, policies and statements with Apple's model on the device itself: what you're signed up to, what it costs, what runs out, and what looks wrong. No account, no servers of ours, no bank login.",
+  h1a='What you pay. What renews. ', h1b='What you want to remember.',
+  sub=('Keep contracts, insurance and receipts together. Find the next payment, look up a warranty and get '
+ 'reminders before a deadline. On your iPhone and iPad, without connecting to your bank.'),
   badges=["On-device AI", "No account", "No servers of ours", "No trackers"],
-  nav2=[("#ai","Ask"),("#story","A tour"),("#privacy","Privacy"),("#faq","FAQ")],
-  ai_k="Ask", ai_h="Ask your money. Your iPhone answers.",
-  ai_p="In your own words or by voice. The app works out the figures, exactly; Apple's on-device model puts them into words. Nothing travels to a server to answer you.",
+
+  ai_k="Ask", ai_h='Ask about your spending. From your own records.',
+  ai_p=('The app calculates figures from your saved records; Apple’s model explains them on the device. Check the '
+ 'source documents: readings can contain errors, and future charges are estimates. A question about places '
+ 'may query Apple Maps to locate a place, without sending your amounts or statements.'),
   chat=[("How much did we spend on restaurants this year?", "€724.68 in 7 payments. Mostly at El Celler (€210), La Taverna del Pla (€173) and Bar Ponent (€98)."),
         ("Where did I love the patatas bravas?", "La Taverna del Pla (Barcelona): ★★★★★, 9 Aug 2026."),
         ("And in Sant Cugat?", "No bravas in Sant Cugat in your receipts. Where you've had them: La Taverna del Pla.")],
-  ai_net="Sent to a server to answer", ai_model="Model", ai_model_v="on this iPhone",
-  story_k="A tour", story_h="Everything it sees, one screen at a time",
-  priv_n=[("0","accounts"),("0","servers of ours"),("0","trackers"),("0","statements or amounts we receive")],
-  more_k="And also", more_h="%d more things it does", more_all="Read them all"),
+  ai_net='Financial calculations', ai_model='AI', ai_model_v='On device',
+  story_k="A tour", story_h='Three moments when it helps',
+  priv_n=[('0', 'Tiquet accounts'),
+ ('0', 'servers of ours'),
+ ('0', 'trackers'),
+ ('0', 'documents sent to a remote AI')],
+  more_k="And also", more_h="%d more things it does", more_all="Read them all",
+  primary_cta='Compare Free and Plus',
+  ai_net_v='On your device',
+  demo_note=('Conversation and screens use invented data. Answers depend on saved records and Apple Intelligence '
+ 'availability.'),
+  tour=[('contracts',
+  'Before your insurance renews',
+  'The policy, price and last cancellation date in one card. A reminder gives you time to review the '
+  'contract.'),
+ ('coming',
+  'Before the next charge',
+  'See what is expected and when, based on contracts and previous payments. Forecasts explain what they are '
+  'based on. Included in Plus.'),
+ ('home',
+  'When you need to return something',
+  'Keep the receipt and look up the return window or warranty. Keep the original document and check the date '
+  'that was read.')],
+  price_k='Free and Plus',
+  price_h='Start free. Upgrade when it helps.',
+  free_h='Tiquet Free',
+  free_price='€0',
+  free_note='No time limit',
+  free_items=['Receipts, warranties, contracts and reminders',
+ 'The household sheet and unusual-charge checks',
+ 'Backups and optional iCloud sync',
+ '5 questions a day per device about free features'],
+  plus_h='Tiquet Plus',
+  plus_price='€9.99',
+  plus_note='Launch price in Spain · one-time payment',
+  plus_items=['Everything in Free',
+ 'Spending review, income, accounts and savings goals',
+ 'Upcoming charges for 12 months and The Month',
+ 'Places from your statements',
+ 'Ask without a daily limit',
+ 'Purchase supports Family Sharing'],
+  trial_h='Try Plus free for 14 days',
+  trial_p=('No automatic renewal or charge when it ends. Continue with Free and keep everything you saved. The trial '
+ 'is individual; buying Plus is optional.'),
+  family_note=('Family Sharing shares the Plus purchase with up to five family members, subject to Apple’s '
+ 'purchase-sharing settings. Each person keeps their own data: statements, spending and documents are not '
+ 'shared automatically.'),
+  compat_h='Check your device',
+  compat_p=('Requires iOS or iPadOS 27 or later. Local model features need a compatible device with Apple Intelligence '
+ 'enabled and its model available in the chosen language. Without it, you can save and view documents and '
+ 'use text recognition and rules; some questions and AI features will be unavailable.')),
 "es": dict(
-  h1a="Una IA que entiende tu casa. ", h1b="Y no sale de tu iPhone.",
-  sub="Tiquet lee tus tiques, pólizas y extractos con el modelo de Apple en el propio dispositivo: qué tienes contratado, cuánto cuesta, qué caduca y qué es raro. Sin cuenta, sin servidores nuestros, sin acceso a tu banco.",
+  h1a='Lo que pagas. Lo que renueva. ', h1b='Lo que no quieres olvidar.',
+  sub=('Reúne contratos, seguros y tiques. Encuentra el próximo pago, ten a mano una garantía y recibe avisos '
+ 'antes de que termine un plazo. En tu iPhone y tu iPad, sin conectar tu banco.'),
   badges=["IA en el dispositivo", "Sin cuenta", "Sin servidores nuestros", "Sin rastreadores"],
-  nav2=[("#ai","Pregunta"),("#story","Recorrido"),("#privacy","Privacidad"),("#faq","Preguntas")],
-  ai_k="Pregunta", ai_h="Pregúntale a tu dinero. Responde tu iPhone.",
-  ai_p="Con tus palabras o con la voz. Las cifras las calcula la app, exactas; el modelo de Apple, en el dispositivo, las pone en palabras. Nada viaja a ningún servidor para contestarte.",
+
+  ai_k="Pregunta", ai_h='Pregunta sobre tus gastos. Con tus propios datos.',
+  ai_p=('La app calcula las cifras a partir de tus registros; el modelo de Apple las explica en el dispositivo. '
+ 'Comprueba los documentos leídos: pueden contener errores, y los cargos futuros son previsiones. Una '
+ 'pregunta sobre sitios puede consultar Apple Maps para localizar un lugar, sin enviar tus importes ni tus '
+ 'extractos.'),
   chat=[("¿Cuánto hemos gastado en restaurantes este año?", "724,68 € en 7 pagos. Sobre todo en El Celler (210 €), La Taverna del Pla (173 €) y Bar Ponent (98 €)."),
         ("¿Dónde me encantaron las bravas?", "La Taverna del Pla (Barcelona): ★★★★★, 9 ago 2026."),
         ("¿Y en Sant Cugat?", "No hay bravas en Sant Cugat en tus tiques. Donde sí las has tomado: La Taverna del Pla.")],
-  ai_net="Enviado a un servidor para responder", ai_model="Modelo", ai_model_v="en este iPhone",
-  story_k="Recorrido", story_h="Todo lo que ve, una pantalla cada vez",
-  priv_n=[("0","cuentas"),("0","servidores nuestros"),("0","rastreadores"),("0","extractos o importes que recibimos")],
-  more_k="Y además", more_h="%d cosas más que hace", more_all="Leerlas todas"),
+  ai_net='Cálculos financieros', ai_model='IA', ai_model_v='Local',
+  story_k="Recorrido", story_h='Tres momentos en los que te ayuda',
+  priv_n=[('0', 'cuentas de Tiquet'),
+ ('0', 'servidores nuestros'),
+ ('0', 'rastreadores'),
+ ('0', 'documentos enviados a una IA remota')],
+  more_k="Y además", more_h="%d cosas más que hace", more_all="Leerlas todas",
+  primary_cta='Ver Gratis y Plus',
+  ai_net_v='En tu dispositivo',
+  demo_note=('Conversación y pantallas con datos ficticios. Las respuestas dependen de los datos guardados y de la '
+ 'disponibilidad de Apple Intelligence.'),
+  tour=[('contracts',
+  'Antes de que renueve el seguro',
+  'La póliza, el precio y el último día para darlo de baja, en una ficha. Un aviso te da tiempo para revisar '
+  'el contrato.'),
+ ('coming',
+  'Antes del próximo cargo',
+  'Consulta qué se espera cobrar y cuándo, según tus contratos y pagos anteriores. Las previsiones indican '
+  'en qué se apoyan. Incluido en Plus.'),
+ ('home',
+  'Cuando necesitas devolver algo',
+  'Guarda el tique y consulta el plazo de devolución o la garantía. Conserva el documento original y revisa '
+  'la fecha leída.')],
+  price_k='Gratis y Plus',
+  price_h='Empieza gratis. Amplía cuando te compense.',
+  free_h='Tiquet Gratis',
+  free_price='0 €',
+  free_note='Sin límite de tiempo',
+  free_items=['Tiques, garantías, contratos y sus recordatorios',
+ 'Hoja de la casa y detección de cargos inusuales',
+ 'Copias de seguridad e iCloud opcional',
+ '5 preguntas al día por dispositivo sobre funciones gratuitas'],
+  plus_h='Tiquet Plus',
+  plus_price='9,99 €',
+  plus_note='Precio de lanzamiento en España · pago único',
+  plus_items=['Todo lo de Gratis',
+ 'Revisión de gastos, ingresos, cuentas y objetivos de ahorro',
+ 'Próximos cargos a 12 meses y El Mes',
+ 'Sitios a partir de tus extractos',
+ 'Preguntas sin límite diario',
+ 'Compra compatible con En Familia'],
+  trial_h='Prueba Plus gratis durante 14 días',
+  trial_p=('Sin renovación automática ni cargos al terminar. Después sigues con Gratis y conservas lo que hayas '
+ 'guardado. La prueba es individual; comprar Plus es opcional.'),
+  family_note=('En Familia comparte la compra de Plus con hasta cinco familiares, según los ajustes de compras compartidas '
+ 'de Apple. Cada persona conserva sus propios datos: no se comparten automáticamente extractos, gastos ni '
+ 'documentos.'),
+  compat_h='Comprueba tu dispositivo',
+  compat_p=('Requiere iOS o iPadOS 27 o posterior. Las funciones del modelo local necesitan un dispositivo compatible '
+ 'con Apple Intelligence, con el servicio activado y el modelo disponible en el idioma elegido. Sin él, '
+ 'puedes guardar y consultar documentos y usar la lectura de texto y las reglas; algunas preguntas y '
+ 'funciones de IA no estarán disponibles.')),
 "ca": dict(
-  h1a="Una IA que entén casa teva. ", h1b="I no surt del teu iPhone.",
-  sub="Tiquet llegeix els teus tiquets, pòlisses i extractes amb el model d'Apple al mateix dispositiu: què tens contractat, quant costa, què caduca i què és estrany. Sense compte, sense servidors nostres, sense accés al teu banc.",
+  h1a='El que pagues. El que es renova. ', h1b='El que no vols oblidar.',
+  sub=('Reuneix contractes, assegurances i tiquets. Troba el proper pagament, tingues una garantia a mà i rep '
+ 'avisos abans que s’acabi un termini. Al teu iPhone i iPad, sense connectar el banc.'),
   badges=["IA al dispositiu", "Sense compte", "Sense servidors nostres", "Sense rastrejadors"],
-  nav2=[("#ai","Pregunta"),("#story","Recorregut"),("#privacy","Privadesa"),("#faq","Preguntes")],
-  ai_k="Pregunta", ai_h="Pregunta-li als teus diners. Respon el teu iPhone.",
-  ai_p="Amb les teves paraules o amb la veu. Les xifres les calcula l'app, exactes; el model d'Apple, al dispositiu, les posa en paraules. Res no viatja a cap servidor per respondre't.",
+
+  ai_k="Pregunta", ai_h='Pregunta sobre les teves despeses. Amb les teves dades.',
+  ai_p=('L’app calcula les xifres a partir dels teus registres; el model d’Apple les explica al dispositiu. '
+ 'Comprova els documents llegits: poden contenir errors, i els càrrecs futurs són previsions. Una pregunta '
+ 'sobre llocs pot consultar Apple Maps per situar un lloc, sense enviar els teus imports ni extractes.'),
   chat=[("Quant hem gastat en restaurants aquest any?", "724,68 € en 7 pagaments. Sobretot a El Celler (210 €), La Taverna del Pla (173 €) i Bar Ponent (98 €)."),
         ("On em van encantar les braves?", "La Taverna del Pla (Barcelona): ★★★★★, 9 d'ag. 2026."),
         ("I a Sant Cugat?", "No hi ha braves a Sant Cugat als teus tiquets. On sí que les has pres: La Taverna del Pla.")],
-  ai_net="Enviat a un servidor per respondre", ai_model="Model", ai_model_v="en aquest iPhone",
-  story_k="Recorregut", story_h="Tot el que veu, una pantalla cada vegada",
-  priv_n=[("0","comptes"),("0","servidors nostres"),("0","rastrejadors"),("0","extractes o imports que rebem")],
-  more_k="I a més", more_h="%d coses més que fa", more_all="Llegir-les totes"),
+  ai_net='Càlculs financers', ai_model='IA', ai_model_v='Local',
+  story_k="Recorregut", story_h='Tres moments en què t’ajuda',
+  priv_n=[('0', 'comptes de Tiquet'),
+ ('0', 'servidors nostres'),
+ ('0', 'rastrejadors'),
+ ('0', 'documents enviats a una IA remota')],
+  more_k="I a més", more_h="%d coses més que fa", more_all="Llegir-les totes",
+  primary_cta='Veure Gratis i Plus',
+  ai_net_v='Al teu dispositiu',
+  demo_note=('Conversa i pantalles amb dades fictícies. Les respostes depenen dels registres desats i de la '
+ 'disponibilitat d’Apple Intelligence.'),
+  tour=[('contracts',
+  'Abans que es renovi l’assegurança',
+  'La pòlissa, el preu i l’últim dia per donar-la de baixa, en una fitxa. Un avís et dona temps per revisar '
+  'el contracte.'),
+ ('coming',
+  'Abans del proper càrrec',
+  'Consulta què es preveu cobrar i quan, segons els contractes i els pagaments anteriors. Les previsions '
+  'indiquen en què es basen. Inclòs a Plus.'),
+ ('home',
+  'Quan necessites tornar alguna cosa',
+  'Guarda el tiquet i consulta el termini de devolució o la garantia. Conserva el document original i revisa '
+  'la data llegida.')],
+  price_k='Gratis i Plus',
+  price_h='Comença gratis. Amplia quan et compensi.',
+  free_h='Tiquet Gratis',
+  free_price='0 €',
+  free_note='Sense límit de temps',
+  free_items=['Tiquets, garanties, contractes i recordatoris',
+ 'Full de casa i detecció de càrrecs inusuals',
+ 'Còpies de seguretat i iCloud opcional',
+ '5 preguntes al dia per dispositiu sobre funcions gratuïtes'],
+  plus_h='Tiquet Plus',
+  plus_price='9,99 €',
+  plus_note='Preu de llançament a Espanya · pagament únic',
+  plus_items=['Tot el de Gratis',
+ 'Revisió de despeses, ingressos, comptes i objectius d’estalvi',
+ 'Propers càrrecs a 12 mesos i El Mes',
+ 'Llocs a partir dels extractes',
+ 'Preguntes sense límit diari',
+ 'Compra compatible amb En Família'],
+  trial_h='Prova Plus gratis durant 14 dies',
+  trial_p=('Sense renovació automàtica ni càrrecs quan s’acaba. Després continues amb Gratis i conserves el que hagis '
+ 'desat. La prova és individual; comprar Plus és opcional.'),
+  family_note=('En Família comparteix la compra de Plus amb fins a cinc familiars, segons els ajustos de compres '
+ 'compartides d’Apple. Cada persona conserva les seves dades: no es comparteixen automàticament extractes, '
+ 'despeses ni documents.'),
+  compat_h='Comprova el teu dispositiu',
+  compat_p=('Requereix iOS o iPadOS 27 o posterior. Les funcions del model local necessiten un dispositiu compatible '
+ 'amb Apple Intelligence, amb el servei activat i el model disponible en l’idioma triat. Sense això, pots '
+ 'desar i consultar documents i fer servir el reconeixement de text i les regles; algunes preguntes i '
+ 'funcions d’IA no estaran disponibles.')),
 }
 for _l in X: S[_l].update(X[_l])
 
@@ -406,10 +1046,11 @@ def head(t, lang, title, depth, page=""):
     r = root(lang, depth)
     alts = "".join('<link rel="alternate" hreflang="%s" href="https://tiquet.securlabs.net%s">' % (l, page_url(l, page)) for l in LANGS)
     alts += '<link rel="alternate" hreflang="x-default" href="https://tiquet.securlabs.net%s">' % page_url(HOME, page)
+    alts += '<link rel="canonical" href="https://tiquet.securlabs.net%s"><meta property="og:url" content="https://tiquet.securlabs.net%s">' % (page_url(lang, page), page_url(lang, page))
     return ('<!doctype html><html lang="%s"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>%s</title><meta name="description" content="%s"><meta property="og:title" content="%s"><meta property="og:description" content="%s">'
-            '<meta property="og:image" content="https://tiquet.securlabs.net/img/s/home-en.jpg"><link rel="icon" href="%simg/icon.png">%s'
-            '<link rel="stylesheet" href="%sstyle.css?v=%d"><script>document.documentElement.classList.add("js")</script></head><body>') % (lang, html.escape(title), html.escape(t["desc"]), html.escape(title), html.escape(t["desc"]), r, alts, r, CSS_VERSION)
+            '<meta property="og:image" content="https://tiquet.securlabs.net/img/s/home-%s.jpg"><link rel="icon" href="%simg/icon.png">%s'
+            '<link rel="stylesheet" href="%sstyle.css?v=%d"><script>document.documentElement.classList.add("js")</script></head><body>') % (lang, html.escape(title), html.escape(t["desc"]), html.escape(title), html.escape(t["desc"]), "en" if lang == "en" else "es", r, alts, r, CSS_VERSION)
 
 def nav(t, lang, depth, landing, page=""):
     r = root(lang, depth); home = page_url(lang)
@@ -426,29 +1067,37 @@ def checks(items, cls="check"): return '<ul class="check %s">%s</ul>' % (cls if 
 
 def landing(t, lang):
     r = root(lang, 0); e = html.escape; shot = lambda n: "%simg/s/%s-%s.jpg" % (r, n, "en" if lang == "en" else "es")
-    out = head(t, lang, t["title"], 0) + nav(dict(t, nav=t["nav2"]), lang, 0, True)
+    out = head(t, lang, t["title"], 0) + nav(t, lang, 0, True)
     # Hero: the promise, the four refusals, and the phone with what it is doing right now.
     out += ('<header class="hero-x"><div class="wrap hero"><div class="reveal"><h1>%s<em>%s</em></h1><p class="sub">%s</p>'
-            '<ul class="badges">%s</ul><span class="pill">%s</span><p class="note">%s</p></div>'
+            '<ul class="badges">%s</ul><div class="hero-actions"><a class="pill" href="#pricing">%s</a><span class="release-note">%s</span></div><p class="note">%s</p></div>'
             '<div class="stage reveal"><div class="shot phone"><img src="%s" alt="" loading="eager"></div>'
-            '<div class="float f1"><span class="dot"></span>%s · <b>%s</b></div><div class="float f2">%s · <b>0 bytes</b></div></div></div></header>'
-            ) % (e(t["h1a"]), e(t["h1b"]), e(t["sub"]), "".join("<li>%s</li>" % e(b) for b in t["badges"]), e(t["cta"]), e(t["note"]),
-                 shot("home"), e(t["ai_model"]), e(t["ai_model_v"]), e(t["ai_net"]))
-    # Ask: a conversation that writes itself when it comes into view; the network meter never moves.
+            '<div class="float f1"><span class="dot"></span>%s · <b>%s</b></div><div class="float f2">%s · <b>%s</b></div></div></div></header>'
+            ) % (e(t["h1a"]), e(t["h1b"]), e(t["sub"]), "".join("<li>%s</li>" % e(b) for b in t["badges"]), e(t["primary_cta"]), e(t["cta"]), e(t["note"]),
+                 shot("home"), e(t["ai_model"]), e(t["ai_model_v"]), e(t["ai_net"]), e(t["ai_net_v"]))
+    # Ask: a conversation that writes itself when it comes into view; all figures are invented examples.
     chat = "".join('<div class="msg q">%s</div><div class="msg a"><span class="spark"></span><span class="txt">%s</span></div>' % (e(q), e(a)) for q, a in t["chat"])
-    out += ('<section id="ai"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>'
-            '<div class="meters"><div><span>%s</span><b class="zero">0 bytes</b></div><div><span>%s</span><b>%s</b></div></div></div>'
-            '<div class="chat reveal" data-chat>%s</div></div></section>') % (e(t["ai_k"]), e(t["ai_h"]), e(t["ai_p"]), e(t["ai_net"]), e(t["ai_model"]), e(t["ai_model_v"]), chat)
+    ask_section = ('<section id="ai"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>'
+            '<div class="meters"><div><span>%s</span><b class="zero">%s</b></div><div><span>%s</span><b>%s</b></div></div></div>'
+            '<div><div class="chat reveal" data-chat>%s</div><p class="note">%s</p></div></div></section>') % (e(t["ai_k"]), e(t["ai_h"]), e(t["ai_p"]), e(t["ai_net"]), e(t["ai_net_v"]), e(t["ai_model"]), e(t["ai_model_v"]), chat, e(t["demo_note"]))
     # A tour: one phone stays while the words scroll past it, and it changes screen with each one.
     f = t["feats"]
-    steps = [("watch", f[12][0], f[12][1]), ("contracts", t["pillars"][0][0], t["pillars"][0][1]), ("coming", t["cm_h"], t["cm_p"]),
-             ("weeks", t["wk_h"], t["wk_p"]), ("month", t["month_h"], t["month_p"]), ("diary", t["month_l"][0], t["month_l"][1] + ". " + t["month_l"][2] + "."),
-             ("places", f[7][0], f[7][1]), ("ask", f[8][0], f[8][1])]
+    steps = t["tour"]
     phones = "".join('<img src="%s" alt="" loading="lazy" data-i="%d"%s>' % (shot(n), i, ' class="on"' if i == 0 else "") for i, (n, _, _) in enumerate(steps))
     words = "".join('<div class="step%s" data-i="%d"><span class="num">%02d</span><h3>%s</h3><p>%s</p><img class="inline" src="%s" alt="" loading="lazy"></div>'
                     % (" on" if i == 0 else "", i, i + 1, e(h), e(p), shot(n)) for i, (n, h, p) in enumerate(steps))
     out += ('<section id="story"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2>'
             '<div class="tour"><div class="steps">%s</div><div class="pin"><div class="shot phone">%s</div></div></div></div></section>') % (e(t["story_k"]), e(t["story_h"]), words, phones)
+    # The comparison is visible before the longer feature tour; no purchase CTA before release.
+    out += ('<section id="pricing" class="glow"><div class="wrap"><span class="kicker">%s</span><h2>%s</h2>'
+            '<div class="plans"><article class="plan"><h3>%s</h3><p class="price">%s</p><p class="plan-note">%s</p>%s</article>'
+            '<article class="plan plus"><h3>%s</h3><p class="price">%s</p><p class="plan-note">%s</p>%s</article></div>'
+            '<div class="trial"><h3>%s</h3><p>%s</p></div><p class="family-note">%s</p>'
+            '<div class="compat"><h3>%s</h3><p>%s</p></div></div></section>') % (
+                e(t["price_k"]), e(t["price_h"]), e(t["free_h"]), e(t["free_price"]), e(t["free_note"]), checks(t["free_items"]),
+                e(t["plus_h"]), e(t["plus_price"]), e(t["plus_note"]), checks(t["plus_items"]),
+                e(t["trial_h"]), e(t["trial_p"]), e(t["family_note"]), e(t["compat_h"]), e(t["compat_p"]))
+    out += ask_section
     # How things get in: the sources flow into Tiquet; the share sheet in three steps; what each file becomes.
     src = "".join('<div class="src reveal"><span class="ico">%s</span><b>%s</b><small>%s</small></div>' % (i, e(n), e(d)) for i, n, d in t["sources"])
     sheet = ('<div class="sheet reveal"><div class="att"><span class="pdf">PDF</span><div><b>poliza-hogar.pdf</b><small>184 KB</small></div></div>'
@@ -485,10 +1134,11 @@ def landing(t, lang):
     out += ('<section id="family"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p></div><div class="rows">%s</div></div></section>'
             % (e(t["fam_k"]), e(t["fam_h"]), e(t["fam_p"]), "".join('<div class="row reveal"><h3>%s</h3><p>%s</p></div>' % (e(h), e(p)) for h, p, _ in t["fam"])))
     # Everything else: a strip that moves, and the whole list one tap away.
-    shown = [x for i, x in enumerate(f) if i not in (7, 8, 9, 12)]   # places, Ask, widgets and Watch have their own sections
+    shown = [x for i, x in enumerate(f) if i not in (8, 9)]   # Ask and widgets have their own sections
+    shown += [(t["wk_h"], t["wk_p"], "c-sea"), (t["month_h"], t["month_p"], "c-wine")]
     chips = "".join("<span>%s</span>" % e(h) for h, _, _ in shown)
     out += ('<section id="more"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2></div>'
-            '<div class="marquee"><div class="track">%s%s</div></div><div class="marquee rev"><div class="track">%s%s</div></div>'
+            '<div class="marquee" aria-hidden="true"><div class="track">%s%s</div></div><div class="marquee rev" aria-hidden="true"><div class="track">%s%s</div></div>'
             '<div class="wrap"><details class="all"><summary>%s</summary><div class="list">%s</div></details></div></section>'
             ) % (e(t["more_k"]), e(t["more_h"] % len(shown)), chips, chips, chips[::1], chips, e(t["more_all"]),
                  "".join('<div><h3>%s</h3><p>%s</p></div>' % (e(h), e(p)) for h, p, _ in shown))
