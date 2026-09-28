@@ -5,7 +5,7 @@ Same pattern as decksweep-site: static files, GitHub Pages, CNAME. Screenshots c
 import os, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
-CSS_VERSION = 5
+CSS_VERSION = 6
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
 UPDATED = {"en": "23 September 2026", "es": "23 de septiembre de 2026", "ca": "23 de setembre de 2026"}
 
@@ -350,6 +350,49 @@ X = {
 }
 for _l in X: S[_l].update(X[_l])
 
+# How things get in, and what sits on the Home Screen (owner, 2026-09-28: "do we explain the widgets and that you can
+# send files from mail attachments or the phone to Tiquet?"). Drawn in HTML: a capture of the share sheet or of real
+# widgets would show someone's data; these show the sample household's.
+X3 = {
+"es": dict(
+  in_k="Cómo entra todo", in_h="Desde donde ya está: el correo, Archivos, Fotos",
+  in_p="La póliza que te mandaron por correo, la factura en PDF, la foto de un tique, el extracto que bajas de tu banco: mantenlo pulsado, toca Compartir y elige Tiquet. Hasta 20 a la vez. Se lee en el dispositivo y ves lo que ha entendido antes de guardar nada.",
+  sources=[("✉️","Mail","un adjunto"),("📁","Archivos","PDF, Excel, CSV"),("🖼️","Fotos","foto o captura"),("📷","Cámara","escanea un tique"),("🏦","Tu banco","el extracto, sin contraseña"),("📲","AirDrop","el archivo de casa")],
+  steps3=["Mantén pulsado el adjunto","Toca Compartir","Elige Tiquet"], share_to="Compartir con",
+  outs=[("Una póliza","su ficha: número, prima, qué cubre, a quién llamar"),("Un tique","el gasto, la devolución y la garantía"),("Un extracto","tus movimientos, cada pago una vez")],
+  w_k="En la pantalla de inicio", w_h="Lo importante, sin abrir la app",
+  w_p="Cuatro widgets: el mes, el próximo cargo, tus seguros a mano el día que pasa algo y tus buenos sitios cerca. Un botón en el Centro de control para escanear un tique. Y Siri, que sabe cuándo se renueva cada contrato.",
+  wg=dict(month="Este mes", month_v="2.291 €", month_s="≈ 2.440 € a fin de mes", next="Próximo cargo", next_v="9,99 €", next_s="Seguro móvil · 2 oct", week="Esta semana: 132 €",
+          ins="Seguros a mano", ins_rows=[("Hogar","Póliza 1234-5678","900 000 000"),("Coche","Póliza 8765-4321","900 000 001")],
+          near="Buenos sitios cerca", near_rows=[("La Taverna del Pla","★★★★★","350 m"),("Bar Ponent","★★★★★","1,2 km")],
+          ctl="Añadir un tique", siri="«Oye Siri, ¿cuándo se renueva el seguro de hogar en Tiquet?»", demo="Datos de ejemplo")),
+"ca": dict(
+  in_k="Com hi entra tot", in_h="Des d'on ja és: el correu, Fitxers, Fotos",
+  in_p="La pòlissa que et van enviar per correu, la factura en PDF, la foto d'un tiquet, l'extracte que baixes del teu banc: mantén-ho premut, toca Compartir i tria Tiquet. Fins a 20 alhora. Es llegeix al dispositiu i veus què ha entès abans de desar res.",
+  sources=[("✉️","Mail","un adjunt"),("📁","Fitxers","PDF, Excel, CSV"),("🖼️","Fotos","foto o captura"),("📷","Càmera","escaneja un tiquet"),("🏦","El teu banc","l'extracte, sense contrasenya"),("📲","AirDrop","el fitxer de casa")],
+  steps3=["Mantén premut l'adjunt","Toca Compartir","Tria Tiquet"], share_to="Compartir amb",
+  outs=[("Una pòlissa","la seva fitxa: número, prima, què cobreix, a qui trucar"),("Un tiquet","la despesa, la devolució i la garantia"),("Un extracte","els teus moviments, cada pagament una vegada")],
+  w_k="A la pantalla d'inici", w_h="El que importa, sense obrir l'app",
+  w_p="Quatre ginys: el mes, el proper càrrec, les teves assegurances a mà el dia que passa alguna cosa i els teus bons llocs a prop. Un botó al Centre de control per escanejar un tiquet. I Siri, que sap quan es renova cada contracte.",
+  wg=dict(month="Aquest mes", month_v="2.291 €", month_s="≈ 2.440 € a final de mes", next="Proper càrrec", next_v="9,99 €", next_s="Assegurança mòbil · 2 oct.", week="Aquesta setmana: 132 €",
+          ins="Assegurances a mà", ins_rows=[("Llar","Pòlissa 1234-5678","900 000 000"),("Cotxe","Pòlissa 8765-4321","900 000 001")],
+          near="Bons llocs a prop", near_rows=[("La Taverna del Pla","★★★★★","350 m"),("Bar Ponent","★★★★★","1,2 km")],
+          ctl="Afegir un tiquet", siri="«Oye Siri, ¿cuándo se renueva el seguro de hogar en Tiquet?»", demo="Dades d'exemple")),
+"en": dict(
+  in_k="How things get in", in_h="From wherever it already is: Mail, Files, Photos",
+  in_p="The policy they emailed you, the invoice as a PDF, a photo of a receipt, the statement you download from your bank: press and hold, tap Share and pick Tiquet. Up to 20 at once. It is read on the device, and you see what it understood before anything is saved.",
+  sources=[("✉️","Mail","an attachment"),("📁","Files","PDF, Excel, CSV"),("🖼️","Photos","a photo or screenshot"),("📷","Camera","scan a receipt"),("🏦","Your bank","the statement, no password"),("📲","AirDrop","the household file")],
+  steps3=["Press and hold the attachment","Tap Share","Pick Tiquet"], share_to="Share with",
+  outs=[("A policy","its card: number, premium, what it covers, who to call"),("A receipt","the spending, the return and the warranty"),("A statement","your payments, each one once")],
+  w_k="On your Home Screen", w_h="What matters, without opening the app",
+  w_p="Four widgets: the month, the next charge, your insurance at hand the day something happens, and your good places nearby. A Control Centre button to scan a receipt. And Siri, which knows when each contract renews.",
+  wg=dict(month="This month", month_v="€2,291", month_s="≈ €2,440 by month end", next="Next charge", next_v="€9.99", next_s="Phone insurance · 2 Oct", week="This week: €132",
+          ins="Insurance at hand", ins_rows=[("Home","Policy 1234-5678","900 000 000"),("Car","Policy 8765-4321","900 000 001")],
+          near="Good places near you", near_rows=[("La Taverna del Pla","★★★★★","350 m"),("Bar Ponent","★★★★★","1.2 km")],
+          ctl="Add a receipt", siri="“Hey Siri, when does the home insurance renew in Tiquet?”", demo="Sample data")),
+}
+for _l in X3: S[_l].update(X3[_l])
+
 # Spanish at the root: the App Store starts in Spain (owner, 2026-09-28). English at /en/, Catalan at /ca/.
 HOME = "es"
 ORDER = ["es", "ca", "en"]                        # as the switcher shows them
@@ -406,6 +449,29 @@ def landing(t, lang):
                     % (" on" if i == 0 else "", i, i + 1, e(h), e(p), shot(n)) for i, (n, h, p) in enumerate(steps))
     out += ('<section id="story"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2>'
             '<div class="tour"><div class="steps">%s</div><div class="pin"><div class="shot phone">%s</div></div></div></div></section>') % (e(t["story_k"]), e(t["story_h"]), words, phones)
+    # How things get in: the sources flow into Tiquet; the share sheet in three steps; what each file becomes.
+    src = "".join('<div class="src reveal"><span class="ico">%s</span><b>%s</b><small>%s</small></div>' % (i, e(n), e(d)) for i, n, d in t["sources"])
+    sheet = ('<div class="sheet reveal"><div class="att"><span class="pdf">PDF</span><div><b>poliza-hogar.pdf</b><small>184 KB</small></div></div>'
+             '<div class="to">%s</div><div class="apps"><span class="app">✉️</span><span class="app">💬</span><span class="app tq"><img src="%simg/icon.png" alt=""><i>Tiquet</i></span><span class="app">📁</span></div>'
+             '<ol class="how3">%s</ol></div>') % (e(t["share_to"]), r, "".join("<li>%s</li>" % e(x) for x in t["steps3"]))
+    outs = "".join('<div class="out reveal"><b>%s →</b> %s</div>' % (e(a), e(b)) for a, b in t["outs"])
+    out += ('<section id="in"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2><p class="lead reveal">%s</p>'
+            '<div class="flow"><div class="srcs">%s</div><div class="into"><span class="beam"></span><img src="%simg/icon.png" alt="Tiquet"><span class="beam b2"></span></div>%s</div>'
+            '<div class="outs">%s</div></div></section>') % (e(t["in_k"]), e(t["in_h"]), e(t["in_p"]), src, r, sheet, outs)
+    # The Home Screen: the four widgets, the Control Centre button and Siri, drawn with the sample household's figures.
+    w = t["wg"]
+    widgets = ('<div class="home reveal"><span class="demo">%s</span>'
+               '<div class="wd s"><small>%s</small><b>%s</b><i>%s</i><span class="ring"></span></div>'
+               '<div class="wd s"><small>%s</small><b>%s</b><i>%s</i><i class="dim">%s</i></div>'
+               '<div class="wd m"><small>%s</small>%s</div>'
+               '<div class="wd m"><small>%s</small>%s</div>'
+               '<div class="ctl"><span>📷</span><i>%s</i></div><div class="siri">%s</div></div>') % (
+        e(w["demo"]), e(w["month"]), e(w["month_v"]), e(w["month_s"]), e(w["next"]), e(w["next_v"]), e(w["next_s"]), e(w["week"]),
+        e(w["ins"]), "".join('<div class="row"><b>%s</b><span>%s</span><em>☎ %s</em></div>' % (e(a), e(b), e(c)) for a, b, c in w["ins_rows"]),
+        e(w["near"]), "".join('<div class="row"><b>%s</b><span class="stars">%s</span><em>%s</em></div>' % (e(a), e(b), e(c)) for a, b, c in w["near_rows"]),
+        e(w["ctl"]), e(w["siri"]))
+    out += ('<section id="widgets"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p></div>%s</div></section>'
+            % (e(t["w_k"]), e(t["w_h"]), e(t["w_p"]), widgets))
     # Horizon: the phone turned, as wide as the page.
     out += ('<section id="horizon"><div class="wrap"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p></div>'
             '<div class="wide reveal"><img src="%s" alt="" loading="lazy"></div>%s</div></section>') % (e(t["hz_k"]), e(t["hz_h"]), e(t["hz_p"]), shot("horizon"), checks(t["hz_l"], "check row"))
@@ -419,7 +485,7 @@ def landing(t, lang):
     out += ('<section id="family"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p></div><div class="rows">%s</div></div></section>'
             % (e(t["fam_k"]), e(t["fam_h"]), e(t["fam_p"]), "".join('<div class="row reveal"><h3>%s</h3><p>%s</p></div>' % (e(h), e(p)) for h, p, _ in t["fam"])))
     # Everything else: a strip that moves, and the whole list one tap away.
-    shown = [x for i, x in enumerate(f) if i not in (7, 8, 12)]
+    shown = [x for i, x in enumerate(f) if i not in (7, 8, 9, 12)]   # places, Ask, widgets and Watch have their own sections
     chips = "".join("<span>%s</span>" % e(h) for h, _, _ in shown)
     out += ('<section id="more"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2></div>'
             '<div class="marquee"><div class="track">%s%s</div></div><div class="marquee rev"><div class="track">%s%s</div></div>'
