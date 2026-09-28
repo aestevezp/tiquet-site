@@ -5,7 +5,7 @@ Same pattern as decksweep-site: static files, GitHub Pages, CNAME. Screenshots c
 import os, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
-CSS_VERSION = 4
+CSS_VERSION = 5
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
 UPDATED = {"en": "23 September 2026", "es": "23 de septiembre de 2026", "ca": "23 de setembre de 2026"}
 
@@ -350,23 +350,28 @@ X = {
 }
 for _l in X: S[_l].update(X[_l])
 
-def prefix(lang): return "" if lang == "en" else "../"
-def base(lang, depth): return "../" * depth + ("" if lang == "en" else "")           # assets always at the site root
-def root(lang, depth): return "../" * (depth + (0 if lang == "en" else 1))
-def page_url(lang, page=""): return "/" + ("" if lang == "en" else lang + "/") + (page + "/" if page else "")
+# Spanish at the root: the App Store starts in Spain (owner, 2026-09-28). English at /en/, Catalan at /ca/.
+HOME = "es"
+ORDER = ["es", "ca", "en"]                        # as the switcher shows them
+def root(lang, depth): return "../" * (depth + (0 if lang == HOME else 1))
+def page_url(lang, page=""): return "/" + ("" if lang == HOME else lang + "/") + (page + "/" if page else "")
+def switcher(lang, page=""):
+    """ES · CA · EN at the top of every page, the current one lit; each goes to the same page in that language."""
+    return '<div class="langs">' + "".join('<a href="%s" lang="%s" hreflang="%s"%s>%s</a>' % (page_url(l, page), l, l, ' class="on" aria-current="true"' if l == lang else "", l.upper()) for l in ORDER) + '</div>'
 
-def head(t, lang, title, depth):
+def head(t, lang, title, depth, page=""):
     r = root(lang, depth)
-    alts = "".join('<link rel="alternate" hreflang="%s" href="https://tiquet.securlabs.net%s">' % (l, page_url(l)) for l in LANGS)
+    alts = "".join('<link rel="alternate" hreflang="%s" href="https://tiquet.securlabs.net%s">' % (l, page_url(l, page)) for l in LANGS)
+    alts += '<link rel="alternate" hreflang="x-default" href="https://tiquet.securlabs.net%s">' % page_url(HOME, page)
     return ('<!doctype html><html lang="%s"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
             '<title>%s</title><meta name="description" content="%s"><meta property="og:title" content="%s"><meta property="og:description" content="%s">'
             '<meta property="og:image" content="https://tiquet.securlabs.net/img/s/home-en.jpg"><link rel="icon" href="%simg/icon.png">%s'
             '<link rel="stylesheet" href="%sstyle.css?v=%d"><script>document.documentElement.classList.add("js")</script></head><body>') % (lang, html.escape(title), html.escape(t["desc"]), html.escape(title), html.escape(t["desc"]), r, alts, r, CSS_VERSION)
 
-def nav(t, lang, depth, landing):
+def nav(t, lang, depth, landing, page=""):
     r = root(lang, depth); home = page_url(lang)
     links = "".join('<a class="opt" href="%s%s">%s</a>' % ("" if landing else home, a, html.escape(n)) for a, n in t["nav"])
-    return '<nav><div class="wrap"><a class="brand" href="%s"><img src="%simg/icon.png" alt="">Tiquet</a><div class="links">%s<a href="%s">%s</a></div></div></nav>' % (home, r, links, page_url(lang, "support"), html.escape(t["f_support"]))
+    return '<nav><div class="wrap"><a class="brand" href="%s"><img src="%simg/icon.png" alt="">Tiquet</a><div class="links">%s<a href="%s">%s</a></div>%s</div></nav>' % (home, r, links, page_url(lang, "support"), html.escape(t["f_support"]), switcher(lang, page))
 
 def footer(t, lang, page=""):
     langs = "".join('<a href="%s">%s</a>' % (page_url(l, page), S[l]["name_lang"]) for l in LANGS if l != lang)
@@ -428,16 +433,22 @@ def landing(t, lang):
     return out.replace("</body>", "") + footer(t, lang).replace("</body>", '<script src="%ssite.js?v=%d" defer></script></body>' % (r, CSS_VERSION))
 
 def doc(t, lang, page, title, body):
-    return head(t, lang, title, 1) + nav(t, lang, 1, False) + '<div class="wrap doc"><h1>%s</h1><p class="date">%s</p>%s</div>' % (html.escape(title), UPDATED[lang], body) + footer(t, lang, page)
+    return head(t, lang, title, 1, page) + nav(t, lang, 1, False, page) + '<div class="wrap doc"><h1>%s</h1><p class="date">%s</p>%s</div>' % (html.escape(title), UPDATED[lang], body) + footer(t, lang, page)
 
 def write(path, text):
     os.makedirs(os.path.dirname(path), exist_ok=True)
     open(path, "w", encoding="utf-8").write(text)
 
 for lang in LANGS:
-    t = S[lang]; d = ROOT if lang == "en" else os.path.join(ROOT, lang)
+    t = S[lang]; d = ROOT if lang == HOME else os.path.join(ROOT, lang)
     write(os.path.join(d, "index.html"), landing(t, lang))
     write(os.path.join(d, "privacy", "index.html"), doc(t, lang, "privacy", t["privacy_t"], "".join("<h2>%s</h2><p>%s</p>" % (html.escape(h), p) for h, p in t["privacy_b"])))
     write(os.path.join(d, "support", "index.html"), doc(t, lang, "support", t["support_t"], "<p>%s</p><h2>%s</h2>%s" % (t["support_p"], html.escape(t["support_h"]), "".join("<details><summary>%s</summary><p>%s</p></details>" % (html.escape(q), html.escape(a)) for q, a in t["support_faq"]))))
     write(os.path.join(d, "terms", "index.html"), doc(t, lang, "terms", t["terms_t"], "".join("<h2>%s</h2><p>%s</p>" % (html.escape(h), p) for h, p in t["terms_b"])))
+# The Spanish pages lived at /es/ for a day: those addresses now lead to the same page at the root.
+for page in ["", "privacy", "support", "terms"]:
+    to = page_url(HOME, page)
+    write(os.path.join(ROOT, "es", page, "index.html") if page else os.path.join(ROOT, "es", "index.html"),
+          '<!doctype html><html lang="es"><head><meta charset="utf-8"><title>Tiquet</title><link rel="canonical" href="https://tiquet.securlabs.net%s">'
+          '<meta http-equiv="refresh" content="0; url=%s"></head><body><a href="%s">Tiquet</a></body></html>' % (to, to, to))
 print("built", len(LANGS), "languages")

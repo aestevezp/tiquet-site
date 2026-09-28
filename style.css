@@ -15,6 +15,10 @@ nav .brand img{width:30px;height:30px;border-radius:8px;box-shadow:0 0 0 1px rgb
 nav .brand:hover{text-decoration:none}
 nav .links{margin-left:auto;display:flex;gap:18px;font-size:15px;flex-wrap:wrap}
 nav .links a{color:var(--soft)}nav .links a:hover,nav .links a.on{color:var(--ink);text-decoration:none}
+/* ES · CA · EN, always in sight */
+nav .langs{display:flex;gap:4px;margin-left:6px;padding:3px;border:1px solid var(--line);border-radius:10px;background:rgba(255,255,255,.03)}
+nav .langs a{min-width:34px;height:28px;display:grid;place-items:center;border-radius:7px;font-size:12px;font-weight:700;letter-spacing:.05em;color:var(--soft)}
+nav .langs a:hover{color:var(--ink);text-decoration:none}nav .langs a.on{color:#fff;background:var(--accent)}
 
 /* hero: a glow and a faint grid behind, the app in front */
 .hero{position:relative;isolation:isolate;padding:92px 0 56px;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
