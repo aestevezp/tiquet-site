@@ -5,7 +5,7 @@ Same pattern as decksweep-site: static files, GitHub Pages, CNAME. Screenshots c
 import os, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
-CSS_VERSION = 7
+CSS_VERSION = 8
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
 UPDATED = {"en": "28 September 2026", "es": "28 de septiembre de 2026", "ca": "28 de setembre de 2026"}
 
@@ -1033,6 +1033,39 @@ X3 = {
 }
 for _l in X3: S[_l].update(X3[_l])
 
+# The basket and the shopping list (owner, 2026-10-03: "show the shopping list and how prices move"), and several
+# files at once: bank statements are imported one after another, in the order sent.
+X4 = {
+"es": dict(
+  bk_k="La cesta", bk_h="Lo que sube en tu súper, y la lista de lo que te toca comprar",
+  bk_p="Cada tique del súper guarda sus artículos con su precio. Tiquet compara lo mismo en la misma tienda y te dice cuánto ha subido tu cesta habitual, qué producto sube más y dónde lo tienes más barato.",
+  bk_l=["Tu cesta habitual, comparada con la de hace meses", "Precio por unidad, o por kilo si se pesa", "El mismo producto, más barato en tu otro súper",
+        "Lista de la compra con lo que te toca reponer", "Escribe tres letras y te sugiere lo que ya compraste", "En el súper vas tachando y ves cuánto falta"],
+  bk_alt1="La cesta: tu cesta habitual sube un 14,4 % y los productos que más suben", bk_alt2="Lista de la compra en forma de tique, con un artículo tachado",
+  in_p="La póliza que te mandaron por correo, la factura en PDF, la foto de un tique, los extractos que bajas de tu banco: mantenlos pulsados, toca Compartir y elige Tiquet. Hasta 20 a la vez: los lee uno tras otro, en el orden en que los mandas. Todo se lee en el dispositivo.",
+  faq_more=[("¿Puedo mandar varios archivos a la vez?", "Sí, hasta 20 en cada envío: fotos, PDF y extractos del banco en CSV o Excel. Al abrir Tiquet los lee en el orden en que los mandaste; los extractos, uno detrás de otro, y lo que ya estaba no se duplica. Si tu banco solo exporta un año cada vez, manda un archivo por año.")]),
+"en": dict(
+  bk_k="The basket", bk_h="What goes up at your supermarket, and the list of what you need",
+  bk_p="Every supermarket receipt keeps its items and their prices. Tiquet compares the same thing at the same shop and tells you how much your usual basket has gone up, which product rises most and where it is cheaper.",
+  bk_l=["Your usual basket, against months ago", "Price per unit, or per kilo when weighed", "The same product, cheaper at your other supermarket",
+        "A shopping list with what is due again", "Type three letters and it suggests what you bought before", "In the shop, tick things off and see what is left"],
+  bk_alt1="The basket: your usual basket is up 14.4 % and the products rising most", bk_alt2="Shopping list as a till receipt, one item ticked off",
+  in_p="The policy you were emailed, the PDF invoice, a photo of a receipt, the statements you download from your bank: press and hold, tap Share and choose Tiquet. Up to 20 at once: it reads them one after another, in the order you sent them. Everything is read on the device.",
+  faq_more=[("Can I send several files at once?", "Yes, up to 20 each time: photos, PDFs and bank statements in CSV or Excel. When you open Tiquet it reads them in the order you sent them; statements one after another, and nothing already there is added twice. If your bank exports one year at a time, send one file per year.")]),
+"ca": dict(
+  bk_k="La cistella", bk_h="El que puja al teu súper, i la llista del que t'has de comprar",
+  bk_p="Cada tiquet del súper guarda els seus articles amb el preu. Tiquet compara el mateix a la mateixa botiga i et diu quant ha pujat la teva cistella habitual, quin producte puja més i on el tens més barat.",
+  bk_l=["La teva cistella habitual, comparada amb la de fa mesos", "Preu per unitat, o per quilo si es pesa", "El mateix producte, més barat a l'altre súper",
+        "Llista de la compra amb el que t'has de reposar", "Escriu tres lletres i et suggereix el que ja vas comprar", "Al súper vas ratllant i veus quant falta"],
+  bk_alt1="La cistella: la teva cistella habitual puja un 14,4 % i els productes que més pugen", bk_alt2="Llista de la compra en forma de tiquet, amb un article ratllat",
+  in_p="La pòlissa que et van enviar per correu, la factura en PDF, la foto d'un tiquet, els extractes que baixes del banc: mantén-los premuts, toca Comparteix i tria Tiquet. Fins a 20 alhora: els llegeix un rere l'altre, en l'ordre en què els envies. Tot es llegeix al dispositiu.",
+  faq_more=[("Puc enviar diversos fitxers alhora?", "Sí, fins a 20 cada vegada: fotos, PDF i extractes del banc en CSV o Excel. Quan obres Tiquet els llegeix en l'ordre en què els vas enviar; els extractes, un rere l'altre, i el que ja hi era no es duplica. Si el banc només exporta un any cada vegada, envia un fitxer per any.")]),
+}
+for _l in X4:
+    _faq = X4[_l].pop("faq_more")
+    S[_l].update(X4[_l])
+    S[_l]["faqs"] = S[_l]["faqs"] + _faq
+
 # Spanish at the root: the App Store starts in Spain (owner, 2026-09-28). English at /en/, Catalan at /ca/.
 HOME = "es"
 ORDER = ["es", "ca", "en"]                        # as the switcher shows them
@@ -1107,6 +1140,10 @@ def landing(t, lang):
     out += ('<section id="in"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2><p class="lead reveal">%s</p>'
             '<div class="flow"><div class="srcs">%s</div><div class="into"><span class="beam"></span><img src="%simg/icon.png" alt="Tiquet"><span class="beam b2"></span></div>%s</div>'
             '<div class="outs">%s</div></div></section>') % (e(t["in_k"]), e(t["in_h"]), e(t["in_p"]), src, r, sheet, outs)
+    # The basket and the shopping list: two phones, the sample household's prices.
+    out += ('<section id="basket"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s</div>'
+            '<div class="duo reveal"><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div></div></div></section>'
+            ) % (e(t["bk_k"]), e(t["bk_h"]), e(t["bk_p"]), checks(t["bk_l"]), shot("basket"), e(t["bk_alt1"]), shot("list"), e(t["bk_alt2"]))
     # The Home Screen: the four widgets, the Control Centre button and Siri, drawn with the sample household's figures.
     w = t["wg"]
     widgets = ('<div class="home reveal"><span class="demo">%s</span>'

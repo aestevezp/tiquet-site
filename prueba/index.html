@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex">
+<meta name="description" content="Cómo probar la beta de Tiquet: instalar TestFlight, unirse y sacarle partido.">
+<link rel="icon" href="../img/icon.png">
+<title>Prueba Tiquet</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@112,600;112,800&family=Atkinson+Hyperlegible+Next:wght@400;600&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: a long till roll — each section is a strip of thermal paper torn off the same receipt, on an ink-blue counter. */
+:root {
+  --counter: #E9EDF3;      /* the surface the paper lies on */
+  --paper: #FCFBF8;        /* thermal paper */
+  --ink: #1D1C20;
+  --muted: #5A5A62;
+  --rule: #CFCCC4;
+  --accent: #1864DC;       /* Tiquet's blue */
+  --accent-ink: #FFFFFF;
+  --up: #B02420;
+  --down: #0E6C36;
+  --well: #F1EFEA;
+  --display: "Archivo", "Helvetica Neue", Arial, sans-serif;
+  --body: "Atkinson Hyperlegible Next", "Helvetica Neue", Arial, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) {
+  --counter: #0B0F17; --paper: #211F1C; --ink: #EDE9E1; --muted: #ABAAAF; --rule: #4A4740;
+  --accent: #68A6FF; --accent-ink: #0B0F17; --up: #FF8078; --down: #60D488; --well: #2B2925; color-scheme: dark } }
+:root[data-theme="dark"] {
+  --counter: #0B0F17; --paper: #211F1C; --ink: #EDE9E1; --muted: #ABAAAF; --rule: #4A4740;
+  --accent: #68A6FF; --accent-ink: #0B0F17; --up: #FF8078; --down: #60D488; --well: #2B2925; color-scheme: dark }
+
+* { box-sizing: border-box; }
+body { background: var(--counter); color: var(--ink); font-family: var(--body); font-size: 17px; line-height: 1.55; margin: 0; }
+.roll { max-width: 760px; margin: 0 auto; padding-inline: 16px; padding-block: 28px 56px; display: flex; flex-direction: column; gap: 26px; }
+
+/* A strip of paper: straight top, torn bottom. */
+.strip { background: var(--paper); padding: 28px 22px 40px; position: relative;
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 10px), 97.5% 100%, 95% calc(100% - 10px), 92.5% 100%, 90% calc(100% - 10px), 87.5% 100%, 85% calc(100% - 10px), 82.5% 100%, 80% calc(100% - 10px), 77.5% 100%, 75% calc(100% - 10px), 72.5% 100%, 70% calc(100% - 10px), 67.5% 100%, 65% calc(100% - 10px), 62.5% 100%, 60% calc(100% - 10px), 57.5% 100%, 55% calc(100% - 10px), 52.5% 100%, 50% calc(100% - 10px), 47.5% 100%, 45% calc(100% - 10px), 42.5% 100%, 40% calc(100% - 10px), 37.5% 100%, 35% calc(100% - 10px), 32.5% 100%, 30% calc(100% - 10px), 27.5% 100%, 25% calc(100% - 10px), 22.5% 100%, 20% calc(100% - 10px), 17.5% 100%, 15% calc(100% - 10px), 12.5% 100%, 10% calc(100% - 10px), 7.5% 100%, 5% calc(100% - 10px), 2.5% 100%, 0 calc(100% - 10px)); }
+@media (min-width: 640px) { .strip { padding: 36px 40px 48px; } }
+
+.eyebrow { font-family: var(--mono); font-size: 12px; letter-spacing: .22em; text-transform: uppercase; color: var(--muted); margin: 0 0 10px; }
+h1, h2, h3 { font-family: var(--display); font-stretch: 112%; text-wrap: balance; margin: 0; line-height: 1.08; }
+h1 { font-size: clamp(44px, 11vw, 76px); font-weight: 800; letter-spacing: -.01em; }
+h2 { font-size: clamp(26px, 6vw, 36px); font-weight: 800; }
+h3 { font-size: 19px; font-weight: 600; }
+p { margin: 0; max-width: 62ch; }
+.lead { font-size: 19px; margin-top: 14px; }
+.muted { color: var(--muted); }
+a { color: var(--accent); }
+.dash { border: 0; border-top: 1.5px dashed var(--rule); margin: 22px 0; }
+
+/* Hero */
+.hero .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+.btn { display: inline-flex; align-items: center; gap: 8px; padding: 13px 18px; border-radius: 12px; font-weight: 600; text-decoration: none; font-size: 16px; }
+.btn.primary { background: var(--accent); color: var(--accent-ink); }
+.btn.ghost { border: 1.5px solid var(--accent); color: var(--accent); }
+.btn:focus-visible, button:focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.chip { font-family: var(--mono); font-size: 13px; padding: 5px 10px; background: var(--well); border-radius: 999px; }
+.note { font-size: 14px; color: var(--muted); margin-top: 14px; }
+
+/* Till lines: label .... value */
+.line { display: flex; align-items: baseline; gap: 10px; font-family: var(--mono); font-size: 15px; font-variant-numeric: tabular-nums; }
+.line .lead-dots { flex: 1; border-bottom: 2px dotted var(--rule); transform: translateY(-4px); min-width: 16px; }
+.line + .line { margin-top: 6px; }
+
+/* Steps: a real sequence, so numbered. */
+.steps { list-style: none; padding: 0; margin: 22px 0 0; display: grid; gap: 22px; }
+.step { display: grid; grid-template-columns: 44px 1fr; gap: 14px; align-items: start; }
+.step .n { font-family: var(--mono); font-weight: 600; font-size: 15px; width: 44px; height: 44px; border-radius: 50%; border: 1.5px solid var(--ink); display: grid; place-items: center; }
+.step .body { min-width: 0; display: grid; gap: 6px; }
+.step p { font-size: 16px; }
+.tf { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); margin-top: 6px; padding: 12px; background: var(--well); border-radius: 14px; max-width: 460px; }
+.tf-icon { width: 46px; height: 46px; border-radius: 11px; flex: none; display: grid; place-items: center; background: var(--accent); color: var(--accent-ink); font-size: 22px; font-weight: 600; }
+.tf small { display: block; color: var(--muted); font-size: 13px; }
+
+/* What to give it */
+.sources { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 12px; margin-top: 20px; }
+.src { background: var(--well); border-radius: 14px; padding: 16px; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.src .doc { font-family: var(--mono); font-size: 12px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+.src .arrow { font-family: var(--mono); color: var(--accent); font-size: 14px; }
+.src p { font-size: 15px; }
+
+/* Bank files */
+.flow { display: grid; gap: 10px; margin-top: 20px; counter-reset: f; }
+.flow li { list-style: none; display: grid; grid-template-columns: 30px 1fr; gap: 10px; align-items: baseline; }
+.flow li::before { counter-increment: f; content: counter(f) "."; font-family: var(--mono); color: var(--muted); }
+.flow { padding: 0; }
+.share { margin-top: 22px; background: var(--well); border-radius: 18px; padding: 16px; max-width: 460px; }
+.share .file { display: flex; align-items: center; gap: 10px; font-family: var(--mono); font-size: 13px; }
+.share .file i { width: 28px; height: 34px; border-radius: 4px; background: var(--paper); border: 1.5px solid var(--rule); display: grid; place-items: center; font-style: normal; font-size: 9px; }
+.share .apps { display: flex; gap: 14px; margin-top: 14px; overflow-x: auto; padding-bottom: 4px; }
+.share .app { display: grid; justify-items: center; gap: 6px; font-size: 12px; color: var(--muted); flex: none; width: 64px; }
+.share .app b { width: 52px; height: 52px; border-radius: 13px; background: var(--rule); opacity: .55; display: block; }
+.share .app.tiquet b { opacity: 1; background: #232220; display: grid; place-items: center; box-shadow: 0 0 0 3px var(--accent); }
+.share .app.tiquet { color: var(--ink); font-weight: 600; }
+.share .app.tiquet svg { width: 30px; height: 30px; }
+.status { margin-top: 14px; display: grid; gap: 6px; }
+.status .line { font-size: 14px; }
+
+/* Screens */
+.screens { display: grid; grid-auto-flow: column; grid-auto-columns: minmax(200px, 240px); gap: 18px; overflow-x: auto; padding: 6px 2px 14px; margin-top: 20px; scroll-snap-type: x mandatory; }
+.shot { scroll-snap-align: start; display: grid; gap: 10px; align-content: start; }
+.shot img { width: 100%; border-radius: 26px; border: 6px solid #111215; display: block; background: #111215; }
+.shot h3 { font-size: 17px; }
+.shot p { font-size: 14px; color: var(--muted); }
+.hint { font-family: var(--mono); font-size: 12px; color: var(--muted); }
+
+/* Ask examples */
+.asks { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 16px; }
+.ask { padding: 8px 12px; border-radius: 12px; background: var(--well); font-size: 15px; }
+
+.privacy .line { font-size: 15px; }
+.copy { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; margin-top: 10px; }
+.copy code { font-family: var(--mono); font-size: 14px; background: var(--well); padding: 6px 10px; border-radius: 8px; user-select: all; overflow-wrap: anywhere; }
+.copy button { font: 600 14px var(--body); padding: 7px 12px; border-radius: 9px; border: 1.5px solid var(--accent); color: var(--accent); background: transparent; cursor: pointer; }
+.barcode { height: 34px; margin: 26px auto 0; width: 200px; background: repeating-linear-gradient(90deg, var(--ink) 0 2px, transparent 2px 4px, var(--ink) 4px 5px, transparent 5px 8px, var(--ink) 8px 11px, transparent 11px 12px); opacity: .8; }
+@media (prefers-reduced-motion: no-preference) { .btn { transition: transform .15s; } .btn:hover { transform: translateY(-1px); } }
+</style>
+
+</head>
+<body>
+<main class="roll">
+
+  <section class="strip hero" aria-labelledby="t">
+    <p class="eyebrow">Beta privada · TestFlight</p>
+    <h1 id="t">Prueba Tiquet</h1>
+    <p class="lead">Fotografía tiques, guarda contratos y envía los extractos de tu banco. Tiquet lo lee todo en tu iPhone y te dice qué pagas, qué se renueva, qué sube de precio en tu súper y qué te toca comprar.</p>
+    <div class="cta">
+      <a class="btn primary" href="https://testflight.apple.com/join/DwA9KPk5">Unirme a la beta</a>
+      <a class="btn ghost" href="https://tiquet.securlabs.net">Ver la web</a>
+    </div>
+    <div class="chips" aria-label="Requisitos">
+      <span class="chip">iPhone con iOS 27</span>
+      <span class="chip">Gratis</span>
+      <span class="chip">Sin cuentas</span>
+      <span class="chip">Todo en tu iPhone</span>
+    </div>
+    <p class="note">El enlace funciona en cuanto Apple aprueba la beta. Si te dice que aún no está disponible, vuelve a probar en unas horas.</p>
+  </section>
+
+  <section class="strip" aria-labelledby="start">
+    <p class="eyebrow">Para empezar</p>
+    <h2 id="start">Cuatro pasos, cinco minutos</h2>
+    <ol class="steps">
+      <li class="step"><span class="n">1</span>
+        <div class="body">
+          <h3>Instala TestFlight</h3>
+          <p>Es la app gratuita de Apple para probar apps antes de que salgan. En el App Store busca «TestFlight» y fíjate en que la publica Apple.</p>
+          <a class="tf" href="https://apps.apple.com/es/app/testflight/id899247664" aria-label="TestFlight en el App Store">
+            <span class="tf-icon" aria-hidden="true">↓</span>
+            <span><b>Abrir TestFlight en el App Store</b><small>De Apple · su icono es azul con una hélice blanca</small></span>
+          </a>
+        </div>
+      </li>
+      <li class="step"><span class="n">2</span>
+        <div class="body">
+          <h3>Abre el enlace de invitación en el iPhone</h3>
+          <p>Toca <a href="https://testflight.apple.com/join/DwA9KPk5">el enlace</a> desde el iPhone (no desde el ordenador). Se abre TestFlight: pulsa <b>Aceptar</b> y luego <b>Instalar</b>. Tiquet aparece en tu pantalla de inicio como cualquier app.</p>
+        </div>
+      </li>
+      <li class="step"><span class="n">3</span>
+        <div class="body">
+          <h3>Ábrela y mírala con datos de ejemplo</h3>
+          <p>En la primera pantalla, <b>Probar con datos de ejemplo</b> te enseña una casa inventada con todo funcionando. Cuando quieras, sal del modo ejemplo y empieza con lo tuyo: nada de lo inventado se mezcla con tus datos.</p>
+        </div>
+      </li>
+      <li class="step"><span class="n">4</span>
+        <div class="body">
+          <h3>Cuéntanos qué ves</h3>
+          <p>Haz una captura de pantalla dentro de Tiquet y TestFlight te ofrece enviarla como comentario. Lo que falla, lo que no entiendes y lo que echas en falta: todo ayuda.</p>
+        </div>
+      </li>
+    </ol>
+  </section>
+
+  <section class="strip" aria-labelledby="give">
+    <p class="eyebrow">Qué le puedes dar</p>
+    <h2 id="give">Todo lo que tenga un importe</h2>
+    <p class="lead">Con el botón <b>+</b> haces una foto o eliges de Fotos. Desde el correo o Archivos, mantén pulsado el adjunto y elige <b>Compartir › Tiquet</b>.</p>
+    <div class="sources">
+      <div class="src"><span class="doc">Tique del súper</span><h3>Cada artículo, con su precio</h3><span class="arrow">→ La cesta y la lista de la compra</span><p>Mercadona, Lidl, Bon Preu… Si el rollo es largo, mejor con buena luz y el papel plano.</p></div>
+      <div class="src"><span class="doc">Bar o restaurante</span><h3>El sitio, en el mapa</h3><span class="arrow">→ Sitios</span><p>Puntúa los platos con estrellas y pregúntale después dónde te gustó algo.</p></div>
+      <div class="src"><span class="doc">Contrato o seguro</span><h3>Lo que pagas cada mes</h3><span class="arrow">→ Contratos</span><p>Foto o PDF de la póliza o del contrato del móvil. Te avisa antes de que se renueve.</p></div>
+      <div class="src"><span class="doc">Factura en PDF</span><h3>Directa desde el correo</h3><span class="arrow">→ Compartir › Tiquet</span><p>Luz, teléfono, compras online. Lee el PDF tal cual, sin fotos.</p></div>
+      <div class="src"><span class="doc">Extracto del banco</span><h3>Tus movimientos, de golpe</h3><span class="arrow">→ Movimientos y Vigilancia</span><p>En CSV o Excel. Detecta suscripciones, cargos raros y lo que se repite.</p></div>
+    </div>
+  </section>
+
+  <section class="strip" aria-labelledby="bank">
+    <p class="eyebrow">Extractos del banco</p>
+    <h2 id="bank">Tres años de movimientos en un minuto</h2>
+    <ol class="flow">
+      <li><p>En la web o la app de tu banco, busca <b>Exportar movimientos</b> y elige <b>CSV</b> o <b>Excel</b>. Si solo te deja un año cada vez, descarga un archivo por año.</p></li>
+      <li><p>Envíatelos por correo o guárdalos en <b>Archivos</b>.</p></li>
+      <li><p>Selecciónalos (hasta 20 de una vez), toca <b>Compartir</b> y elige <b>Tiquet</b>. Si no aparece, desliza hasta <b>Más</b> y actívalo.</p></li>
+      <li><p>Abre Tiquet: los lee uno detrás de otro, en el orden en que los enviaste. Puedes repetir un archivo sin miedo: lo que ya estaba no se duplica.</p></li>
+    </ol>
+    <div class="share" aria-hidden="true">
+      <div class="file"><i>CSV</i> movimientos-2024.csv · 2025.csv · 2026.csv</div>
+      <div class="apps">
+        <span class="app"><b></b>Mensajes</span>
+        <span class="app"><b></b>Mail</span>
+        <span class="app tiquet"><b><svg viewBox="0 0 24 24" fill="none"><rect x="6" y="3.5" width="12" height="17" rx="1.5" fill="#FCFBF8"/><path d="M8.5 8h7M8.5 11h5" stroke="#9A968D" stroke-width="1.2" stroke-linecap="round"/><path d="M9 15.2l2 2 4-4.4" stroke="#E5484D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></b>Tiquet</span>
+        <span class="app"><b></b>Notas</span>
+        <span class="app"><b></b>Más</span>
+      </div>
+      <div class="status">
+        <div class="line"><span>Extracto 1 de 3</span><span class="lead-dots"></span><span>2024</span></div>
+        <div class="line"><span>Extracto 2 de 3</span><span class="lead-dots"></span><span>2025</span></div>
+        <div class="line"><span>Extracto 3 de 3</span><span class="lead-dots"></span><span>2026</span></div>
+      </div>
+    </div>
+    <p class="note">Reconoce las exportaciones de BBVA, Banc Sabadell y Revolut, y cualquier CSV o Excel con fecha, concepto e importe. Tiquet nunca entra en tu banco ni te pide claves.</p>
+  </section>
+
+  <section class="strip" aria-labelledby="use">
+    <p class="eyebrow">Sácale partido</p>
+    <h2 id="use">Lo que te enseña</h2>
+    <div class="screens" role="list">
+      <figure class="shot" role="listitem"><img src="../img/s/home-es.jpg" alt="Inicio de Tiquet con lo que requiere atención y lo próximo que se cobra" loading="lazy"><h3>Inicio</h3><p>Lo que requiere atención, lo que se cobra pronto y cómo va el mes.</p></figure>
+      <figure class="shot" role="listitem"><img src="../img/s/basket-es.jpg" alt="La cesta: la cesta habitual sube un 14,4 % y los productos que más suben" loading="lazy"><h3>La cesta</h3><p>Cuánto ha subido tu cesta en cada súper, qué producto sube y dónde es más barato.</p></figure>
+      <figure class="shot" role="listitem"><img src="../img/s/list-es.jpg" alt="Lista de la compra en forma de tique, con un artículo tachado" loading="lazy"><h3>Lista de la compra</h3><p>Se llena con lo que sueles comprar. En el súper vas tachando y te dice cuánto falta.</p></figure>
+      <figure class="shot" role="listitem"><img src="../img/s/ask-es.jpg" alt="Pregunta respondiendo cuánto se gasta en un sitio" loading="lazy"><h3>Pregunta</h3><p>Pregúntale con tus palabras, también por voz.</p></figure>
+      <figure class="shot" role="listitem"><img src="../img/s/contracts-es.jpg" alt="Contratos y seguros con su precio y su renovación" loading="lazy"><h3>Contratos</h3><p>Seguros, móvil, luz, suscripciones: cuánto cuestan y cuándo se renuevan.</p></figure>
+      <figure class="shot" role="listitem"><img src="../img/s/places-es.jpg" alt="Sitios en el mapa con sus visitas" loading="lazy"><h3>Sitios</h3><p>Bares y restaurantes en el mapa, con lo que pediste y si te gustó.</p></figure>
+      <figure class="shot" role="listitem"><img src="../img/s/month-es.jpg" alt="El Mes, el periódico de tu casa" loading="lazy"><h3>El Mes</h3><p>Cada mes, un periódico con lo que ha pasado en tu casa.</p></figure>
+    </div>
+    <p class="hint">Desliza para ver más →</p>
+    <hr class="dash">
+    <h3>Prueba a preguntarle</h3>
+    <div class="asks">
+      <span class="ask">Hazme la lista de la compra</span>
+      <span class="ask">¿Cuánto ha subido la leche?</span>
+      <span class="ask">¿Qué suscripciones pago?</span>
+      <span class="ask">¿Cuánto gasté en restaurantes este año?</span>
+      <span class="ask">¿Dónde me gustó el arroz?</span>
+    </div>
+    <hr class="dash">
+    <h3>En el súper</h3>
+    <p class="muted" style="margin-top:6px">Dile a Siri «Lista de la compra en Tiquet» y se abre lista para tachar. Al escribir un producto, a partir de tres letras te sugiere los que ya compraste, con su precio.</p>
+  </section>
+
+  <section class="strip privacy" aria-labelledby="priv">
+    <p class="eyebrow">Privacidad</p>
+    <h2 id="priv">Tus datos no salen de tu iPhone</h2>
+    <div style="margin-top:18px">
+      <div class="line"><span>Cuentas</span><span class="lead-dots"></span><span>ninguna</span></div>
+      <div class="line"><span>Servidores de Tiquet</span><span class="lead-dots"></span><span>ninguno</span></div>
+      <div class="line"><span>Acceso a tu banco</span><span class="lead-dots"></span><span>nunca</span></div>
+      <div class="line"><span>Compras en la beta</span><span class="lead-dots"></span><span>0,00 €</span></div>
+    </div>
+    <p class="note">La lectura la hace Apple Intelligence en el propio iPhone. Sin ella, Tiquet también lee con sus propias reglas. La copia en iCloud es opcional y va a tu iCloud privado. Las compras dentro de la beta (la prueba de 14 días y Tiquet Plus) son de prueba: no se cobra nada.</p>
+    <hr class="dash">
+    <h3>¿Dudas o ideas?</h3>
+    <p class="muted" style="margin-top:6px">Desde TestFlight, o escribe a:</p>
+    <div class="copy"><code id="mail">a.estevez@gmail.com</code><button type="button" id="copyMail">Copiar</button></div>
+    <p class="note">Más en <a href="https://tiquet.securlabs.net">tiquet.securlabs.net</a></p>
+    <div class="barcode" aria-hidden="true"></div>
+  </section>
+
+</main>
+
+<script>
+document.getElementById('copyMail').addEventListener('click', async (e) => {
+  const b = e.currentTarget, text = document.getElementById('mail').textContent;
+  try { await navigator.clipboard.writeText(text); b.textContent = 'Copiado'; }
+  catch { const r = document.createRange(); r.selectNodeContents(document.getElementById('mail')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Seleccionado'; }
+  setTimeout(() => { b.textContent = 'Copiar'; }, 1800);
+});
+</script>
+</body>
+</html>
