@@ -5,7 +5,9 @@ Same pattern as decksweep-site: static files, GitHub Pages, CNAME. Screenshots c
 import os, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
-CSS_VERSION = 8
+CSS_VERSION = 9
+# The App Store page, once Tiquet is live (Spain first): the hero's main button goes there.
+APP_STORE = "https://apps.apple.com/es/app/tiquet/id6816756161"
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
 UPDATED = {"en": "28 September 2026", "es": "28 de septiembre de 2026", "ca": "28 de setembre de 2026"}
 
@@ -1066,6 +1068,13 @@ for _l in X4:
     S[_l].update(X4[_l])
     S[_l]["faqs"] = S[_l]["faqs"] + _faq
 
+# Live on the App Store (Spain first).
+X5 = {"es": dict(store_cta="Descargar en el App Store", store_note="Gratis · App Store de España"),
+      "en": dict(store_cta="Download on the App Store", store_note="Free · App Store in Spain"),
+      "ca": dict(store_cta="Descarrega a l'App Store", store_note="Gratis · App Store d'Espanya")}
+for _l in X5: S[_l].update(X5[_l])
+
+
 # Spanish at the root: the App Store starts in Spain (owner, 2026-09-28). English at /en/, Catalan at /ca/.
 HOME = "es"
 ORDER = ["es", "ca", "en"]                        # as the switcher shows them
@@ -1103,10 +1112,12 @@ def landing(t, lang):
     out = head(t, lang, t["title"], 0) + nav(t, lang, 0, True)
     # Hero: the promise, the four refusals, and the phone with what it is doing right now.
     out += ('<header class="hero-x"><div class="wrap hero"><div class="reveal"><h1>%s<em>%s</em></h1><p class="sub">%s</p>'
-            '<ul class="badges">%s</ul><div class="hero-actions"><a class="pill" href="#pricing">%s</a><span class="release-note">%s</span></div><p class="note">%s</p></div>'
+            '<ul class="badges">%s</ul><div class="hero-actions">%s</div><p class="note">%s</p></div>'
             '<div class="stage reveal"><div class="shot phone"><img src="%s" alt="" loading="eager"></div>'
             '<div class="float f1"><span class="dot"></span>%s · <b>%s</b></div><div class="float f2">%s · <b>%s</b></div></div></div></header>'
-            ) % (e(t["h1a"]), e(t["h1b"]), e(t["sub"]), "".join("<li>%s</li>" % e(b) for b in t["badges"]), e(t["primary_cta"]), e(t["cta"]), e(t["note"]),
+            ) % (e(t["h1a"]), e(t["h1b"]), e(t["sub"]), "".join("<li>%s</li>" % e(b) for b in t["badges"]),
+                 ('<a class="pill" href="%s">%s</a><a class="pill ghost" href="#pricing">%s</a><span class="release-note">%s</span>' % (APP_STORE, e(t["store_cta"]), e(t["primary_cta"]), e(t["store_note"])))
+                 if APP_STORE else ('<a class="pill" href="#pricing">%s</a><span class="release-note">%s</span>' % (e(t["primary_cta"]), e(t["cta"]))), e(t["note"]),
                  shot("home"), e(t["ai_model"]), e(t["ai_model_v"]), e(t["ai_net"]), e(t["ai_net_v"]))
     # Ask: a conversation that writes itself when it comes into view; all figures are invented examples.
     chat = "".join('<div class="msg q">%s</div><div class="msg a"><span class="spark"></span><span class="txt">%s</span></div>' % (e(q), e(a)) for q, a in t["chat"])

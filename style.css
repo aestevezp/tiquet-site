@@ -224,4 +224,4 @@ details.all{margin-top:26px;border:0}details.all summary{justify-content:flex-st
 /* The basket: two phones, the second a little lower */
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}.duo .shot.phone{width:100%;transform:none;border-radius:34px;padding:7px}.duo .shot.phone img{border-radius:28px}.duo .shot.phone:nth-child(2){margin-top:48px}
 @media (max-width:820px){.duo{gap:12px}.duo .shot.phone:nth-child(2){margin-top:28px}}
-
+.pill.ghost{background:transparent;border:1.5px solid var(--accent);color:var(--accent);box-shadow:none}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
