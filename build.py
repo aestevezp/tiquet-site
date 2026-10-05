@@ -2,10 +2,10 @@
 """Tiquet's site. One template, three languages (Spanish at the root, /en/, /ca/). Edit S, run, commit the HTML.
 Same pattern as decksweep-site: static files, GitHub Pages, CNAME. Screenshots come from the app's sample data only
 (invented household, invented companies): never a capture of anyone's real data."""
-import os, html
+import os, sys, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
-CSS_VERSION = 9
+CSS_VERSION = 10
 # The App Store page, once Tiquet is live (Spain first): the hero's main button goes there.
 APP_STORE = "https://apps.apple.com/es/app/tiquet/id6816756161"
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
@@ -1076,17 +1076,26 @@ for _l in X5: S[_l].update(X5[_l])
 
 
 # Spanish at the root: the App Store starts in Spain (owner, 2026-09-28). English at /en/, Catalan at /ca/.
+# The guide: how each part works, one section per part (guide.py holds the words, per language).
+sys.path.insert(0, ROOT)
+try:
+    from guide import GUIDE
+except ImportError:
+    GUIDE = {}
+GUIDE_NAV = {"es": "Cómo funciona", "ca": "Com funciona", "en": "How it works"}
+
 HOME = "es"
 ORDER = ["es", "ca", "en"]                        # as the switcher shows them
 def root(lang, depth): return "../" * (depth + (0 if lang == HOME else 1))
 def page_url(lang, page=""): return "/" + ("" if lang == HOME else lang + "/") + (page + "/" if page else "")
 def switcher(lang, page=""):
     """ES · CA · EN at the top of every page, the current one lit; each goes to the same page in that language."""
-    return '<div class="langs">' + "".join('<a href="%s" lang="%s" hreflang="%s"%s>%s</a>' % (page_url(l, page), l, l, ' class="on" aria-current="true"' if l == lang else "", l.upper()) for l in ORDER) + '</div>'
+    there = lambda l: page if page != "guia" or l in GUIDE else ""      # the guide only where it is written
+    return '<div class="langs">' + "".join('<a href="%s" lang="%s" hreflang="%s"%s>%s</a>' % (page_url(l, there(l)), l, l, ' class="on" aria-current="true"' if l == lang else "", l.upper()) for l in ORDER) + '</div>'
 
 def head(t, lang, title, depth, page=""):
     r = root(lang, depth)
-    alts = "".join('<link rel="alternate" hreflang="%s" href="https://tiquet.securlabs.net%s">' % (l, page_url(l, page)) for l in LANGS)
+    alts = "".join('<link rel="alternate" hreflang="%s" href="https://tiquet.securlabs.net%s">' % (l, page_url(l, page)) for l in LANGS if page != "guia" or l in GUIDE)
     alts += '<link rel="alternate" hreflang="x-default" href="https://tiquet.securlabs.net%s">' % page_url(HOME, page)
     alts += '<link rel="canonical" href="https://tiquet.securlabs.net%s"><meta property="og:url" content="https://tiquet.securlabs.net%s">' % (page_url(lang, page), page_url(lang, page))
     return ('<!doctype html><html lang="%s"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
@@ -1097,11 +1106,13 @@ def head(t, lang, title, depth, page=""):
 def nav(t, lang, depth, landing, page=""):
     r = root(lang, depth); home = page_url(lang)
     links = "".join('<a class="opt" href="%s%s">%s</a>' % ("" if landing else home, a, html.escape(n)) for a, n in t["nav"])
+    if lang in GUIDE: links += '<a class="opt%s" href="%s">%s</a>' % (" on" if page == "guia" else "", page_url(lang, "guia"), html.escape(GUIDE_NAV[lang]))
     return '<nav><div class="wrap"><a class="brand" href="%s"><img src="%simg/icon.png" alt="">Tiquet</a><div class="links">%s<a href="%s">%s</a></div>%s</div></nav>' % (home, r, links, page_url(lang, "support"), html.escape(t["f_support"]), switcher(lang, page))
 
 def footer(t, lang, page=""):
-    langs = "".join('<a href="%s">%s</a>' % (page_url(l, page), S[l]["name_lang"]) for l in LANGS if l != lang)
-    return ('<footer><div class="wrap"><span>© 2026 Tiquet</span><a href="%s">%s</a><a href="%s">%s</a><a href="%s">%s</a><a href="mailto:%s">%s</a><span class="langs">%s</span></div></footer></body></html>'
+    langs = "".join('<a href="%s">%s</a>' % (page_url(l, page if page != "guia" or l in GUIDE else ""), S[l]["name_lang"]) for l in LANGS if l != lang)
+    guide = '<a href="%s">%s</a>' % (page_url(lang, "guia"), html.escape(GUIDE_NAV[lang])) if lang in GUIDE else ""
+    return ('<footer><div class="wrap"><span>© 2026 Tiquet</span>' + guide + '<a href="%s">%s</a><a href="%s">%s</a><a href="%s">%s</a><a href="mailto:%s">%s</a><span class="langs">%s</span></div></footer></body></html>'
             % (page_url(lang, "privacy"), t["f_privacy"], page_url(lang, "support"), t["f_support"], page_url(lang, "terms"), t["f_terms"], EMAIL, t["f_contact"], langs))
 
 def cards(items): return '<div class="grid">' + "".join('<div class="card %s"><span class="tag"></span><h3>%s</h3><p>%s</p></div>' % (c, html.escape(h), html.escape(p)) for h, p, c in items) + '</div>'
@@ -1191,13 +1202,43 @@ def landing(t, lang):
             ) % (e(t["more_k"]), e(t["more_h"] % len(shown)), chips, chips, chips[::1], chips, e(t["more_all"]),
                  "".join('<div><h3>%s</h3><p>%s</p></div>' % (e(h), e(p)) for h, p, _ in shown))
     # How it starts: a line of four.
-    out += ('<section id="start"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2><ol class="timeline">%s</ol></div></section>'
-            % (e(t["how_k"]), e(t["how_h"]), "".join('<li class="reveal"><h3>%s</h3><p>%s</p></li>' % (e(h), e(p)) for h, p in t["steps"])))
+    more = ('<p class="guide-link reveal"><a class="pill ghost" href="%s">%s →</a></p>' % (page_url(lang, "guia"), e(GUIDE[lang]["cta"]))) if lang in GUIDE else ""
+    out += ('<section id="start"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2><ol class="timeline">%s</ol>%s</div></section>'
+            % (e(t["how_k"]), e(t["how_h"]), "".join('<li class="reveal"><h3>%s</h3><p>%s</p></li>' % (e(h), e(p)) for h, p in t["steps"]), more))
     out += '<section id="faq"><div class="wrap"><span class="kicker">%s</span><h2>%s</h2>%s</div></section>' % (e(t["faq_k"]), e(t["faq_h"]), "".join("<details><summary>%s</summary><p>%s</p></details>" % (e(q), e(a)) for q, a in t["faqs"]))
     return out.replace("</body>", "") + footer(t, lang).replace("</body>", '<script src="%ssite.js?v=%d" defer></script></body>' % (r, CSS_VERSION))
 
 def doc(t, lang, page, title, body):
     return head(t, lang, title, 1, page) + nav(t, lang, 1, False, page) + '<div class="wrap doc"><h1>%s</h1><p class="date">%s</p>%s</div>' % (html.escape(title), UPDATED[lang], body) + footer(t, lang, page)
+
+# The index lights the part being read.
+GUIDE_SPY = ('<script>(function(){var l=document.querySelectorAll(".gtoc a"),m={};l.forEach(function(a){m[a.getAttribute("href").slice(1)]=a});'
+             'if(!("IntersectionObserver" in window))return;var o=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting&&m[e.target.id]){'
+             'l.forEach(function(a){a.classList.remove("on")});m[e.target.id].classList.add("on")}})},{rootMargin:"-30% 0px -60% 0px"});'
+             'document.querySelectorAll(".gpart[id]").forEach(function(s){o.observe(s)})})()</script>')
+
+def guide(t, lang):
+    """How it works: an index, then each part as what it does for you, how, tips and questions, beside its screen."""
+    g = GUIDE[lang]; e = html.escape; r = root(lang, 1)
+    shot = lambda n: "%simg/s/%s-%s.jpg" % (r, n, "en" if lang == "en" else "es")
+    badge = lambda s: '<span class="tier %s">%s</span>' % (s["tier"], e(g[s["tier"]])) + ('<span class="tier v11">%s</span>' % e(g["v11"]) if s.get("v11") else "")
+    toc = "".join('<li><a href="#%s">%s</a></li>' % (s["id"], e(s["short"])) for s in g["sections"])
+    parts = ""
+    for s in g["sections"]:
+        body = '<p class="hook">%s</p>' % e(s["hook"])
+        if s.get("steps"): body += '<h3>%s</h3><ol class="howto">%s</ol>' % (e(g["steps_h"]), "".join("<li>%s</li>" % e(x) for x in s["steps"]))
+        if s.get("tips"): body += '<h3>%s</h3>%s' % (e(g["tips_h"]), checks(s["tips"]))
+        if s.get("faq"): body += '<h3>%s</h3>%s' % (e(g["faq_h"]), "".join("<details><summary>%s</summary><p>%s</p></details>" % (e(q), e(a)) for q, a in s["faq"]))
+        pic = '<div class="gshot"><div class="shot phone"><img src="%s" alt="" loading="lazy"></div></div>' % shot(s["shot"]) if s.get("shot") else ""
+        parts += '<section class="gpart" id="%s"><div class="ghead">%s<h2>%s</h2></div><div class="gbody%s"><div class="gtext">%s</div>%s</div></section>' % (
+            s["id"], badge(s), e(s["title"]), " has-shot" if pic else "", body, pic)
+    store = '<a class="pill" href="%s">%s</a>' % (APP_STORE, e(t["store_cta"])) if APP_STORE else ""
+    return (head(t, lang, g["title"], 1, "guia") + nav(t, lang, 1, False, "guia")
+            + '<header class="wrap ghero"><span class="kicker">%s</span><h1>%s</h1><p class="lead">%s</p></header>' % (e(g["kicker"]), e(g["h1"]), e(g["intro"]))
+            + '<div class="wrap guide"><aside class="gtoc"><nav aria-label="%s"><b>%s</b><ol>%s</ol></nav></aside><div class="gparts">%s'
+              '<section class="gpart gend"><h2>%s</h2><p>%s</p><div class="hero-actions">%s<a class="pill ghost" href="%s">%s</a></div></section></div></div>'
+              % (e(g["toc"]), e(g["toc"]), toc, parts, e(g["outro_h"]), e(g["outro_p"]), store, page_url(lang, "support"), e(t["f_support"]))
+            + footer(t, lang, "guia").replace("</body>", GUIDE_SPY + "</body>"))
 
 def write(path, text):
     os.makedirs(os.path.dirname(path), exist_ok=True)
@@ -1208,6 +1249,7 @@ for lang in LANGS:
     write(os.path.join(d, "index.html"), landing(t, lang))
     write(os.path.join(d, "privacy", "index.html"), doc(t, lang, "privacy", t["privacy_t"], "".join("<h2>%s</h2><p>%s</p>" % (html.escape(h), p) for h, p in t["privacy_b"])))
     write(os.path.join(d, "support", "index.html"), doc(t, lang, "support", t["support_t"], "<p>%s</p><h2>%s</h2>%s" % (t["support_p"], html.escape(t["support_h"]), "".join("<details><summary>%s</summary><p>%s</p></details>" % (html.escape(q), html.escape(a)) for q, a in t["support_faq"]))))
+    if lang in GUIDE: write(os.path.join(d, "guia", "index.html"), guide(t, lang))
     write(os.path.join(d, "terms", "index.html"), doc(t, lang, "terms", t["terms_t"], "".join("<h2>%s</h2><p>%s</p>" % (html.escape(h), p) for h, p in t["terms_b"])))
 # The Spanish pages lived at /es/ for a day: those addresses now lead to the same page at the root.
 for page in ["", "privacy", "support", "terms"]:

@@ -225,3 +225,27 @@ details.all{margin-top:26px;border:0}details.all summary{justify-content:flex-st
 .duo{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}.duo .shot.phone{width:100%;transform:none;border-radius:34px;padding:7px}.duo .shot.phone img{border-radius:28px}.duo .shot.phone:nth-child(2){margin-top:48px}
 @media (max-width:820px){.duo{gap:12px}.duo .shot.phone:nth-child(2){margin-top:28px}}
 .pill.ghost{background:transparent;border:1.5px solid var(--accent);color:var(--accent);box-shadow:none}.hero-actions{display:flex;flex-wrap:wrap;gap:10px;align-items:center}
+
+/* the guide: an index that stays beside the parts on a wide screen, chips above them on a phone */
+.ghero{padding-top:64px;padding-bottom:8px}.ghero h1{font-size:clamp(36px,5vw,54px);margin:16px 0 12px}
+.guide{display:grid;grid-template-columns:230px minmax(0,1fr);gap:48px;align-items:start;padding-bottom:40px}
+.gtoc{position:sticky;top:76px;max-height:calc(100vh - 96px);overflow:auto}
+.gtoc b{display:block;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--soft);margin:0 0 10px}
+.gtoc ol{list-style:none;margin:0;padding:0;display:grid;gap:2px}.gtoc a{display:block;padding:6px 10px;border-radius:8px;color:var(--soft);font-size:15px}
+.gtoc a:hover,.gtoc a.on{color:var(--ink);background:var(--panel2);text-decoration:none}
+.gparts{min-width:0}
+.gpart{padding:44px 0;border-top:1px solid var(--line);background:none!important}.gpart:first-child{border-top:0;padding-top:12px}
+.ghead{display:flex;flex-wrap:wrap;align-items:center;gap:8px}.ghead h2{flex-basis:100%;margin:10px 0 0;font-size:clamp(26px,3.4vw,34px)}
+.tier{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:4px 10px;border-radius:999px;border:1px solid var(--line);color:var(--soft)}
+.tier.free{color:var(--green);border-color:rgba(47,194,143,.4)}.tier.plus{color:#8fb4ff;border-color:rgba(61,123,255,.45)}.tier.mix{color:var(--accent2);border-color:rgba(34,211,197,.4)}
+.tier.v11{color:var(--clay);border-color:rgba(255,138,61,.45)}
+.gbody{display:grid;gap:36px;margin-top:14px}.gbody.has-shot{grid-template-columns:minmax(0,1fr) 250px;align-items:start}
+.gtext{min-width:0}.gtext h3{font-size:15px;letter-spacing:.1em;text-transform:uppercase;color:var(--soft);margin:26px 0 8px}
+.hook{font-size:19px;color:var(--ink);margin:0}
+ol.howto{margin:0;padding:0;list-style:none;counter-reset:s;display:grid;gap:10px}
+ol.howto li{counter-increment:s;position:relative;padding:12px 14px 12px 50px;background:var(--panel);border:1px solid var(--line);border-radius:12px;color:#d7dce5}
+ol.howto li:before{content:counter(s);position:absolute;left:14px;top:11px;width:24px;height:24px;border-radius:50%;display:grid;place-items:center;font-size:13px;font-weight:700;color:#fff;background:var(--accent)}
+.gshot{position:sticky;top:90px}.gshot .shot.phone{width:100%;transform:none;border-radius:36px;padding:8px}.gshot .shot.phone img{border-radius:28px}
+.gend{text-align:left}.guide-link{margin-top:28px}
+@media(max-width:900px){.guide{grid-template-columns:1fr;gap:8px}.gtoc{position:static;max-height:none}.gtoc ol{display:flex;flex-wrap:wrap;gap:6px}
+  .gtoc a{border:1px solid var(--line);font-size:14px;padding:5px 10px}.gbody.has-shot{grid-template-columns:1fr}.gshot{position:static;max-width:260px}}

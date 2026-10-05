@@ -1,0 +1,430 @@
+# -*- coding: utf-8 -*-
+# Tiquet, "How it works" guide, English. Same structure as guide_es.py. UI names in “” are the exact English
+# source strings the app shows (keys of Scripts/es_translations.py), checked against the Swift source on 2026-10-05.
+
+GUIDE_EN = {
+    "title": "How Tiquet works",
+    "kicker": "Guide",
+    "h1": "How Tiquet works, part by part",
+    "intro": (
+        "What each part of the app does for you, how to use it, and a few tips to get the most out of it. "
+        "Anything marked Plus needs Tiquet Plus or its 14-day trial. "
+        "Anything marked “From version 1.1” arrives with that update."
+    ),
+    "toc": "In this guide",
+    "cta": "See how each part works",
+    "free": "Free", "plus": "Plus", "mix": "Free and Plus", "v11": "From version 1.1",
+    "steps_h": "How", "tips_h": "Tips", "faq_h": "Questions",
+    "sections": [
+        {
+            "id": "empezar",
+            "title": "Getting started",
+            "short": "Getting started",
+            "tier": "free",
+            "v11": False,
+            "shot": "home",
+            "hook": (
+                "Tiquet keeps track of what your household has signed up for, what it pays and what expires, and reminds "
+                "you before a deadline costs you money. You don't need an account or to connect your bank: your paperwork is enough."
+            ),
+            "steps": [
+                "You need an iPhone or an iPad with iOS or iPadOS 27. The app is in Spanish and English.",
+                "To see it full before adding anything of your own, tap “Try with sample data” on the empty Home screen or in “Settings”. It's an invented household that doesn't touch your data; tap “Leave” to go back.",
+                "Start with what matters most to you: an insurance policy or a subscription, from “Add” › “Contract”.",
+                "Then the receipt for something with a warranty or a return period, and a statement from your bank so Tiquet can find what repeats.",
+                "If you're coming from another iPhone, “Restore a backup” on the empty Home screen brings back your backup.",
+            ],
+            "tips": [
+                "Apple Intelligence is optional. Without it, Tiquet reads receipts with text recognition and rules, marks them for you to check, and “Ask” still answers how much went on what.",
+                "With Apple Intelligence, Apple's model reads receipts and policies better and answers open questions, always on the device.",
+            ],
+            "faq": [
+                ("Do I have to create an account?", "No. There's no Tiquet account and no password to remember."),
+            ],
+        },
+        {
+            "id": "tickets",
+            "title": "Receipts, invoices and PDFs",
+            "short": "Receipts and invoices",
+            "tier": "free",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "Take a photo of the receipt or send it the invoice that came by email, and Tiquet notes the shop, the date, "
+                "the amount and the items. The photo stays as proof even if the thermal paper fades."
+            ),
+            "steps": [
+                "Tap “Add” and choose: “Camera” scans and straightens the paper, with several pages if the receipt is long; “Photos” takes up to 30 at once; “File” opens a PDF or an image; “By hand” is for when there's no paper.",
+                "From Mail, Files or Photos, touch and hold the attachment, tap Share and choose Tiquet. It reads it when you open the app.",
+                "Before saving, you see what it understood. If something doesn't add up, tap “Something read wrong? Correct it”.",
+                "Anything that arrives in a batch or was read without Apple Intelligence carries the note “Saved without you checking it”. Compare it with the photo and tap “It's right”.",
+            ],
+            "tips": [
+                "You can share up to 20 files at once. From version 1.1 they're read in the order you send them.",
+                "From 1.1, a shop's receipt has “Shop's website, for its icon”. You type it once and all its receipts and charges show the icon.",
+                "If you save a repeated receipt by hand (same shop, date and amount), Tiquet asks you first.",
+                "For Apple Pay in shops, create a Wallet automation in Shortcuts with the “Log a payment” action.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "garantias",
+            "title": "Returns and warranties",
+            "short": "Returns and warranties",
+            "tier": "free",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "When something breaks or you're not happy with it, the hard part is knowing whether you're still in time. "
+                "Tiquet takes the return and warranty deadlines from the receipt and reminds you before they close."
+            ),
+            "steps": [
+                "Save the receipt for the purchase. On its card, “Your rights” tells you how long the legal warranty lasts and until when you can return it.",
+                "The return period comes from the receipt or, if it isn't printed, from the policy of the big chains. For online purchases, the law gives you 14 days from delivery.",
+                "For something you want to keep track of, like a phone or a bike, tap “Track as a thing”. If the receipt has several lines, swipe one to track just that item.",
+                "Warranties in force are together in “Contracts”, under “Warranties in force”, with the nearest at the top.",
+            ],
+            "tips": [
+                "It reminds you 3 days and 1 day before a return closes, and a month before a thing's warranty ends.",
+                "In Spain the legal warranty is 3 years for purchases made since 2022. Claim from the seller, not only the manufacturer.",
+                "“Your rights, with sources” says where each date comes from. It's information, not legal advice.",
+            ],
+            "faq": [
+                ("Why doesn't my supermarket receipt have a warranty?", "Tiquet only adds a warranty when the paper mentions one and the purchase can have one: never for food, fuel or a meal out."),
+            ],
+        },
+        {
+            "id": "banco",
+            "title": "Bank statements",
+            "short": "Bank statements",
+            "tier": "mix",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "Tiquet doesn't connect to your bank. You download your transactions as a file and give it to Tiquet, and from "
+                "that it sees what you pay each month, what you've paid each company so far and what repeats."
+            ),
+            "steps": [
+                "On your bank's website or app, export your transactions as Excel or CSV, not PDF: it needs a date, a description and an amount. If you use a credit card, export its statement too.",
+                "Open it with “Add” › “File”, or share it with Tiquet.",
+                "It tells you how many lines are new; nothing is added twice. If the file has no year, it asks for the “Year of the latest payment”.",
+                "“What keeps charging” lists the companies that charge you at a steady rhythm. The ones you switch on become contracts.",
+            ],
+            "tips": [
+                "Transfers, Bizum and cash are saved, but don't count as spending. Card numbers are cut to their last four digits.",
+                "From 1.1 you can send several statements together and they're imported one after another. In 1.0, one at a time.",
+                "With “Remind me of what only I can do”, in “Settings” › “Reminders”, on the 3rd of the month it reminds you to bring in the previous month if it's missing.",
+                "With Plus: “In and out” compares what comes in with what goes out.",
+            ],
+            "faq": [
+                ("Which banks work?", "Those that export a date column, a description column and an amount column; BBVA and Banc Sabadell are understood in detail. If your bank splits debits and credits into two columns, or only gives you a PDF, it may not read well yet: write to us with the bank's name, without sending us the file."),
+            ],
+        },
+        {
+            "id": "contratos",
+            "title": "Contracts and insurance",
+            "short": "Contracts and insurance",
+            "tier": "free",
+            "v11": False,
+            "shot": "contracts",
+            "hook": (
+                "Each insurance policy, subscription or household bill as a card: what it costs, what you've paid so far, when "
+                "it renews, until when you can cancel it and who to call the day something happens."
+            ),
+            "steps": [
+                "Tap “Add” › “Contract”, or the + on the “Contracts” tab. Type who it's with and what it costs.",
+                "Tap “Attach the policy or contract” and scan the paper or choose a photo or a PDF. Tiquet reads the number, premium, cover, insured people and claims phone number, and only fills in what you hadn't typed.",
+                "With imported statements, look at “In your bank, without a card yet” in “Contracts”: one tap creates the card for a repeating charge.",
+                "For a phone paid in instalments, set the “Number of payments”. For a free trial, switch on “Free trial” and choose when it “Starts charging”.",
+            ],
+            "tips": [
+                "An insurance policy comes with 30 days' notice: in Spain you can object to the renewal a month in advance. Change it if your contract says otherwise.",
+                "On a yearly contract, a month before the last day to say no you get “a good moment to compare”, with the increase if your bank shows it. After that, reminders 7 days and 1 day before.",
+                "“Call to claim” and “Copy the policy number” are at the top of the card.",
+                "Tiquet never keeps passwords: you only note where the login is.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "subidas",
+            "title": "Where to spend less",
+            "short": "Where to spend less",
+            "tier": "plus",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "Price rises don't announce themselves: the insurance that costs a bit more every year, the subscription you no "
+                "longer use. Tiquet puts your own numbers side by side and tells you which question to ask."
+            ),
+            "steps": [
+                "Import statements covering at least a year: a rise shows up by comparing the same charge in different years.",
+                "On “Home”, open the “Where to spend less” card.",
+                "Each finding says what was seen, why it may matter, what you could do and how much money goes through there each year, as an estimate.",
+                "Tap “See the charges” to see every payment behind it, year by year. Once you've reviewed it, tap “I've looked at it”.",
+            ],
+            "tips": [
+                "It looks for six things: a contract that has gone up, protection that has already cost a lot compared with what it protects, a paid warranty while the legal one still applies, bank fees, subscriptions older than a year, and very frequent tolls or parking.",
+                "Tiquet never recommends a company, a cover or a cancellation. It doesn't know market prices: it gives you your figures and the question.",
+                "A contract's rise also shows for free on its card, under “Price of each charge, year by year”.",
+                "From 1.1, “The basket” does the same with supermarket prices.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "sime",
+            "title": "If something happens to me",
+            "short": "If something happens to me",
+            "tier": "free",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "If tomorrow you're not there to explain it, does your partner know what insurance you have, with whom and what "
+                "number to call? Tiquet prepares those papers now, while all is well."
+            ),
+            "steps": [
+                "In “Contracts”, tap “Share” at the top, or go to “Settings” › “Share with your household”.",
+                "Choose “Household sheet (PDF)” or “Household sheet, with prices”. It's made on the device.",
+                "Print it or send it to someone you trust, and keep it where it can be found.",
+                "So your partner has the same in their Tiquet, tap “Share with your household” and send them the household file by AirDrop. When they open it, their Tiquet adds what's missing and updates what you changed afterwards.",
+            ],
+            "tips": [
+                "The sheet lists each insurance policy and contract: company, policy number, who is insured, what it covers, the phone number to make a claim, the contact, where the login is kept, when it renews and whether the policy is in Tiquet. Then, what's under warranty and the documents that expire.",
+                "It never includes passwords or your document numbers. Prices appear only in the version with prices.",
+                "The household file carries contracts, insurance with its policies, and warranties: no receipts and no bank data. It isn't encrypted and doesn't update itself, so send it again when you change something.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "vigilar",
+            "title": "Watch: anything strange?",
+            "short": "Watch",
+            "tier": "free",
+            "v11": False,
+            "shot": "watch",
+            "hook": (
+                "A Bizum you didn't make or a double charge is easier to spot with your household's history alongside. Watch "
+                "compares each transaction in your statements with what you usually do and asks whether you recognise it."
+            ),
+            "steps": [
+                "Import your statements. Watch checks the last 120 days on the device, with rules and no AI.",
+                "Whatever it finds appears on the “Watch” card on “Home” and heads “Needs attention”. The full screen is in “From your bank” › “Watch: anything strange?”.",
+                "If you recognise it, tap “It's mine” and Tiquet learns it on all your devices. For several at once, “All are mine”.",
+                "With “I don't recognise it”, it tells you what to do: call the bank and block the card, ask for the money back, report it and change your password.",
+            ],
+            "tips": [
+                "Six signals: a large Bizum to someone new; several Bizum payments on the same day to new people; a transfer to an account never seen before; a charge in another currency with no trip around it; a tiny online charge followed by a bigger one; and a double charge.",
+                "For a payment you didn't authorise you have up to 13 months to tell your bank, but the sooner the better.",
+                "Tiquet doesn't contact anyone, not even your bank.",
+            ],
+            "faq": [
+                ("Does it warn me as soon as something happens?", "No. It only sees a transaction when you import its statement, so it always comes afterwards. It adds to your bank's alerts; it doesn't replace them."),
+            ],
+        },
+        {
+            "id": "lugares",
+            "title": "Places: restaurants and bars",
+            "short": "Places",
+            "tier": "mix",
+            "v11": False,
+            "shot": "places",
+            "hook": (
+                "Your restaurant receipts become your own map: where you ate, what you ordered, what you loved and where to go "
+                "back to. No reviews to write: the receipt already says the dish and the price."
+            ),
+            "steps": [
+                "Save the receipt from a restaurant or a bar and it goes to “Places”, on its place's card. “I'm here now” puts it on the map with your location.",
+                "On the receipt, give stars under “The place” (they count for every visit) and open each dish in “What you had” to answer “Would you order it again?” and add “Photos of the dish”.",
+                "The “Summary” in “Places” shows “Your regulars”, the “Trips” it detects on its own and what you have “Near home”.",
+                "Each place gathers its visits, what they cost, the dishes “Worth coming back for”, its phone number, “Book or see the menu” and “Open in Maps”.",
+                "With Plus, “Bring them to Places” brings in the restaurants from your statements and looks them up in Apple Maps.",
+            ],
+            "tips": [
+                "Ask about a town or a region: “Which places did I like in Cantabria?”. Tiquet looks that name up in Apple Maps to place it; this question needs Apple Intelligence.",
+                "“Where did I love the patatas bravas?” is answered without Apple Intelligence, from the stars you gave that dish.",
+                "If a place shows up under two names, use “Same place as another…”.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "cesta",
+            "title": "The basket and the shopping list",
+            "short": "Basket and shopping list",
+            "tier": "mix",
+            "v11": True,
+            "shot": "basket",
+            "hook": (
+                "Each supermarket receipt keeps its items with their prices. Tiquet compares the same thing at the same shop, tells "
+                "you how much your usual basket has gone up and helps you remember what you need to buy."
+            ),
+            "steps": [
+                "Save your supermarket receipts. With two from the same shop with the same items, it can already compare.",
+                "On “Home”, the “The basket and the shopping list” card opens “The basket”: what's “Going up”, what's “Going down” and what's “Cheaper at your other shops”.",
+                "A product shows every price you paid, per unit or per kilo. Anything misread goes to “Prices that look misread” and doesn't count: open its receipt and correct the line.",
+                "In the “Shopping list”, type three letters and it suggests what you've bought before, with its shop and its last price. It also suggests what's due to restock.",
+                "In the shop, tap each item to tick it off; the screen stays on while you use it. When you're done, “Clear ticked”.",
+            ],
+            "tips": [
+                "The basket comes with Plus, alongside “Where to spend less”. The shopping list is free.",
+                "Say “Shopping list in Tiquet” to Siri, or type “make me a shopping list” in “Ask”: it works without Apple Intelligence.",
+                "The list is kept on this device and doesn't sync through iCloud.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "preguntar",
+            "title": "Ask",
+            "short": "Ask",
+            "tier": "mix",
+            "v11": False,
+            "shot": "ask",
+            "hook": (
+                "Ask in your own words and Tiquet answers with your receipts, statements and contracts. The app works out the "
+                "figures; Apple's model only explains them, and everything happens on the device."
+            ),
+            "steps": [
+                "Tap “Ask about your money…” at the top of “Home” and type, or tap the microphone to dictate.",
+                "To start, tap an idea: “How much on groceries this month?” or “What can I still return?”.",
+                "Below the answer, cards show the payments behind it. Tap one to see them.",
+                "If you ask for a change, like adding stars or changing the budget, you see the before and after. Nothing changes until you tap “Confirm”, and it can be undone.",
+                "To follow on, start with “and”: “And last year?”.",
+            ],
+            "tips": [
+                "Without Apple Intelligence, the app answers on its own how much went on something, at a shop or under a tag (“How much did the trip to Rome cost us?”), where you had a dish and when a contract's next payment is due.",
+                "With Apple Intelligence, it also answers about places near you or in a region, and takes “dinner Can Pere 42 yesterday” to create a receipt you check before saving.",
+                "Free gives you 5 questions a day on each device, about what's free in the app. With Plus, there's no limit.",
+                "In discreet mode, each answer waits behind “Amounts hidden. Show this answer”.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "inicio",
+            "title": "Home and what's coming",
+            "short": "Home, widgets and Siri",
+            "tier": "mix",
+            "v11": False,
+            "shot": "coming",
+            "hook": (
+                "When you open the app, “Home” tells you whether you need to do something, how the month is going and what's coming. "
+                "Outside the app, the widgets and Siri tell you without opening it."
+            ),
+            "steps": [
+                "“Needs attention” is at the top: returns, renewals, warranties, receipts to check. Touch and hold a reminder for “Done” or “Remind me tomorrow”.",
+                "Choose Month, Year or Dates at the top: every card follows that period.",
+                "“Coming up” shows what's charged soon. With Plus, “Week by week, month by month” opens “What's coming”: twelve months, charge by charge, and each forecast says what it's based on.",
+                "With Plus, turn your iPhone sideways to see “Horizon”: what you've spent, where the month is heading and what's coming. “What if I drop…” switches off a contract and redraws the year.",
+                "With Plus, “The Month” brings out an issue for each finished month, like a household newspaper, to share as a PDF.",
+                "“Arrange this screen”, at the bottom, changes the order of the cards or hides the ones you don't use.",
+            ],
+            "tips": [
+                "Widgets: “This month”, “Next charge”, “Insurance at hand” and “Good places near you”. The “Add a receipt” control goes in Control Centre, on the Lock Screen or on the Action button.",
+                "Ask Siri “When does home insurance renew in Tiquet?” or “How is my month going in Tiquet?”.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "cosas",
+            "title": "Things and documents that expire",
+            "short": "Things and documents",
+            "tier": "free",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "What's worth keeping track of, like your phone, laptop or bike, and the papers that expire, in one tab. "
+                "The day something is stolen or you need to renew your ID card, you have it to hand."
+            ),
+            "steps": [
+                "From a receipt, tap “Track as a thing”. Or in “Things”, tap + › “Add a thing”.",
+                "On its card, scan the serial number or IMEI from the box or the label, and take a photo of the product and another of its label. It's the first thing the police and insurers ask for.",
+                "If you were sold insurance with it, tap “Add insurance or extended warranty” and it stays linked.",
+                "For a document, in “Things” tap + › “Add a document that expires”: ID card (DNI), passport, driving licence, vehicle inspection (ITV), health card, large family card, residence permit or another. Note whose it is and until when it's valid.",
+            ],
+            "tips": [
+                "A document reminds you 60 and 15 days before it expires (the vehicle inspection, 30 and 7), and appears in “Needs attention” and in “Deadlines”.",
+                "Its number is optional, is hidden in discreet mode and is never printed on the household sheet.",
+                "Deleting a thing doesn't delete its insurance: Tiquet asks first and tells you what stays.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "etiquetas",
+            "title": "Tags, budget and saving",
+            "short": "Tags and budget",
+            "tier": "mix",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "A tag brings together what belongs together, even when it arrives by different routes: “Trip to Rome” adds up the "
+                "scanned hotel, the flight from the statement and the travel insurance. The budget tells you whether the month is going well."
+            ),
+            "steps": [
+                "On a receipt, a contract or a thing, add a tag under “Tags”. When it reads a receipt, Tiquet suggests some.",
+                "Bank payments get their tag on their own. The ones left without one wait in “Classify”: one tap tags every payment from that merchant, past and future.",
+                "If something is filed wrong, “Review the classification” corrects it by merchant or by group, and it can be undone.",
+                "In “Settings” › “Monthly budget”, set what you want to spend in a normal month, everything included.",
+                "With Plus, on the “Saving for” card tap “New goal”: how much, by when and the words your bank puts on transfers to your savings pot.",
+            ],
+            "tips": [
+                "Each payment counts once in the tag: the receipt and its bank line are the same payment.",
+                "The people in your household work as tags too: “everything of Marta's” is one screen.",
+                "Tiquet never works out the budget from your income. It's one figure, not twenty.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "privacidad",
+            "title": "Privacy and your data",
+            "short": "Privacy",
+            "tier": "free",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "Your receipts, contracts and statements stay on your device. There's no account, no connection to your bank "
+                "and no servers of ours: we don't receive your statements or your amounts."
+            ),
+            "steps": [
+                "In “Settings”, the “Your data stays with you” card explains where everything is and what uses a connection.",
+                "To keep iPhone and iPad the same, switch on “Sync with iCloud” in “Settings” › “iPhone and iPad, in step”, on each device with your Apple Account. It uses your private iCloud, which the developer can't read.",
+                "To take everything with you, “Settings” › “Backup and restore” › “Export everything”: a .zip with receipts, photos, policies, transactions and spreadsheets.",
+                "To delete everything, on that page tap “Delete everything in Tiquet” and type DELETE. With iCloud on, it's also deleted from your other devices.",
+                "The eye at the top of “Home” turns on discreet mode: every amount becomes •••.",
+            ],
+            "tips": [
+                "These use a connection: your iCloud, if you switch it on; Apple Maps, with a place's name, an address or a coordinate; a company's website, once, for its logo; and the App Store for Plus.",
+                "The backup isn't encrypted: keep it somewhere safe.",
+                "Tiquet only asks for your location when you tap “I'm here now” or ask about places near you.",
+            ],
+            "faq": [],
+        },
+        {
+            "id": "plus",
+            "title": "Free and Plus",
+            "short": "Free and Plus",
+            "tier": "mix",
+            "v11": False,
+            "shot": "month",
+            "hook": (
+                "Saving and finding is free for ever. Plus adds what helps you understand and spend less, "
+                "with a single payment and no subscription."
+            ),
+            "steps": [
+                "Free: receipts, warranties and returns with their reminders; contracts and insurance with theirs; “If something happens to me”; Watch; iCloud and the backup; Home, Places, Contracts and Things; 5 questions a day.",
+                "Plus: “Where to spend less”, “In and out” and your accounts, new saving goals, “What's coming” for 12 months and “Horizon”, “The Month”, places from your bank and unlimited questions. From 1.1, “The basket” too.",
+                "To try it, go to “Settings” › “Tiquet Plus” and tap “Try everything free for 14 days”. Nothing is charged and it doesn't renew by itself.",
+                "If you like it, buy it once: €9.99, the launch price in Spain. On another device, tap “Restore purchases”.",
+            ],
+            "tips": [
+                "Nothing you save is ever locked. When the trial ends, the Plus features close and your things stay where they are.",
+                "Plus works with Family Sharing: the purchase is shared, not your data. The trial is per person.",
+                "With the sample data you see everything, Plus included, before you decide.",
+            ],
+            "faq": [
+                ("What happens when the 14 days end?", "You carry on with the free features, with no charge. The goals you created stay visible and the places brought in from your bank stay in Places."),
+            ],
+        },
+    ],
+    "outro_h": "Missing something?",
+    "outro_p": (
+        "Tiquet is free on the App Store in Spain. If something doesn't work as you expect, or you miss a feature, "
+        "write to us from the support page."
+    ),
+}
