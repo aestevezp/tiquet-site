@@ -7,9 +7,16 @@ ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
 CSS_VERSION = 10
 # The App Store page, once Tiquet is live (Spain first): the hero's main button goes there.
-APP_STORE = "https://apps.apple.com/es/app/tiquet/id6816756161"
+# The App Store's own campaign link (pt: our provider token; ct: where the visit came from). Apple counts, in totals, how many
+# reach the app's page and download it from each campaign; the site itself counts nothing and stores nothing.
+APP_STORE = "https://apps.apple.com/es/app/tiquet/id6816756161?pt=587846&ct=web&mt=8"
+# "?ct=linkedin" on our own address carries on to the download buttons, and to our other pages, so a post can be told apart.
+CAMPAIGN = ('<script>(function(){var c=new URLSearchParams(location.search).get("ct");if(!c||!/^[a-z0-9-]{1,40}$/.test(c))return;'
+            'document.querySelectorAll("a[href]").forEach(function(a){var u=new URL(a.href,location.href);'
+            'if(u.hostname==="apps.apple.com"&&u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}'
+            'else if(u.origin===location.origin&&u.pathname!==location.pathname&&!u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}})})()</script>')
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
-UPDATED = {"en": "28 September 2026", "es": "28 de septiembre de 2026", "ca": "28 de setembre de 2026"}
+UPDATED = {"en": "6 October 2026", "es": "6 de octubre de 2026", "ca": "6 d’octubre de 2026"}
 
 S = {
 "en": dict(lang="en", name_lang="English",
@@ -219,6 +226,7 @@ S = {
   'speech recognition, only if you ask by voice; recognition runs on the device. Notifications, for the '
   'reminders you see in Settings.'),
  ('No tracking', 'No analytics, no advertising, no third-party code.'),
+ ('This website', 'No cookies, no analytics and no third-party code here either. The download buttons carry an App Store campaign label (such as “web” or “linkedin”): the App Store counts, in totals and without identifying you, how many downloads come through each one.'),
  ('Deleting your data',
   'Settings → Backup and restore → Delete everything. With iCloud sync on, it is deleted from your iCloud '
   'and your other devices too. Deleting the app removes what is on the device.'),
@@ -481,6 +489,7 @@ S = {
   'reconocimiento de voz, solo si preguntas hablando; el reconocimiento se hace en el dispositivo. '
   'Notificaciones, para los avisos que ves en Ajustes.'),
  ('Sin seguimiento', 'Sin analítica, sin publicidad, sin código de terceros.'),
+ ('Esta web', 'Aquí tampoco hay cookies, analítica ni código de terceros. Los botones de descarga llevan una etiqueta de campaña del App Store (como «web» o «linkedin»): el App Store cuenta, en total y sin identificarte, cuántas descargas llegan por cada una.'),
  ('Borrar tus datos',
   'Ajustes → Copia y restauración → Borrar todo. Con la sincronización activada, se borra también de tu '
   'iCloud y de tus otros dispositivos. Borrar la app elimina lo que hay en el dispositivo.'),
@@ -743,6 +752,7 @@ S = {
   'reconeixement de veu, només si preguntes parlant; el reconeixement es fa al dispositiu. Notificacions, '
   'pels avisos que veus a Ajustos.'),
  ('Sense seguiment', 'Sense analítica, sense publicitat, sense codi de tercers.'),
+ ('Aquest web', 'Aquí tampoc no hi ha galetes, analítica ni codi de tercers. Els botons de descàrrega porten una etiqueta de campanya de l’App Store (com ara «web» o «linkedin»): l’App Store compta, en total i sense identificar-te, quantes descàrregues arriben per cadascuna.'),
  ('Esborrar les teves dades',
   "Ajustos → Còpia i restauració → Esborrar-ho tot. Amb la sincronització activada, s'esborra també del teu "
   "iCloud i dels teus altres dispositius. Esborrar l'app elimina el que hi ha al dispositiu."),
@@ -1127,7 +1137,7 @@ def landing(t, lang):
             '<div class="stage reveal"><div class="shot phone"><img src="%s" alt="" loading="eager"></div>'
             '<div class="float f1"><span class="dot"></span>%s · <b>%s</b></div><div class="float f2">%s · <b>%s</b></div></div></div></header>'
             ) % (e(t["h1a"]), e(t["h1b"]), e(t["sub"]), "".join("<li>%s</li>" % e(b) for b in t["badges"]),
-                 ('<a class="pill" href="%s">%s</a><a class="pill ghost" href="#pricing">%s</a><span class="release-note">%s</span>' % (APP_STORE, e(t["store_cta"]), e(t["primary_cta"]), e(t["store_note"])))
+                 ('<a class="pill" href="%s">%s</a><a class="pill ghost" href="#pricing">%s</a><span class="release-note">%s</span>' % (e(APP_STORE), e(t["store_cta"]), e(t["primary_cta"]), e(t["store_note"])))
                  if APP_STORE else ('<a class="pill" href="#pricing">%s</a><span class="release-note">%s</span>' % (e(t["primary_cta"]), e(t["cta"]))), e(t["note"]),
                  shot("home"), e(t["ai_model"]), e(t["ai_model_v"]), e(t["ai_net"]), e(t["ai_net_v"]))
     # Ask: a conversation that writes itself when it comes into view; all figures are invented examples.
@@ -1206,7 +1216,7 @@ def landing(t, lang):
     out += ('<section id="start"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2><ol class="timeline">%s</ol>%s</div></section>'
             % (e(t["how_k"]), e(t["how_h"]), "".join('<li class="reveal"><h3>%s</h3><p>%s</p></li>' % (e(h), e(p)) for h, p in t["steps"]), more))
     out += '<section id="faq"><div class="wrap"><span class="kicker">%s</span><h2>%s</h2>%s</div></section>' % (e(t["faq_k"]), e(t["faq_h"]), "".join("<details><summary>%s</summary><p>%s</p></details>" % (e(q), e(a)) for q, a in t["faqs"]))
-    return out.replace("</body>", "") + footer(t, lang).replace("</body>", '<script src="%ssite.js?v=%d" defer></script></body>' % (r, CSS_VERSION))
+    return out.replace("</body>", "") + footer(t, lang).replace("</body>", CAMPAIGN + '<script src="%ssite.js?v=%d" defer></script></body>' % (r, CSS_VERSION))
 
 def doc(t, lang, page, title, body):
     return head(t, lang, title, 1, page) + nav(t, lang, 1, False, page) + '<div class="wrap doc"><h1>%s</h1><p class="date">%s</p>%s</div>' % (html.escape(title), UPDATED[lang], body) + footer(t, lang, page)
@@ -1232,13 +1242,13 @@ def guide(t, lang):
         pic = '<div class="gshot"><div class="shot phone"><img src="%s" alt="" loading="lazy"></div></div>' % shot(s["shot"]) if s.get("shot") else ""
         parts += '<section class="gpart" id="%s"><div class="ghead">%s<h2>%s</h2></div><div class="gbody%s"><div class="gtext">%s</div>%s</div></section>' % (
             s["id"], badge(s), e(s["title"]), " has-shot" if pic else "", body, pic)
-    store = '<a class="pill" href="%s">%s</a>' % (APP_STORE, e(t["store_cta"])) if APP_STORE else ""
+    store = '<a class="pill" href="%s">%s</a>' % (e(APP_STORE), e(t["store_cta"])) if APP_STORE else ""
     return (head(t, lang, g["title"], 1, "guia") + nav(t, lang, 1, False, "guia")
             + '<header class="wrap ghero"><span class="kicker">%s</span><h1>%s</h1><p class="lead">%s</p></header>' % (e(g["kicker"]), e(g["h1"]), e(g["intro"]))
             + '<div class="wrap guide"><aside class="gtoc"><nav aria-label="%s"><b>%s</b><ol>%s</ol></nav></aside><div class="gparts">%s'
               '<section class="gpart gend"><h2>%s</h2><p>%s</p><div class="hero-actions">%s<a class="pill ghost" href="%s">%s</a></div></section></div></div>'
               % (e(g["toc"]), e(g["toc"]), toc, parts, e(g["outro_h"]), e(g["outro_p"]), store, page_url(lang, "support"), e(t["f_support"]))
-            + footer(t, lang, "guia").replace("</body>", GUIDE_SPY + "</body>"))
+            + footer(t, lang, "guia").replace("</body>", GUIDE_SPY + CAMPAIGN + "</body>"))
 
 def write(path, text):
     os.makedirs(os.path.dirname(path), exist_ok=True)
