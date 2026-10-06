@@ -239,8 +239,9 @@ S = {
  'statements, personal documents or screenshots with real data.'),
   support_h="Common questions",
   support_faq=[("My bank's file isn't read.",
-  "Export it as Excel or CSV from the bank's website, not as PDF. If it still isn't read, tell us the bank "
-  'and the kind of export; never send the file itself.'),
+  "Excel, CSV or the bank's PDF statement all work; before saving, “How Tiquet read this file” shows how it was understood. "
+  "If it still isn't read, tap “Send us the file's shape”: it prepares an email with the file's layout only (every digit a 9, "
+  'every word its length), which you read before sending. Never send the file itself.'),
  ('A charge is counted twice, or not at all.',
   "Open the contract and check the provider's name matches what the bank prints. Where statements cover a "
   "month, only the bank's lines count."),
@@ -502,8 +503,9 @@ S = {
  'documentos personales ni capturas con datos reales.'),
   support_h="Preguntas frecuentes",
   support_faq=[('No lee el archivo de mi banco.',
-  'Expórtalo como Excel o CSV desde la web del banco, no como PDF. Si sigue sin leerse, dinos el banco y el '
-  'tipo de exportación; no envíes nunca el archivo.'),
+  'Sirven Excel, CSV y el extracto en PDF del banco; antes de guardar, «Así ha leído Tiquet este archivo» enseña cómo lo ha '
+  'entendido. Si aun así no se lee, toca «Envíanos la forma del archivo»: prepara un correo solo con la estructura del archivo '
+  '(cada cifra, un 9; cada palabra, su longitud), que lees antes de enviarlo. No envíes nunca el archivo en sí.'),
  ('Un cargo se cuenta dos veces, o no se cuenta.',
   'Abre el contrato y comprueba que el nombre del proveedor coincide con el que imprime el banco. Donde un '
   'extracto cubre el mes, solo cuentan las líneas del banco.'),
@@ -765,8 +767,9 @@ S = {
  'documents personals ni captures amb dades reals.'),
   support_h="Preguntes freqüents",
   support_faq=[('No llegeix el fitxer del meu banc.',
-  "Exporta'l com a Excel o CSV des del web del banc, no com a PDF. Si encara no es llegeix, digues-nos el "
-  "banc i el tipus d'exportació; no enviïs mai el fitxer."),
+  "Serveixen Excel, CSV i l'extracte en PDF del banc; abans de desar, «Así ha leído Tiquet este archivo» mostra com l'ha "
+  "entès. Si tot i així no es llegeix, toca «Envíanos la forma del archivo»: prepara un correu només amb l'estructura del fitxer "
+  "(cada xifra, un 9; cada paraula, la seva llargada), que llegeixes abans d'enviar-lo. No enviïs mai el fitxer en si."),
  ('Un càrrec es compta dues vegades, o no es compta.',
   'Obre el contracte i comprova que el nom del proveïdor coincideix amb el que imprimeix el banc. On un '
   'extracte cobreix el mes, només compten les línies del banc.'),
@@ -1013,7 +1016,7 @@ X3 = {
   steps3=["Mantén pulsado el adjunto","Toca Compartir","Elige Tiquet"], share_to="Compartir con",
   outs=[("Una póliza","su ficha: número, prima, qué cubre, a quién llamar"),("Un tique","el gasto, la devolución y la garantía"),("Un extracto","tus movimientos, cada pago una vez")],
   w_k="En la pantalla de inicio", w_h="Lo importante, sin abrir la app",
-  w_p="Cuatro widgets: el mes, el próximo cargo, tus seguros a mano el día que pasa algo y tus buenos sitios cerca. Un botón en el Centro de control para escanear un tique. Y Siri, que sabe cuándo se renueva cada contrato.",
+  w_p="Cinco widgets: el mes, el próximo cargo, tus seguros a mano el día que pasa algo, tus buenos sitios cerca y la lista de la compra, que tachas sin abrir la app. Un botón en el Centro de control para escanear un tique. Y Siri, que sabe cuándo se renueva cada contrato.",
   wg=dict(month="Este mes", month_v="2.291 €", month_s="≈ 2.440 € a fin de mes", next="Próximo cargo", next_v="9,99 €", next_s="Seguro móvil · 2 oct", week="Esta semana: 132 €",
           ins="Seguros a mano", ins_rows=[("Hogar","Póliza 1234-5678","900 000 000"),("Coche","Póliza 8765-4321","900 000 001")],
           near="Buenos sitios cerca", near_rows=[("La Taverna del Pla","★★★★★","350 m"),("Bar Ponent","★★★★★","1,2 km")],
@@ -1025,7 +1028,7 @@ X3 = {
   steps3=["Mantén premut l'adjunt","Toca Compartir","Tria Tiquet"], share_to="Compartir amb",
   outs=[("Una pòlissa","la seva fitxa: número, prima, què cobreix, a qui trucar"),("Un tiquet","la despesa, la devolució i la garantia"),("Un extracte","els teus moviments, cada pagament una vegada")],
   w_k="A la pantalla d'inici", w_h="El que importa, sense obrir l'app",
-  w_p="Quatre ginys: el mes, el proper càrrec, les teves assegurances a mà el dia que passa alguna cosa i els teus bons llocs a prop. Un botó al Centre de control per escanejar un tiquet. I Siri, que sap quan es renova cada contracte.",
+  w_p="Cinc ginys: el mes, el proper càrrec, les teves assegurances a mà el dia que passa alguna cosa, els teus bons llocs a prop i la llista de la compra, que ratlles sense obrir l’app. Un botó al Centre de control per escanejar un tiquet. I Siri, que sap quan es renova cada contracte.",
   wg=dict(month="Aquest mes", month_v="2.291 €", month_s="≈ 2.440 € a final de mes", next="Proper càrrec", next_v="9,99 €", next_s="Assegurança mòbil · 2 oct.", week="Aquesta setmana: 132 €",
           ins="Assegurances a mà", ins_rows=[("Llar","Pòlissa 1234-5678","900 000 000"),("Cotxe","Pòlissa 8765-4321","900 000 001")],
           near="Bons llocs a prop", near_rows=[("La Taverna del Pla","★★★★★","350 m"),("Bar Ponent","★★★★★","1,2 km")],
@@ -1037,7 +1040,7 @@ X3 = {
   steps3=["Press and hold the attachment","Tap Share","Pick Tiquet"], share_to="Share with",
   outs=[("A policy","its card: number, premium, what it covers, who to call"),("A receipt","the spending, the return and the warranty"),("A statement","your payments, each one once")],
   w_k="On your Home Screen", w_h="What matters, without opening the app",
-  w_p="Four widgets: the month, the next charge, your insurance at hand the day something happens, and your good places nearby. A Control Centre button to scan a receipt. And Siri, which knows when each contract renews.",
+  w_p="Five widgets: the month, the next charge, your insurance at hand the day something happens, your good places nearby, and the shopping list, ticked off without opening the app. A Control Centre button to scan a receipt. And Siri, which knows when each contract renews.",
   wg=dict(month="This month", month_v="€2,291", month_s="≈ €2,440 by month end", next="Next charge", next_v="€9.99", next_s="Phone insurance · 2 Oct", week="This week: €132",
           ins="Insurance at hand", ins_rows=[("Home","Policy 1234-5678","900 000 000"),("Car","Policy 8765-4321","900 000 001")],
           near="Good places near you", near_rows=[("La Taverna del Pla","★★★★★","350 m"),("Bar Ponent","★★★★★","1.2 km")],

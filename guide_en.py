@@ -81,7 +81,7 @@ GUIDE_EN = {
             "steps": [
                 "Save the receipt for the purchase. On its card, “Your rights” tells you how long the legal warranty lasts and until when you can return it.",
                 "The return period comes from the receipt or, if it isn't printed, from the policy of the big chains. For online purchases, the law gives you 14 days from delivery.",
-                "For something you want to keep track of, like a phone or a bike, tap “Track as a thing”. If the receipt has several lines, swipe one to track just that item.",
+                "For something you want to keep track of, like a phone or a bike, tap “Track as a thing”. If the receipt has several lines, open the item and tap “Track this item as a thing”: it takes its price, its photo and the return date with it.",
                 "Warranties in force are together in “Contracts”, under “Warranties in force”, with the nearest at the top.",
             ],
             "tips": [
@@ -105,9 +105,10 @@ GUIDE_EN = {
                 "that it sees what you pay each month, what you've paid each company so far and what repeats."
             ),
             "steps": [
-                "On your bank's website or app, export your transactions as Excel or CSV, not PDF: it needs a date, a description and an amount. If you use a credit card, export its statement too.",
+                "On your bank's website or app, export your transactions as Excel, CSV or PDF: it needs a date, a description and an amount. If you use a credit card, export its statement too.",
                 "Open it with “Add” › “File”, or share it with Tiquet.",
                 "It tells you how many lines are new; nothing is added twice. If the file has no year, it asks for the “Year of the latest payment”.",
+                "Before saving, “How Tiquet read this file” shows which column is the date, the description and the amount, with three lines to check. If spending comes out the wrong way, turn on “Spending comes as positive numbers”: it remembers that for that bank.",
                 "“What keeps charging” lists the companies that charge you at a steady rhythm. The ones you switch on become contracts.",
             ],
             "tips": [
@@ -117,7 +118,7 @@ GUIDE_EN = {
                 "With Plus: “In and out” compares what comes in with what goes out.",
             ],
             "faq": [
-                ("Which banks work?", "Those that export a date column, a description column and an amount column; BBVA and Banc Sabadell are understood in detail. If your bank splits debits and credits into two columns, or only gives you a PDF, it may not read well yet: write to us with the bank's name, without sending us the file."),
+                ("Which banks work?", "Nearly all. Tiquet finds the columns by their titles or, if there are none, by what they hold; it understands debits and credits in two columns and PDF statements, and knows the layouts of BBVA, Banc Sabadell, ING, Revolut and Andbank. If yours still isn't read right, “Send us the file's shape” prepares an email with none of your data: every digit becomes a 9 and every word its length."),
             ],
         },
         {
@@ -265,6 +266,7 @@ GUIDE_EN = {
             ],
             "tips": [
                 "The basket comes with Plus, alongside “Where to spend less”. The shopping list is free.",
+                "Add the “Shopping list” widget to your Home Screen and tick things off from there as you pick them up, without opening the app.",
                 "Say “Shopping list in Tiquet” to Siri, or type “make me a shopping list” in “Ask”: it works without Apple Intelligence.",
                 "The list is kept on this device and doesn't sync through iCloud.",
             ],
@@ -290,6 +292,7 @@ GUIDE_EN = {
             ],
             "tips": [
                 "Without Apple Intelligence, the app answers on its own how much went on something, at a shop or under a tag (“How much did the trip to Rome cost us?”), where you had a dish and when a contract's next payment is due.",
+                "“What can I still return?” and “What is still under warranty?” are answered by the app straight away, with everything still open, the most urgent first.",
                 "With Apple Intelligence, it also answers about places near you or in a region, and takes “dinner Can Pere 42 yesterday” to create a receipt you check before saving.",
                 "Free gives you 5 questions a day on each device, about what's free in the app. With Plus, there's no limit.",
                 "In discreet mode, each answer waits behind “Amounts hidden. Show this answer”.",
@@ -316,7 +319,7 @@ GUIDE_EN = {
                 "“Arrange this screen”, at the bottom, changes the order of the cards or hides the ones you don't use.",
             ],
             "tips": [
-                "Widgets: “This month”, “Next charge”, “Insurance at hand” and “Good places near you”. The “Add a receipt” control goes in Control Centre, on the Lock Screen or on the Action button.",
+                "Widgets: “This month”, “Next charge”, “Insurance at hand”, “Good places near you” and “Shopping list”. The “Add a receipt” control goes in Control Centre, on the Lock Screen or on the Action button.",
                 "Ask Siri “When does home insurance renew in Tiquet?” or “How is my month going in Tiquet?”.",
             ],
             "faq": [],

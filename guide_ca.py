@@ -82,7 +82,7 @@ GUIDE_CA = {
             "steps": [
                 "Desa el tiquet de la compra. A la seva fitxa, «Tus derechos» et diu fins quan dura la garantia legal i fins quan pots tornar-ho.",
                 "La devolució surt del tiquet o, si no la imprimeix, de la política de les grans cadenes. Si ho has comprat en línia, la llei et dona 14 dies des de l’entrega.",
-                "Per a alguna cosa que vulguis seguir, com un mòbil o una bici, toca «Registrar como cosa». Si el tiquet porta diverses línies, fes lliscar-ne una per registrar només aquell article.",
+                "Per a alguna cosa que vulguis seguir, com un mòbil o una bici, toca «Registrar como cosa». Si el tiquet porta diverses línies, entra a l’article i toca «Registrar este artículo como cosa»: s’emporta el seu preu, la seva foto i la data de devolució.",
                 "Les garanties vigents són juntes a «Contratos», a «Garantías en vigor», amb la més propera a dalt.",
             ],
             "tips": [
@@ -106,9 +106,10 @@ GUIDE_CA = {
                 "el que pagues cada mes, el que portes pagat a cada empresa i el que es repeteix."
             ),
             "steps": [
-                "Al web o a l’app del teu banc, exporta els moviments en Excel o CSV, no en PDF: cal una data, un concepte i un import. Si fas servir targeta de crèdit, exporta’n també l’extracte.",
+                "Al web o a l’app del teu banc, exporta els moviments en Excel, CSV o PDF: cal una data, un concepte i un import. Si fas servir targeta de crèdit, exporta’n també l’extracte.",
                 "Obre’l amb «Añadir» › «Archivo», o comparteix-lo amb Tiquet.",
                 "Et diu quantes línies són noves; res no s’afegeix dues vegades. Si el fitxer no porta l’any, et demana l’«Año del último pago».",
+                "Abans de desar, «Así ha leído Tiquet este archivo» mostra quina columna és la data, el concepte i l’import, amb tres línies per comprovar-ho. Si les despeses surten al revés, activa «Los gastos vienen en positivo»: ho recorda per a aquell banc.",
                 "A «Lo que se sigue cobrando» surten les empreses que et cobren a un ritme constant. Les que activis passen a ser contractes.",
             ],
             "tips": [
@@ -118,7 +119,7 @@ GUIDE_CA = {
                 "Amb Plus: «Entra y sale» compara el que entra amb el que surt.",
             ],
             "faq": [
-                ("Quins bancs funcionen?", "Els que exporten una columna de data, una de concepte i una d’import; BBVA i Banc Sabadell s’entenen en detall. Si el teu banc separa càrrecs i abonaments en dues columnes, o només et dona PDF, potser encara no es llegeix bé: escriu-nos amb el nom del banc, sense enviar-nos el fitxer."),
+                ("Quins bancs funcionen?", "Gairebé tots. Tiquet busca les columnes pels títols o, si no n’hi ha, pel que contenen; entén càrrec i abonament en dues columnes i els extractes en PDF, i reconeix el format de BBVA, Banc Sabadell, ING, Revolut i Andbank. Si el teu encara no es llegeix bé, «Envíanos la forma del archivo» prepara un correu sense cap dada teva: cada xifra passa a ser un 9 i cada paraula, la seva llargada."),
             ],
         },
         {
@@ -266,6 +267,7 @@ GUIDE_CA = {
             ],
             "tips": [
                 "La cistella va amb Plus, al costat de «Dónde gastar menos». La llista de la compra és gratis.",
+                "Afegeix el widget «Lista de la compra» a la pantalla d’inici i ratlla des d’allà el que vas agafant, sense obrir l’app.",
                 "Digues a Siri «Lista de la compra en Tiquet», o escriu a «Pregunta» «hazme la lista de la compra»: funciona sense Apple Intelligence.",
                 "La llista es guarda en aquest dispositiu i no se sincronitza per iCloud.",
             ],
@@ -291,6 +293,7 @@ GUIDE_CA = {
             ],
             "tips": [
                 "Sense Apple Intelligence, l’app respon sola quant en alguna cosa, en una botiga o en una etiqueta («¿Cuánto nos costó el viaje a Roma?»), on vas prendre un plat i quan toca el proper pagament d’un contracte.",
+                "«¿Qué puedo devolver todavía?» i «¿Qué sigue en garantía?» els respon l’app al moment, amb tot el que continua obert, el més urgent primer.",
                 "Amb Apple Intelligence, a més: llocs a prop teu o en una regió, i «cena Can Pere 42 ayer» per crear un tiquet que revises abans de desar.",
                 "Gratis tens 5 preguntes al dia a cada dispositiu, sobre el que és gratis a l’app. Amb Plus, sense límit.",
                 "Amb el mode discret, cada resposta espera darrere de «Importes ocultos. Mostrar esta respuesta».",
@@ -317,7 +320,7 @@ GUIDE_CA = {
                 "«Organizar esta pantalla», al final, canvia l’ordre de les targetes o amaga les que no facis servir.",
             ],
             "tips": [
-                "Widgets: «Este mes», «Próximo cargo», «Seguros a mano» i «Buenos sitios cerca». El control «Añadir un tique» va al Centre de control, a la pantalla bloquejada o al botó d’acció.",
+                "Widgets: «Este mes», «Próximo cargo», «Seguros a mano», «Buenos sitios cerca» i «Lista de la compra». El control «Añadir un tique» va al Centre de control, a la pantalla bloquejada o al botó d’acció.",
                 "Pregunta a Siri «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
             ],
             "faq": [],

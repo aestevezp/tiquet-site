@@ -81,7 +81,7 @@ GUIDE_ES = {
             "steps": [
                 "Guarda el tique de la compra. En su ficha, «Tus derechos» te dice hasta cuándo dura la garantía legal y hasta cuándo puedes devolverlo.",
                 "La devolución sale del tique o, si no la imprime, de la política de las grandes cadenas. Comprado online, la ley te da 14 días desde la entrega.",
-                "Para algo que quieras seguir, como un móvil o una bici, toca «Registrar como cosa». Si el tique trae varias líneas, desliza una para registrar solo ese artículo.",
+                "Para algo que quieras seguir, como un móvil o una bici, toca «Registrar como cosa». Si el tique trae varias líneas, entra en el artículo y toca «Registrar este artículo como cosa»: se lleva su precio, su foto y la fecha de devolución.",
                 "Las garantías vigentes están juntas en «Contratos», en «Garantías en vigor», la más próxima arriba.",
             ],
             "tips": [
@@ -105,9 +105,10 @@ GUIDE_ES = {
                 "lo que pagas cada mes, lo que llevas pagado a cada empresa y lo que se repite."
             ),
             "steps": [
-                "En la web o la app de tu banco, exporta los movimientos en Excel o CSV, no en PDF: hace falta una fecha, un concepto y un importe. Si usas tarjeta de crédito, exporta también su extracto.",
+                "En la web o la app de tu banco, exporta los movimientos en Excel, CSV o PDF: hace falta una fecha, un concepto y un importe. Si usas tarjeta de crédito, exporta también su extracto.",
                 "Ábrelo con «Añadir» › «Archivo», o compártelo con Tiquet.",
                 "Te dice cuántas líneas son nuevas; nada se añade dos veces. Si el archivo no trae el año, te pide el «Año del último pago».",
+                "Antes de guardar, «Así ha leído Tiquet este archivo» enseña qué columna es la fecha, el concepto y el importe, con tres líneas para comprobar. Si los gastos salen al revés, activa «Los gastos vienen en positivo»: lo recuerda para ese banco.",
                 "En «Lo que se sigue cobrando» salen las empresas que te cobran a ritmo constante. Las que actives pasan a ser contratos.",
             ],
             "tips": [
@@ -117,7 +118,7 @@ GUIDE_ES = {
                 "Con Plus: «Entra y sale» compara lo que entra con lo que sale.",
             ],
             "faq": [
-                ("¿Qué bancos sirven?", "Los que exportan una columna de fecha, una de concepto y una de importe; BBVA y Banc Sabadell se entienden en detalle. Si tu banco separa cargos y abonos en dos columnas, o solo te da PDF, puede que aún no se lea bien: escríbenos con el nombre del banco, sin mandarnos el archivo."),
+                ("¿Qué bancos sirven?", "Casi todos. Tiquet busca las columnas por sus títulos o, si no los hay, por lo que contienen; entiende cargo y abono en dos columnas y los extractos en PDF, y reconoce el formato de BBVA, Banc Sabadell, ING, Revolut y Andbank. Si el tuyo aún no se lee bien, «Envíanos la forma del archivo» prepara un correo sin ningún dato tuyo: cada cifra pasa a ser un 9 y cada palabra, su longitud."),
             ],
         },
         {
@@ -265,6 +266,7 @@ GUIDE_ES = {
             ],
             "tips": [
                 "La cesta va con Plus, junto a «Dónde gastar menos». La lista de la compra es gratis.",
+                "Añade el widget «Lista de la compra» a la pantalla de inicio y tacha desde ahí lo que vas cogiendo, sin abrir la app.",
                 "Dile a Siri «Lista de la compra en Tiquet», o escribe en «Pregunta» «hazme la lista de la compra»: funciona sin Apple Intelligence.",
                 "La lista se guarda en este dispositivo y no se sincroniza por iCloud.",
             ],
@@ -290,6 +292,7 @@ GUIDE_ES = {
             ],
             "tips": [
                 "Sin Apple Intelligence, la app responde sola cuánto en algo, en una tienda o en una etiqueta («¿Cuánto nos costó el viaje a Roma?»), dónde tomaste un plato y cuándo toca el próximo pago de un contrato.",
+                "«¿Qué puedo devolver todavía?» y «¿Qué sigue en garantía?» los responde la app al momento, con todo lo que sigue abierto, lo más urgente primero.",
                 "Con Apple Intelligence, además: sitios cerca de ti o en una región, y «cena Can Pere 42 ayer» para crear un tique que revisas antes de guardar.",
                 "Gratis tienes 5 preguntas al día en cada dispositivo, sobre lo que es gratis en la app. Con Plus, sin límite.",
                 "Con el modo discreto, cada respuesta espera tras «Importes ocultos. Mostrar esta respuesta».",
@@ -316,7 +319,7 @@ GUIDE_ES = {
                 "«Organizar esta pantalla», al final, cambia el orden de las tarjetas o esconde las que no uses.",
             ],
             "tips": [
-                "Widgets: «Este mes», «Próximo cargo», «Seguros a mano» y «Buenos sitios cerca». El control «Añadir un tique» va en el Centro de control, la pantalla bloqueada o el botón de acción.",
+                "Widgets: «Este mes», «Próximo cargo», «Seguros a mano», «Buenos sitios cerca» y «Lista de la compra». El control «Añadir un tique» va en el Centro de control, la pantalla bloqueada o el botón de acción.",
                 "Pregunta a Siri «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
             ],
             "faq": [],
