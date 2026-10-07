@@ -2,7 +2,7 @@
 """Tiquet's site. One template, three languages (Spanish at the root, /en/, /ca/). Edit S, run, commit the HTML.
 Same pattern as decksweep-site: static files, GitHub Pages, CNAME. Screenshots come from the app's sample data only
 (invented household, invented companies): never a capture of anyone's real data."""
-import os, sys, html
+import json, os, sys, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
 CSS_VERSION = 10
@@ -11,10 +11,19 @@ CSS_VERSION = 10
 # reach the app's page and download it from each campaign; the site itself counts nothing and stores nothing.
 APP_STORE = "https://apps.apple.com/es/app/tiquet/id6816756161?pt=587846&ct=web&mt=8"
 # "?ct=linkedin" on our own address carries on to the download buttons, and to our other pages, so a post can be told apart.
+# Custom product pages in App Store Connect (submitted 7 Oct 2026). A campaign whose `ct` names a theme
+# (li-seguros, ig-compra, premsa-assegurances…) sends the App Store links to that theme's page. Only once Apple approves them.
+PAGES_LIVE = False
+PAGES = {"seguros": "187e38f9-d48d-4858-97f9-561b8cc94d5e", "assegurances": "187e38f9-d48d-4858-97f9-561b8cc94d5e",
+         "compra": "70664db6-f0bb-45fc-8089-841cdf5db1fc",
+         "bizum": "2bb14d69-34c9-4dc9-97d8-26cd33ad998a",
+         "privacidad": "6ead78cc-e9d0-479d-9d83-fe2cce08bc94", "privacitat": "6ead78cc-e9d0-479d-9d83-fe2cce08bc94"}
 CAMPAIGN = ('<script>(function(){var c=new URLSearchParams(location.search).get("ct");if(!c||!/^[a-z0-9-]{1,40}$/.test(c))return;'
+            'var P=%s,p=null;c.split("-").forEach(function(w){if(P[w])p=P[w]});'
             'document.querySelectorAll("a[href]").forEach(function(a){var u=new URL(a.href,location.href);'
-            'if(u.hostname==="apps.apple.com"&&u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}'
-            'else if(u.origin===location.origin&&u.pathname!==location.pathname&&!u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}})})()</script>')
+            'if(u.hostname==="apps.apple.com"&&u.searchParams.has("ct")){u.searchParams.set("ct",c);if(p)u.searchParams.set("ppid",p);a.href=u.toString()}'
+            'else if(u.origin===location.origin&&u.pathname!==location.pathname&&!u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}})})()</script>'
+            % (json.dumps(PAGES if PAGES_LIVE else {}, separators=(",", ":"))))
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
 UPDATED = {"en": "6 October 2026", "es": "6 de octubre de 2026", "ca": "6 d’octubre de 2026"}
 
