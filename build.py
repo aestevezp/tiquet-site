@@ -13,7 +13,7 @@ APP_STORE = "https://apps.apple.com/es/app/tiquet/id6816756161?pt=587846&ct=web&
 # "?ct=linkedin" on our own address carries on to the download buttons, and to our other pages, so a post can be told apart.
 # Custom product pages in App Store Connect (submitted 7 Oct 2026). A campaign whose `ct` names a theme
 # (li-seguros, ig-compra, premsa-assegurances…) sends the App Store links to that theme's page. Only once Apple approves them.
-PAGES_LIVE = False
+PAGES_LIVE = True
 PAGES = {"seguros": "187e38f9-d48d-4858-97f9-561b8cc94d5e", "assegurances": "187e38f9-d48d-4858-97f9-561b8cc94d5e",
          "compra": "70664db6-f0bb-45fc-8089-841cdf5db1fc",
          "bizum": "2bb14d69-34c9-4dc9-97d8-26cd33ad998a",
