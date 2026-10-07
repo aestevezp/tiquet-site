@@ -14,10 +14,10 @@ APP_STORE = "https://apps.apple.com/es/app/tiquet/id6816756161?pt=587846&ct=web&
 # Custom product pages in App Store Connect (submitted 7 Oct 2026). A campaign whose `ct` names a theme
 # (li-seguros, ig-compra, premsa-assegurances…) sends the App Store links to that theme's page. Only once Apple approves them.
 PAGES_LIVE = True
-PAGES = {"seguros": "187e38f9-d48d-4858-97f9-561b8cc94d5e", "assegurances": "187e38f9-d48d-4858-97f9-561b8cc94d5e",
-         "compra": "70664db6-f0bb-45fc-8089-841cdf5db1fc",
-         "bizum": "2bb14d69-34c9-4dc9-97d8-26cd33ad998a",
-         "privacidad": "6ead78cc-e9d0-479d-9d83-fe2cce08bc94", "privacitat": "6ead78cc-e9d0-479d-9d83-fe2cce08bc94"}
+PAGES = {"seguros": "11a50689-68bd-402a-a9e5-53cfd76ff944", "assegurances": "11a50689-68bd-402a-a9e5-53cfd76ff944",
+         "compra": "ab38d2ed-0d26-4b47-b776-d57555d27f29",
+         "bizum": "0bd055d9-fc7d-4289-a813-d5297a3be90d",
+         "privacidad": "680727ba-1e67-4516-8806-a1ddc7bffc5a", "privacitat": "680727ba-1e67-4516-8806-a1ddc7bffc5a"}
 CAMPAIGN = ('<script>(function(){var c=new URLSearchParams(location.search).get("ct");if(!c||!/^[a-z0-9-]{1,40}$/.test(c))return;'
             'var P=%s,p=null;c.split("-").forEach(function(w){if(P[w])p=P[w]});'
             'document.querySelectorAll("a[href]").forEach(function(a){var u=new URL(a.href,location.href);'
