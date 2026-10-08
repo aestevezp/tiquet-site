@@ -109,16 +109,17 @@ GUIDE_ES = {
                 "Ábrelo con «Añadir» › «Archivo», o compártelo con Tiquet.",
                 "Te dice cuántas líneas son nuevas; nada se añade dos veces. Si el archivo no trae el año, te pide el «Año del último pago».",
                 "Antes de guardar, «Así ha leído Tiquet este archivo» enseña qué columna es la fecha, el concepto y el importe, con tres líneas para comprobar. Si los gastos salen al revés, activa «Los gastos vienen en positivo»: lo recuerda para ese banco.",
+                "Desde la 1.2: si Tiquet no entiende las columnas, o las ha leído mal, toca «Elegir las columnas» («¿No se ha leído bien? Elige las columnas» si ya lo leyó): ves cada columna con sus primeros valores y dices cuál es la fecha, el concepto, el importe (o cargo y abono), el saldo, la divisa o una columna de signo D/H. Lo recuerda para los siguientes archivos de ese banco.",
                 "En «Lo que se sigue cobrando» salen las empresas que te cobran a ritmo constante. Las que actives pasan a ser contratos.",
             ],
             "tips": [
                 "Transferencias, Bizum y efectivo se guardan, pero no cuentan como gasto. Los números de tarjeta se recortan a sus cuatro últimas cifras.",
                 "Desde la 1.1 puedes mandar varios extractos juntos y se importan uno tras otro. En la 1.0, de uno en uno.",
-                "Con «Recordarme lo que solo puedo hacer yo», en «Ajustes» › «Avisos», el día 3 te recuerda traer el mes anterior si te falta.",
+                "Con «Recordarme lo que solo puedo hacer yo», en «Ajustes» › «Avisos», el día 3 te recuerda traer el mes anterior si te falta. Desde la 1.2 lo mira banco por banco y tarjeta por tarjeta, dice cuál falta y lo muestra también en «Requiere atención», para que Vigilancia no se quede sin ver nada.",
                 "Con Plus: «Entra y sale» compara lo que entra con lo que sale.",
             ],
             "faq": [
-                ("¿Qué bancos sirven?", "Casi todos. Tiquet busca las columnas por sus títulos o, si no los hay, por lo que contienen; entiende cargo y abono en dos columnas y los extractos en PDF, y reconoce el formato de BBVA, Banc Sabadell, ING, Revolut y Andbank. Si el tuyo aún no se lee bien, «Envíanos la forma del archivo» prepara un correo sin ningún dato tuyo: cada cifra pasa a ser un 9 y cada palabra, su longitud."),
+                ("¿Qué bancos sirven?", "Casi todos. Tiquet busca las columnas por sus títulos o, si no los hay, por lo que contienen; entiende cargo y abono en dos columnas y los extractos en PDF, y reconoce el formato de BBVA, Banc Sabadell, ING, Revolut y Andbank. Si el tuyo aún no se lee bien, «Envíanos la forma del archivo» prepara un correo sin ningún dato tuyo: cada cifra pasa a ser un 9 y cada palabra, su longitud. Desde la 1.2 lee también los extractos de tarjeta de crédito en PDF que parten un movimiento en varias líneas, deja fuera el «saldo anterior» y no cuenta como gasto el pago con el que se salda la tarjeta."),
             ],
         },
         {
@@ -183,6 +184,7 @@ GUIDE_ES = {
                 "Tiquet prepara esos papeles ahora, mientras todo va bien."
             ),
             "steps": [
+                "Desde la 1.2, cuando pasa algo: «¿A quién llamo?» en «Contratos» (o dile a Siri «A quién llamo en Tiquet») enseña tus seguros por lo que ha pasado (hogar, coche, salud, móvil…) con la compañía, el número de póliza y un botón para llamar a siniestros.",
                 "En «Contratos», toca «Compartir» arriba, o ve a «Ajustes» › «Compartir con los de casa».",
                 "Elige «Hoja de casa (PDF)» o «Hoja de casa, con precios». Se hace en el dispositivo.",
                 "Imprímela o envíasela a alguien de confianza, y guárdala donde la puedan encontrar.",
@@ -192,6 +194,7 @@ GUIDE_ES = {
                 "La hoja lleva cada seguro y contrato: compañía, número de póliza, quién está asegurado, qué cubre, el teléfono para dar un parte, el contacto, dónde se guarda el acceso, cuándo renueva y si la póliza está en Tiquet. Luego, lo que está en garantía y los documentos que caducan.",
                 "Nunca lleva contraseñas ni el número de tus documentos. Los precios, solo en la versión con precios.",
                 "El archivo de casa trae contratos, seguros con sus pólizas y garantías: ni tiques ni banco. No está cifrado y no se actualiza solo, así que vuelve a mandarlo cuando cambies algo.",
+                "Desde la 1.2, si cambias un contrato después de mandar el archivo de casa, «Contratos» te avisa: «El fichero del hogar está desactualizado», y lo vuelves a mandar con «Reenviar».",
             ],
             "faq": [],
         },

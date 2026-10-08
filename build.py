@@ -25,7 +25,7 @@ CAMPAIGN = ('<script>(function(){var c=new URLSearchParams(location.search).get(
             'else if(u.origin===location.origin&&u.pathname!==location.pathname&&!u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}})})()</script>'
             % (json.dumps(PAGES if PAGES_LIVE else {}, separators=(",", ":"))))
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
-UPDATED = {"en": "6 October 2026", "es": "6 de octubre de 2026", "ca": "6 d’octubre de 2026"}
+UPDATED = {"en": "8 October 2026", "es": "8 de octubre de 2026", "ca": "8 d’octubre de 2026"}
 
 S = {
 "en": dict(lang="en", name_lang="English",
@@ -49,10 +49,14 @@ S = {
   'Drop a PDF or a photo of a policy: number, premium, what it covers, who is insured and the claims phone '
   'are read and checked against the paper.',
   'c-green'),
+ ('Who do I call?',
+  'Something happened at home, to the car, to someone\'s health: your insurance by what happened, with the '
+  'company, the policy number and a button that calls the claims line. Also with Siri.',
+  'c-green'),
  ('Bank and card statements, by file',
   'Download them from your bank and open them with Tiquet: BBVA, Sabadell and more. No login, no connection. '
   'Card numbers are cut to their last four digits before anything is saved. Search any shop or word across '
-  'all of them.',
+  'all of them. If it doesn\'t know a file\'s columns, you tell it once which is which.',
   'c-sea'),
  ('Nothing counted twice',
   "A receipt, its bank line and the contract's premium are one payment. Where there are statements, the "
@@ -305,10 +309,14 @@ S = {
   'Un PDF o una foto de la póliza: número, prima, qué cubre, quién está asegurado y el teléfono de '
   'siniestros se leen y se comprueban contra el papel.',
   'c-green'),
+ ('¿A quién llamo?',
+  'Ha pasado algo en casa, con el coche, con la salud: tus seguros según lo que haya pasado, con la '
+  'compañía, el número de póliza y un botón que llama a siniestros. También con Siri.',
+  'c-green'),
  ('Extractos de banco y de tarjeta, por archivo',
   'Los descargas de tu banco y los abres con Tiquet: BBVA, Sabadell y más. Sin contraseña, sin conexión. Los '
   'números de tarjeta se recortan a sus cuatro últimas cifras antes de guardar nada. Busca cualquier tienda '
-  'o palabra en todos ellos.',
+  'o palabra en todos ellos. Si no conoce las columnas de un archivo, le dices una vez cuál es cuál.',
   'c-sea'),
  ('Nada se cuenta dos veces',
   'Un tique, su línea del banco y la cuota del contrato son un solo pago. Donde hay extracto, manda el '
@@ -569,10 +577,14 @@ S = {
   'Un PDF o una foto de la pòlissa: número, prima, què cobreix, qui està assegurat i el telèfon de sinistres '
   'es llegeixen i es comproven contra el paper.',
   'c-green'),
+ ('A qui truco?',
+  'Ha passat alguna cosa a casa, amb el cotxe, amb la salut: les teves assegurances segons el que hagi passat, '
+  'amb la companyia, el número de pòlissa i un botó que truca a sinistres. També amb Siri.',
+  'c-green'),
  ('Extractes de banc i de targeta, per fitxer',
   'Els descarregues del teu banc i els obres amb Tiquet: BBVA, Sabadell i més. Sense contrasenya, sense '
   'connexió. Els números de targeta es retallen a les quatre últimes xifres abans de guardar res. Busca '
-  'qualsevol botiga o paraula en tots.',
+  'qualsevol botiga o paraula en tots. Si no coneix les columnes d’un fitxer, li dius un cop quina és quina.',
   'c-sea'),
  ('Res es compta dues vegades',
   'Un tiquet, la seva línia del banc i la quota del contracte són un sol pagament. On hi ha extracte, mana '

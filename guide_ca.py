@@ -110,16 +110,17 @@ GUIDE_CA = {
                 "Obre’l amb «Añadir» › «Archivo», o comparteix-lo amb Tiquet.",
                 "Et diu quantes línies són noves; res no s’afegeix dues vegades. Si el fitxer no porta l’any, et demana l’«Año del último pago».",
                 "Abans de desar, «Así ha leído Tiquet este archivo» mostra quina columna és la data, el concepte i l’import, amb tres línies per comprovar-ho. Si les despeses surten al revés, activa «Los gastos vienen en positivo»: ho recorda per a aquell banc.",
+                "Des de la 1.2: si Tiquet no entén les columnes, o les ha llegit malament, toca «Elegir las columnas» («¿No se ha leído bien? Elige las columnas» si ja l’ha llegit): veus cada columna amb els primers valors i dius quina és la data, el concepte, l’import (o càrrec i abonament), el saldo, la divisa o una columna de signe D/H. Ho recorda per als fitxers següents d’aquell banc.",
                 "A «Lo que se sigue cobrando» surten les empreses que et cobren a un ritme constant. Les que activis passen a ser contractes.",
             ],
             "tips": [
                 "Transferències, Bizum i efectiu es guarden, però no compten com a despesa. Els números de targeta es retallen a les quatre últimes xifres.",
                 "Des de la 1.1 pots enviar diversos extractes junts i s’importen un rere l’altre. A la 1.0, d’un en un.",
-                "Amb «Recordarme lo que solo puedo hacer yo», a «Ajustes» › «Avisos», el dia 3 et recorda que portis el mes anterior si et falta.",
+                "Amb «Recordarme lo que solo puedo hacer yo», a «Ajustes» › «Avisos», el dia 3 et recorda que portis el mes anterior si et falta. Des de la 1.2 ho mira banc per banc i targeta per targeta, diu quin falta i també ho mostra a «Requiere atención», perquè Vigilància no es quedi sense veure res.",
                 "Amb Plus: «Entra y sale» compara el que entra amb el que surt.",
             ],
             "faq": [
-                ("Quins bancs funcionen?", "Gairebé tots. Tiquet busca les columnes pels títols o, si no n’hi ha, pel que contenen; entén càrrec i abonament en dues columnes i els extractes en PDF, i reconeix el format de BBVA, Banc Sabadell, ING, Revolut i Andbank. Si el teu encara no es llegeix bé, «Envíanos la forma del archivo» prepara un correu sense cap dada teva: cada xifra passa a ser un 9 i cada paraula, la seva llargada."),
+                ("Quins bancs funcionen?", "Gairebé tots. Tiquet busca les columnes pels títols o, si no n’hi ha, pel que contenen; entén càrrec i abonament en dues columnes i els extractes en PDF, i reconeix el format de BBVA, Banc Sabadell, ING, Revolut i Andbank. Si el teu encara no es llegeix bé, «Envíanos la forma del archivo» prepara un correu sense cap dada teva: cada xifra passa a ser un 9 i cada paraula, la seva llargada. Des de la 1.2 també llegeix els extractes de targeta de crèdit en PDF que parteixen un moviment en diverses línies, deixa fora el «saldo anterior» i no compta com a despesa el pagament amb què se salda la targeta."),
             ],
         },
         {
@@ -184,6 +185,7 @@ GUIDE_CA = {
                 "Tiquet prepara aquests papers ara, mentre tot va bé."
             ),
             "steps": [
+                "Des de la 1.2, quan passa alguna cosa: «¿A quién llamo?» a «Contratos» (o digues a Siri «A quién llamo en Tiquet») mostra les teves assegurances pel que ha passat (llar, cotxe, salut, mòbil…) amb la companyia, el número de pòlissa i un botó per trucar a sinistres.",
                 "A «Contratos», toca «Compartir» a dalt, o ves a «Ajustes» › «Compartir con los de casa».",
                 "Tria «Hoja de casa (PDF)» o «Hoja de casa, con precios». Es fa al dispositiu.",
                 "Imprimeix-la o envia-la a algú de confiança, i guarda-la on la puguin trobar.",
@@ -193,6 +195,7 @@ GUIDE_CA = {
                 "El full porta cada assegurança i contracte: companyia, número de pòlissa, qui està assegurat, què cobreix, el telèfon per donar un part, el contacte, on es guarda l’accés, quan es renova i si la pòlissa és a Tiquet. Després, el que està en garantia i els documents que caduquen.",
                 "Mai porta contrasenyes ni el número dels teus documents. Els preus, només a la versió amb preus.",
                 "El fitxer de casa porta contractes, assegurances amb les seves pòlisses i garanties: ni tiquets ni banc. No està xifrat i no s’actualitza sol, així que torna a enviar-lo quan canviïs alguna cosa.",
+                "Des de la 1.2, si canvies un contracte després d’enviar el fitxer de casa, «Contratos» t’avisa: «El fichero del hogar está desactualizado», i el tornes a enviar amb «Reenviar».",
             ],
             "faq": [],
         },

@@ -109,16 +109,17 @@ GUIDE_EN = {
                 "Open it with “Add” › “File”, or share it with Tiquet.",
                 "It tells you how many lines are new; nothing is added twice. If the file has no year, it asks for the “Year of the latest payment”.",
                 "Before saving, “How Tiquet read this file” shows which column is the date, the description and the amount, with three lines to check. If spending comes out the wrong way, turn on “Spending comes as positive numbers”: it remembers that for that bank.",
+                "From 1.2: if Tiquet doesn't know the columns, or read them wrong, tap “Choose the columns” (“Not read right? Choose the columns” once it has read it): you see each column with its first values and say which is the date, the concept, the amount (or money out and in), the balance, the currency or a D/H sign column. It remembers them for that bank's next files.",
                 "“What keeps charging” lists the companies that charge you at a steady rhythm. The ones you switch on become contracts.",
             ],
             "tips": [
                 "Transfers, Bizum and cash are saved, but don't count as spending. Card numbers are cut to their last four digits.",
                 "From 1.1 you can send several statements together and they're imported one after another. In 1.0, one at a time.",
-                "With “Remind me of what only I can do”, in “Settings” › “Reminders”, on the 3rd of the month it reminds you to bring in the previous month if it's missing.",
+                "With “Remind me of what only I can do”, in “Settings” › “Reminders”, on the 3rd of the month it reminds you to bring in the previous month if it's missing. From 1.2 it looks bank by bank and card by card, names what's missing and shows it in “Needs attention” too, so Watch doesn't miss anything.",
                 "With Plus: “In and out” compares what comes in with what goes out.",
             ],
             "faq": [
-                ("Which banks work?", "Nearly all. Tiquet finds the columns by their titles or, if there are none, by what they hold; it understands debits and credits in two columns and PDF statements, and knows the layouts of BBVA, Banc Sabadell, ING, Revolut and Andbank. If yours still isn't read right, “Send us the file's shape” prepares an email with none of your data: every digit becomes a 9 and every word its length."),
+                ("Which banks work?", "Nearly all. Tiquet finds the columns by their titles or, if there are none, by what they hold; it understands debits and credits in two columns and PDF statements, and knows the layouts of BBVA, Banc Sabadell, ING, Revolut and Andbank. If yours still isn't read right, “Send us the file's shape” prepares an email with none of your data: every digit becomes a 9 and every word its length. From 1.2 it also reads credit card PDF statements that split a movement over several lines, leaves the “previous balance” out and doesn't count the payment that settles the card as spending."),
             ],
         },
         {
@@ -183,6 +184,7 @@ GUIDE_EN = {
                 "number to call? Tiquet prepares those papers now, while all is well."
             ),
             "steps": [
+                "From 1.2, when something happens: “Who do I call?” in “Contracts” (or ask Siri “Who do I call in Tiquet”) shows your insurance by what happened (home, car, health, phone…) with the company, the policy number and a button to call the claims line.",
                 "In “Contracts”, tap “Share” at the top, or go to “Settings” › “Share with your household”.",
                 "Choose “Household sheet (PDF)” or “Household sheet, with prices”. It's made on the device.",
                 "Print it or send it to someone you trust, and keep it where it can be found.",
@@ -192,6 +194,7 @@ GUIDE_EN = {
                 "The sheet lists each insurance policy and contract: company, policy number, who is insured, what it covers, the phone number to make a claim, the contact, where the login is kept, when it renews and whether the policy is in Tiquet. Then, what's under warranty and the documents that expire.",
                 "It never includes passwords or your document numbers. Prices appear only in the version with prices.",
                 "The household file carries contracts, insurance with its policies, and warranties: no receipts and no bank data. It isn't encrypted and doesn't update itself, so send it again when you change something.",
+                "From 1.2, if you change a contract after sending the household file, “Contracts” tells you: “The household file is out of date”, and you send it again with “Send it again”.",
             ],
             "faq": [],
         },
