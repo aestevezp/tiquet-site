@@ -25,7 +25,7 @@ CAMPAIGN = ('<script>(function(){var c=new URLSearchParams(location.search).get(
             'else if(u.origin===location.origin&&u.pathname!==location.pathname&&!u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}})})()</script>'
             % (json.dumps(PAGES if PAGES_LIVE else {}, separators=(",", ":"))))
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
-UPDATED = {"en": "8 October 2026", "es": "8 de octubre de 2026", "ca": "8 d’octubre de 2026"}
+UPDATED = {"en": "9 October 2026", "es": "9 de octubre de 2026", "ca": "9 d’octubre de 2026"}
 
 S = {
 "en": dict(lang="en", name_lang="English",
@@ -57,6 +57,10 @@ S = {
   'Download them from your bank and open them with Tiquet: BBVA, Sabadell and more. No login, no connection. '
   'Card numbers are cut to their last four digits before anything is saved. Search any shop or word across '
   'all of them. If it doesn\'t know a file\'s columns, you tell it once which is which.',
+  'c-sea'),
+ ('Apple Pay, noted by itself',
+  'Pay with your iPhone or Apple Watch and the receipt appears in Tiquet with its shop and category. Set it up '
+  'once in Shortcuts; switch it off whenever you like. The statement later is the same payment, not a second one.',
   'c-sea'),
  ('Nothing counted twice',
   "A receipt, its bank line and the contract's premium are one payment. Where there are statements, the "
@@ -317,6 +321,10 @@ S = {
   'Los descargas de tu banco y los abres con Tiquet: BBVA, Sabadell y más. Sin contraseña, sin conexión. Los '
   'números de tarjeta se recortan a sus cuatro últimas cifras antes de guardar nada. Busca cualquier tienda '
   'o palabra en todos ellos. Si no conoce las columnas de un archivo, le dices una vez cuál es cuál.',
+  'c-sea'),
+ ('Apple Pay, apuntado solo',
+  'Pagas con el iPhone o el Apple Watch y el tique aparece en Tiquet con su comercio y su categoría. Se activa '
+  'una vez en Atajos y se desactiva cuando quieras. El extracto, después, es el mismo pago, no otro.',
   'c-sea'),
  ('Nada se cuenta dos veces',
   'Un tique, su línea del banco y la cuota del contrato son un solo pago. Donde hay extracto, manda el '
@@ -585,6 +593,10 @@ S = {
   'Els descarregues del teu banc i els obres amb Tiquet: BBVA, Sabadell i més. Sense contrasenya, sense '
   'connexió. Els números de targeta es retallen a les quatre últimes xifres abans de guardar res. Busca '
   'qualsevol botiga o paraula en tots. Si no coneix les columnes d’un fitxer, li dius un cop quina és quina.',
+  'c-sea'),
+ ('Apple Pay, apuntat sol',
+  'Pagues amb l’iPhone o l’Apple Watch i el tiquet apareix a Tiquet amb el seu comerç i la seva categoria. '
+  'S’activa un cop a Dreceres i es desactiva quan vulguis. L’extracte, després, és el mateix pagament, no un altre.',
   'c-sea'),
  ('Res es compta dues vegades',
   'Un tiquet, la seva línia del banc i la quota del contracte són un sol pagament. On hi ha extracte, mana '
