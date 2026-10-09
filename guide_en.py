@@ -89,6 +89,7 @@ GUIDE_EN = {
             ],
             "tips": [
                 "The steps, whether it's working (“Working: the latest…”) and the “Note Apple Pay payments” switch are in “Settings” › “From your bank”. Switch it off and the automation stays in Shortcuts, but Tiquet notes nothing.",
+                "From 1.3, if you pay by card and haven't set it up, “Needs attention” offers it; if you opened the steps and nothing has arrived three days later, it says so; and when the first payment arrives, it confirms it.",
                 "When you import the statement, that payment is recognised: it isn't counted twice.",
                 "If you scan the paper receipt later, it takes the payment's place, with its items.",
                 "Depending on the iOS version, Shortcuts may name things a little differently; the Transaction automation is always under “Automation”.",
@@ -356,6 +357,8 @@ GUIDE_EN = {
             "tips": [
                 "Widgets: “This month”, “Next charge”, “Insurance at hand”, “Good places near you” and “Shopping list”. The “Add a receipt” control goes in Control Centre, on the Lock Screen or on the Action button.",
                 "Ask Siri “When does home insurance renew in Tiquet?” or “How is my month going in Tiquet?”.",
+                "From 1.3, in lists with swipe actions (“Needs attention”, “Places”, your accounts…) the first row shows what's behind it the first two times: swipe left for “Tomorrow” or “Monday”, right for “Done”. With Reduce Motion on, nothing moves.",
+                "Without Plus yet, turning the iPhone sideways explains what “Horizon” is and that it's part of Tiquet Plus, with the 14-day trial if you haven't used it.",
             ],
             "faq": [],
         },
@@ -395,7 +398,8 @@ GUIDE_EN = {
                 "scanned hotel, the flight from the statement and the travel insurance. The budget tells you whether the month is going well."
             ),
             "steps": [
-                "On a receipt, a contract or a thing, add a tag under “Tags”. When it reads a receipt, Tiquet suggests some.",
+                "On a receipt, a contract or a thing, add a tag under “Tags”. From 1.3, typing shows your tags that match and Tiquet's own too (the groups on Home, such as Groceries). If you type nearly the same as one you have, it asks “Did you mean…” before making another; and “All” opens the whole list, searchable: “Made by you” and “Tiquet's (the groups on Home)”.",
+                "Suggestions start with the tags you put on that shop before; a supermarket receipt is offered the groceries group.",
                 "Bank payments get their tag on their own. The ones left without one wait in “Classify”: one tap tags every payment from that merchant, past and future.",
                 "If something is filed wrong, “Review the classification” corrects it by merchant or by group, and it can be undone.",
                 "In “Settings” › “Monthly budget”, set what you want to spend in a normal month, everything included.",
@@ -403,6 +407,7 @@ GUIDE_EN = {
             ],
             "tips": [
                 "Each payment counts once in the tag: the receipt and its bank line are the same payment.",
+                "Put one of Tiquet's tags on a receipt and it joins the same group on Home as your bank payments.",
                 "The people in your household work as tags too: “everything of Marta's” is one screen.",
                 "Tiquet never works out the budget from your income. It's one figure, not twenty.",
             ],

@@ -90,6 +90,7 @@ GUIDE_CA = {
             ],
             "tips": [
                 "Els passos, l’estat («Funciona: el último…») i l’interruptor «Apuntar los pagos con Apple Pay» són a «Ajustes» › «De tu banco». Si el desactives, l’automatització continua a Dreceres però Tiquet no apunta res.",
+                "Des de la 1.3, si pagues amb targeta i encara no ho tens, «Requiere atención» t’ho ofereix; si vas obrir els passos i als tres dies no ha arribat cap pagament, t’ho diu; i quan arriba el primer, t’ho confirma.",
                 "Quan importes l’extracte, aquell pagament es reconeix: no es compta dues vegades.",
                 "Si després escaneges el tiquet de paper, ocupa el lloc del pagament, amb els seus articles.",
                 "Segons la versió de l’iOS, Dreceres pot anomenar les coses de manera una mica diferent; l’automatització de Transacció sempre és a «Automatització».",
@@ -357,6 +358,8 @@ GUIDE_CA = {
             "tips": [
                 "Widgets: «Este mes», «Próximo cargo», «Seguros a mano», «Buenos sitios cerca» i «Lista de la compra». El control «Añadir un tique» va al Centre de control, a la pantalla bloquejada o al botó d’acció.",
                 "Pregunta a Siri «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
+                "Des de la 1.3, a les llistes amb accions en lliscar («Requiere atención», «Lugares», els teus comptes…) la primera fila t’ensenya les dues primeres vegades què hi ha al darrere: llisca a l’esquerra per a «Mañana» o «Lunes», a la dreta per a «Hecho». Amb «Redueix el moviment» activat no es mou.",
+                "Si encara no tens Plus, quan gires l’iPhone Tiquet t’explica què és «Horizonte» i que forma part de Tiquet Plus, amb la prova de 14 dies si no l’has feta servir.",
             ],
             "faq": [],
         },
@@ -396,7 +399,8 @@ GUIDE_CA = {
                 "el vol de l’extracte i l’assegurança de viatge. El pressupost et diu si el mes va bé."
             ),
             "steps": [
-                "En un tiquet, un contracte o una cosa, afegeix una etiqueta a «Etiquetas». Quan llegeix un tiquet, Tiquet te’n suggereix alguna.",
+                "En un tiquet, un contracte o una cosa, afegeix una etiqueta a «Etiquetas». Des de la 1.3, quan escrius et proposa les teves etiquetes que hi coincideixen i també les de Tiquet (els grups d’Inici, com la del súper). Si escrius gairebé igual que una que ja tens, et pregunta «¿Querías decir…?» abans de crear-ne una altra; i «Todas» obre la llista completa, amb cercador: «Las tuyas» i «De Tiquet (los grupos de Inicio)».",
+                "Els suggeriments comencen per les etiquetes que ja vas posar en aquell comerç; un tiquet del súper et proposa el grup del súper.",
                 "Els pagaments del banc reben la seva etiqueta sols. Els que es queden sense esperen a «Clasificar»: un toc etiqueta tots els pagaments d’aquell comerç, passats i futurs.",
                 "Si alguna cosa està mal arxivada, «Revisar la clasificación» ho corregeix per comerç o per grup, i es pot desfer.",
                 "A «Ajustes» › «Presupuesto mensual», posa el que voleu gastar en un mes normal, amb tot inclòs.",
@@ -404,6 +408,7 @@ GUIDE_CA = {
             ],
             "tips": [
                 "Cada pagament compta un cop a l’etiqueta: el tiquet i la seva línia del banc són el mateix pagament.",
+                "Si poses a un tiquet una etiqueta de Tiquet, se suma al mateix grup d’Inici que els teus pagaments del banc.",
                 "Les persones de casa també serveixen d’etiqueta: «todo lo de Marta» és una pantalla.",
                 "Tiquet mai calcula el pressupost a partir dels teus ingressos. És una xifra, no vint.",
             ],

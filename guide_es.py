@@ -89,6 +89,7 @@ GUIDE_ES = {
             ],
             "tips": [
                 "Los pasos, el estado («Funciona: el último…») y el interruptor «Apuntar los pagos con Apple Pay» están en «Ajustes» › «De tu banco». Si lo desactivas, la automatización sigue en Atajos pero Tiquet no apunta nada.",
+                "Desde la 1.3, si pagas con tarjeta y aún no lo tienes, «Requiere atención» te lo ofrece; si abriste los pasos y a los tres días no ha llegado ningún pago, te lo dice; y cuando llega el primero, te lo confirma.",
                 "Cuando importas el extracto, ese pago se reconoce: no se cuenta dos veces.",
                 "Si después escaneas el tique de papel, ocupa el lugar del pago, con sus artículos.",
                 "Según la versión de iOS, Atajos puede llamar las cosas de forma algo distinta; la automatización de Transacción siempre está en «Automatización».",
@@ -356,6 +357,8 @@ GUIDE_ES = {
             "tips": [
                 "Widgets: «Este mes», «Próximo cargo», «Seguros a mano», «Buenos sitios cerca» y «Lista de la compra». El control «Añadir un tique» va en el Centro de control, la pantalla bloqueada o el botón de acción.",
                 "Pregunta a Siri «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
+                "Desde la 1.3, en las listas con acciones al deslizar («Requiere atención», «Lugares», tus cuentas…) la primera fila te enseña las dos primeras veces qué hay detrás: desliza a la izquierda para «Mañana» o «Lunes», a la derecha para «Hecho». Con «Reducir movimiento» activado no se mueve.",
+                "Si aún no tienes Plus, al girar el iPhone Tiquet te explica qué es «Horizonte» y que forma parte de Tiquet Plus, con la prueba de 14 días si no la has usado.",
             ],
             "faq": [],
         },
@@ -395,7 +398,8 @@ GUIDE_ES = {
                 "el vuelo del extracto y el seguro de viaje. El presupuesto te dice si el mes va bien."
             ),
             "steps": [
-                "En un tique, un contrato o una cosa, añade una etiqueta en «Etiquetas». Al leer un tique, Tiquet te sugiere alguna.",
+                "En un tique, un contrato o una cosa, añade una etiqueta en «Etiquetas». Desde la 1.3, al escribir te propone tus etiquetas que coinciden y también las de Tiquet (los grupos de Inicio, como la del súper). Si escribes casi igual que una que ya tienes, te pregunta «¿Querías decir…?» antes de crear otra; y «Todas» abre la lista completa, con buscador: «Las tuyas» y «De Tiquet (los grupos de Inicio)».",
+                "Las sugerencias empiezan por las etiquetas que ya pusiste en ese comercio; un tique del súper te propone el grupo del súper.",
                 "Los pagos del banco reciben su etiqueta solos. Los que se quedan sin ella esperan en «Clasificar»: un toque etiqueta todos los pagos de ese comercio, pasados y futuros.",
                 "Si algo está mal archivado, «Revisar la clasificación» lo corrige por comercio o por grupo, y se puede deshacer.",
                 "En «Ajustes» › «Presupuesto mensual», pon lo que queréis gastar en un mes normal, con todo incluido.",
@@ -403,6 +407,7 @@ GUIDE_ES = {
             ],
             "tips": [
                 "Cada pago cuenta una vez en la etiqueta: el tique y su línea del banco son el mismo pago.",
+                "Si pones a un tique una etiqueta de Tiquet, se suma al mismo grupo de Inicio que tus pagos del banco.",
                 "Las personas de casa también sirven de etiqueta: «todo lo de Marta» es una pantalla.",
                 "Tiquet nunca calcula el presupuesto a partir de tus ingresos. Es una cifra, no veinte.",
             ],

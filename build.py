@@ -25,7 +25,7 @@ CAMPAIGN = ('<script>(function(){var c=new URLSearchParams(location.search).get(
             'else if(u.origin===location.origin&&u.pathname!==location.pathname&&!u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}})})()</script>'
             % (json.dumps(PAGES if PAGES_LIVE else {}, separators=(",", ":"))))
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
-UPDATED = {"en": "9 October 2026", "es": "9 de octubre de 2026", "ca": "9 d’octubre de 2026"}
+UPDATED = {"en": "10 October 2026", "es": "10 de octubre de 2026", "ca": "10 d’octubre de 2026"}
 
 S = {
 "en": dict(lang="en", name_lang="English",
