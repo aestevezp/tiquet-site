@@ -1076,7 +1076,7 @@ X4 = {
   ap_k="Apple Pay", ap_h="Pagas y se apunta solo.",
   ap_p="Con Apple Pay, el pago aparece en Tiquet al momento, con su comercio, su importe y su categoría. Sin foto, sin escribir nada y sin conectar tu banco: lo hace tu iPhone.",
   ap_l=["Se activa una vez en Atajos, en un minuto", "Cuando llega el extracto, ese pago no se cuenta dos veces", "Si luego escaneas el tique de papel, ocupa su lugar", "Lo desactivas cuando quieras"],
-  ap_note="Se activa una vez en Atajos", ap_title="Apuntado en Tiquet", ap_now="ahora", ap_line="23,40 € en Mercadona · Súper", ap_amount="23,40 €",
+  ap_note="Se activa una vez en Atajos", ap_more="Cómo se activa, paso a paso", ap_title="Apuntado en Tiquet", ap_now="ahora", ap_line="23,40 € en Mercadona · Súper", ap_amount="23,40 €",
   bk_k="La cesta", bk_h="Lo que sube en tu súper, y la lista de lo que te toca comprar",
   bk_p="Cada tique del súper guarda sus artículos con su precio. Tiquet compara lo mismo en la misma tienda y te dice cuánto ha subido tu cesta habitual, qué producto sube más y dónde lo tienes más barato.",
   bk_l=["Tu cesta habitual, comparada con la de hace meses", "Precio por unidad, o por kilo si se pesa", "El mismo producto, más barato en tu otro súper",
@@ -1088,7 +1088,7 @@ X4 = {
   ap_k="Apple Pay", ap_h="Pay, and it's noted by itself.",
   ap_p="With Apple Pay, the payment appears in Tiquet straight away, with its shop, its amount and its category. No photo, nothing to type and no bank connection: your iPhone does it.",
   ap_l=["Set it up once in Shortcuts, in a minute", "When the statement arrives, that payment isn't counted twice", "Scan the paper receipt later and it takes its place", "Switch it off whenever you like"],
-  ap_note="Set up once in Shortcuts", ap_title="Noted in Tiquet", ap_now="now", ap_line="€23.40 at Mercadona · Groceries", ap_amount="€23.40",
+  ap_note="Set up once in Shortcuts", ap_more="How to set it up, step by step", ap_title="Noted in Tiquet", ap_now="now", ap_line="€23.40 at Mercadona · Groceries", ap_amount="€23.40",
   bk_k="The basket", bk_h="What goes up at your supermarket, and the list of what you need",
   bk_p="Every supermarket receipt keeps its items and their prices. Tiquet compares the same thing at the same shop and tells you how much your usual basket has gone up, which product rises most and where it is cheaper.",
   bk_l=["Your usual basket, against months ago", "Price per unit, or per kilo when weighed", "The same product, cheaper at your other supermarket",
@@ -1100,7 +1100,7 @@ X4 = {
   ap_k="Apple Pay", ap_h="Pagues i s'apunta sol.",
   ap_p="Amb Apple Pay, el pagament apareix a Tiquet al moment, amb el seu comerç, el seu import i la seva categoria. Sense foto, sense escriure res i sense connectar el teu banc: ho fa el teu iPhone.",
   ap_l=["S'activa un cop a Dreceres, en un minut", "Quan arriba l'extracte, aquell pagament no es compta dues vegades", "Si després escaneges el tiquet de paper, n'ocupa el lloc", "El desactives quan vulguis"],
-  ap_note="S'activa un cop a Dreceres", ap_title="Apuntat a Tiquet", ap_now="ara", ap_line="23,40 € a Mercadona · Súper", ap_amount="23,40 €",
+  ap_note="S'activa un cop a Dreceres", ap_more="Com s'activa, pas a pas", ap_title="Apuntat a Tiquet", ap_now="ara", ap_line="23,40 € a Mercadona · Súper", ap_amount="23,40 €",
   bk_k="La cistella", bk_h="El que puja al teu súper, i la llista del que t'has de comprar",
   bk_p="Cada tiquet del súper guarda els seus articles amb el preu. Tiquet compara el mateix a la mateixa botiga i et diu quant ha pujat la teva cistella habitual, quin producte puja més i on el tens més barat.",
   bk_l=["La teva cistella habitual, comparada amb la de fa mesos", "Preu per unitat, o per quilo si es pesa", "El mateix producte, més barat a l'altre súper",
@@ -1213,8 +1213,9 @@ def landing(t, lang):
            '<div class="tphone"><img src="%s" alt="" loading="lazy"></div>'
            '<div class="reader"><div class="rscreen"><span class="waves"><i></i><i></i><i></i></span>%s</div></div>'
            '<span class="tnote">⚙︎ %s</span></div>') % (r, e(t["ap_title"]), e(t["ap_now"]), e(t["ap_line"]), shot("home"), e(t["ap_amount"]), e(t["ap_note"]))
-    out += ('<section id="applepay"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s</div>%s</div></section>'
-            ) % (e(t["ap_k"]), e(t["ap_h"]), e(t["ap_p"]), checks(t["ap_l"]), tap)
+    out += ('<section id="applepay"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s'
+            '<p><a class="pill ghost" href="%s#applepay">%s →</a></p></div>%s</div></section>'
+            ) % (e(t["ap_k"]), e(t["ap_h"]), e(t["ap_p"]), checks(t["ap_l"]), page_url(lang, "guia"), e(t["ap_more"]), tap)
     # The basket and the shopping list: two phones, the sample household's prices.
     out += ('<section id="basket"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s</div>'
             '<div class="duo reveal"><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div></div></div></section>'

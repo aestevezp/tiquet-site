@@ -63,9 +63,41 @@ GUIDE_EN = {
                 "You can share up to 20 files at once. From version 1.1 they're read in the order you send them.",
                 "From 1.1, a shop's receipt has “Shop's website, for its icon”. You type it once and all its receipts and charges show the icon.",
                 "If you save a repeated receipt by hand (same shop, date and amount), Tiquet asks you first.",
-                "From 1.2, each Apple Pay payment can be noted by itself as a receipt, with its shop and category. You set it up once: in Shortcuts, “Automation” › “+” › “Transaction”, pick your cards, choose “Run Immediately” and add Tiquet's “Note a card payment” action (Merchant, Amount and Card from the transaction). The steps and the switch to turn it off are in “Settings” › “From your bank”. When you import the statement, that payment isn't counted twice, and if you scan the paper receipt it takes its place.",
+                "With Apple Pay, each payment can be noted by itself as a receipt: see “Apple Pay, noted by itself”.",
             ],
             "faq": [],
+        },
+        {
+            "id": "applepay",
+            "title": "Apple Pay, noted by itself",
+            "short": "Apple Pay",
+            "tier": "free",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "From version 1.2, each Apple Pay payment with your iPhone or Apple Watch is noted in Tiquet by itself, with its "
+                "shop, its amount and its category. Your iPhone does it, with no bank connection. iOS asks you to switch it on "
+                "yourself, once, in the Shortcuts app: it takes a minute."
+            ),
+            "steps": [
+                "Open the Shortcuts app and tap “Automation”, at the bottom.",
+                "Tap “+” (or “New Automation”) and choose “Transaction”.",
+                "Tick the Wallet cards you want, choose “Run Immediately” and tap “Next”.",
+                "Tap “New Blank Automation” or “Add Action”, search for Tiquet and choose “Note a card payment”.",
+                "In the action, tap “Merchant” and choose “Merchant”; for “Amount”, choose “Amount”; for “Card”, choose “Card or Pass”. Tap “Done”.",
+                "Pay with your iPhone: you'll see “Noted: … at … · category” and the receipt appears in Tiquet.",
+            ],
+            "tips": [
+                "The steps, whether it's working (“Working: the latest…”) and the “Note Apple Pay payments” switch are in “Settings” › “From your bank”. Switch it off and the automation stays in Shortcuts, but Tiquet notes nothing.",
+                "When you import the statement, that payment is recognised: it isn't counted twice.",
+                "If you scan the paper receipt later, it takes the payment's place, with its items.",
+                "Depending on the iOS version, Shortcuts may name things a little differently; the Transaction automation is always under “Automation”.",
+            ],
+            "faq": [
+                ("Does Tiquet see my card or my bank?", "No. Shortcuts hands it only the shop, the amount and the name of the card you choose in the action. Nothing leaves your iPhone."),
+                ("Why doesn't it switch on by itself?", "iOS lets no app create automations: the person has to, once. That way you switch it on knowing what you're doing."),
+                ("And what I pay with the physical card or by direct debit?", "What you pay with Apple Pay is noted. The rest comes with the bank statement."),
+            ],
         },
         {
             "id": "garantias",

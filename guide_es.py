@@ -63,9 +63,41 @@ GUIDE_ES = {
                 "Puedes compartir hasta 20 archivos de una vez. Desde la versión 1.1 se leen en el orden en que los mandas.",
                 "Desde la 1.1, el tique de una tienda tiene «Web de la tienda, para su icono». Lo escribes una vez y todos sus tiques y cargos llevan el icono.",
                 "Si guardas a mano un tique repetido (misma tienda, día e importe), Tiquet te pregunta antes.",
-                "Desde la 1.2, cada pago con Apple Pay puede apuntarse solo como un tique, con su comercio y su categoría. Se activa una vez: en Atajos, «Automatización» › «+» › «Transacción», marca tus tarjetas, elige «Ejecutar inmediatamente» y añade la acción de Tiquet «Apuntar un pago con tarjeta» (en Comercio, Importe y Tarjeta, las de la transacción). Los pasos y el interruptor para desactivarlo están en «Ajustes» › «De tu banco». Cuando importas el extracto, ese pago no se cuenta dos veces, y si escaneas el tique de papel ocupa su lugar.",
+                "Con Apple Pay, cada pago puede apuntarse solo como un tique: mira «Apple Pay, apuntado solo».",
             ],
             "faq": [],
+        },
+        {
+            "id": "applepay",
+            "title": "Apple Pay, apuntado solo",
+            "short": "Apple Pay",
+            "tier": "free",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "Desde la versión 1.2, cada pago con Apple Pay en el iPhone o el Apple Watch se apunta solo en Tiquet, con su "
+                "comercio, su importe y su categoría. Lo hace tu iPhone, sin conectar el banco. iOS pide que lo actives tú, "
+                "una sola vez, en la app Atajos: es un minuto."
+            ),
+            "steps": [
+                "Abre la app Atajos y toca «Automatización», abajo.",
+                "Toca «+» (o «Nueva automatización») y elige «Transacción».",
+                "Marca las tarjetas de Cartera que quieras, elige «Ejecutar inmediatamente» y toca «Siguiente».",
+                "Toca «Nueva automatización en blanco» o «Añadir acción», busca Tiquet y elige «Apuntar un pago con tarjeta».",
+                "En la acción, toca «Comercio» y elige «Comercio»; en «Importe», elige «Importe»; en «Tarjeta», elige «Tarjeta o pase». Toca «OK».",
+                "Paga con el iPhone: verás «Apuntado: … en … · categoría» y el tique aparece en Tiquet.",
+            ],
+            "tips": [
+                "Los pasos, el estado («Funciona: el último…») y el interruptor «Apuntar los pagos con Apple Pay» están en «Ajustes» › «De tu banco». Si lo desactivas, la automatización sigue en Atajos pero Tiquet no apunta nada.",
+                "Cuando importas el extracto, ese pago se reconoce: no se cuenta dos veces.",
+                "Si después escaneas el tique de papel, ocupa el lugar del pago, con sus artículos.",
+                "Según la versión de iOS, Atajos puede llamar las cosas de forma algo distinta; la automatización de Transacción siempre está en «Automatización».",
+            ],
+            "faq": [
+                ("¿Tiquet ve mi tarjeta o mi banco?", "No. Atajos le pasa solo el comercio, el importe y el nombre de la tarjeta que eliges en la acción. Nada sale de tu iPhone."),
+                ("¿Por qué no se activa solo?", "iOS no deja que ninguna app cree automatizaciones: tiene que hacerlo la persona, una vez. Así lo activas sabiendo lo que haces."),
+                ("¿Y lo que pago con la tarjeta física o por recibo?", "Se apunta lo que pagas con Apple Pay. Lo demás llega con el extracto del banco."),
+            ],
         },
         {
             "id": "garantias",

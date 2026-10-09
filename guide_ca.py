@@ -64,9 +64,41 @@ GUIDE_CA = {
                 "Pots compartir fins a 20 fitxers d’un cop. Des de la versió 1.1 es llegeixen en l’ordre en què els envies.",
                 "Des de la 1.1, el tiquet d’una botiga té «Web de la tienda, para su icono». L’escrius un cop i tots els seus tiquets i càrrecs porten la icona.",
                 "Si deses a mà un tiquet repetit (mateixa botiga, dia i import), Tiquet t’ho pregunta abans.",
-                "Des de la 1.2, cada pagament amb Apple Pay es pot apuntar sol com un tiquet, amb el seu comerç i la seva categoria. S’activa un cop: a Dreceres, «Automatització» › «+» › «Transacció», marca les teves targetes, tria «Executa immediatament» i afegeix l’acció de Tiquet «Apuntar un pago con tarjeta» (a Comercio, Importe i Tarjeta, les de la transacció). Els passos i l’interruptor per desactivar-ho són a «Ajustes» › «De tu banco». Quan importes l’extracte, aquell pagament no es compta dues vegades, i si escaneges el tiquet de paper n’ocupa el lloc.",
+                "Amb Apple Pay, cada pagament es pot apuntar sol com un tiquet: mira «Apple Pay, apuntat sol».",
             ],
             "faq": [],
+        },
+        {
+            "id": "applepay",
+            "title": "Apple Pay, apuntat sol",
+            "short": "Apple Pay",
+            "tier": "free",
+            "v11": False,
+            "shot": None,
+            "hook": (
+                "Des de la versió 1.2, cada pagament amb Apple Pay a l’iPhone o l’Apple Watch s’apunta sol a Tiquet, amb el seu "
+                "comerç, el seu import i la seva categoria. Ho fa el teu iPhone, sense connectar el banc. L’iOS demana que ho "
+                "activis tu, un sol cop, a l’app Dreceres: és un minut."
+            ),
+            "steps": [
+                "Obre l’app Dreceres i toca «Automatització», a baix.",
+                "Toca «+» (o «Nova automatització») i tria «Transacció».",
+                "Marca les targetes de Cartera que vulguis, tria «Executa immediatament» i toca «Següent».",
+                "Toca «Nova automatització en blanc» o «Afegeix una acció», busca Tiquet i tria «Apuntar un pago con tarjeta».",
+                "A l’acció, toca «Comercio» i tria «Comerç»; a «Importe», tria «Import»; a «Tarjeta», tria «Targeta o passi». Toca «D’acord».",
+                "Paga amb l’iPhone: veuràs «Apuntado: … en … · categoria» i el tiquet apareix a Tiquet.",
+            ],
+            "tips": [
+                "Els passos, l’estat («Funciona: el último…») i l’interruptor «Apuntar los pagos con Apple Pay» són a «Ajustes» › «De tu banco». Si el desactives, l’automatització continua a Dreceres però Tiquet no apunta res.",
+                "Quan importes l’extracte, aquell pagament es reconeix: no es compta dues vegades.",
+                "Si després escaneges el tiquet de paper, ocupa el lloc del pagament, amb els seus articles.",
+                "Segons la versió de l’iOS, Dreceres pot anomenar les coses de manera una mica diferent; l’automatització de Transacció sempre és a «Automatització».",
+            ],
+            "faq": [
+                ("Tiquet veu la meva targeta o el meu banc?", "No. Dreceres li passa només el comerç, l’import i el nom de la targeta que tries a l’acció. Res no surt del teu iPhone."),
+                ("Per què no s’activa sol?", "L’iOS no deixa que cap app creï automatitzacions: ho ha de fer la persona, un cop. Així ho actives sabent què fas."),
+                ("I el que pago amb la targeta física o per rebut?", "S’apunta el que pagues amb Apple Pay. La resta arriba amb l’extracte del banc."),
+            ],
         },
         {
             "id": "garantias",
