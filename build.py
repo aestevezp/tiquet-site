@@ -58,10 +58,6 @@ S = {
   'Card numbers are cut to their last four digits before anything is saved. Search any shop or word across '
   'all of them. If it doesn\'t know a file\'s columns, you tell it once which is which.',
   'c-sea'),
- ('Apple Pay, noted by itself',
-  'Pay with your iPhone or Apple Watch and the receipt appears in Tiquet with its shop and category. Set it up '
-  'once in Shortcuts; switch it off whenever you like. The statement later is the same payment, not a second one.',
-  'c-sea'),
  ('Nothing counted twice',
   "A receipt, its bank line and the contract's premium are one payment. Where there are statements, the "
   "statements rule. Two policies with one insurer, yours and your partner's, are two cards with two prices.",
@@ -321,10 +317,6 @@ S = {
   'Los descargas de tu banco y los abres con Tiquet: BBVA, Sabadell y más. Sin contraseña, sin conexión. Los '
   'números de tarjeta se recortan a sus cuatro últimas cifras antes de guardar nada. Busca cualquier tienda '
   'o palabra en todos ellos. Si no conoce las columnas de un archivo, le dices una vez cuál es cuál.',
-  'c-sea'),
- ('Apple Pay, apuntado solo',
-  'Pagas con el iPhone o el Apple Watch y el tique aparece en Tiquet con su comercio y su categoría. Se activa '
-  'una vez en Atajos y se desactiva cuando quieras. El extracto, después, es el mismo pago, no otro.',
   'c-sea'),
  ('Nada se cuenta dos veces',
   'Un tique, su línea del banco y la cuota del contrato son un solo pago. Donde hay extracto, manda el '
@@ -593,10 +585,6 @@ S = {
   'Els descarregues del teu banc i els obres amb Tiquet: BBVA, Sabadell i més. Sense contrasenya, sense '
   'connexió. Els números de targeta es retallen a les quatre últimes xifres abans de guardar res. Busca '
   'qualsevol botiga o paraula en tots. Si no coneix les columnes d’un fitxer, li dius un cop quina és quina.',
-  'c-sea'),
- ('Apple Pay, apuntat sol',
-  'Pagues amb l’iPhone o l’Apple Watch i el tiquet apareix a Tiquet amb el seu comerç i la seva categoria. '
-  'S’activa un cop a Dreceres i es desactiva quan vulguis. L’extracte, després, és el mateix pagament, no un altre.',
   'c-sea'),
  ('Res es compta dues vegades',
   'Un tiquet, la seva línia del banc i la quota del contracte són un sol pagament. On hi ha extracte, mana '
@@ -1085,6 +1073,10 @@ for _l in X3: S[_l].update(X3[_l])
 # files at once: bank statements are imported one after another, in the order sent.
 X4 = {
 "es": dict(
+  ap_k="Apple Pay", ap_h="Pagas y se apunta solo.",
+  ap_p="Con Apple Pay, el pago aparece en Tiquet al momento, con su comercio, su importe y su categoría. Sin foto, sin escribir nada y sin conectar tu banco: lo hace tu iPhone.",
+  ap_l=["Se activa una vez en Atajos, en un minuto", "Cuando llega el extracto, ese pago no se cuenta dos veces", "Si luego escaneas el tique de papel, ocupa su lugar", "Lo desactivas cuando quieras"],
+  ap_note="Se activa una vez en Atajos", ap_title="Apuntado en Tiquet", ap_now="ahora", ap_line="23,40 € en Mercadona · Súper", ap_amount="23,40 €",
   bk_k="La cesta", bk_h="Lo que sube en tu súper, y la lista de lo que te toca comprar",
   bk_p="Cada tique del súper guarda sus artículos con su precio. Tiquet compara lo mismo en la misma tienda y te dice cuánto ha subido tu cesta habitual, qué producto sube más y dónde lo tienes más barato.",
   bk_l=["Tu cesta habitual, comparada con la de hace meses", "Precio por unidad, o por kilo si se pesa", "El mismo producto, más barato en tu otro súper",
@@ -1093,6 +1085,10 @@ X4 = {
   in_p="La póliza que te mandaron por correo, la factura en PDF, la foto de un tique, los extractos que bajas de tu banco: mantenlos pulsados, toca Compartir y elige Tiquet. Hasta 20 a la vez: los lee uno tras otro, en el orden en que los mandas. Todo se lee en el dispositivo.",
   faq_more=[("¿Puedo mandar varios archivos a la vez?", "Sí, hasta 20 en cada envío: fotos, PDF y extractos del banco en CSV o Excel. Al abrir Tiquet los lee en el orden en que los mandaste; los extractos, uno detrás de otro, y lo que ya estaba no se duplica. Si tu banco solo exporta un año cada vez, manda un archivo por año.")]),
 "en": dict(
+  ap_k="Apple Pay", ap_h="Pay, and it's noted by itself.",
+  ap_p="With Apple Pay, the payment appears in Tiquet straight away, with its shop, its amount and its category. No photo, nothing to type and no bank connection: your iPhone does it.",
+  ap_l=["Set it up once in Shortcuts, in a minute", "When the statement arrives, that payment isn't counted twice", "Scan the paper receipt later and it takes its place", "Switch it off whenever you like"],
+  ap_note="Set up once in Shortcuts", ap_title="Noted in Tiquet", ap_now="now", ap_line="€23.40 at Mercadona · Groceries", ap_amount="€23.40",
   bk_k="The basket", bk_h="What goes up at your supermarket, and the list of what you need",
   bk_p="Every supermarket receipt keeps its items and their prices. Tiquet compares the same thing at the same shop and tells you how much your usual basket has gone up, which product rises most and where it is cheaper.",
   bk_l=["Your usual basket, against months ago", "Price per unit, or per kilo when weighed", "The same product, cheaper at your other supermarket",
@@ -1101,6 +1097,10 @@ X4 = {
   in_p="The policy you were emailed, the PDF invoice, a photo of a receipt, the statements you download from your bank: press and hold, tap Share and choose Tiquet. Up to 20 at once: it reads them one after another, in the order you sent them. Everything is read on the device.",
   faq_more=[("Can I send several files at once?", "Yes, up to 20 each time: photos, PDFs and bank statements in CSV or Excel. When you open Tiquet it reads them in the order you sent them; statements one after another, and nothing already there is added twice. If your bank exports one year at a time, send one file per year.")]),
 "ca": dict(
+  ap_k="Apple Pay", ap_h="Pagues i s'apunta sol.",
+  ap_p="Amb Apple Pay, el pagament apareix a Tiquet al moment, amb el seu comerç, el seu import i la seva categoria. Sense foto, sense escriure res i sense connectar el teu banc: ho fa el teu iPhone.",
+  ap_l=["S'activa un cop a Dreceres, en un minut", "Quan arriba l'extracte, aquell pagament no es compta dues vegades", "Si després escaneges el tiquet de paper, n'ocupa el lloc", "El desactives quan vulguis"],
+  ap_note="S'activa un cop a Dreceres", ap_title="Apuntat a Tiquet", ap_now="ara", ap_line="23,40 € a Mercadona · Súper", ap_amount="23,40 €",
   bk_k="La cistella", bk_h="El que puja al teu súper, i la llista del que t'has de comprar",
   bk_p="Cada tiquet del súper guarda els seus articles amb el preu. Tiquet compara el mateix a la mateixa botiga i et diu quant ha pujat la teva cistella habitual, quin producte puja més i on el tens més barat.",
   bk_l=["La teva cistella habitual, comparada amb la de fa mesos", "Preu per unitat, o per quilo si es pesa", "El mateix producte, més barat a l'altre súper",
@@ -1208,6 +1208,13 @@ def landing(t, lang):
     out += ('<section id="in"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2><p class="lead reveal">%s</p>'
             '<div class="flow"><div class="srcs">%s</div><div class="into"><span class="beam"></span><img src="%simg/icon.png" alt="Tiquet"><span class="beam b2"></span></div>%s</div>'
             '<div class="outs">%s</div></div></section>') % (e(t["in_k"]), e(t["in_h"]), e(t["in_p"]), src, r, sheet, outs)
+    # Apple Pay: the phone over a card reader, and the notice the Shortcuts automation brings. Drawn, not photographed.
+    tap = ('<div class="tap reveal" aria-hidden="true"><div class="notif"><img src="%simg/icon.png" alt=""><div><b>%s</b><i>%s</i><span>%s</span></div></div>'
+           '<div class="tphone"><img src="%s" alt="" loading="lazy"></div>'
+           '<div class="reader"><div class="rscreen"><span class="waves"><i></i><i></i><i></i></span>%s</div></div>'
+           '<span class="tnote">⚙︎ %s</span></div>') % (r, e(t["ap_title"]), e(t["ap_now"]), e(t["ap_line"]), shot("home"), e(t["ap_amount"]), e(t["ap_note"]))
+    out += ('<section id="applepay"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s</div>%s</div></section>'
+            ) % (e(t["ap_k"]), e(t["ap_h"]), e(t["ap_p"]), checks(t["ap_l"]), tap)
     # The basket and the shopping list: two phones, the sample household's prices.
     out += ('<section id="basket"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s</div>'
             '<div class="duo reveal"><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div></div></div></section>'
