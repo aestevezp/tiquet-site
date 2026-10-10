@@ -276,3 +276,6 @@ ol.howto li:before{content:counter(s);position:absolute;left:14px;top:11px;width
 .tap .tnote{position:absolute;z-index:3;left:0;bottom:0;padding:8px 14px;border-radius:999px;background:rgba(13,17,24,.92);border:1px solid var(--line);color:var(--ink);font-size:14px;font-weight:600}
 @media (max-width:820px){.tap{height:470px}.tap .reader{height:130px}.tap .rscreen{font-size:19px}.tap .notif b{font-size:15px}.tap .notif span{font-size:14px}}
 @media (prefers-reduced-motion:reduce){.tap .tphone,.tap .waves i{animation:none}.js .tap.reveal .notif{opacity:1;transform:none;transition:none}}
+/* Guide: a row of real Shortcuts screens under the steps (language-independent, the owner chose the English ones). */
+.gtrio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 4px;align-items:start}.gtrio figure{margin:0}.gtrio .shot.phone{width:100%;transform:none;border-radius:24px;padding:6px}.gtrio .shot.phone img{border-radius:18px;display:block;width:100%}.gtrio figcaption{font-size:13px;line-height:1.35;color:var(--soft);text-align:center;margin-top:8px}
+@media (max-width:560px){.gtrio{gap:8px}.gtrio figcaption{font-size:12px}}

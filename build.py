@@ -1281,6 +1281,7 @@ def guide(t, lang):
     for s in g["sections"]:
         body = '<p class="hook">%s</p>' % e(s["hook"])
         if s.get("steps"): body += '<h3>%s</h3><ol class="howto">%s</ol>' % (e(g["steps_h"]), "".join("<li>%s</li>" % e(x) for x in s["steps"]))
+        if s.get("shots"): body += '<div class="gtrio">%s</div>' % "".join('<figure><div class="shot phone"><img src="%simg/s/%s.jpg" alt="%s" loading="lazy"></div><figcaption>%s</figcaption></figure>' % (r, n, e(c), e(c)) for n, c in s["shots"])
         if s.get("tips"): body += '<h3>%s</h3>%s' % (e(g["tips_h"]), checks(s["tips"]))
         if s.get("faq"): body += '<h3>%s</h3>%s' % (e(g["faq_h"]), "".join("<details><summary>%s</summary><p>%s</p></details>" % (e(q), e(a)) for q, a in s["faq"]))
         pic = '<div class="gshot"><div class="shot phone"><img src="%s" alt="" loading="lazy"></div></div>' % shot(s["shot"]) if s.get("shot") else ""

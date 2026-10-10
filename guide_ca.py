@@ -75,6 +75,7 @@ GUIDE_CA = {
             "tier": "free",
             "v11": False,
             "shot": None,
+            "shots": [("sc-edit", '1 · «Edita», a dalt'), ("sc-wallet", '2 · «Automatització» › «Cartera»'), ("sc-done", '4–5 · La drecera acabada')],
             "hook": (
                 "Des de la versió 1.2, cada pagament amb Apple Pay a l’iPhone o l’Apple Watch s’apunta sol a Tiquet, amb el seu "
                 "comerç, el seu import i la seva categoria. Ho fa el teu iPhone, sense connectar el banc. L’iOS demana que ho "
