@@ -80,11 +80,11 @@ GUIDE_ES = {
                 "una sola vez, en la app Atajos: es un minuto."
             ),
             "steps": [
-                "Abre la app Atajos y toca «Automatización», abajo.",
-                "Toca «+» (o «Nueva automatización») y elige «Transacción».",
-                "Marca las tarjetas de Cartera que quieras, elige «Ejecutar inmediatamente» y toca «Siguiente».",
-                "Toca «Nueva automatización en blanco» o «Añadir acción», busca Tiquet y elige «Apuntar un pago con tarjeta».",
-                "En la acción, toca «Comercio» y elige «Comercio»; en «Importe», elige «Importe»; en «Tarjeta», elige «Tarjeta o pase». Toca «OK».",
+                "Abre la app Atajos, toca «+» abajo y luego «Editar», arriba: no hace falta describir el atajo.",
+                "Bajo el buscador, toca «Automatización» y elige «Cartera» (al tocar una tarjeta o pase de Cartera).",
+                "Busca Tiquet y elige «Apuntar un pago con tarjeta».",
+                "Toca «Comercio», luego «Seleccionar variable», y elige «Comercio». Lo mismo con «Importe» (elige «Importe») y «Tarjeta» (elige «Tarjeta o pase»).",
+                "Deja activado «Automatización» en el primer bloque y toca «<» para guardar. Puedes ponerle un nombre, como «Tiquet · Apple Pay».",
                 "Paga con el iPhone: verás «Apuntado: … en … · categoría» y el tique aparece en Tiquet.",
             ],
             "tips": [
@@ -92,7 +92,7 @@ GUIDE_ES = {
                 "Desde la 1.3, si pagas con tarjeta y aún no lo tienes, «Requiere atención» te lo ofrece; si abriste los pasos y a los tres días no ha llegado ningún pago, te lo dice; y cuando llega el primero, te lo confirma.",
                 "Cuando importas el extracto, ese pago se reconoce: no se cuenta dos veces.",
                 "Si después escaneas el tique de papel, ocupa el lugar del pago, con sus artículos.",
-                "Según la versión de iOS, Atajos puede llamar las cosas de forma algo distinta; la automatización de Transacción siempre está en «Automatización».",
+                "Desde iOS 27 las automatizaciones se crean dentro de un atajo nuevo, con las acciones de «Automatización»: ya no hay una pestaña aparte. Si eliges «Cartera», puedes limitarlo a algunas tarjetas, categorías o comercios.",
             ],
             "faq": [
                 ("¿Tiquet ve mi tarjeta o mi banco?", "No. Atajos le pasa solo el comercio, el importe y el nombre de la tarjeta que eliges en la acción. Nada sale de tu iPhone."),

@@ -81,11 +81,11 @@ GUIDE_CA = {
                 "activis tu, un sol cop, a l’app Dreceres: és un minut."
             ),
             "steps": [
-                "Obre l’app Dreceres i toca «Automatització», a baix.",
-                "Toca «+» (o «Nova automatització») i tria «Transacció».",
-                "Marca les targetes de Cartera que vulguis, tria «Executa immediatament» i toca «Següent».",
-                "Toca «Nova automatització en blanc» o «Afegeix una acció», busca Tiquet i tria «Apuntar un pago con tarjeta».",
-                "A l’acció, toca «Comercio» i tria «Comerç»; a «Importe», tria «Import»; a «Tarjeta», tria «Targeta o passi». Toca «D’acord».",
+                "Obre l’app Dreceres, toca «+» a baix i després «Edita», a dalt: no cal descriure la drecera.",
+                "Sota el cercador, toca «Automatització» i tria «Cartera» (en tocar una targeta o passi de Cartera).",
+                "Busca Tiquet i tria «Apuntar un pago con tarjeta».",
+                "Toca «Comercio», després «Selecciona una variable», i tria «Comerç». El mateix amb «Importe» (tria «Import») i «Tarjeta» (tria «Targeta o passi»).",
+                "Deixa activat «Automatització» al primer bloc i toca «<» per desar. Li pots posar un nom, com «Tiquet · Apple Pay».",
                 "Paga amb l’iPhone: veuràs «Apuntado: … en … · categoria» i el tiquet apareix a Tiquet.",
             ],
             "tips": [
@@ -93,7 +93,7 @@ GUIDE_CA = {
                 "Des de la 1.3, si pagues amb targeta i encara no ho tens, «Requiere atención» t’ho ofereix; si vas obrir els passos i als tres dies no ha arribat cap pagament, t’ho diu; i quan arriba el primer, t’ho confirma.",
                 "Quan importes l’extracte, aquell pagament es reconeix: no es compta dues vegades.",
                 "Si després escaneges el tiquet de paper, ocupa el lloc del pagament, amb els seus articles.",
-                "Segons la versió de l’iOS, Dreceres pot anomenar les coses de manera una mica diferent; l’automatització de Transacció sempre és a «Automatització».",
+                "Des de l’iOS 27 les automatitzacions es creen dins d’una drecera nova, amb les accions d’«Automatització»: ja no hi ha una pestanya a part. Si tries «Cartera», pots limitar-ho a algunes targetes, categories o comerços.",
             ],
             "faq": [
                 ("Tiquet veu la meva targeta o el meu banc?", "No. Dreceres li passa només el comerç, l’import i el nom de la targeta que tries a l’acció. Res no surt del teu iPhone."),

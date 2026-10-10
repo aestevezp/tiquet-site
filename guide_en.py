@@ -80,11 +80,11 @@ GUIDE_EN = {
                 "yourself, once, in the Shortcuts app: it takes a minute."
             ),
             "steps": [
-                "Open the Shortcuts app and tap “Automation”, at the bottom.",
-                "Tap “+” (or “New Automation”) and choose “Transaction”.",
-                "Tick the Wallet cards you want, choose “Run Immediately” and tap “Next”.",
-                "Tap “New Blank Automation” or “Add Action”, search for Tiquet and choose “Note a card payment”.",
-                "In the action, tap “Merchant” and choose “Merchant”; for “Amount”, choose “Amount”; for “Card”, choose “Card or Pass”. Tap “Done”.",
+                "Open the Shortcuts app, tap “+” at the bottom and then “Edit”, at the top: there's no need to describe the shortcut.",
+                "Under the search field, tap “Automation” and choose “Wallet” (“When I tap a Wallet Card or Pass”).",
+                "Search for Tiquet and choose “Note a card payment”.",
+                "Tap “Merchant”, then “Select Variable”, and choose “Merchant”. The same with “Amount” (choose “Amount”) and “Card” (choose “Card or Pass”).",
+                "Leave “Automation” switched on in the first block and tap “<” to save. You can give it a name, such as “Tiquet · Apple Pay”.",
                 "Pay with your iPhone: you'll see “Noted: … at … · category” and the receipt appears in Tiquet.",
             ],
             "tips": [
@@ -92,7 +92,7 @@ GUIDE_EN = {
                 "From 1.3, if you pay by card and haven't set it up, “Needs attention” offers it; if you opened the steps and nothing has arrived three days later, it says so; and when the first payment arrives, it confirms it.",
                 "When you import the statement, that payment is recognised: it isn't counted twice.",
                 "If you scan the paper receipt later, it takes the payment's place, with its items.",
-                "Depending on the iOS version, Shortcuts may name things a little differently; the Transaction automation is always under “Automation”.",
+                "Since iOS 27 automations are made inside a new shortcut, from the “Automation” actions: there is no separate tab any more. With “Wallet” you can limit it to some cards, categories or merchants.",
             ],
             "faq": [
                 ("Does Tiquet see my card or my bank?", "No. Shortcuts hands it only the shop, the amount and the name of the card you choose in the action. Nothing leaves your iPhone."),
