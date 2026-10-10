@@ -398,7 +398,7 @@ GUIDE_ES = {
                 "el vuelo del extracto y el seguro de viaje. El presupuesto te dice si el mes va bien."
             ),
             "steps": [
-                "En un tique, un contrato o una cosa, añade una etiqueta en «Etiquetas». Desde la 1.3, al escribir te propone tus etiquetas que coinciden y también las de Tiquet (los grupos de Inicio, como la del súper). Si escribes casi igual que una que ya tienes, te pregunta «¿Querías decir…?» antes de crear otra; y «Todas» abre la lista completa, con buscador: «Las tuyas» y «De Tiquet (los grupos de Inicio)».",
+                "En un tique, un contrato o una cosa, añade una etiqueta en «Etiquetas». Desde la 1.3, al escribir te propone tus etiquetas que coinciden y también las de Tiquet (los grupos de Inicio, como la del súper). Si escribes casi igual que una que ya tienes, te pregunta «¿Querías decir…?» antes de crear otra; y «Todo» abre la lista completa, con buscador: «Las tuyas» y «De Tiquet (los grupos de Inicio)».",
                 "Las sugerencias empiezan por las etiquetas que ya pusiste en ese comercio; un tique del súper te propone el grupo del súper.",
                 "Los pagos del banco reciben su etiqueta solos. Los que se quedan sin ella esperan en «Clasificar»: un toque etiqueta todos los pagos de ese comercio, pasados y futuros.",
                 "Si algo está mal archivado, «Revisar la clasificación» lo corrige por comercio o por grupo, y se puede deshacer.",

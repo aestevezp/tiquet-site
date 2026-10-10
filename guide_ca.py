@@ -399,7 +399,7 @@ GUIDE_CA = {
                 "el vol de l’extracte i l’assegurança de viatge. El pressupost et diu si el mes va bé."
             ),
             "steps": [
-                "En un tiquet, un contracte o una cosa, afegeix una etiqueta a «Etiquetas». Des de la 1.3, quan escrius et proposa les teves etiquetes que hi coincideixen i també les de Tiquet (els grups d’Inici, com la del súper). Si escrius gairebé igual que una que ja tens, et pregunta «¿Querías decir…?» abans de crear-ne una altra; i «Todas» obre la llista completa, amb cercador: «Las tuyas» i «De Tiquet (los grupos de Inicio)».",
+                "En un tiquet, un contracte o una cosa, afegeix una etiqueta a «Etiquetas». Des de la 1.3, quan escrius et proposa les teves etiquetes que hi coincideixen i també les de Tiquet (els grups d’Inici, com la del súper). Si escrius gairebé igual que una que ja tens, et pregunta «¿Querías decir…?» abans de crear-ne una altra; i «Todo» obre la llista completa, amb cercador: «Las tuyas» i «De Tiquet (los grupos de Inicio)».",
                 "Els suggeriments comencen per les etiquetes que ja vas posar en aquell comerç; un tiquet del súper et proposa el grup del súper.",
                 "Els pagaments del banc reben la seva etiqueta sols. Els que es queden sense esperen a «Clasificar»: un toc etiqueta tots els pagaments d’aquell comerç, passats i futurs.",
                 "Si alguna cosa està mal arxivada, «Revisar la clasificación» ho corregeix per comerç o per grup, i es pot desfer.",
