@@ -9,11 +9,11 @@ GUIDE_ES = {
     "intro": (
         "Qué hace cada parte de la app por ti, cómo se usa y unos trucos para sacarle partido. "
         "Lo marcado como Plus necesita Tiquet Plus o su prueba de 14 días. "
-        "Lo marcado «Desde la versión 1.1» llega con esa actualización."
+        "Lo marcado «Desde la versión 1.1» o «Desde la versión 2.0» llega con esa actualización."
     ),
     "toc": "En esta guía",
     "cta": "Ver cómo funciona cada parte",
-    "free": "Gratis", "plus": "Plus", "mix": "Gratis y Plus", "v11": "Desde la versión 1.1",
+    "free": "Gratis", "plus": "Plus", "mix": "Gratis y Plus", "v11": "Desde la versión 1.1", "v20": "Desde la versión 2.0",
     "steps_h": "Cómo se hace", "tips_h": "Trucos", "faq_h": "Preguntas",
     "sections": [
         {
@@ -28,7 +28,7 @@ GUIDE_ES = {
                 "un plazo te cueste dinero. No necesitas cuenta ni conectar el banco: te basta con tus papeles."
             ),
             "steps": [
-                "Necesitas un iPhone o un iPad con iOS o iPadOS 27. La app está en español y en inglés.",
+                "Necesitas un iPhone o un iPad con iOS o iPadOS 27. Desde la 2.0, la app está en español, catalán e inglés: habla el idioma de tu iPhone, y puedes cambiar solo el de Tiquet en Ajustes › Apps › Tiquet › Idioma.",
                 "Para verla llena antes de meter nada tuyo, toca «Probar con datos de ejemplo» en el Inicio vacío o en «Ajustes». Es una casa inventada que no toca tus datos; vuelves con «Salir».",
                 "Empieza por lo que más te importa: un seguro o una suscripción, desde «Añadir» › «Contrato».",
                 "Después, el tique de algo con garantía o plazo de devolución, y un extracto de tu banco para que Tiquet encuentre lo que se repite.",
@@ -37,6 +37,8 @@ GUIDE_ES = {
             "tips": [
                 "Apple Intelligence es opcional. Sin él, Tiquet lee los tiques con reconocimiento de texto y reglas, te los deja marcados para revisar, y «Pregunta» sigue respondiendo cuánto se fue en qué.",
                 "Con Apple Intelligence, el modelo de Apple lee mejor tiques y pólizas y responde preguntas abiertas, siempre en el dispositivo.",
+                "Apple Intelligence aún no habla catalán: con Tiquet en catalán, «Pregunta» y «El Mes» responden en castellano. Y solo se activa con el iPhone en un idioma que entiende, así que una casa catalana lo tiene con el iPhone en castellano y Tiquet en catalán.",
+                "Desde la 2.0, las casas con años de extractos van más rápidas, y lo que escribes en un campo se guarda en cuanto haces una pausa.",
             ],
             "faq": [
                 ("¿Tengo que crear una cuenta?", "No. No hay cuenta de Tiquet ni contraseña que recordar."),
@@ -93,6 +95,7 @@ GUIDE_ES = {
                 "Desde la 1.3, si pagas con tarjeta y aún no lo tienes, «Requiere atención» te lo ofrece; si abriste los pasos y a los tres días no ha llegado ningún pago, te lo dice; y cuando llega el primero, te lo confirma.",
                 "Cuando importas el extracto, ese pago se reconoce: no se cuenta dos veces.",
                 "Si después escaneas el tique de papel, ocupa el lugar del pago, con sus artículos.",
+                "Desde la 2.0, si el tique no tiene el mismo importe porque llevaba propina o un descuento, Tiquet pregunta «¿Es el tique de un pago?». Con «Es el mismo pago» se queda solo el tique, por el importe cobrado, y no se cuenta dos veces; con «Son distintos», quedan los dos.",
                 "Desde iOS 27 las automatizaciones se crean dentro de un atajo nuevo, con las acciones de «Automatización»: ya no hay una pestaña aparte. Si eliges «Cartera», puedes limitarlo a algunas tarjetas, categorías o comercios.",
             ],
             "faq": [
@@ -170,16 +173,48 @@ GUIDE_ES = {
             "steps": [
                 "Toca «Añadir» › «Contrato», o el + de la pestaña «Contratos». Escribe con quién es y cuánto cuesta.",
                 "Toca «Adjuntar la póliza o el contrato» y escanea el papel o elige una foto o un PDF. Tiquet lee número, prima, cobertura, asegurados y teléfono de siniestros, y solo rellena lo que no habías escrito.",
+                "Desde la 2.0, en un seguro también lee el «Tomador» (nombre, documento de identidad, teléfono y correo), la dirección asegurada y el capital de contenido, si la póliza los imprime. Un DNI, NIE o CIF solo se apunta si su letra o dígito de control cuadra. Con Apple Intelligence lo lee el modelo y Tiquet lo comprueba contra el papel; sin él, lo leen reglas que buscan los títulos de la póliza, como Tomador o Situación del riesgo. Solo rellena lo que está vacío.",
                 "Con extractos importados, mira «En tu banco, aún sin ficha» en «Contratos»: un toque crea la ficha de un cargo que se repite.",
                 "Para un móvil a plazos, pon el «Número de pagos». Para una prueba gratis, activa «Prueba gratis» y elige cuándo «Empieza a cobrar».",
+                "Desde la 2.0, un seguro, una garantía ampliada o una financiación puede ser de una de tus cosas: en «Qué cubre», elige «Para qué cosa es» (el seguro del coche, el coche). Lo que cuesta sale entonces en la ficha de esa cosa.",
             ],
             "tips": [
                 "Un seguro trae 30 días de preaviso: en España puedes oponerte a la renovación con un mes de antelación. Cámbialo si tu contrato dice otra cosa.",
                 "En un contrato anual, un mes antes del último día para decir que no te llega «buen momento para comparar», con la subida si tu banco la muestra. Después, avisos 7 días y 1 día antes.",
                 "«Llamar para dar un parte» y «Copiar el número de póliza» están arriba en la ficha.",
                 "Tiquet nunca guarda contraseñas: solo apuntas dónde está el acceso.",
+                "En un seguro de hogar, «Lo que asegura» guarda tus cosas con sus fotos y su precio: mira «El inventario del seguro de hogar».",
             ],
             "faq": [],
+        },
+        {
+            "id": "inventario",
+            "title": "El inventario del seguro de hogar",
+            "short": "Inventario del seguro",
+            "tier": "mix",
+            "since": "v20",
+            "shot": "insured",
+            "hook": (
+                "El día que te roban o se inunda la casa, la aseguradora y la policía piden lo mismo: qué tenías, cómo era "
+                "y cuánto costó. Tiquet lo guarda ahora, cosa por cosa, en tu póliza de hogar, y te prepara el PDF para entregarlo."
+            ),
+            "steps": [
+                "Abre tu seguro de hogar en «Contratos». En «Lo que asegura», toca «Añadir cosas que ya tienes» para marcar las que ya están en «Cosas», o «Cosa nueva, con sus fotos» para apuntar una desde ahí.",
+                "En cada cosa, haz las fotos que hagan falta (delante, detrás, por dentro, la caja), apunta «Dónde está en casa (salón, cocina…)» y su precio. Si vino de un tique, el tique queda como prueba.",
+                "Escribe en «Contenido asegurado por» el capital de contenido: está en las condiciones particulares de tu póliza. Si la adjuntaste y lo trae impreso, Tiquet ya lo ha leído.",
+                "Con Plus, Tiquet compara lo que suman tus cosas con ese capital. Si apuntas más de lo asegurado, te avisa con «Más que el capital de contenido», te dice a qué porcentaje podría pagarse un siniestro si se aplica la regla proporcional (art. 30 de la Ley de Contrato de Seguro) y qué preguntar a tu aseguradora: si el capital es el adecuado y si tu póliza excluye esa regla.",
+                "Con Plus, «Inventario para la aseguradora (PDF)» hace el documento: tus datos y los de la póliza, la lista con una foto de cada cosa y el total, una ficha por cosa con todas sus fotos, y la declaración con su firma, lugar y fecha.",
+                "Si ya ha pasado algo, «Tras un robo o un daño: lo que se perdió (PDF)»: eliges qué pasó (robo, daños por agua, incendio u otro daño), la fecha del siniestro y las cosas afectadas. La misma lista sirve para la denuncia.",
+            ],
+            "tips": [
+                "Arriba del PDF van tus datos de «Tomador»: nombre, documento de identidad, dirección asegurada, teléfono y correo. Se guardan en la póliza; deja en blanco lo que prefieras no dar.",
+                "Solo cuenta lo que apuntas: los muebles, la ropa y todo lo demás también suman. Por eso Tiquet hace la cuenta, pero no te dice si estás bien asegurado.",
+                "Tiquet no recomienda capitales, coberturas ni compañías: te da la cuenta y la pregunta para tu aseguradora.",
+                "Apuntar tus cosas en la póliza es gratis; la comparación con el capital y los PDF van con Plus. El PDF se hace en el iPhone y va solo a donde lo mandes.",
+            ],
+            "faq": [
+                ("¿Y si una cosa no tiene tique?", "Apúntala igual, con sus fotos y lo que pagaste. El PDF dice qué prueba hay de cada cosa: el tique, las fotos, la etiqueta con el número de serie o la garantía."),
+            ],
         },
         {
             "id": "subidas",
@@ -199,7 +234,7 @@ GUIDE_ES = {
                 "Toca «Ver los cargos» para ver cada pago que hay detrás, año a año. Cuando lo hayas revisado, toca «Ya lo he mirado».",
             ],
             "tips": [
-                "Busca seis cosas: un contrato que ha subido, una protección que ya ha costado mucho frente a lo que protege, una garantía de pago mientras dura la legal, comisiones del banco, suscripciones de más de un año y peajes o aparcamientos muy frecuentes.",
+                "Busca siete cosas: un contrato que ha subido, una protección que ya ha costado mucho frente a lo que protege, una garantía de pago mientras dura la legal, comisiones del banco, suscripciones de más de un año, peajes o aparcamientos muy frecuentes y, desde la 2.0, un seguro que cuesta al año el 10 % o más de lo que vale hoy la cosa que protege.",
                 "Tiquet nunca recomienda una compañía, una cobertura ni una baja. No conoce precios de mercado: te da tus cifras y la pregunta.",
                 "La subida de un contrato también se ve gratis en su ficha, en «Precio de cada cargo, año a año».",
                 "Desde la 1.1, «La cesta» hace lo mismo con los precios del súper.",
@@ -280,6 +315,7 @@ GUIDE_ES = {
                 "Pregunta por una ciudad o una región: «¿Qué sitios me gustaron en Cantabria?». Tiquet busca ese nombre en Apple Maps para situarlo; esta pregunta necesita Apple Intelligence.",
                 "«¿Dónde me encantaron las bravas?» se responde sin Apple Intelligence, con las estrellas que diste a ese plato.",
                 "Si un sitio sale con dos nombres, usa «Es el mismo sitio que otro…».",
+                "Desde la 2.0, en la dirección de un sitio o de un tique puedes pegar un enlace de Google Maps o de Apple Maps: Tiquet lo cambia por la dirección.",
             ],
             "faq": [],
         },
@@ -358,7 +394,8 @@ GUIDE_ES = {
             "tips": [
                 "Widgets: «Este mes», «Próximo cargo», «Seguros a mano», «Buenos sitios cerca» y «Lista de la compra». El control «Añadir un tique» va en el Centro de control, la pantalla bloqueada o el botón de acción.",
                 "Pregunta a Siri «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
-                "Desde la 1.3, en las listas con acciones al deslizar («Requiere atención», «Lugares», tus cuentas…) la primera fila te enseña las dos primeras veces qué hay detrás: desliza a la izquierda para «Mañana» o «Lunes», a la derecha para «Hecho». Con «Reducir movimiento» activado no se mueve.",
+                "Desde la 1.3, en las listas con acciones al deslizar («Requiere atención», «Sitios», tus cuentas…) la primera fila te enseña las dos primeras veces qué hay detrás: desliza a la izquierda para «Mañana» o «Lunes», a la derecha para «Hecho». Con «Reducir movimiento» activado no se mueve.",
+                "Desde la 2.0, también tus cosas, tus contratos, tus tiques y lo que asegura una póliza. Y donde la acción se abre manteniendo pulsado, la primera fila lo dice las primeras veces, como «Mantén pulsado: de qué es» en los pagos del banco.",
                 "Si aún no tienes Plus, al girar el iPhone Tiquet te explica qué es «Horizonte» y que forma parte de Tiquet Plus, con la prueba de 14 días si no la has usado.",
             ],
             "faq": [],
@@ -375,8 +412,8 @@ GUIDE_ES = {
                 "El día que te roban algo o tienes que renovar el DNI, lo tienes a mano."
             ),
             "steps": [
-                "Desde un tique, toca «Registrar como cosa». O en «Cosas», toca + › «Añadir una cosa».",
-                "En su ficha, escanea el número de serie o el IMEI de la caja o la etiqueta, y haz una foto del producto y otra de su etiqueta. Es lo primero que piden la policía y las aseguradoras.",
+                "Desde un tique, toca «Registrar como cosa». O en «Cosas», toca + › «Añadir una cosa»; desde la 2.0, «Añadir un vehículo» para un coche o una moto, con su matrícula.",
+                "En su ficha, escanea el número de serie o el IMEI de la caja o la etiqueta, y haz fotos del producto (desde la 2.0, todas las que hagan falta) y otra de su etiqueta. Es lo primero que piden la policía y las aseguradoras.",
                 "Si te vendieron un seguro con él, toca «Añadir seguro o garantía extendida» y queda enlazado.",
                 "Para un documento, en «Cosas» toca + › «Añadir un documento que caduca»: DNI, pasaporte, carné de conducir, ITV, tarjeta sanitaria, carné de familia numerosa, permiso de residencia u otro. Apunta de quién es y hasta cuándo vale.",
             ],
@@ -384,8 +421,41 @@ GUIDE_ES = {
                 "Un documento te avisa 60 y 15 días antes de caducar (la ITV, 30 y 7), y sale en «Requiere atención» y en «Plazos».",
                 "Su número es opcional, se oculta en modo discreto y nunca se imprime en la hoja de casa.",
                 "Borrar una cosa no borra su seguro: Tiquet pregunta antes y te dice qué se queda.",
+                "Desde la 2.0, un documento puede ser de una cosa, como la ITV del coche: elígela en su «Es de» y sale en la ficha de esa cosa, en «Sus documentos».",
+                "Lo que vale cada cosa hoy y lo que te cuesta: mira «Tus cosas: lo que valen y lo que cuestan».",
             ],
             "faq": [],
+        },
+        {
+            "id": "valor",
+            "title": "Tus cosas: lo que valen y lo que cuestan",
+            "short": "Lo que valen y cuestan",
+            "tier": "mix",
+            "since": "v20",
+            "shot": "worth",
+            "hook": (
+                "¿Cuánto vale hoy el coche y cuánto te ha costado tenerlo? Tiquet estima lo que vale cada cosa, junta lo que gastas "
+                "en ella y te dice desde cuándo mantenerla cuesta más de lo que vale."
+            ),
+            "steps": [
+                "En «Cosas», toca + › «Añadir un vehículo» para el coche o la moto: te pide la «Matrícula» y el «Número de bastidor (VIN)». En la lista, cada vehículo enseña su matrícula.",
+                "Al abrir una cosa, la ves: solo sale lo que tiene datos. Para cambiar algo o completar lo que falta, toca «Editar»: ahí están todos los campos, también los vacíos.",
+                "«Lo que vale hoy» lo estima: un coche o una moto, con la tabla de Hacienda para vehículos usados; lo demás, por su precio y su edad, según lo que sea en «Qué es» (móvil, ordenador, mueble…). Si sabes lo que vale, por una tasación o una oferta, escríbelo en «Un valor que conoces» y manda tu cifra.",
+                "Lo que gasta un vehículo se le asigna solo: combustible o carga, parking y peajes, taller e ITV, e impuesto de circulación. Va por la matrícula impresa en la factura; y si en casa hay un solo vehículo, todo eso es suyo.",
+                "Con dos vehículos, la ficha te lo dice, por ejemplo «3 comercios de vehículo aún sin vehículo»: tócalo y elige en cada uno «¿De cuál?». Se dice una vez por comercio y sus pagos de antes y de después van a ese vehículo.",
+                "En cualquier tique, «Es de» dice a qué cosa va ese gasto, o «Ninguna de mis cosas», o «Que lo decida Tiquet». En un pago del banco, mantenlo pulsado y elige «Es de…».",
+                "Con Plus, la ficha enseña «Su historia» (lo que vale frente a lo que ha costado mantenerla desde que la compraste, y cuándo se cruzan), «Lo que cuesta» este año y desde la compra, «Lo que viene» en los próximos doce meses (renovaciones, plazos, impuesto de circulación, ITV y otros documentos, fin de la garantía) y «Este año, mes a mes».",
+            ],
+            "tips": [
+                "Con Plus, la ficha dice también cuánto cuesta protegerla al año frente a lo que vale hoy. Si es el 10 % o más, sale también en «Dónde gastar menos», con la pregunta para tu aseguradora: cuánto pagaría si fuera siniestro total y cuánto costaría una cobertura menor.",
+                "La tabla de Hacienda deja a un coche de 8 años en el 24 % de lo que costó. El mercado suele pagar más: si conoces un valor, escríbelo.",
+                "Una joya o un reloj no se estiman, porque pueden mantener o ganar valor: si quieres verlo, escribe tú su valor.",
+                "Nada se cuenta dos veces: decir de qué cosa es un gasto no cambia lo que suma el «Inicio».",
+                "El seguro del coche o la financiación del móvil pueden ser de esa cosa: en el contrato, «Para qué cosa es».",
+            ],
+            "faq": [
+                ("¿De dónde sale la tabla del coche?", "Es la que usa Hacienda para valorar vehículos usados en el impuesto de transmisiones: un porcentaje de lo que costó según los años cumplidos. Es una referencia, no una tasación."),
+            ],
         },
         {
             "id": "etiquetas",
@@ -431,9 +501,11 @@ GUIDE_ES = {
                 "Para llevártelo todo, «Ajustes» › «Copia y restauración» › «Exportar todo»: un .zip con tiques, fotos, pólizas, movimientos y hojas de cálculo.",
                 "Para borrarlo todo, en esa página toca «Borrar todo lo que hay en Tiquet» y escribe BORRAR. Con iCloud activado, se borra también de tus otros dispositivos.",
                 "El ojo de arriba del «Inicio» activa el modo discreto: cada importe pasa a •••.",
+                "Desde la 2.0, «Ajustes» › «Bloquear con Face ID» (o Touch ID) hace que Tiquet lo pida al abrirse y cada vez que vuelves a él; tu código también lo abre siempre. Viene desactivado.",
             ],
             "tips": [
-                "Usan conexión: tu iCloud, si lo activas; Apple Maps, con el nombre de un sitio, una dirección o una coordenada; la web de una empresa, una vez, para su logo; y el App Store para Plus.",
+                "Usan conexión: tu iCloud, si lo activas; Apple Maps, con el nombre de un sitio, una dirección o una coordenada; la web de una empresa, una vez, para su logo; un enlace corto de Google Maps que pegas en una dirección, una vez, para ver a dónde lleva; y el App Store para Plus.",
+                "Face ID o Touch ID los comprueba el sistema en el iPhone: Tiquet nunca ve tu cara ni tu dedo. Con el bloqueo activado, Siri, Atajos y la automatización de Apple Pay siguen funcionando, y los widgets muestran ••• en lugar de los importes.",
                 "La copia no está cifrada: guárdala en un sitio seguro.",
                 "Tiquet solo pide tu ubicación cuando tocas «Estoy aquí ahora» o preguntas por sitios cerca de ti.",
             ],
@@ -452,7 +524,7 @@ GUIDE_ES = {
             ),
             "steps": [
                 "Gratis: tiques, garantías y devoluciones con sus avisos; contratos y seguros con los suyos; «Si me pasa algo»; Vigilancia; iCloud y la copia; Inicio, Sitios, Contratos y Cosas; 5 preguntas al día.",
-                "Plus: «Dónde gastar menos», «Entra y sale» y tus cuentas, nuevos objetivos de ahorro, «Lo que viene» a 12 meses y «Horizonte», «El Mes», sitios desde tu banco y preguntas sin límite. Desde la 1.1, también «La cesta».",
+                "Plus: «Dónde gastar menos», «Entra y sale» y tus cuentas, nuevos objetivos de ahorro, «Lo que viene» a 12 meses y «Horizonte», «El Mes», sitios desde tu banco y preguntas sin límite. Desde la 1.1, también «La cesta». Desde la 2.0, el inventario del seguro de hogar (la comparación con el capital de contenido y los PDF) y lo que cuestan tu coche y tus cosas.",
                 "Para probarlo, ve a «Ajustes» › «Tiquet Plus» y toca «Pruébalo todo gratis 14 días». No se cobra nada ni se renueva solo.",
                 "Si te convence, cómpralo una vez: 9,99 €, precio de lanzamiento en España. En otro dispositivo, toca «Restaurar compras».",
             ],

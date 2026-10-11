@@ -10,11 +10,11 @@ GUIDE_CA = {
     "intro": (
         "Què fa per tu cada part de l’app, com es fa servir i uns quants trucs per treure’n profit. "
         "El que està marcat com a Plus necessita Tiquet Plus o la seva prova de 14 dies. "
-        "El que està marcat «Des de la versió 1.1» arriba amb aquesta actualització."
+        "El que està marcat «Des de la versió 1.1» o «Des de la versió 2.0» arriba amb aquesta actualització."
     ),
     "toc": "En aquesta guia",
     "cta": "Mira com funciona cada part",
-    "free": "Gratis", "plus": "Plus", "mix": "Gratis i Plus", "v11": "Des de la versió 1.1",
+    "free": "Gratis", "plus": "Plus", "mix": "Gratis i Plus", "v11": "Des de la versió 1.1", "v20": "Des de la versió 2.0",
     "steps_h": "Com es fa", "tips_h": "Trucs", "faq_h": "Preguntes",
     "sections": [
         {
@@ -29,7 +29,7 @@ GUIDE_CA = {
                 "un termini et costi diners. No necessites compte ni connectar el banc: n’hi ha prou amb els teus papers."
             ),
             "steps": [
-                "Necessites un iPhone o un iPad amb iOS o iPadOS 27. L’app està en castellà i en anglès.",
+                "Necessites un iPhone o un iPad amb iOS o iPadOS 27. Des de la 2.0, l’app està en català, castellà i anglès: parla l’idioma del teu iPhone, i pots canviar només el de Tiquet a Configuració › Apps › Tiquet › Idioma.",
                 "Per veure-la plena abans de posar-hi res teu, toca «Prova amb dades d'exemple» a l’Inici buit o a «Configuració». És una casa inventada que no toca les teves dades; en surts amb «Surt».",
                 "Comença pel que més t’importa: una assegurança o una subscripció, des d’«Afegeix» › «Contracte».",
                 "Després, el tiquet d’alguna cosa amb garantia o termini de devolució, i un extracte del teu banc perquè Tiquet trobi el que es repeteix.",
@@ -38,6 +38,8 @@ GUIDE_CA = {
             "tips": [
                 "Apple Intelligence és opcional. Sense, Tiquet llegeix els tiquets amb reconeixement de text i regles, te’ls deixa marcats per revisar, i «Pregunta» continua responent quant s’ha gastat en què.",
                 "Amb Apple Intelligence, el model d’Apple llegeix millor tiquets i pòlisses i respon preguntes obertes, sempre al dispositiu.",
+                "Apple Intelligence encara no parla català: amb Tiquet en català, «Pregunta» i «El Mes» responen en castellà. I només s’activa amb l’iPhone en un idioma que entén, així que una casa catalana el té amb l’iPhone en castellà i Tiquet en català.",
+                "Des de la 2.0, les cases amb anys d’extractes van més de pressa, i el que escrius en un camp es desa tan bon punt fas una pausa.",
             ],
             "faq": [
                 ("He de crear un compte?", "No. No hi ha compte de Tiquet ni cap contrasenya per recordar."),
@@ -94,6 +96,7 @@ GUIDE_CA = {
                 "Des de la 1.3, si pagues amb targeta i encara no ho tens, «Requereix atenció» t’ho ofereix; si vas obrir els passos i als tres dies no ha arribat cap pagament, t’ho diu; i quan arriba el primer, t’ho confirma.",
                 "Quan importes l’extracte, aquell pagament es reconeix: no es compta dues vegades.",
                 "Si després escaneges el tiquet de paper, ocupa el lloc del pagament, amb els seus articles.",
+                "Des de la 2.0, si el tiquet no té el mateix import perquè portava propina o un descompte, Tiquet pregunta «És el tiquet d'un pagament?». Amb «És el mateix pagament» es queda només el tiquet, per l’import cobrat, i no es compta dues vegades; amb «Són diferents», es queden tots dos.",
                 "Des de l’iOS 27 les automatitzacions es creen dins d’una drecera nova, amb les accions d’«Automatització»: ja no hi ha una pestanya a part. Si tries «Cartera», pots limitar-ho a algunes targetes, categories o comerços.",
             ],
             "faq": [
@@ -171,16 +174,48 @@ GUIDE_CA = {
             "steps": [
                 "Toca «Afegeix» › «Contracte», o el + de la pestanya «Contractes». Escriu amb qui és i quant costa.",
                 "Toca «Adjunta la pòlissa o el contracte» i escaneja el paper o tria una foto o un PDF. Tiquet llegeix número, prima, cobertura, assegurats i telèfon de sinistres, i només omple el que no havies escrit.",
+                "Des de la 2.0, en una assegurança també llegeix el «Prenedor» (nom, document d’identitat, telèfon i correu), l’adreça assegurada i el capital de contingut, si la pòlissa els imprimeix. Un DNI, NIE o CIF només s’apunta si la lletra o el dígit de control quadra. Amb Apple Intelligence ho llegeix el model i Tiquet ho comprova amb el paper; sense, ho llegeixen regles que busquen els títols de la pòlissa, com Tomador o Situación del riesgo. Només omple el que és buit.",
                 "Amb extractes importats, mira «Al teu banc, encara sense fitxa» a «Contractes»: un toc crea la fitxa d’un càrrec que es repeteix.",
                 "Per a un mòbil a terminis, posa el «Nombre de pagaments». Per a una prova gratis, activa «Prova gratuïta» i tria quan «Comença a cobrar».",
+                "Des de la 2.0, una assegurança, una garantia ampliada o un finançament pot ser d’una de les teves coses: a «Què cobreix», tria «Per a quina cosa és» (l’assegurança del cotxe, el cotxe). El que costa surt llavors a la fitxa d’aquella cosa.",
             ],
             "tips": [
                 "Una assegurança porta 30 dies de preavís: a Espanya pots oposar-te a la renovació amb un mes d’antelació. Canvia-ho si el teu contracte diu una altra cosa.",
                 "En un contracte anual, un mes abans de l’últim dia per dir que no t’arriba «bon moment per comparar», amb la pujada si el teu banc la mostra. Després, avisos 7 dies i 1 dia abans.",
                 "«Truca per comunicar un sinistre» i «Copia el número de pòlissa» són a dalt de tot de la fitxa.",
                 "Tiquet mai guarda contrasenyes: només apuntes on és l’accés.",
+                "En una assegurança de la llar, «El que assegura» guarda les teves coses amb les fotos i el preu: mira «L’inventari de l’assegurança de la llar».",
             ],
             "faq": [],
+        },
+        {
+            "id": "inventario",
+            "title": "L’inventari de l’assegurança de la llar",
+            "short": "Inventari de l’assegurança",
+            "tier": "mix",
+            "since": "v20",
+            "shot": "insured",
+            "hook": (
+                "El dia que et roben o s’inunda la casa, l’asseguradora i la policia demanen el mateix: què tenies, com era "
+                "i quant va costar. Tiquet ho guarda ara, cosa per cosa, a la teva pòlissa de la llar, i et prepara el PDF per lliurar-lo."
+            ),
+            "steps": [
+                "Obre la teva assegurança de la llar a «Contractes». A «El que assegura», toca «Afegeix coses que ja tens» per marcar les que ja són a «Coses», o «Cosa nova, amb les seves fotos» per apuntar-ne una des d’allà.",
+                "A cada cosa, fes les fotos que calguin (davant, darrere, per dins, la capsa), apunta «On és a casa (menjador, cuina…)» i el seu preu. Si va venir d’un tiquet, el tiquet queda com a prova.",
+                "Escriu a «Contingut assegurat per» el capital de contingut: és a les condicions particulars de la pòlissa. Si l’has adjuntada i el porta imprès, Tiquet ja l’ha llegit.",
+                "Amb Plus, Tiquet compara el que sumen les teves coses amb aquest capital. Si n’apuntes més del que està assegurat, t’avisa amb «Més que el capital de contingut», et diu a quin percentatge es podria pagar un sinistre si s’aplica la regla proporcional (art. 30 de la Llei de Contracte d’Assegurança) i què preguntar a la teva asseguradora: si el capital és l’adequat i si la pòlissa exclou aquesta regla.",
+                "Amb Plus, «Inventari per a l'asseguradora (PDF)» fa el document: les teves dades i les de la pòlissa, la llista amb una foto de cada cosa i el total, una fitxa per cosa amb totes les fotos, i la declaració amb la signatura, el lloc i la data.",
+                "Si ja ha passat alguna cosa, «Després d'un robatori o un dany: el que es va perdre (PDF)»: tries què va passar (robatori, danys per aigua, incendi o altres danys), la data del sinistre i les coses afectades. La mateixa llista serveix per a la denúncia.",
+            ],
+            "tips": [
+                "A dalt del PDF hi van les teves dades de «Prenedor»: nom, document d’identitat, adreça assegurada, telèfon i correu. Es desen a la pòlissa; deixa en blanc el que prefereixis no donar.",
+                "Només compta el que apuntes: els mobles, la roba i tota la resta també sumen. Per això Tiquet fa el compte, però no et diu si estàs ben assegurat.",
+                "Tiquet no recomana capitals, cobertures ni companyies: et dona el compte i la pregunta per a la teva asseguradora.",
+                "Apuntar les teves coses a la pòlissa és gratis; la comparació amb el capital i els PDF van amb Plus. El PDF es fa a l’iPhone i només va on l’envies.",
+            ],
+            "faq": [
+                ("I si una cosa no té tiquet?", "Apunta-la igualment, amb les fotos i el que vas pagar. El PDF diu quina prova hi ha de cada cosa: el tiquet, les fotos, l’etiqueta amb el número de sèrie o la garantia."),
+            ],
         },
         {
             "id": "subidas",
@@ -200,7 +235,7 @@ GUIDE_CA = {
                 "Toca «Mostra els càrrecs» per veure cada pagament que hi ha darrere, any a any. Quan ho hagis revisat, toca «Ja ho he mirat».",
             ],
             "tips": [
-                "Busca sis coses: un contracte que ha pujat, una protecció que ja ha costat molt en comparació amb el que protegeix, una garantia de pagament mentre dura la legal, comissions del banc, subscripcions de més d’un any i peatges o aparcaments molt freqüents.",
+                "Busca set coses: un contracte que ha pujat, una protecció que ja ha costat molt en comparació amb el que protegeix, una garantia de pagament mentre dura la legal, comissions del banc, subscripcions de més d’un any, peatges o aparcaments molt freqüents i, des de la 2.0, una assegurança que costa l’any el 10 % o més del que val avui la cosa que protegeix.",
                 "Tiquet mai recomana una companyia, una cobertura ni una baixa. No coneix preus de mercat: et dona les teves xifres i la pregunta.",
                 "La pujada d’un contracte també es veu gratis a la seva fitxa, a «Preu de cada càrrec, any a any».",
                 "Des de la 1.1, «La cistella» fa el mateix amb els preus del súper.",
@@ -281,6 +316,7 @@ GUIDE_CA = {
                 "Pregunta per una ciutat o una regió: «Quins llocs em van agradar a Cantàbria?». Tiquet busca aquest nom a Apple Maps per situar-lo; aquesta pregunta necessita Apple Intelligence.",
                 "«On em van encantar les braves?» es respon sense Apple Intelligence, amb les estrelles que vas donar a aquell plat.",
                 "Si un lloc surt amb dos noms, fes servir «És el mateix lloc que un altre…».",
+                "Des de la 2.0, a l’adreça d’un lloc o d’un tiquet pots enganxar un enllaç de Google Maps o d’Apple Maps: Tiquet el canvia per l’adreça.",
             ],
             "faq": [],
         },
@@ -360,6 +396,7 @@ GUIDE_CA = {
                 "Widgets: «Aquest mes», «Pròxim càrrec», «Assegurances a mà», «Bons llocs a prop» i «Llista de la compra». El control «Afegeix un tiquet» va al Centre de control, a la pantalla bloquejada o al botó d’acció.",
                 "Siri no parla català: amb Siri en castellà, pregunta-li «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
                 "Des de la 1.3, a les llistes amb accions en lliscar («Requereix atenció», «Llocs», els teus comptes…) la primera fila t’ensenya les dues primeres vegades què hi ha al darrere: llisca a l’esquerra per a «Demà» o «Dilluns», a la dreta per a «Fet». Amb «Redueix el moviment» activat no es mou.",
+                "Des de la 2.0, també les teves coses, els teus contractes, els teus tiquets i el que assegura una pòlissa. I on l’acció s’obre mantenint premut, la primera fila ho diu les primeres vegades, com «Mantén premut: de què és» als pagaments del banc.",
                 "Si encara no tens Plus, quan gires l’iPhone Tiquet t’explica què és «Horitzó» i que forma part de Tiquet Plus, amb la prova de 14 dies si no l’has feta servir.",
             ],
             "faq": [],
@@ -376,8 +413,8 @@ GUIDE_CA = {
                 "El dia que et roben alguna cosa o has de renovar el DNI, ho tens a mà."
             ),
             "steps": [
-                "Des d’un tiquet, toca «Registra com a cosa». O a «Coses», toca + › «Afegeix una cosa».",
-                "A la seva fitxa, escaneja el número de sèrie o l’IMEI de la caixa o l’etiqueta, i fes una foto del producte i una altra de la seva etiqueta. És el primer que demanen la policia i les asseguradores.",
+                "Des d’un tiquet, toca «Registra com a cosa». O a «Coses», toca + › «Afegeix una cosa»; des de la 2.0, «Afegeix un vehicle» per a un cotxe o una moto, amb la seva matrícula.",
+                "A la seva fitxa, escaneja el número de sèrie o l’IMEI de la caixa o l’etiqueta, i fes fotos del producte (des de la 2.0, totes les que calguin) i una altra de la seva etiqueta. És el primer que demanen la policia i les asseguradores.",
                 "Si te’l van vendre amb una assegurança, toca «Afegeix una assegurança o una garantia ampliada» i queda enllaçada.",
                 "Per a un document, a «Coses» toca + › «Afegeix un document que caduca»: DNI, passaport, carnet de conduir, ITV, targeta sanitària, carnet de família nombrosa, permís de residència o un altre. Apunta de qui és i fins quan és vàlid.",
             ],
@@ -385,8 +422,41 @@ GUIDE_CA = {
                 "Un document t’avisa 60 i 15 dies abans de caducar (la ITV, 30 i 7), i surt a «Requereix atenció» i a «Terminis».",
                 "El seu número és opcional, s’amaga en mode discret i mai s’imprimeix al full de casa.",
                 "Esborrar una cosa no n’esborra l’assegurança: Tiquet pregunta abans i et diu què es queda.",
+                "Des de la 2.0, un document pot ser d’una cosa, com la ITV del cotxe: tria-la al seu «És de» i surt a la fitxa d’aquella cosa, a «Els seus documents».",
+                "El que val avui cada cosa i el que et costa: mira «Les teves coses: el que valen i el que costen».",
             ],
             "faq": [],
+        },
+        {
+            "id": "valor",
+            "title": "Les teves coses: el que valen i el que costen",
+            "short": "El que valen i costen",
+            "tier": "mix",
+            "since": "v20",
+            "shot": "worth",
+            "hook": (
+                "Quant val avui el cotxe i quant t’ha costat tenir-lo? Tiquet estima el que val cada cosa, ajunta el que hi gastes "
+                "i et diu des de quan mantenir-la costa més del que val."
+            ),
+            "steps": [
+                "A «Coses», toca + › «Afegeix un vehicle» per al cotxe o la moto: et demana la «Matrícula» i el «Número de bastidor (VIN)». A la llista, cada vehicle mostra la seva matrícula.",
+                "Quan obres una cosa, la veus: només surt el que té dades. Per canviar alguna cosa o completar el que falta, toca «Edita»: hi ha tots els camps, també els buits.",
+                "«El que val avui» ho estima: un cotxe o una moto, amb la taula d’Hisenda per a vehicles usats; la resta, pel preu i l’edat, segons el que sigui a «Què és» (mòbil, ordinador, moble…). Si saps el que val, per una taxació o una oferta, escriu-ho a «Un valor que coneixes» i la teva xifra passa al davant.",
+                "El que gasta un vehicle se li assigna sol: combustible o càrrega, peatges i aparcament, taller i ITV, i impost de circulació. Va per la matrícula impresa a la factura; i si a casa només hi ha un vehicle, tot això és seu.",
+                "Amb dos vehicles, la fitxa t’ho diu, per exemple «3 comerços de vehicle encara sense vehicle»: toca-ho i tria a cada un «De quin?». Es diu un cop per comerç i els seus pagaments d’abans i de després van a aquell vehicle.",
+                "En qualsevol tiquet, «És de» diu a quina cosa va aquella despesa, o «Cap de les meves coses», o «Que ho decideixi Tiquet». En un pagament del banc, mantén-lo premut i tria «És de…».",
+                "Amb Plus, la fitxa mostra «La seva història» (el que val davant del que ha costat mantenir-la des que la vas comprar, i quan es creuen), «El que costa» aquest any i des de la compra, «El que ve» en els pròxims dotze mesos (renovacions, terminis, impost de circulació, ITV i altres documents, fi de la garantia) i «Aquest any, mes a mes».",
+            ],
+            "tips": [
+                "Amb Plus, la fitxa també diu quant costa protegir-la l’any davant del que val avui. Si és el 10 % o més, surt també a «On gastar menys», amb la pregunta per a la teva asseguradora: quant pagaria si fos sinistre total i quant costaria una cobertura menor.",
+                "La taula d’Hisenda deixa un cotxe de 8 anys en el 24 % del que va costar. El mercat sol pagar més: si en saps un valor, escriu-lo.",
+                "Una joia o un rellotge no s’estimen, perquè poden mantenir o guanyar valor: si ho vols veure, escriu-ne tu el valor.",
+                "Res no es compta dues vegades: dir de quina cosa és una despesa no canvia el que suma l’«Inici».",
+                "L’assegurança del cotxe o el finançament del mòbil poden ser d’aquella cosa: al contracte, «Per a quina cosa és».",
+            ],
+            "faq": [
+                ("D’on surt la taula del cotxe?", "És la que fa servir Hisenda per valorar vehicles usats en l’impost de transmissions: un percentatge del que va costar segons els anys complerts. És una referència, no una taxació."),
+            ],
         },
         {
             "id": "etiquetas",
@@ -432,9 +502,11 @@ GUIDE_CA = {
                 "Per endur-t’ho tot, «Configuració» › «Còpia i restauració» › «Exporta-ho tot»: un .zip amb tiquets, fotos, pòlisses, moviments i fulls de càlcul.",
                 "Per esborrar-ho tot, en aquesta pàgina toca «Elimina tot el que hi ha a Tiquet» i escriu ELIMINA. Amb iCloud activat, s’esborra també dels teus altres dispositius.",
                 "L’ull de dalt de l’«Inici» activa el mode discret: cada import passa a •••.",
+                "Des de la 2.0, «Configuració» › «Bloqueja amb Face ID» (o Touch ID) fa que Tiquet ho demani en obrir-se i cada cop que hi tornes; el teu codi també l’obre sempre. Ve desactivat.",
             ],
             "tips": [
-                "Fan servir connexió: el teu iCloud, si l’actives; Apple Maps, amb el nom d’un lloc, una adreça o una coordenada; el web d’una empresa, un cop, per al seu logo; i l’App Store per a Plus.",
+                "Fan servir connexió: el teu iCloud, si l’actives; Apple Maps, amb el nom d’un lloc, una adreça o una coordenada; el web d’una empresa, un cop, per al seu logo; un enllaç curt de Google Maps que enganxes en una adreça, un cop, per veure on porta; i l’App Store per a Plus.",
+                "Face ID o Touch ID els comprova el sistema a l’iPhone: Tiquet no veu mai la teva cara ni el teu dit. Amb el bloqueig activat, Siri, Dreceres i l’automatització d’Apple Pay continuen funcionant, i els widgets mostren ••• en lloc dels imports.",
                 "La còpia no està xifrada: guarda-la en un lloc segur.",
                 "Tiquet només demana la teva ubicació quan toques «Ara soc aquí» o preguntes per llocs a prop teu.",
             ],
@@ -453,7 +525,7 @@ GUIDE_CA = {
             ),
             "steps": [
                 "Gratis: tiquets, garanties i devolucions amb els seus avisos; contractes i assegurances amb els seus; «Si em passa alguna cosa»; Vigilància; iCloud i la còpia; Inici, Llocs, Contractes i Coses; 5 preguntes al dia.",
-                "Plus: «On gastar menys», «Entra i surt» i els teus comptes, nous objectius d’estalvi, «El que ve» a 12 mesos i «Horitzó», «El Mes», llocs des del teu banc i preguntes sense límit. Des de la 1.1, també «La cistella».",
+                "Plus: «On gastar menys», «Entra i surt» i els teus comptes, nous objectius d’estalvi, «El que ve» a 12 mesos i «Horitzó», «El Mes», llocs des del teu banc i preguntes sense límit. Des de la 1.1, també «La cistella». Des de la 2.0, l’inventari de l’assegurança de la llar (la comparació amb el capital de contingut i els PDF) i el que costen el teu cotxe i les teves coses.",
                 "Per provar-lo, ves a «Configuració» › «Tiquet Plus» i toca «Prova-ho tot gratis durant 14 dies». No es cobra res ni es renova sol.",
                 "Si et convenç, compra’l un cop: 9,99 €, preu de llançament a Espanya. En un altre dispositiu, toca «Restaura les compres».",
             ],

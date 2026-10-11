@@ -9,11 +9,11 @@ GUIDE_EN = {
     "intro": (
         "What each part of the app does for you, how to use it, and a few tips to get the most out of it. "
         "Anything marked Plus needs Tiquet Plus or its 14-day trial. "
-        "Anything marked “From version 1.1” arrives with that update."
+        "Anything marked “From version 1.1” or “From version 2.0” arrives with that update."
     ),
     "toc": "In this guide",
     "cta": "See how each part works",
-    "free": "Free", "plus": "Plus", "mix": "Free and Plus", "v11": "From version 1.1",
+    "free": "Free", "plus": "Plus", "mix": "Free and Plus", "v11": "From version 1.1", "v20": "From version 2.0",
     "steps_h": "How", "tips_h": "Tips", "faq_h": "Questions",
     "sections": [
         {
@@ -28,7 +28,7 @@ GUIDE_EN = {
                 "you before a deadline costs you money. You don't need an account or to connect your bank: your paperwork is enough."
             ),
             "steps": [
-                "You need an iPhone or an iPad with iOS or iPadOS 27. The app is in Spanish and English.",
+                "You need an iPhone or an iPad with iOS or iPadOS 27. From 2.0, the app is in Spanish, Catalan and English: it speaks your iPhone's language, and you can change Tiquet's alone in Settings › Apps › Tiquet › Language.",
                 "To see it full before adding anything of your own, tap “Try with sample data” on the empty Home screen or in “Settings”. It's an invented household that doesn't touch your data; tap “Leave” to go back.",
                 "Start with what matters most to you: an insurance policy or a subscription, from “Add” › “Contract”.",
                 "Then the receipt for something with a warranty or a return period, and a statement from your bank so Tiquet can find what repeats.",
@@ -37,6 +37,8 @@ GUIDE_EN = {
             "tips": [
                 "Apple Intelligence is optional. Without it, Tiquet reads receipts with text recognition and rules, marks them for you to check, and “Ask” still answers how much went on what.",
                 "With Apple Intelligence, Apple's model reads receipts and policies better and answers open questions, always on the device.",
+                "Apple Intelligence doesn't speak Catalan yet: with Tiquet in Catalan, “Ask” and “The Month” answer in Spanish. And it only switches on with the iPhone in a language it understands, so a Catalan household gets it with the iPhone in Spanish and Tiquet in Catalan.",
+                "From 2.0, households with years of statements move faster, and what you type in a field is saved as soon as you pause.",
             ],
             "faq": [
                 ("Do I have to create an account?", "No. There's no Tiquet account and no password to remember."),
@@ -93,6 +95,7 @@ GUIDE_EN = {
                 "From 1.3, if you pay by card and haven't set it up, “Needs attention” offers it; if you opened the steps and nothing has arrived three days later, it says so; and when the first payment arrives, it confirms it.",
                 "When you import the statement, that payment is recognised: it isn't counted twice.",
                 "If you scan the paper receipt later, it takes the payment's place, with its items.",
+                "From 2.0, if the receipt's amount differs because it had a tip or a discount, Tiquet asks “Is this the ticket for a payment?”. With “Same payment” only the receipt stays, at the amount charged, and nothing is counted twice; with “They're different”, both stay.",
                 "Since iOS 27 automations are made inside a new shortcut, from the “Automation” actions: there is no separate tab any more. With “Wallet” you can limit it to some cards, categories or merchants.",
             ],
             "faq": [
@@ -170,16 +173,48 @@ GUIDE_EN = {
             "steps": [
                 "Tap “Add” › “Contract”, or the + on the “Contracts” tab. Type who it's with and what it costs.",
                 "Tap “Attach the policy or contract” and scan the paper or choose a photo or a PDF. Tiquet reads the number, premium, cover, insured people and claims phone number, and only fills in what you hadn't typed.",
+                "From 2.0, on an insurance policy it also reads the “Policyholder” (name, ID document, phone and email), the insured address and the contents sum, when the policy prints them. A DNI, NIE or CIF is only kept if its control letter or digit is right. With Apple Intelligence the model reads them and Tiquet checks them against the paper; without it, rules read the policy's own headings, such as Tomador or Situación del riesgo. It only fills in what is empty.",
                 "With imported statements, look at “In your bank, without a card yet” in “Contracts”: one tap creates the card for a repeating charge.",
                 "For a phone paid in instalments, set the “Number of payments”. For a free trial, switch on “Free trial” and choose when it “Starts charging”.",
+                "From 2.0, an insurance policy, an extended warranty or a financing plan can belong to one of your things: under “What it covers”, choose “The thing it is for” (the car's insurance, the car). What it costs then shows on that thing's card.",
             ],
             "tips": [
                 "An insurance policy comes with 30 days' notice: in Spain you can object to the renewal a month in advance. Change it if your contract says otherwise.",
                 "On a yearly contract, a month before the last day to say no you get “a good moment to compare”, with the increase if your bank shows it. After that, reminders 7 days and 1 day before.",
                 "“Call to claim” and “Copy the policy number” are at the top of the card.",
                 "Tiquet never keeps passwords: you only note where the login is.",
+                "On a home policy, “What it insures” keeps your things with their photos and prices: see “The home insurance inventory”.",
             ],
             "faq": [],
+        },
+        {
+            "id": "inventario",
+            "title": "The home insurance inventory",
+            "short": "Insurance inventory",
+            "tier": "mix",
+            "since": "v20",
+            "shot": "insured",
+            "hook": (
+                "The day you're burgled or the house floods, the insurer and the police ask for the same thing: what you had, what it "
+                "looked like and what it cost. Tiquet keeps it now, thing by thing, on your home policy, and makes the PDF to hand over."
+            ),
+            "steps": [
+                "Open your home insurance in “Contracts”. Under “What it insures”, tap “Add things you already have” to tick the ones already in “Things”, or “New thing, with its photos” to add one from there.",
+                "On each thing, take as many photos as it takes (front, back, inside, the box), fill in “Where it is at home (living room, kitchen…)” and its price. If it came from a receipt, the receipt stays as proof.",
+                "Type the contents sum in “Contents insured for”: it's in your policy's particular conditions. If you attached the policy and it's printed there, Tiquet has already read it.",
+                "With Plus, Tiquet compares what your things add up to with that sum. If you list more than is insured, it warns you with “More than the contents sum”, tells you the share a claim could be paid at if the proportional rule applies (art. 30 of Spain's Insurance Contract Act) and what to ask your insurer: whether the sum fits and whether your policy waives that rule.",
+                "With Plus, “Inventory for the insurer (PDF)” makes the document: your details and the policy's, the list with a picture of each thing and the total, a card per thing with all its photos, and the declaration with lines for your signature, the place and the date.",
+                "If something has already happened, “After a theft or damage: what was lost (PDF)”: choose what happened (theft, water damage, fire or other damage), the date of the loss and the things affected. The same list works for the police report.",
+            ],
+            "tips": [
+                "Your “Policyholder” details go at the top of the PDF: name, ID document, insured address, phone and email. They're saved on the policy; leave out what you'd rather not give.",
+                "Only what you list counts: furniture, clothes and everything else add up too. That's why Tiquet does the sum but doesn't tell you whether you're properly insured.",
+                "Tiquet recommends no sums, covers or companies: it gives you the arithmetic and the question for your insurer.",
+                "Listing your things on the policy is free; the comparison with the contents sum and the PDFs come with Plus. The PDF is made on the iPhone and goes only where you send it.",
+            ],
+            "faq": [
+                ("What if something has no receipt?", "List it anyway, with its photos and what you paid. The PDF says what proof there is for each thing: the receipt, the photos, the serial number label or the warranty."),
+            ],
         },
         {
             "id": "subidas",
@@ -199,7 +234,7 @@ GUIDE_EN = {
                 "Tap “See the charges” to see every payment behind it, year by year. Once you've reviewed it, tap “I've looked at it”.",
             ],
             "tips": [
-                "It looks for six things: a contract that has gone up, protection that has already cost a lot compared with what it protects, a paid warranty while the legal one still applies, bank fees, subscriptions older than a year, and very frequent tolls or parking.",
+                "It looks for seven things: a contract that has gone up, protection that has already cost a lot compared with what it protects, a paid warranty while the legal one still applies, bank fees, subscriptions older than a year, very frequent tolls or parking and, from 2.0, insurance that costs 10 % or more a year of what the thing it protects is worth today.",
                 "Tiquet never recommends a company, a cover or a cancellation. It doesn't know market prices: it gives you your figures and the question.",
                 "A contract's rise also shows for free on its card, under “Price of each charge, year by year”.",
                 "From 1.1, “The basket” does the same with supermarket prices.",
@@ -280,6 +315,7 @@ GUIDE_EN = {
                 "Ask about a town or a region: “Which places did I like in Cantabria?”. Tiquet looks that name up in Apple Maps to place it; this question needs Apple Intelligence.",
                 "“Where did I love the patatas bravas?” is answered without Apple Intelligence, from the stars you gave that dish.",
                 "If a place shows up under two names, use “Same place as another…”.",
+                "From 2.0, you can paste a Google Maps or Apple Maps link into the address of a place or a receipt: Tiquet replaces it with the address.",
             ],
             "faq": [],
         },
@@ -359,6 +395,7 @@ GUIDE_EN = {
                 "Widgets: “This month”, “Next charge”, “Insurance at hand”, “Good places near you” and “Shopping list”. The “Add a receipt” control goes in Control Centre, on the Lock Screen or on the Action button.",
                 "Ask Siri “When does home insurance renew in Tiquet?” or “How is my month going in Tiquet?”.",
                 "From 1.3, in lists with swipe actions (“Needs attention”, “Places”, your accounts…) the first row shows what's behind it the first two times: swipe left for “Tomorrow” or “Monday”, right for “Done”. With Reduce Motion on, nothing moves.",
+                "From 2.0, your things, your contracts, your receipts and what a policy insures too. And where an action opens with touch and hold, the first row says so the first times, like “Hold: whose it is” on bank payments.",
                 "Without Plus yet, turning the iPhone sideways explains what “Horizon” is and that it's part of Tiquet Plus, with the 14-day trial if you haven't used it.",
             ],
             "faq": [],
@@ -375,8 +412,8 @@ GUIDE_EN = {
                 "The day something is stolen or you need to renew your ID card, you have it to hand."
             ),
             "steps": [
-                "From a receipt, tap “Track as a thing”. Or in “Things”, tap + › “Add a thing”.",
-                "On its card, scan the serial number or IMEI from the box or the label, and take a photo of the product and another of its label. It's the first thing the police and insurers ask for.",
+                "From a receipt, tap “Track as a thing”. Or in “Things”, tap + › “Add a thing”; from 2.0, “Add a vehicle” for a car or a motorbike, with its plate.",
+                "On its card, scan the serial number or IMEI from the box or the label, and take photos of the product (from 2.0, as many as it takes) and another of its label. It's the first thing the police and insurers ask for.",
                 "If you were sold insurance with it, tap “Add insurance or extended warranty” and it stays linked.",
                 "For a document, in “Things” tap + › “Add a document that expires”: ID card (DNI), passport, driving licence, vehicle inspection (ITV), health card, large family card, residence permit or another. Note whose it is and until when it's valid.",
             ],
@@ -384,8 +421,41 @@ GUIDE_EN = {
                 "A document reminds you 60 and 15 days before it expires (the vehicle inspection, 30 and 7), and appears in “Needs attention” and in “Deadlines”.",
                 "Its number is optional, is hidden in discreet mode and is never printed on the household sheet.",
                 "Deleting a thing doesn't delete its insurance: Tiquet asks first and tells you what stays.",
+                "From 2.0, a document can belong to a thing, like the car's ITV: choose it in the document's “It's for” and it shows on that thing's card, under “Its documents”.",
+                "What each thing is worth today and what it costs you: see “Your things: what they're worth and what they cost”.",
             ],
             "faq": [],
+        },
+        {
+            "id": "valor",
+            "title": "Your things: what they're worth and what they cost",
+            "short": "Worth and cost",
+            "tier": "mix",
+            "since": "v20",
+            "shot": "worth",
+            "hook": (
+                "What's the car worth today, and what has keeping it cost you? Tiquet estimates what each thing is worth, gathers what "
+                "you spend on it and tells you since when keeping it has cost more than it's worth."
+            ),
+            "steps": [
+                "In “Things”, tap + › “Add a vehicle” for the car or the motorbike: it asks for the “Number plate” and the “Frame number (VIN)”. In the list, each vehicle shows its plate.",
+                "Opening a thing shows its card to look at: only what has data appears. To change something or fill in what's missing, tap “Edit”: every field is there, the empty ones too.",
+                "“Worth today” estimates it: a car or a motorbike with the Spanish tax office's table for used vehicles; anything else from its price and age, by what it is in “What it is” (phone, computer, furniture…). If you know what it's worth, from an appraisal or an offer, type it in “A value you know” and your figure wins.",
+                "What a vehicle spends is given to it on its own: fuel or charging, tolls and parking, workshop and ITV, and road tax. It goes by the plate printed on the invoice; and if the household has a single vehicle, all of that is its.",
+                "With two vehicles, the card tells you, for example “3 vehicle shops still without a vehicle”: tap it and choose “Whose?” for each. It's said once per shop, and its payments before and after go to that vehicle.",
+                "On any receipt, “Spent on” says which thing the spending was for, or “None of my things”, or “Let Tiquet decide”. On a bank payment, touch and hold it and choose “Spent on…”.",
+                "With Plus, the card shows “Its story” (what it's worth against what keeping it has cost since you bought it, and when the two cross), “What it costs” this year and since you bought it, “What comes next” in the next twelve months (renewals, instalments, road tax, ITV and other documents, the end of the warranty) and “This year, month by month”.",
+            ],
+            "tips": [
+                "With Plus, the card also says what protecting it costs a year against what it's worth today. At 10 % or more it also appears in “Where to spend less”, with the question for your insurer: what it would pay if it were written off, and what a lower cover would cost.",
+                "The tax office's table leaves an 8-year-old car at 24 % of what it cost. The market often pays more: if you know a value, type it.",
+                "Jewellery and watches aren't estimated, since they can keep or gain value: to see it, type their value yourself.",
+                "Nothing is counted twice: saying which thing a payment was for doesn't change what “Home” adds up.",
+                "The car's insurance or the phone's financing can belong to that thing: on the contract, “The thing it is for”.",
+            ],
+            "faq": [
+                ("Where does the car table come from?", "It's the one Spain's tax office uses to value used vehicles for transfer tax: a percentage of what it cost by whole years of age. It's a reference, not an appraisal."),
+            ],
         },
         {
             "id": "etiquetas",
@@ -431,9 +501,11 @@ GUIDE_EN = {
                 "To take everything with you, “Settings” › “Backup and restore” › “Export everything”: a .zip with receipts, photos, policies, transactions and spreadsheets.",
                 "To delete everything, on that page tap “Delete everything in Tiquet” and type DELETE. With iCloud on, it's also deleted from your other devices.",
                 "The eye at the top of “Home” turns on discreet mode: every amount becomes •••.",
+                "From 2.0, “Settings” › “Lock with Face ID” (or Touch ID) makes Tiquet ask for it when it opens and each time you come back to it; your passcode always opens it too. It's off until you switch it on.",
             ],
             "tips": [
-                "These use a connection: your iCloud, if you switch it on; Apple Maps, with a place's name, an address or a coordinate; a company's website, once, for its logo; and the App Store for Plus.",
+                "These use a connection: your iCloud, if you switch it on; Apple Maps, with a place's name, an address or a coordinate; a company's website, once, for its logo; a short Google Maps link you paste into an address, once, to see where it leads; and the App Store for Plus.",
+                "Face ID or Touch ID is checked by the system on the iPhone: Tiquet never sees your face or your finger. With the lock on, Siri, Shortcuts and the Apple Pay automation still work, and the widgets show ••• instead of the amounts.",
                 "The backup isn't encrypted: keep it somewhere safe.",
                 "Tiquet only asks for your location when you tap “I'm here now” or ask about places near you.",
             ],
@@ -452,7 +524,7 @@ GUIDE_EN = {
             ),
             "steps": [
                 "Free: receipts, warranties and returns with their reminders; contracts and insurance with theirs; “If something happens to me”; Watch; iCloud and the backup; Home, Places, Contracts and Things; 5 questions a day.",
-                "Plus: “Where to spend less”, “In and out” and your accounts, new saving goals, “What's coming” for 12 months and “Horizon”, “The Month”, places from your bank and unlimited questions. From 1.1, “The basket” too.",
+                "Plus: “Where to spend less”, “In and out” and your accounts, new saving goals, “What's coming” for 12 months and “Horizon”, “The Month”, places from your bank and unlimited questions. From 1.1, “The basket” too. From 2.0, the home insurance inventory (the comparison with the contents sum and the PDFs) and what your car and your things cost.",
                 "To try it, go to “Settings” › “Tiquet Plus” and tap “Try everything free for 14 days”. Nothing is charged and it doesn't renew by itself.",
                 "If you like it, buy it once: €9.99, the launch price in Spain. On another device, tap “Restore purchases”.",
             ],
