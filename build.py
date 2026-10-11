@@ -798,7 +798,7 @@ S = {
  ('Sense seguiment', 'Sense analítica, sense publicitat, sense codi de tercers.'),
  ('Aquest web', 'Aquí tampoc no hi ha galetes, analítica ni codi de tercers. Els botons de descàrrega porten una etiqueta de campanya de l’App Store (com ara «web» o «linkedin»): l’App Store compta, en total i sense identificar-te, quantes descàrregues arriben per cadascuna.'),
  ('Esborrar les teves dades',
-  "Ajustos → Còpia i restauració → Esborrar-ho tot. Amb la sincronització activada, s'esborra també del teu "
+  "Configuració → Còpia i restauració → Elimina-ho tot. Amb la sincronització activada, s'esborra també del teu "
   "iCloud i dels teus altres dispositius. Esborrar l'app elimina el que hi ha al dispositiu."),
  ('Menors', 'Tiquet no està dirigida a menors. No inclou publicitat ni seguiment.'),
  ('Contacte', 'Dubtes sobre aquesta política: <a href="mailto:a.estevez@gmail.com">a.estevez@gmail.com</a>.')],
@@ -809,22 +809,22 @@ S = {
  'documents personals ni captures amb dades reals.'),
   support_h="Preguntes freqüents",
   support_faq=[('No llegeix el fitxer del meu banc.',
-  "Serveixen Excel, CSV i l'extracte en PDF del banc; abans de desar, «Así ha leído Tiquet este archivo» mostra com l'ha "
-  "entès. Si tot i així no es llegeix, toca «Envíanos la forma del archivo»: prepara un correu només amb l'estructura del fitxer "
+  "Serveixen Excel, CSV i l'extracte en PDF del banc; abans de desar, «Així ha llegit Tiquet aquest fitxer» mostra com l'ha "
+  "entès. Si tot i així no es llegeix, toca «Envia'ns la forma del fitxer»: prepara un correu només amb l'estructura del fitxer "
   "(cada xifra, un 9; cada paraula, la seva llargada), que llegeixes abans d'enviar-lo. No enviïs mai el fitxer en si."),
  ('Un càrrec es compta dues vegades, o no es compta.',
   'Obre el contracte i comprova que el nom del proveïdor coincideix amb el que imprimeix el banc. On un '
   'extracte cobreix el mes, només compten les línies del banc.'),
  ("L'iPhone i l'iPad no mostren el mateix.",
-  'Tots dos necessiten la sincronització activada (Ajustos → iPhone i iPad, a la par), el mateix compte '
+  'Tots dos necessiten la sincronització activada (Configuració → iPhone i iPad, al mateix pas), el mateix compte '
   "d'Apple, i uns minuts la primera vegada."),
  ('Un lloc està mal situat al mapa.',
-  "Obre la seva fitxa i posa-hi l'adreça, o toca «Soc aquí ara» quan hi siguis."),
+  "Obre la seva fitxa i posa-hi l'adreça, o toca «Ara soc aquí» quan hi siguis."),
  ('Com passo a un telèfon nou?',
-  "Amb la sincronització activada, n'hi ha prou d'iniciar sessió. Sense: Ajustos → Còpia i restauració → "
-  'Exportar-ho tot, i després Restaurar al telèfon nou.'),
+  "Amb la sincronització activada, n'hi ha prou d'iniciar sessió. Sense: Configuració → Còpia i restauració → "
+  'Exporta-ho tot, i després restaura la còpia al telèfon nou.'),
  ('Com restauro Plus?',
-  'Obre l’oferta de Tiquet Plus a Configuració i toca Restaurar compres. Fes servir el compte d’Apple amb '
+  'Obre l’oferta de Tiquet Plus a Configuració i toca Restaura les compres. Fes servir el compte d’Apple amb '
   'què vas comprar i connexió a internet. Si reps Plus per En Família, comprova també els ajustos de compres '
   'compartides del grup.'),
  ('Què passa quan s’acaben els 14 dies?',
@@ -1071,10 +1071,10 @@ X3 = {
   outs=[("Una pòlissa","la seva fitxa: número, prima, què cobreix, a qui trucar"),("Un tiquet","la despesa, la devolució i la garantia"),("Un extracte","els teus moviments, cada pagament una vegada")],
   w_k="A la pantalla d'inici", w_h="El que importa, sense obrir l'app",
   w_p="Cinc ginys: el mes, el proper càrrec, les teves assegurances a mà el dia que passa alguna cosa, els teus bons llocs a prop i la llista de la compra, que ratlles sense obrir l’app. Un botó al Centre de control per escanejar un tiquet. I Siri, que sap quan es renova cada contracte.",
-  wg=dict(month="Aquest mes", month_v="2.291 €", month_s="≈ 2.440 € a final de mes", next="Proper càrrec", next_v="9,99 €", next_s="Assegurança mòbil · 2 oct.", week="Aquesta setmana: 132 €",
+  wg=dict(month="Aquest mes", month_v="2.291 €", month_s="≈ 2.440 € a final de mes", next="Pròxim càrrec", next_v="9,99 €", next_s="Assegurança mòbil · 2 oct.", week="Aquesta setmana: 132 €",
           ins="Assegurances a mà", ins_rows=[("Llar","Pòlissa 1234-5678","900 000 000"),("Cotxe","Pòlissa 8765-4321","900 000 001")],
           near="Bons llocs a prop", near_rows=[("La Taverna del Pla","★★★★★","350 m"),("Bar Ponent","★★★★★","1,2 km")],
-          ctl="Afegir un tiquet", siri="«Oye Siri, ¿cuándo se renueva el seguro de hogar en Tiquet?»", demo="Dades d'exemple")),
+          ctl="Afegeix un tiquet", siri="«Oye Siri, ¿cuándo se renueva el seguro de hogar en Tiquet?»", demo="Dades d'exemple")),
 "en": dict(
   in_k="How things get in", in_h="From wherever it already is: Mail, Files, Photos",
   in_p="The policy they emailed you, the invoice as a PDF, a photo of a receipt, the statement you download from your bank: press and hold, tap Share and pick Tiquet. Up to 20 at once. It is read on the device, and you see what it understood before anything is saved.",
