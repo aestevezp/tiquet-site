@@ -34,7 +34,7 @@ S = {
   nav=[('#story', 'How it helps'), ('#pricing', 'Free and Plus'), ('#ai', 'Ask'), ('#privacy', 'Privacy')],
   h1a="Know what your home is ", h1b="signed up to.",
   sub="Insurance, subscriptions, utilities, warranties: what you have, what each one costs, how much you have paid so far, when it renews and who to call. Your spending is the context, not the chore.",
-  cta="Coming to the App Store", note='iOS and iPadOS 27 or later · app in Spanish and English; Catalan coming soon',
+  cta="Coming to the App Store", note='iOS and iPadOS 27 or later · app in Spanish, Catalan and English',
   mission_k="What it's for", mission_h="Three questions every household has, answered from its own papers",
   mission_p="Most money apps start from your bank and end in a pie chart. Tiquet starts from what you agreed to pay, and keeps the paper that proves it.",
   pillars=[("What are we signed up to?","Every policy, subscription and bill as a card: number, price, period, renewal, last day to cancel, the phone to call, and the PDF attached.","c-green"),
@@ -294,7 +294,7 @@ S = {
   nav=[('#story', 'Cómo te ayuda'), ('#pricing', 'Gratis y Plus'), ('#ai', 'Pregunta'), ('#privacy', 'Privacidad')],
   h1a="Saber qué tiene tu casa ", h1b="contratado.",
   sub="Seguros, suscripciones, suministros, garantías: qué tienes, cuánto cuesta cada cosa, cuánto llevas pagado, cuándo renueva y a quién llamar. Tus gastos son el contexto, no una obligación.",
-  cta="Próximamente en el App Store", note='iOS y iPadOS 27 o posterior · app en español e inglés; catalán próximamente',
+  cta="Próximamente en el App Store", note='iOS y iPadOS 27 o posterior · app en español, catalán e inglés',
   mission_k="Para qué sirve", mission_h="Tres preguntas que se hace cualquier casa, respondidas con sus propios papeles",
   mission_p="Casi todas las apps de dinero empiezan en tu banco y acaban en un gráfico de tarta. Tiquet empieza en lo que acordaste pagar, y guarda el papel que lo demuestra.",
   pillars=[("¿Qué tenemos contratado?","Cada póliza, suscripción y recibo como una ficha: número, precio, periodo, renovación, último día para dar de baja, el teléfono al que llamar y el PDF adjunto.","c-green"),
@@ -562,7 +562,7 @@ S = {
   nav=[('#story', 'Com t’ajuda'), ('#pricing', 'Gratis i Plus'), ('#ai', 'Pregunta'), ('#privacy', 'Privadesa')],
   h1a="Saber què té casa teva ", h1b="contractat.",
   sub="Assegurances, subscripcions, subministraments, garanties: què tens, què costa cada cosa, quant portes pagat, quan es renova i a qui trucar. Les despeses són el context, no una obligació.",
-  cta="Aviat a l'App Store", note='iOS i iPadOS 27 o posterior · app en castellà i anglès; català aviat',
+  cta="Aviat a l'App Store", note='iOS i iPadOS 27 o posterior · app en català, castellà i anglès',
   mission_k="Per a què serveix", mission_h="Tres preguntes que es fa qualsevol casa, respostes amb els seus propis papers",
   mission_p="Gairebé totes les apps de diners comencen al teu banc i acaben en un gràfic de pastís. Tiquet comença en allò que vas acordar pagar, i guarda el paper que ho demostra.",
   pillars=[("Què tenim contractat?","Cada pòlissa, subscripció i rebut com una fitxa: número, preu, període, renovació, últim dia per donar-se de baixa, el telèfon on trucar i el PDF adjunt.","c-green"),
@@ -1120,6 +1120,96 @@ X5 = {"es": dict(store_cta="Descargar en el App Store", store_note="Gratis · Ap
       "ca": dict(store_cta="Descarrega a l'App Store", store_note="Gratis · App Store d'Espanya")}
 for _l in X5: S[_l].update(X5[_l])
 
+# 2.0 (owner, 10–11 Oct 2026): the home insurance inventory gets its own section, with the sample household's policy and
+# its PDF; worth today and what a thing costs, the Face ID lock and Catalan join the list; the two new Plus features; a
+# pasted short map link is the one new connection. Approved wording: Marketing/AppStore/README.md in the app's repo.
+X6 = {
+"es": dict(
+  ins_k="Seguro de hogar", ins_h="Lo que tienes en casa, listo para la aseguradora.",
+  ins_p="Apunta tus cosas en tu póliza de hogar con varias fotos, dónde están y lo que costaron. Tiquet compara lo que has apuntado con el capital de contenido y prepara el PDF que piden la aseguradora y la policía el día que pasa algo.",
+  ins_l=["Varias fotos por cosa, la habitación y el tique como prueba",
+         "Lo apuntado frente al capital de contenido: la cuenta y la pregunta para tu aseguradora, nunca un consejo",
+         "El inventario en PDF: tomador, póliza, la lista con fotos, una ficha por cosa, declaración y firma",
+         "Tras un robo o un daño, la lista de lo que se perdió, también para la denuncia",
+         "Apuntar es gratis; la comparación y los PDF, con Plus"],
+  ins_more="Cómo se hace, paso a paso",
+  ins_alt1="Lo que asegura la póliza de hogar de la casa de ejemplo: cuatro cosas con su habitación, sus fotos y su precio",
+  ins_alt2="El inventario en PDF de la casa de ejemplo",
+  feats_more=[('Lo que vale hoy, y lo que cuesta tenerlo',
+               'El coche, con la tabla de Hacienda para vehículos usados; lo demás, por su precio y su edad. Su gasolina, su '
+               'taller, sus peajes y su impuesto le llegan solos por la matrícula, y su ficha dice desde cuándo mantenerlo '
+               'cuesta más de lo que vale. Lo que vale es gratis; lo que cuesta y su historia, con Plus.',
+               'c-wine'),
+              ('Bloqueo con Face ID',
+               'Si lo activas, Tiquet pide Face ID, Touch ID o tu código al abrirse y al volver a él. Lo comprueba el iPhone: '
+               'Tiquet nunca ve tu cara. Mientras está activado, los widgets muestran ••• en lugar de los importes.',
+               'c-night'),
+              ('También en catalán',
+               'Toda la app en catalán cuando tu iPhone, o Tiquet, está en catalán. «Pregunta» y «El Mes» responden en '
+               'castellano, porque Apple Intelligence aún no habla catalán.',
+               'c-sea')],
+  plus_more=['Inventario del seguro de hogar en PDF', 'Lo que cuestan tu coche y tus cosas'],
+  leaves_more=['Un enlace corto de Google Maps que pegas en una dirección: se abre una vez para ver a dónde lleva']),
+"ca": dict(
+  ins_k="Assegurança de la llar", ins_h="El que tens a casa, a punt per a l’asseguradora.",
+  ins_p="Apunta les teves coses a la pòlissa de la llar amb diverses fotos, on són i el que van costar. Tiquet compara el que has apuntat amb el capital de contingut i prepara el PDF que demanen l’asseguradora i la policia el dia que passa alguna cosa.",
+  ins_l=["Diverses fotos per cosa, l’habitació i el tiquet com a prova",
+         "El que has apuntat davant del capital de contingut: el compte i la pregunta per a la teva asseguradora, mai un consell",
+         "L’inventari en PDF: prenedor, pòlissa, la llista amb fotos, una fitxa per cosa, declaració i signatura",
+         "Després d’un robatori o un dany, la llista del que es va perdre, també per a la denúncia",
+         "Apuntar és gratis; la comparació i els PDF, amb Plus"],
+  ins_more="Com es fa, pas a pas",
+  ins_alt1="El que assegura la pòlissa de la llar de la casa d’exemple: quatre coses amb l’habitació, les fotos i el preu",
+  ins_alt2="L’inventari en PDF de la casa d’exemple",
+  feats_more=[('El que val avui, i el que costa tenir-ho',
+               'El cotxe, amb la taula d’Hisenda per a vehicles usats; la resta, pel preu i l’edat. La benzina, el taller, '
+               'els peatges i l’impost li arriben sols per la matrícula, i la seva fitxa diu des de quan mantenir-lo costa '
+               'més del que val. El que val és gratis; el que costa i la seva història, amb Plus.',
+               'c-wine'),
+              ('Bloqueig amb Face ID',
+               'Si l’actives, Tiquet demana Face ID, Touch ID o el teu codi en obrir-se i quan hi tornes. Ho comprova l’iPhone: '
+               'Tiquet no veu mai la teva cara. Mentre està activat, els widgets mostren ••• en lloc dels imports.',
+               'c-night'),
+              ('També en català',
+               'Tota l’app en català quan el teu iPhone, o Tiquet, està en català. «Pregunta» i «El Mes» responen en '
+               'castellà, perquè Apple Intelligence encara no parla català.',
+               'c-sea')],
+  plus_more=['Inventari de l’assegurança de la llar en PDF', 'El que costen el teu cotxe i les teves coses'],
+  leaves_more=['Un enllaç curt de Google Maps que enganxes en una adreça: s’obre un cop per veure on porta']),
+"en": dict(
+  ins_k="Home insurance", ins_h="What's in your home, ready for the insurer.",
+  ins_p="List your things on your home policy with several photos, where they are and what they cost. Tiquet compares what you've listed with the contents sum and makes the PDF the insurer and the police ask for the day something happens.",
+  ins_l=["Several photos per thing, the room, and the receipt as proof",
+         "What you've listed against the contents sum: the arithmetic and the question for your insurer, never advice",
+         "The inventory as a PDF: policyholder, policy, the list with photos, a card per thing, declaration and signature",
+         "After a theft or damage, the list of what was lost, for the police report too",
+         "Listing is free; the comparison and the PDFs come with Plus"],
+  ins_more="How to do it, step by step",
+  ins_alt1="What the sample household's home policy insures: four things with their room, photos and price (screen in Spanish)",
+  ins_alt2="The sample household's inventory as a PDF (screen in Spanish)",
+  feats_more=[("What it's worth today, and what keeping it costs",
+               "The car by the Spanish tax office's table for used vehicles; anything else by its price and age. Its fuel, "
+               "workshop, tolls and road tax reach it on their own by the plate, and its card says since when keeping it "
+               "has cost more than it's worth. What it's worth is free; what it costs and its story come with Plus.",
+               'c-wine'),
+              ('Locked with Face ID',
+               'If you switch it on, Tiquet asks for Face ID, Touch ID or your passcode when it opens and when you come back '
+               'to it. The iPhone checks it: Tiquet never sees your face. While it is on, the widgets show ••• instead of the amounts.',
+               'c-night'),
+              ('In Catalan too',
+               'The whole app in Catalan when your iPhone, or Tiquet, is set to Catalan. “Ask” and “The Month” answer in '
+               'Spanish, because Apple Intelligence has no Catalan yet.',
+               'c-sea')],
+  plus_more=['Home insurance inventory as a PDF', 'What your car and your things cost'],
+  leaves_more=['A short Google Maps link you paste into an address: opened once to see where it leads']),
+}
+for _l in X6:
+    _x = dict(X6[_l])
+    S[_l]["feats"] = S[_l]["feats"] + _x.pop("feats_more")
+    S[_l]["plus_items"] = S[_l]["plus_items"][:-1] + _x.pop("plus_more") + S[_l]["plus_items"][-1:]   # Family Sharing stays last
+    S[_l]["leaves"] = S[_l]["leaves"][:-1] + _x.pop("leaves_more") + S[_l]["leaves"][-1:]             # what you share stays last
+    S[_l].update(_x)
+
 
 # Spanish at the root: the App Store starts in Spain (owner, 2026-09-28). English at /en/, Catalan at /ca/.
 # The guide: how each part works, one section per part (guide.py holds the words, per language).
@@ -1223,6 +1313,11 @@ def landing(t, lang):
     out += ('<section id="applepay"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s'
             '<p><a class="pill ghost" href="%s#applepay">%s →</a></p></div>%s</div></section>'
             ) % (e(t["ap_k"]), e(t["ap_h"]), e(t["ap_p"]), checks(t["ap_l"]), page_url(lang, "guia"), e(t["ap_more"]), tap)
+    # Home insurance (2.0): the sample household's policy and its inventory PDF, and the guide's steps.
+    out += ('<section id="insurance"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s'
+            '<p><a class="pill ghost" href="%s#inventario">%s →</a></p></div>'
+            '<div class="duo reveal"><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div></div></div></section>'
+            ) % (e(t["ins_k"]), e(t["ins_h"]), e(t["ins_p"]), checks(t["ins_l"]), page_url(lang, "guia"), e(t["ins_more"]), shot("insured"), e(t["ins_alt1"]), shot("inventory"), e(t["ins_alt2"]))
     # The basket and the shopping list: two phones, the sample household's prices.
     out += ('<section id="basket"><div class="wrap split"><div class="reveal"><span class="kicker">%s</span><h2>%s</h2><p class="lead">%s</p>%s</div>'
             '<div class="duo reveal"><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div><div class="shot phone"><img src="%s" alt="%s" loading="lazy"></div></div></div></section>'
