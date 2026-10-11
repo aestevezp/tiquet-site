@@ -5,7 +5,7 @@ Same pattern as decksweep-site: static files, GitHub Pages, CNAME. Screenshots c
 import json, os, sys, html
 ROOT = os.path.dirname(os.path.abspath(__file__))
 LANGS = ["en", "es", "ca"]
-CSS_VERSION = 10
+CSS_VERSION = 13
 # The App Store page, once Tiquet is live (Spain first): the hero's main button goes there.
 # The App Store's own campaign link (pt: our provider token; ct: where the visit came from). Apple counts, in totals, how many
 # reach the app's page and download it from each campaign; the site itself counts nothing and stores nothing.
@@ -1240,6 +1240,22 @@ try:
 except ImportError:
     GUIDE = {}
 GUIDE_NAV = {"es": "Cómo funciona", "ca": "Com funciona", "en": "How it works"}
+# What's new: one entry per version (releases.py holds the words, in the three languages).
+from releases import RELEASES, RELEASES_TEXT
+MONTHS = {"es": ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"],
+          "ca": ["gener", "febrer", "març", "abril", "maig", "juny", "juliol", "agost", "setembre", "octubre", "novembre", "desembre"],
+          "en": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"]}
+def long_date(iso, lang):
+    y, m, d = (int(x) for x in iso.split("-")); name = MONTHS[lang][m - 1]
+    if lang == "en": return "%d %s %d" % (d, name, y)
+    if lang == "ca": return "%d %s de %d" % (d, ("d’" if name[0] in "aeiouà" else "de ") + name, y)
+    return "%d de %s de %d" % (d, name, y)
+def date_range(a, b, lang):
+    """«Del 6 al 8 de octubre de 2026» when both fall in one month; the two whole dates otherwise."""
+    (y1, m1, d1), (y2, m2, d2) = ((int(x) for x in s.split("-")) for s in (a, b))
+    if (y1, m1) != (y2, m2): return RELEASES_TEXT[lang]["fixes"] % (long_date(a, lang), long_date(b, lang))
+    if lang == "en": return "%d–%s" % (d1, long_date(b, lang))
+    return "Del %d al %s" % (d1, long_date(b, lang))
 
 HOME = "es"
 ORDER = ["es", "ca", "en"]                        # as the switcher shows them
@@ -1269,6 +1285,7 @@ def nav(t, lang, depth, landing, page=""):
 def footer(t, lang, page=""):
     langs = "".join('<a href="%s">%s</a>' % (page_url(l, page if page != "guia" or l in GUIDE else ""), S[l]["name_lang"]) for l in LANGS if l != lang)
     guide = '<a href="%s">%s</a>' % (page_url(lang, "guia"), html.escape(GUIDE_NAV[lang])) if lang in GUIDE else ""
+    guide += '<a href="%s">%s</a>' % (page_url(lang, "novedades"), html.escape(RELEASES_TEXT[lang]["nav"]))
     return ('<footer><div class="wrap"><span>© 2026 Tiquet</span>' + guide + '<a href="%s">%s</a><a href="%s">%s</a><a href="%s">%s</a><a href="mailto:%s">%s</a><span class="langs">%s</span></div></footer></body></html>'
             % (page_url(lang, "privacy"), t["f_privacy"], page_url(lang, "support"), t["f_support"], page_url(lang, "terms"), t["f_terms"], EMAIL, t["f_contact"], langs))
 
@@ -1379,7 +1396,8 @@ def landing(t, lang):
             ) % (e(t["more_k"]), e(t["more_h"] % len(shown)), chips, chips, chips[::1], chips, e(t["more_all"]),
                  "".join('<div><h3>%s</h3><p>%s</p></div>' % (e(h), e(p)) for h, p, _ in shown))
     # How it starts: a line of four.
-    more = ('<p class="guide-link reveal"><a class="pill ghost" href="%s">%s →</a></p>' % (page_url(lang, "guia"), e(GUIDE[lang]["cta"]))) if lang in GUIDE else ""
+    news = '<a class="pill ghost" href="%s">%s →</a>' % (page_url(lang, "novedades"), e(RELEASES_TEXT[lang]["nav"]))
+    more = ('<p class="guide-link reveal"><a class="pill ghost" href="%s">%s →</a> %s</p>' % (page_url(lang, "guia"), e(GUIDE[lang]["cta"]), news)) if lang in GUIDE else '<p class="guide-link reveal">%s</p>' % news
     out += ('<section id="start"><div class="wrap"><span class="kicker reveal">%s</span><h2 class="reveal">%s</h2><ol class="timeline">%s</ol>%s</div></section>'
             % (e(t["how_k"]), e(t["how_h"]), "".join('<li class="reveal"><h3>%s</h3><p>%s</p></li>' % (e(h), e(p)) for h, p in t["steps"]), more))
     out += '<section id="faq"><div class="wrap"><span class="kicker">%s</span><h2>%s</h2>%s</div></section>' % (e(t["faq_k"]), e(t["faq_h"]), "".join("<details><summary>%s</summary><p>%s</p></details>" % (e(q), e(a)) for q, a in t["faqs"]))
@@ -1387,6 +1405,26 @@ def landing(t, lang):
 
 def doc(t, lang, page, title, body):
     return head(t, lang, title, 1, page) + nav(t, lang, 1, False, page) + '<div class="wrap doc"><h1>%s</h1><p class="date">%s</p>%s</div>' % (html.escape(title), UPDATED[lang], body) + footer(t, lang, page)
+
+def releases(t, lang):
+    """What's new: each version, newest first, its date and what it brought, each line linked to its part of the guide."""
+    x = RELEASES_TEXT[lang]; e = html.escape
+    word = {"es": "Versión", "ca": "Versió", "en": "Version"}[lang]
+    body = '<p class="lead">%s</p>' % e(x["lead"])
+    for r in RELEASES:
+        when = ""
+        if r.get("date"):
+            when = date_range(r["from"], r["date"], lang) if r.get("from") else long_date(r["date"], lang)
+        items = ""
+        for guide_id, es_, ca_, en_ in r["items"]:
+            text = {"es": es_, "ca": ca_, "en": en_}[lang]
+            more = ' <a class="rel-guide" href="%s#%s">%s →</a>' % (page_url(lang, "guia"), guide_id, e(x["guide"])) if guide_id and lang in GUIDE else ""
+            items += "<li>%s%s</li>" % (e(text), more)
+        anchor = "v" + r["v"].split(" ")[0].replace(".", "-")
+        body += '<div class="rel" id="%s"><h2>%s %s</h2>%s<ul class="check">%s</ul></div>' % (
+            anchor, word, e(r["v"]), '<p class="date">%s</p>' % e(when) if when else "", items)
+    return (head(t, lang, x["title"], 1, "novedades") + nav(t, lang, 1, False, "novedades")
+            + '<div class="wrap doc rels"><h1>%s</h1>%s</div>' % (e(x["h1"]), body) + footer(t, lang, "novedades"))
 
 # The index lights the part being read.
 GUIDE_SPY = ('<script>(function(){var l=document.querySelectorAll(".gtoc a"),m={};l.forEach(function(a){m[a.getAttribute("href").slice(1)]=a});'
@@ -1429,6 +1467,7 @@ for lang in LANGS:
     write(os.path.join(d, "privacy", "index.html"), doc(t, lang, "privacy", t["privacy_t"], "".join("<h2>%s</h2><p>%s</p>" % (html.escape(h), p) for h, p in t["privacy_b"])))
     write(os.path.join(d, "support", "index.html"), doc(t, lang, "support", t["support_t"], "<p>%s</p><h2>%s</h2>%s" % (t["support_p"], html.escape(t["support_h"]), "".join("<details><summary>%s</summary><p>%s</p></details>" % (html.escape(q), html.escape(a)) for q, a in t["support_faq"]))))
     if lang in GUIDE: write(os.path.join(d, "guia", "index.html"), guide(t, lang))
+    write(os.path.join(d, "novedades", "index.html"), releases(t, lang))
     write(os.path.join(d, "terms", "index.html"), doc(t, lang, "terms", t["terms_t"], "".join("<h2>%s</h2><p>%s</p>" % (html.escape(h), p) for h, p in t["terms_b"])))
 # The Spanish pages lived at /es/ for a day: those addresses now lead to the same page at the root.
 for page in ["", "privacy", "support", "terms"]:

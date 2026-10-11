@@ -13,6 +13,7 @@ nav .wrap{display:flex;align-items:center;gap:18px;height:60px}
 nav .brand{display:flex;align-items:center;gap:10px;font-weight:700;color:var(--ink);font-size:19px;letter-spacing:-.01em}
 nav .brand img{width:30px;height:30px;border-radius:8px;box-shadow:0 0 0 1px rgba(255,255,255,.08)}
 nav .brand:hover{text-decoration:none}
+nav .brand{flex-shrink:0}nav .links{min-width:0}
 nav .links{margin-left:auto;display:flex;gap:18px;font-size:15px;flex-wrap:wrap}
 nav .links a{color:var(--soft)}nav .links a:hover,nav .links a.on{color:var(--ink);text-decoration:none}
 /* ES · CA · EN, always in sight */
@@ -279,3 +280,7 @@ ol.howto li:before{content:counter(s);position:absolute;left:14px;top:11px;width
 /* Guide: a row of real Shortcuts screens under the steps (language-independent, the owner chose the English ones). */
 .gtrio{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0 4px;align-items:start}.gtrio figure{margin:0}.gtrio .shot.phone{width:100%;transform:none;border-radius:24px;padding:6px}.gtrio .shot.phone img{border-radius:18px;display:block;width:100%}.gtrio figcaption{font-size:13px;line-height:1.35;color:var(--soft);text-align:center;margin-top:8px}
 @media (max-width:560px){.gtrio{gap:8px}.gtrio figcaption{font-size:12px}}
+/* What's new: one section per version, its date under the number, each line linked to its part of the guide. */
+.rels .rel{margin-top:6px}.rels .rel h2{margin-bottom:2px}.rels .rel .date{margin:0 0 8px}.rels ul.check li{color:#d7dce5}
+.rel-guide{white-space:nowrap;color:var(--accent2);font-size:14px;font-weight:600;text-decoration:none;margin-left:4px}.rel-guide:hover{text-decoration:underline}
+@media(max-width:360px){nav .links{display:none}nav .langs{margin-left:auto}}
