@@ -1161,11 +1161,18 @@ def footer(t, lang, page=""):
     return ('<footer><div class="wrap"><span>© 2026 Tiquet</span>' + guide + '<a href="%s">%s</a><a href="%s">%s</a><a href="%s">%s</a><a href="mailto:%s">%s</a><span class="langs">%s</span></div></footer></body></html>'
             % (page_url(lang, "privacy"), t["f_privacy"], page_url(lang, "support"), t["f_support"], page_url(lang, "terms"), t["f_terms"], EMAIL, t["f_contact"], langs))
 
+def shot_src(r, n, lang):
+    """A sample-household screen in the page's language; the Spanish one where that language has none yet (the 2.0
+    screens exist in Spanish and Catalan only; Catalan used the Spanish screens before 2.0)."""
+    for l in (lang, "es"):
+        if os.path.exists(os.path.join(ROOT, "img", "s", "%s-%s.jpg" % (n, l))): return "%simg/s/%s-%s.jpg" % (r, n, l)
+    return "%simg/s/%s-es.jpg" % (r, n)
+
 def cards(items): return '<div class="grid">' + "".join('<div class="card %s"><span class="tag"></span><h3>%s</h3><p>%s</p></div>' % (c, html.escape(h), html.escape(p)) for h, p, c in items) + '</div>'
 def checks(items, cls="check"): return '<ul class="check %s">%s</ul>' % (cls if cls != "check" else "", "".join("<li>%s</li>" % html.escape(i) for i in items))
 
 def landing(t, lang):
-    r = root(lang, 0); e = html.escape; shot = lambda n: "%simg/s/%s-%s.jpg" % (r, n, "en" if lang == "en" else "es")
+    r = root(lang, 0); e = html.escape; shot = lambda n: shot_src(r, n, lang)
     out = head(t, lang, t["title"], 0) + nav(t, lang, 0, True)
     # Hero: the promise, the four refusals, and the phone with what it is doing right now.
     out += ('<header class="hero-x"><div class="wrap hero"><div class="reveal"><h1>%s<em>%s</em></h1><p class="sub">%s</p>'
@@ -1274,8 +1281,9 @@ GUIDE_SPY = ('<script>(function(){var l=document.querySelectorAll(".gtoc a"),m={
 def guide(t, lang):
     """How it works: an index, then each part as what it does for you, how, tips and questions, beside its screen."""
     g = GUIDE[lang]; e = html.escape; r = root(lang, 1)
-    shot = lambda n: "%simg/s/%s-%s.jpg" % (r, n, "en" if lang == "en" else "es")
-    badge = lambda s: '<span class="tier %s">%s</span>' % (s["tier"], e(g[s["tier"]])) + ('<span class="tier v11">%s</span>' % e(g["v11"]) if s.get("v11") else "")
+    shot = lambda n: shot_src(r, n, lang)
+    # "v11": True marks a part new in 1.1; "since": "v20" names the version's label in the guide's words.
+    badge = lambda s: '<span class="tier %s">%s</span>' % (s["tier"], e(g[s["tier"]])) + ('<span class="tier v11">%s</span>' % e(g[s.get("since") or "v11"]) if s.get("v11") or s.get("since") else "")
     toc = "".join('<li><a href="#%s">%s</a></li>' % (s["id"], e(s["short"])) for s in g["sections"])
     parts = ""
     for s in g["sections"]:
