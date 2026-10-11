@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
-# Tiquet, "Com funciona" guide, Catalan. Translated from guide_es.py. The app has no Catalan interface yet,
-# so every UI name in «» is kept exactly as the app shows it in Spanish (Scripts/es_translations.py).
+# Tiquet, "Com funciona" guide, Catalan. Translated from guide_es.py. Since 2.0 the app speaks Catalan, so every UI
+# name in «» is the exact string the app shows in Catalan (Scripts/ca_translations.py). Siri has no Catalan: its
+# phrases stay in Spanish, as the app's App Shortcuts are.
 
 GUIDE_CA = {
     "title": "Com funciona Tiquet",
@@ -9,8 +10,7 @@ GUIDE_CA = {
     "intro": (
         "Què fa per tu cada part de l’app, com es fa servir i uns quants trucs per treure’n profit. "
         "El que està marcat com a Plus necessita Tiquet Plus o la seva prova de 14 dies. "
-        "El que està marcat «Des de la versió 1.1» arriba amb aquesta actualització. "
-        "L’app encara no està en català: els noms dels botons apareixen en castellà, tal com els veuràs."
+        "El que està marcat «Des de la versió 1.1» arriba amb aquesta actualització."
     ),
     "toc": "En aquesta guia",
     "cta": "Mira com funciona cada part",
@@ -30,10 +30,10 @@ GUIDE_CA = {
             ),
             "steps": [
                 "Necessites un iPhone o un iPad amb iOS o iPadOS 27. L’app està en castellà i en anglès.",
-                "Per veure-la plena abans de posar-hi res teu, toca «Probar con datos de ejemplo» a l’Inici buit o a «Ajustes». És una casa inventada que no toca les teves dades; en surts amb «Salir».",
-                "Comença pel que més t’importa: una assegurança o una subscripció, des de «Añadir» › «Contrato».",
+                "Per veure-la plena abans de posar-hi res teu, toca «Prova amb dades d'exemple» a l’Inici buit o a «Configuració». És una casa inventada que no toca les teves dades; en surts amb «Surt».",
+                "Comença pel que més t’importa: una assegurança o una subscripció, des d’«Afegeix» › «Contracte».",
                 "Després, el tiquet d’alguna cosa amb garantia o termini de devolució, i un extracte del teu banc perquè Tiquet trobi el que es repeteix.",
-                "Si véns d’un altre iPhone, «Restaurar una copia» a l’Inici buit recupera la teva còpia de seguretat.",
+                "Si véns d’un altre iPhone, «Restaura una còpia» a l’Inici buit recupera la teva còpia de seguretat.",
             ],
             "tips": [
                 "Apple Intelligence és opcional. Sense, Tiquet llegeix els tiquets amb reconeixement de text i regles, te’ls deixa marcats per revisar, i «Pregunta» continua responent quant s’ha gastat en què.",
@@ -55,14 +55,14 @@ GUIDE_CA = {
                 "l’import i els articles. La foto queda com a prova encara que el paper tèrmic s’esborri."
             ),
             "steps": [
-                "Toca «Añadir» i tria: «Cámara» escaneja i redreça el paper, amb diverses pàgines si el tiquet és llarg; «Fotos» n’admet fins a 30 alhora; «Archivo» obre un PDF o una imatge; «A mano», quan no hi ha paper.",
+                "Toca «Afegeix» i tria: «Càmera» escaneja i redreça el paper, amb diverses pàgines si el tiquet és llarg; «Fotos» n’admet fins a 30 alhora; «Fitxer» obre un PDF o una imatge; «A mà», quan no hi ha paper.",
                 "Des del Mail, Fitxers o Fotos, mantén premut l’adjunt, toca Compartir i tria Tiquet. Quan obres l’app, el llegeix.",
-                "Abans de desar veus què ha entès. Si alguna cosa no quadra, toca «¿Algo mal leído? Corrígelo».",
-                "El que arriba en lot o s’ha llegit sense Apple Intelligence porta l’avís «Guardado sin que lo revisaras». Compara-ho amb la foto i toca «Está bien».",
+                "Abans de desar veus què ha entès. Si alguna cosa no quadra, toca «Alguna cosa mal llegida? Corregeix-la».",
+                "El que arriba en lot o s’ha llegit sense Apple Intelligence porta l’avís «Desat sense que el revisessis». Compara-ho amb la foto i toca «És correcte».",
             ],
             "tips": [
                 "Pots compartir fins a 20 fitxers d’un cop. Des de la versió 1.1 es llegeixen en l’ordre en què els envies.",
-                "Des de la 1.1, el tiquet d’una botiga té «Web de la tienda, para su icono». L’escrius un cop i tots els seus tiquets i càrrecs porten la icona.",
+                "Des de la 1.1, el tiquet d’una botiga té «Web de la botiga, per a la seva icona». L’escrius un cop i tots els seus tiquets i càrrecs porten la icona.",
                 "Si deses a mà un tiquet repetit (mateixa botiga, dia i import), Tiquet t’ho pregunta abans.",
                 "Amb Apple Pay, cada pagament es pot apuntar sol com un tiquet: mira «Apple Pay, apuntat sol».",
             ],
@@ -84,14 +84,14 @@ GUIDE_CA = {
             "steps": [
                 "Obre l’app Dreceres, toca «+» a baix i després «Edita», a dalt: no cal descriure la drecera.",
                 "Sota el cercador, toca «Automatització» i tria «Cartera» (en tocar una targeta o passi de Cartera).",
-                "Busca Tiquet i tria «Apuntar un pago con tarjeta».",
-                "Toca «Comercio», després «Selecciona una variable», i tria «Comerç». El mateix amb «Importe» (tria «Import») i «Tarjeta» (tria «Targeta o passi»).",
+                "Busca Tiquet i tria «Apunta un pagament amb targeta».",
+                "Toca «Comerç», després «Selecciona una variable», i tria «Comerç». El mateix amb «Import» (tria «Import») i «Targeta» (tria «Targeta o passi»).",
                 "Deixa activat «Automatització» al primer bloc i toca «<» per desar. Li pots posar un nom, com «Tiquet · Apple Pay».",
-                "Paga amb l’iPhone: veuràs «Apuntado: … en … · categoria» i el tiquet apareix a Tiquet.",
+                "Paga amb l’iPhone: veuràs «Apuntat: … a … · categoria» i el tiquet apareix a Tiquet.",
             ],
             "tips": [
-                "Els passos, l’estat («Funciona: el último…») i l’interruptor «Apuntar los pagos con Apple Pay» són a «Ajustes» › «De tu banco». Si el desactives, l’automatització continua a Dreceres però Tiquet no apunta res.",
-                "Des de la 1.3, si pagues amb targeta i encara no ho tens, «Requiere atención» t’ho ofereix; si vas obrir els passos i als tres dies no ha arribat cap pagament, t’ho diu; i quan arriba el primer, t’ho confirma.",
+                "Els passos, l’estat («Funciona: l’últim…») i l’interruptor «Apunta els pagaments amb Apple Pay» són a «Configuració» › «Del teu banc». Si el desactives, l’automatització continua a Dreceres però Tiquet no apunta res.",
+                "Des de la 1.3, si pagues amb targeta i encara no ho tens, «Requereix atenció» t’ho ofereix; si vas obrir els passos i als tres dies no ha arribat cap pagament, t’ho diu; i quan arriba el primer, t’ho confirma.",
                 "Quan importes l’extracte, aquell pagament es reconeix: no es compta dues vegades.",
                 "Si després escaneges el tiquet de paper, ocupa el lloc del pagament, amb els seus articles.",
                 "Des de l’iOS 27 les automatitzacions es creen dins d’una drecera nova, amb les accions d’«Automatització»: ja no hi ha una pestanya a part. Si tries «Cartera», pots limitar-ho a algunes targetes, categories o comerços.",
@@ -114,15 +114,15 @@ GUIDE_CA = {
                 "de devolució i de garantia del tiquet i t’avisa abans que es tanquin."
             ),
             "steps": [
-                "Desa el tiquet de la compra. A la seva fitxa, «Tus derechos» et diu fins quan dura la garantia legal i fins quan pots tornar-ho.",
+                "Desa el tiquet de la compra. A la seva fitxa, «Els teus drets» et diu fins quan dura la garantia legal i fins quan pots tornar-ho.",
                 "La devolució surt del tiquet o, si no la imprimeix, de la política de les grans cadenes. Si ho has comprat en línia, la llei et dona 14 dies des de l’entrega.",
-                "Per a alguna cosa que vulguis seguir, com un mòbil o una bici, toca «Registrar como cosa». Si el tiquet porta diverses línies, entra a l’article i toca «Registrar este artículo como cosa»: s’emporta el seu preu, la seva foto i la data de devolució.",
-                "Les garanties vigents són juntes a «Contratos», a «Garantías en vigor», amb la més propera a dalt.",
+                "Per a alguna cosa que vulguis seguir, com un mòbil o una bici, toca «Registra com a cosa». Si el tiquet porta diverses línies, entra a l’article i toca «Registra aquest article com a cosa»: s’emporta el seu preu, la seva foto i la data de devolució.",
+                "Les garanties vigents són juntes a «Contractes», a «Garanties en vigor», amb la més propera a dalt.",
             ],
             "tips": [
                 "T’avisa 3 dies i 1 dia abans que es tanqui una devolució, i un mes abans que s’acabi la garantia d’una cosa.",
                 "A Espanya la garantia legal és de 3 anys per al que s’ha comprat des del 2022. Reclama al venedor, no només al fabricant.",
-                "«Tus derechos, con sus fuentes» diu d’on surt cada data. És informació, no assessorament jurídic.",
+                "«Els teus drets, amb les fonts» diu d’on surt cada data. És informació, no assessorament jurídic.",
             ],
             "faq": [
                 ("Per què el tiquet del súper no té garantia?", "Tiquet només posa garantia quan el paper la menciona i el que s’ha comprat en pot tenir: mai al menjar, a la benzina ni a un àpat fora de casa."),
@@ -141,20 +141,20 @@ GUIDE_CA = {
             ),
             "steps": [
                 "Al web o a l’app del teu banc, exporta els moviments en Excel, CSV o PDF: cal una data, un concepte i un import. Si fas servir targeta de crèdit, exporta’n també l’extracte.",
-                "Obre’l amb «Añadir» › «Archivo», o comparteix-lo amb Tiquet.",
-                "Et diu quantes línies són noves; res no s’afegeix dues vegades. Si el fitxer no porta l’any, et demana l’«Año del último pago».",
-                "Abans de desar, «Así ha leído Tiquet este archivo» mostra quina columna és la data, el concepte i l’import, amb tres línies per comprovar-ho. Si el teu banc escriu les compres en positiu, Tiquet els dona la volta i ho diu amb «El archivo pone los gastos en positivo»; si surten al revés, canvia aquest interruptor: ho recorda per a aquell banc.",
-                "Des de la 1.2: si Tiquet no entén les columnes, o les ha llegit malament, toca «Elegir las columnas» («¿No se ha leído bien? Elige las columnas» si ja l’ha llegit): veus cada columna amb els primers valors i dius quina és la data, el concepte, l’import (o càrrec i abonament), el saldo, la divisa o una columna de signe D/H. Ho recorda per als fitxers següents d’aquell banc.",
-                "A «Lo que se sigue cobrando» surten les empreses que et cobren a un ritme constant. Les que activis passen a ser contractes.",
+                "Obre’l amb «Afegeix» › «Fitxer», o comparteix-lo amb Tiquet.",
+                "Et diu quantes línies són noves; res no s’afegeix dues vegades. Si el fitxer no porta l’any, et demana l’«Any de l'últim pagament».",
+                "Abans de desar, «Així ha llegit Tiquet aquest fitxer» mostra quina columna és la data, el concepte i l’import, amb tres línies per comprovar-ho. Si el teu banc escriu les compres en positiu, Tiquet els dona la volta i ho diu amb «L'arxiu posa les despeses en positiu»; si surten al revés, canvia aquest interruptor: ho recorda per a aquell banc.",
+                "Des de la 1.2: si Tiquet no entén les columnes, o les ha llegit malament, toca «Tria les columnes» («No s'ha llegit bé? Tria les columnes» si ja l’ha llegit): veus cada columna amb els primers valors i dius quina és la data, el concepte, l’import (o càrrec i abonament), el saldo, la divisa o una columna de signe D/H. Ho recorda per als fitxers següents d’aquell banc.",
+                "A «El que es continua cobrant» surten les empreses que et cobren a un ritme constant. Les que activis passen a ser contractes.",
             ],
             "tips": [
                 "Transferències, Bizum i efectiu es guarden, però no compten com a despesa. Els números de targeta es retallen a les quatre últimes xifres.",
                 "Des de la 1.1 pots enviar diversos extractes junts i s’importen un rere l’altre. A la 1.0, d’un en un.",
-                "Amb «Recordarme lo que solo puedo hacer yo», a «Ajustes» › «Avisos», el dia 3 et recorda que portis el mes anterior si et falta. Des de la 1.2 ho mira banc per banc i targeta per targeta, diu quin falta i també ho mostra a «Requiere atención», perquè Vigilància no es quedi sense veure res.",
-                "Amb Plus: «Entra y sale» compara el que entra amb el que surt.",
+                "Amb «Recorda'm el que només puc fer jo», a «Configuració» › «Avisos», el dia 3 et recorda que portis el mes anterior si et falta. Des de la 1.2 ho mira banc per banc i targeta per targeta, diu quin falta i també ho mostra a «Requereix atenció», perquè Vigilància no es quedi sense veure res.",
+                "Amb Plus: «Entra i surt» compara el que entra amb el que surt.",
             ],
             "faq": [
-                ("Quins bancs funcionen?", "Gairebé tots. Tiquet busca les columnes pels títols o, si no n’hi ha, pel que contenen; entén càrrec i abonament en dues columnes i els extractes en PDF, i reconeix el format de BBVA, Banc Sabadell, ING, Revolut i Andbank. Si el teu encara no es llegeix bé, «Envíanos la forma del archivo» prepara un correu sense cap dada teva: cada xifra passa a ser un 9 i cada paraula, la seva llargada. Des de la 1.2 també llegeix els extractes de targeta de crèdit en PDF que parteixen un moviment en diverses línies, deixa fora el «saldo anterior» i no compta com a despesa el pagament amb què se salda la targeta."),
+                ("Quins bancs funcionen?", "Gairebé tots. Tiquet busca les columnes pels títols o, si no n’hi ha, pel que contenen; entén càrrec i abonament en dues columnes i els extractes en PDF, i reconeix el format de BBVA, Banc Sabadell, ING, Revolut i Andbank. Si el teu encara no es llegeix bé, «Envia'ns la forma del fitxer» prepara un correu sense cap dada teva: cada xifra passa a ser un 9 i cada paraula, la seva llargada. Des de la 1.2 també llegeix els extractes de targeta de crèdit en PDF que parteixen un moviment en diverses línies, deixa fora el «saldo anterior» i no compta com a despesa el pagament amb què se salda la targeta."),
             ],
         },
         {
@@ -169,15 +169,15 @@ GUIDE_CA = {
                 "es renova, fins quan pots donar-lo de baixa i a qui trucar el dia que passa alguna cosa."
             ),
             "steps": [
-                "Toca «Añadir» › «Contrato», o el + de la pestanya «Contratos». Escriu amb qui és i quant costa.",
-                "Toca «Adjuntar la póliza o el contrato» i escaneja el paper o tria una foto o un PDF. Tiquet llegeix número, prima, cobertura, assegurats i telèfon de sinistres, i només omple el que no havies escrit.",
-                "Amb extractes importats, mira «En tu banco, aún sin ficha» a «Contratos»: un toc crea la fitxa d’un càrrec que es repeteix.",
-                "Per a un mòbil a terminis, posa el «Número de pagos». Per a una prova gratis, activa «Prueba gratis» i tria quan «Empieza a cobrar».",
+                "Toca «Afegeix» › «Contracte», o el + de la pestanya «Contractes». Escriu amb qui és i quant costa.",
+                "Toca «Adjunta la pòlissa o el contracte» i escaneja el paper o tria una foto o un PDF. Tiquet llegeix número, prima, cobertura, assegurats i telèfon de sinistres, i només omple el que no havies escrit.",
+                "Amb extractes importats, mira «Al teu banc, encara sense fitxa» a «Contractes»: un toc crea la fitxa d’un càrrec que es repeteix.",
+                "Per a un mòbil a terminis, posa el «Nombre de pagaments». Per a una prova gratis, activa «Prova gratuïta» i tria quan «Comença a cobrar».",
             ],
             "tips": [
                 "Una assegurança porta 30 dies de preavís: a Espanya pots oposar-te a la renovació amb un mes d’antelació. Canvia-ho si el teu contracte diu una altra cosa.",
-                "En un contracte anual, un mes abans de l’últim dia per dir que no t’arriba «buen momento para comparar», amb la pujada si el teu banc la mostra. Després, avisos 7 dies i 1 dia abans.",
-                "«Llamar para dar un parte» i «Copiar el número de póliza» són a dalt de tot de la fitxa.",
+                "En un contracte anual, un mes abans de l’últim dia per dir que no t’arriba «bon moment per comparar», amb la pujada si el teu banc la mostra. Després, avisos 7 dies i 1 dia abans.",
+                "«Truca per comunicar un sinistre» i «Copia el número de pòlissa» són a dalt de tot de la fitxa.",
                 "Tiquet mai guarda contrasenyes: només apuntes on és l’accés.",
             ],
             "faq": [],
@@ -195,15 +195,15 @@ GUIDE_CA = {
             ),
             "steps": [
                 "Importa extractes d’almenys un any: una pujada es veu comparant el mateix càrrec en anys diferents.",
-                "A l’«Inicio», obre la targeta «Dónde gastar menos».",
+                "A l’«Inici», obre la targeta «On gastar menys».",
                 "Cada troballa diu què s’ha vist, per què pot importar, què podries fer i quants diners hi passen a l’any, com a estimació.",
-                "Toca «Ver los cargos» per veure cada pagament que hi ha darrere, any a any. Quan ho hagis revisat, toca «Ya lo he mirado».",
+                "Toca «Mostra els càrrecs» per veure cada pagament que hi ha darrere, any a any. Quan ho hagis revisat, toca «Ja ho he mirat».",
             ],
             "tips": [
                 "Busca sis coses: un contracte que ha pujat, una protecció que ja ha costat molt en comparació amb el que protegeix, una garantia de pagament mentre dura la legal, comissions del banc, subscripcions de més d’un any i peatges o aparcaments molt freqüents.",
                 "Tiquet mai recomana una companyia, una cobertura ni una baixa. No coneix preus de mercat: et dona les teves xifres i la pregunta.",
-                "La pujada d’un contracte també es veu gratis a la seva fitxa, a «Precio de cada cargo, año a año».",
-                "Des de la 1.1, «La cesta» fa el mateix amb els preus del súper.",
+                "La pujada d’un contracte també es veu gratis a la seva fitxa, a «Preu de cada càrrec, any a any».",
+                "Des de la 1.1, «La cistella» fa el mateix amb els preus del súper.",
             ],
             "faq": [],
         },
@@ -219,17 +219,17 @@ GUIDE_CA = {
                 "Tiquet prepara aquests papers ara, mentre tot va bé."
             ),
             "steps": [
-                "Des de la 1.2, quan passa alguna cosa: «¿A quién llamo?» a «Contratos» (o digues a Siri «A quién llamo en Tiquet») mostra les teves assegurances pel que ha passat (llar, cotxe, salut, mòbil…) amb la companyia, el número de pòlissa i un botó per trucar a sinistres.",
-                "A «Contratos», toca «Compartir» a dalt, o ves a «Ajustes» › «Compartir con los de casa».",
-                "Tria «Hoja de casa (PDF)» o «Hoja de casa, con precios». Es fa al dispositiu.",
+                "Des de la 1.2, quan passa alguna cosa: «A qui truco?» a «Contractes» (o digues a Siri «A quién llamo en Tiquet») mostra les teves assegurances pel que ha passat (llar, cotxe, salut, mòbil…) amb la companyia, el número de pòlissa i un botó per trucar a sinistres.",
+                "A «Contractes», toca «Comparteix» a dalt, o ves a «Configuració» › «Comparteix amb els de casa».",
+                "Tria «Full de la llar (PDF)» o «Full de la llar, amb preus». Es fa al dispositiu.",
                 "Imprimeix-la o envia-la a algú de confiança, i guarda-la on la puguin trobar.",
-                "Perquè la teva parella tingui el mateix al seu Tiquet, toca «Compartir con los de casa» i envia-li el fitxer de casa per AirDrop. Quan l’obri, el seu Tiquet hi afegeix el que falta i actualitza el que vas canviar després.",
+                "Perquè la teva parella tingui el mateix al seu Tiquet, toca «Comparteix amb els de casa» i envia-li el fitxer de casa per AirDrop. Quan l’obri, el seu Tiquet hi afegeix el que falta i actualitza el que vas canviar després.",
             ],
             "tips": [
                 "El full porta cada assegurança i contracte: companyia, número de pòlissa, qui està assegurat, què cobreix, el telèfon per donar un part, el contacte, on es guarda l’accés, quan es renova i si la pòlissa és a Tiquet. Després, el que està en garantia i els documents que caduquen.",
                 "Mai porta contrasenyes ni el número dels teus documents. Els preus, només a la versió amb preus.",
                 "El fitxer de casa porta contractes, assegurances amb les seves pòlisses i garanties: ni tiquets ni banc. No està xifrat i no s’actualitza sol, així que torna a enviar-lo quan canviïs alguna cosa.",
-                "Des de la 1.2, si canvies un contracte després d’enviar el fitxer de casa, «Contratos» t’avisa: «El fichero del hogar está desactualizado», i el tornes a enviar amb «Reenviar».",
+                "Des de la 1.2, si canvies un contracte després d’enviar el fitxer de casa, «Contractes» t’avisa: «El fitxer de la llar no està actualitzat», i el tornes a enviar amb «Torna'l a enviar».",
             ],
             "faq": [],
         },
@@ -246,9 +246,9 @@ GUIDE_CA = {
             ),
             "steps": [
                 "Importa els teus extractes. Vigilància revisa els últims 120 dies al dispositiu, amb regles i sense IA.",
-                "El que trobi surt a la targeta «Vigilancia» de l’«Inicio» i encapçala «Requiere atención». La pantalla completa és a «De tu banco» › «Vigilancia: ¿algo raro?».",
-                "Si el reconeixes, toca «Es mío» i Tiquet ho aprèn a tots els teus dispositius. Per a diversos alhora, «Todos son míos».",
-                "Amb «No lo reconozco», et diu què has de fer: trucar al banc i bloquejar la targeta, demanar que te’l tornin, denunciar-ho i canviar la contrasenya.",
+                "El que trobi surt a la targeta «Vigilància» de l’«Inici» i encapçala «Requereix atenció». La pantalla completa és a «Del teu banc» › «Vigilància: alguna cosa estranya?».",
+                "Si el reconeixes, toca «És meu» i Tiquet ho aprèn a tots els teus dispositius. Per a diversos alhora, «Tots són meus».",
+                "Amb «No el reconec», et diu què has de fer: trucar al banc i bloquejar la targeta, demanar que te’l tornin, denunciar-ho i canviar la contrasenya.",
             ],
             "tips": [
                 "Sis senyals: un Bizum alt a algú nou; diversos Bizum el mateix dia a gent nova; una transferència a un compte mai vist; un càrrec en una altra moneda sense cap viatge al voltant; un càrrec mínim a internet seguit d’un altre de més gran; i un cobrament doble.",
@@ -271,16 +271,16 @@ GUIDE_CA = {
                 "i a quin lloc tornar. Sense escriure ressenyes: el tiquet ja diu el plat i el preu."
             ),
             "steps": [
-                "Desa el tiquet d’un restaurant o d’un bar i va a «Sitios», a la fitxa del seu lloc. «Estoy aquí ahora» el situa al mapa amb la teva posició.",
-                "Al tiquet, posa estrelles a «El sitio» (valen per a totes les visites) i obre cada plat de «Lo que pedisteis» per respondre «¿Lo pedirías otra vez?» i afegir «Fotos del plato».",
-                "El «Resumen» de «Sitios» mostra «Vuestros habituales», els «Viajes» que detecta sol i el que tens «Cerca de casa».",
-                "Cada lloc reuneix les seves visites, el que ha costat, els plats «Para volver a pedir», el seu telèfon, «Reservar o ver la carta» i «Abrir en Mapas».",
-                "Amb Plus, «Traerlos a Sitios» porta els restaurants dels teus extractes i els busca a Apple Maps.",
+                "Desa el tiquet d’un restaurant o d’un bar i va a «Llocs», a la fitxa del seu lloc. «Ara soc aquí» el situa al mapa amb la teva posició.",
+                "Al tiquet, posa estrelles a «El lloc» (valen per a totes les visites) i obre cada plat d’«El que vau demanar» per respondre «Ho tornaries a demanar?» i afegir «Fotos del plat».",
+                "El «Resum» de «Llocs» mostra «Els vostres habituals», els «Viatges» que detecta sol i el que tens «A prop de casa».",
+                "Cada lloc reuneix les seves visites, el que ha costat, els plats «Per tornar a demanar», el seu telèfon, «Reserva o mira la carta» i «Obre a Mapes».",
+                "Amb Plus, «Porta'ls a Llocs» porta els restaurants dels teus extractes i els busca a Apple Maps.",
             ],
             "tips": [
-                "Pregunta per una ciutat o una regió: «¿Qué sitios me gustaron en Cantabria?». Tiquet busca aquest nom a Apple Maps per situar-lo; aquesta pregunta necessita Apple Intelligence.",
-                "«¿Dónde me encantaron las bravas?» es respon sense Apple Intelligence, amb les estrelles que vas donar a aquell plat.",
-                "Si un lloc surt amb dos noms, fes servir «Es el mismo sitio que otro…».",
+                "Pregunta per una ciutat o una regió: «Quins llocs em van agradar a Cantàbria?». Tiquet busca aquest nom a Apple Maps per situar-lo; aquesta pregunta necessita Apple Intelligence.",
+                "«On em van encantar les braves?» es respon sense Apple Intelligence, amb les estrelles que vas donar a aquell plat.",
+                "Si un lloc surt amb dos noms, fes servir «És el mateix lloc que un altre…».",
             ],
             "faq": [],
         },
@@ -297,15 +297,15 @@ GUIDE_CA = {
             ),
             "steps": [
                 "Desa els tiquets del súper. Amb dos de la mateixa botiga amb les mateixes coses ja es pot comparar.",
-                "A l’«Inicio», la targeta «La cesta y la lista de la compra» obre «La cesta», amb els apartats «Suben», «Bajan» i «Más barato en tus otras tiendas».",
-                "Un producte mostra cada preu que vas pagar, per unitat o per quilo. El que s’ha llegit malament va a «Precios que parecen mal leídos» i no compta: obre’n el tiquet i corregeix la línia.",
-                "A la «Lista de la compra», escriu tres lletres i et suggereix el que ja vas comprar, amb la botiga i l’últim preu. També et proposa el que toca reposar.",
-                "A la botiga, toca cada cosa per ratllar-la; la pantalla no s’apaga mentre la fas servir. En acabar, «Quitar lo tachado».",
+                "A l’«Inici», la targeta «La cistella i la llista de la compra» obre «La cistella», amb els apartats «Pugen», «Baixen» i «Més barat a les teves altres botigues».",
+                "Un producte mostra cada preu que vas pagar, per unitat o per quilo. El que s’ha llegit malament va a «Preus que semblen mal llegits» i no compta: obre’n el tiquet i corregeix la línia.",
+                "A la «Llista de la compra», escriu tres lletres i et suggereix el que ja vas comprar, amb la botiga i l’últim preu. També et proposa el que toca reposar.",
+                "A la botiga, toca cada cosa per ratllar-la; la pantalla no s’apaga mentre la fas servir. En acabar, «Treu el que està ratllat».",
             ],
             "tips": [
-                "La cistella va amb Plus, al costat de «Dónde gastar menos». La llista de la compra és gratis.",
-                "Afegeix el widget «Lista de la compra» a la pantalla d’inici i ratlla des d’allà el que vas agafant, sense obrir l’app.",
-                "Digues a Siri «Lista de la compra en Tiquet», o escriu a «Pregunta» «hazme la lista de la compra»: funciona sense Apple Intelligence.",
+                "La cistella va amb Plus, al costat d’«On gastar menys». La llista de la compra és gratis.",
+                "Afegeix el widget «Llista de la compra» a la pantalla d’inici i ratlla des d’allà el que vas agafant, sense obrir l’app.",
+                "Digues a Siri «Lista de la compra en Tiquet», o escriu a «Pregunta» «fes-me la llista de la compra»: funciona sense Apple Intelligence.",
                 "La llista es guarda en aquest dispositiu i no se sincronitza per iCloud.",
             ],
             "faq": [],
@@ -322,18 +322,18 @@ GUIDE_CA = {
                 "l’app; el model d’Apple només les explica, i tot passa al dispositiu."
             ),
             "steps": [
-                "Toca «Pregunta sobre tu dinero…» a dalt de l’«Inicio» i escriu, o toca el micròfon per dictar.",
-                "Per començar, toca una idea: «¿Cuánto llevamos en la compra este mes?» o «¿Qué puedo devolver todavía?».",
+                "Toca «Pregunta sobre els teus diners…» a dalt de l’«Inici» i escriu, o toca el micròfon per dictar.",
+                "Per començar, toca una idea: «Quant portem en la compra aquest mes?» o «Què puc tornar encara?».",
                 "Sota la resposta surten targetes amb els pagaments que la sostenen. Toca’n una per veure’ls.",
-                "Si demanes un canvi, com posar estrelles o canviar el pressupost, veus l’abans i el després. Res no canvia fins que toques «Confirmar», i es pot desfer.",
-                "Per seguir el fil, comença per «y»: «¿Y el año pasado?».",
+                "Si demanes un canvi, com posar estrelles o canviar el pressupost, veus l’abans i el després. Res no canvia fins que toques «Confirma», i es pot desfer.",
+                "Per seguir el fil, comença per «i»: «I l’any passat?».",
             ],
             "tips": [
-                "Sense Apple Intelligence, l’app respon sola quant en alguna cosa, en una botiga o en una etiqueta («¿Cuánto nos costó el viaje a Roma?»), on vas prendre un plat i quan toca el proper pagament d’un contracte.",
-                "«¿Qué puedo devolver todavía?» i «¿Qué sigue en garantía?» els respon l’app al moment, amb tot el que continua obert, el més urgent primer.",
-                "Amb Apple Intelligence, a més: llocs a prop teu o en una regió, i «cena Can Pere 42 ayer» per crear un tiquet que revises abans de desar.",
+                "Sense Apple Intelligence, l’app respon sola quant en alguna cosa, en una botiga o en una etiqueta («Quant ens va costar el viatge a Roma?»), on vas prendre un plat i quan toca el proper pagament d’un contracte.",
+                "«Què puc tornar encara?» i «Què continua en garantia?» els respon l’app al moment, amb tot el que continua obert, el més urgent primer.",
+                "Amb Apple Intelligence, a més: llocs a prop teu o en una regió, i «sopar Can Pere 42 ahir» per crear un tiquet que revises abans de desar.",
                 "Gratis tens 5 preguntes al dia a cada dispositiu, sobre el que és gratis a l’app. Amb Plus, sense límit.",
-                "Amb el mode discret, cada resposta espera darrere de «Importes ocultos. Mostrar esta respuesta».",
+                "Amb el mode discret, cada resposta espera darrere d’«Imports ocults. Mostra aquesta resposta».",
             ],
             "faq": [],
         },
@@ -345,22 +345,22 @@ GUIDE_CA = {
             "v11": False,
             "shot": "coming",
             "hook": (
-                "Quan obres l’app, l’«Inicio» et diu si has de fer alguna cosa, com va el mes i què ve. Fora de l’app, "
+                "Quan obres l’app, l’«Inici» et diu si has de fer alguna cosa, com va el mes i què ve. Fora de l’app, "
                 "els widgets i Siri t’ho expliquen sense haver-la d’obrir."
             ),
             "steps": [
-                "«Requiere atención» va a dalt: devolucions, renovacions, garanties, tiquets per revisar. Mantén premut un avís per a «Hecho» o «Recordármelo mañana».",
-                "Tria Mes, Año o Fechas a dalt: totes les targetes segueixen aquell període.",
-                "«Próximos cargos» mostra el que es cobra aviat. Amb Plus, «Semana a semana, mes a mes» obre «Lo que viene»: dotze mesos, càrrec a càrrec, i cada previsió diu en què es basa.",
-                "Amb Plus, gira l’iPhone per veure «Horizonte»: el que s’ha gastat, cap on va el mes i el que ve. «¿Y si quito…?» apaga un contracte i torna a dibuixar l’any.",
+                "«Requereix atenció» va a dalt: devolucions, renovacions, garanties, tiquets per revisar. Mantén premut un avís per a «Fet» o «Recorda-m'ho demà».",
+                "Tria Mes, Any o Dates a dalt: totes les targetes segueixen aquell període.",
+                "«Pròxims càrrecs» mostra el que es cobra aviat. Amb Plus, «Setmana a setmana, mes a mes» obre «El que ve»: dotze mesos, càrrec a càrrec, i cada previsió diu en què es basa.",
+                "Amb Plus, gira l’iPhone per veure «Horitzó»: el que s’ha gastat, cap on va el mes i el que ve. «I si trec…?» apaga un contracte i torna a dibuixar l’any.",
                 "Amb Plus, «El Mes» treu un número per cada mes acabat, com un diari de casa, per compartir en PDF.",
-                "«Organizar esta pantalla», al final, canvia l’ordre de les targetes o amaga les que no facis servir.",
+                "«Organitza aquesta pantalla», al final, canvia l’ordre de les targetes o amaga les que no facis servir.",
             ],
             "tips": [
-                "Widgets: «Este mes», «Próximo cargo», «Seguros a mano», «Buenos sitios cerca» i «Lista de la compra». El control «Añadir un tique» va al Centre de control, a la pantalla bloquejada o al botó d’acció.",
-                "Pregunta a Siri «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
-                "Des de la 1.3, a les llistes amb accions en lliscar («Requiere atención», «Lugares», els teus comptes…) la primera fila t’ensenya les dues primeres vegades què hi ha al darrere: llisca a l’esquerra per a «Mañana» o «Lunes», a la dreta per a «Hecho». Amb «Redueix el moviment» activat no es mou.",
-                "Si encara no tens Plus, quan gires l’iPhone Tiquet t’explica què és «Horizonte» i que forma part de Tiquet Plus, amb la prova de 14 dies si no l’has feta servir.",
+                "Widgets: «Aquest mes», «Pròxim càrrec», «Assegurances a mà», «Bons llocs a prop» i «Llista de la compra». El control «Afegeix un tiquet» va al Centre de control, a la pantalla bloquejada o al botó d’acció.",
+                "Siri no parla català: amb Siri en castellà, pregunta-li «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
+                "Des de la 1.3, a les llistes amb accions en lliscar («Requereix atenció», «Llocs», els teus comptes…) la primera fila t’ensenya les dues primeres vegades què hi ha al darrere: llisca a l’esquerra per a «Demà» o «Dilluns», a la dreta per a «Fet». Amb «Redueix el moviment» activat no es mou.",
+                "Si encara no tens Plus, quan gires l’iPhone Tiquet t’explica què és «Horitzó» i que forma part de Tiquet Plus, amb la prova de 14 dies si no l’has feta servir.",
             ],
             "faq": [],
         },
@@ -376,13 +376,13 @@ GUIDE_CA = {
                 "El dia que et roben alguna cosa o has de renovar el DNI, ho tens a mà."
             ),
             "steps": [
-                "Des d’un tiquet, toca «Registrar como cosa». O a «Cosas», toca + › «Añadir una cosa».",
+                "Des d’un tiquet, toca «Registra com a cosa». O a «Coses», toca + › «Afegeix una cosa».",
                 "A la seva fitxa, escaneja el número de sèrie o l’IMEI de la caixa o l’etiqueta, i fes una foto del producte i una altra de la seva etiqueta. És el primer que demanen la policia i les asseguradores.",
-                "Si te’l van vendre amb una assegurança, toca «Añadir seguro o garantía extendida» i queda enllaçada.",
-                "Per a un document, a «Cosas» toca + › «Añadir un documento que caduca»: DNI, passaport, carnet de conduir, ITV, targeta sanitària, carnet de família nombrosa, permís de residència o un altre. Apunta de qui és i fins quan és vàlid.",
+                "Si te’l van vendre amb una assegurança, toca «Afegeix una assegurança o una garantia ampliada» i queda enllaçada.",
+                "Per a un document, a «Coses» toca + › «Afegeix un document que caduca»: DNI, passaport, carnet de conduir, ITV, targeta sanitària, carnet de família nombrosa, permís de residència o un altre. Apunta de qui és i fins quan és vàlid.",
             ],
             "tips": [
-                "Un document t’avisa 60 i 15 dies abans de caducar (la ITV, 30 i 7), i surt a «Requiere atención» i a «Plazos».",
+                "Un document t’avisa 60 i 15 dies abans de caducar (la ITV, 30 i 7), i surt a «Requereix atenció» i a «Terminis».",
                 "El seu número és opcional, s’amaga en mode discret i mai s’imprimeix al full de casa.",
                 "Esborrar una cosa no n’esborra l’assegurança: Tiquet pregunta abans i et diu què es queda.",
             ],
@@ -396,21 +396,21 @@ GUIDE_CA = {
             "v11": False,
             "shot": None,
             "hook": (
-                "Una etiqueta ajunta el que va junt encara que arribi per camins diferents: «Viaje a Roma» suma l’hotel escanejat, "
+                "Una etiqueta ajunta el que va junt encara que arribi per camins diferents: «Viatge a Roma» suma l’hotel escanejat, "
                 "el vol de l’extracte i l’assegurança de viatge. El pressupost et diu si el mes va bé."
             ),
             "steps": [
-                "En un tiquet, un contracte o una cosa, afegeix una etiqueta a «Etiquetas». Des de la 1.3, quan escrius et proposa les teves etiquetes que hi coincideixen i també les de Tiquet (els grups d’Inici, com la del súper). Si escrius gairebé igual que una que ja tens, et pregunta «¿Querías decir…?» abans de crear-ne una altra; i «Todo» obre la llista completa, amb cercador: «Las tuyas» i «De Tiquet (los grupos de Inicio)».",
+                "En un tiquet, un contracte o una cosa, afegeix una etiqueta a «Etiquetes». Des de la 1.3, quan escrius et proposa les teves etiquetes que hi coincideixen i també les de Tiquet (els grups d’Inici, com la del súper). Si escrius gairebé igual que una que ja tens, et pregunta «Volies dir…?» abans de crear-ne una altra; i «Tot» obre la llista completa, amb cercador: «Les teves» i «De Tiquet (els grups d'Inici)».",
                 "Els suggeriments comencen per les etiquetes que ja vas posar en aquell comerç; un tiquet del súper et proposa el grup del súper.",
-                "Els pagaments del banc reben la seva etiqueta sols. Els que es queden sense esperen a «Clasificar»: un toc etiqueta tots els pagaments d’aquell comerç, passats i futurs.",
-                "Si alguna cosa està mal arxivada, «Revisar la clasificación» ho corregeix per comerç o per grup, i es pot desfer.",
-                "A «Ajustes» › «Presupuesto mensual», posa el que voleu gastar en un mes normal, amb tot inclòs.",
-                "Amb Plus, a la targeta «Ahorrando para» toca «Nuevo objetivo»: quant, per a quan i les paraules que el teu banc posa a les transferències a la guardiola.",
+                "Els pagaments del banc reben la seva etiqueta sols. Els que es queden sense esperen a «Classifica»: un toc etiqueta tots els pagaments d’aquell comerç, passats i futurs.",
+                "Si alguna cosa està mal arxivada, «Revisa la classificació» ho corregeix per comerç o per grup, i es pot desfer.",
+                "A «Configuració» › «Pressupost mensual», posa el que voleu gastar en un mes normal, amb tot inclòs.",
+                "Amb Plus, a la targeta «Estalviant per a» toca «Objectiu nou»: quant, per a quan i les paraules que el teu banc posa a les transferències a la guardiola.",
             ],
             "tips": [
                 "Cada pagament compta un cop a l’etiqueta: el tiquet i la seva línia del banc són el mateix pagament.",
                 "Si poses a un tiquet una etiqueta de Tiquet, se suma al mateix grup d’Inici que els teus pagaments del banc.",
-                "Les persones de casa també serveixen d’etiqueta: «todo lo de Marta» és una pantalla.",
+                "Les persones de casa també serveixen d’etiqueta: «tot el de la Marta» és una pantalla.",
                 "Tiquet mai calcula el pressupost a partir dels teus ingressos. És una xifra, no vint.",
             ],
             "faq": [],
@@ -427,16 +427,16 @@ GUIDE_CA = {
                 "ni servidors nostres: no rebem ni els teus extractes ni els teus imports."
             ),
             "steps": [
-                "A «Ajustes», la targeta «Tus datos se quedan contigo» explica on és cada cosa i què fa servir connexió.",
-                "Per tenir l’iPhone i l’iPad iguals, activa «Sincronizar con iCloud» a «Ajustes» › «iPhone y iPad, a la par», a cada dispositiu amb el teu compte d’Apple. Fa servir el teu iCloud privat, que el desenvolupador no pot llegir.",
-                "Per endur-t’ho tot, «Ajustes» › «Copia y restauración» › «Exportar todo»: un .zip amb tiquets, fotos, pòlisses, moviments i fulls de càlcul.",
-                "Per esborrar-ho tot, en aquesta pàgina toca «Borrar todo lo que hay en Tiquet» i escriu BORRAR. Amb iCloud activat, s’esborra també dels teus altres dispositius.",
-                "L’ull de dalt de l’«Inicio» activa el mode discret: cada import passa a •••.",
+                "A «Configuració», la targeta «Les teves dades es queden amb tu» explica on és cada cosa i què fa servir connexió.",
+                "Per tenir l’iPhone i l’iPad iguals, activa «Sincronitza amb l'iCloud» a «Configuració» › «iPhone i iPad, al mateix pas», a cada dispositiu amb el teu compte d’Apple. Fa servir el teu iCloud privat, que el desenvolupador no pot llegir.",
+                "Per endur-t’ho tot, «Configuració» › «Còpia i restauració» › «Exporta-ho tot»: un .zip amb tiquets, fotos, pòlisses, moviments i fulls de càlcul.",
+                "Per esborrar-ho tot, en aquesta pàgina toca «Elimina tot el que hi ha a Tiquet» i escriu ELIMINA. Amb iCloud activat, s’esborra també dels teus altres dispositius.",
+                "L’ull de dalt de l’«Inici» activa el mode discret: cada import passa a •••.",
             ],
             "tips": [
                 "Fan servir connexió: el teu iCloud, si l’actives; Apple Maps, amb el nom d’un lloc, una adreça o una coordenada; el web d’una empresa, un cop, per al seu logo; i l’App Store per a Plus.",
                 "La còpia no està xifrada: guarda-la en un lloc segur.",
-                "Tiquet només demana la teva ubicació quan toques «Estoy aquí ahora» o preguntes per llocs a prop teu.",
+                "Tiquet només demana la teva ubicació quan toques «Ara soc aquí» o preguntes per llocs a prop teu.",
             ],
             "faq": [],
         },
@@ -452,10 +452,10 @@ GUIDE_CA = {
                 "amb un sol pagament i sense subscripció."
             ),
             "steps": [
-                "Gratis: tiquets, garanties i devolucions amb els seus avisos; contractes i assegurances amb els seus; «Si me pasa algo»; Vigilància; iCloud i la còpia; Inici, Llocs, Contractes i Coses; 5 preguntes al dia.",
-                "Plus: «Dónde gastar menos», «Entra y sale» i els teus comptes, nous objectius d’estalvi, «Lo que viene» a 12 mesos i «Horizonte», «El Mes», llocs des del teu banc i preguntes sense límit. Des de la 1.1, també «La cesta».",
-                "Per provar-lo, ves a «Ajustes» › «Tiquet Plus» i toca «Pruébalo todo gratis 14 días». No es cobra res ni es renova sol.",
-                "Si et convenç, compra’l un cop: 9,99 €, preu de llançament a Espanya. En un altre dispositiu, toca «Restaurar compras».",
+                "Gratis: tiquets, garanties i devolucions amb els seus avisos; contractes i assegurances amb els seus; «Si em passa alguna cosa»; Vigilància; iCloud i la còpia; Inici, Llocs, Contractes i Coses; 5 preguntes al dia.",
+                "Plus: «On gastar menys», «Entra i surt» i els teus comptes, nous objectius d’estalvi, «El que ve» a 12 mesos i «Horitzó», «El Mes», llocs des del teu banc i preguntes sense límit. Des de la 1.1, també «La cistella».",
+                "Per provar-lo, ves a «Configuració» › «Tiquet Plus» i toca «Prova-ho tot gratis durant 14 dies». No es cobra res ni es renova sol.",
+                "Si et convenç, compra’l un cop: 9,99 €, preu de llançament a Espanya. En un altre dispositiu, toca «Restaura les compres».",
             ],
             "tips": [
                 "Res del que guardes es bloqueja mai. Quan s’acaba la prova, les funcions de Plus es tanquen i el que és teu continua aquí.",
