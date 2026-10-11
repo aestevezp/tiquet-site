@@ -25,7 +25,7 @@ CAMPAIGN = ('<script>(function(){var c=new URLSearchParams(location.search).get(
             'else if(u.origin===location.origin&&u.pathname!==location.pathname&&!u.searchParams.has("ct")){u.searchParams.set("ct",c);a.href=u.toString()}})})()</script>'
             % (json.dumps(PAGES if PAGES_LIVE else {}, separators=(",", ":"))))
 EMAIL = "a.estevez@gmail.com"          # the same public contact as decksweep.securlabs.net; change here only
-UPDATED = {"en": "10 October 2026", "es": "10 de octubre de 2026", "ca": "10 d’octubre de 2026"}
+UPDATED = {"en": "11 October 2026", "es": "11 de octubre de 2026", "ca": "11 d’octubre de 2026"}
 
 S = {
 "en": dict(lang="en", name_lang="English",
@@ -216,6 +216,11 @@ S = {
   'Text and speech recognition and Apple’s language model run on the device. We do not send documents or '
   'figures to a remote AI. Model availability depends on your device and Apple Intelligence settings. Place '
   'searches may query Apple Maps with a name, address or coordinate.'),
+ ('Face ID and Touch ID',
+  'The lock is off unless you switch it on in Settings. When it is on, Face ID, Touch ID or the iPhone’s '
+  'passcode is checked by the system, on the device: Tiquet only learns whether it was you or not. It never '
+  'sees or stores your face, your fingerprint or your passcode, and nothing about it leaves the device. While '
+  'the lock is on, the widgets show ••• instead of the amounts.'),
  ('Bank and card statements',
   'Statements are files you download from your bank and open with Tiquet. Tiquet never connects to a bank '
   'and never stores a bank login. Card numbers found in statements are reduced to their last four digits '
@@ -224,8 +229,10 @@ S = {
   "Only, and only when a feature you use needs it: an address, a venue's name and town, or a coordinate sent "
   "to Apple Maps to place a receipt, draw a map or show a street picture; a request to a company's own "
   'website, once, to fetch its logo, if logos are on; and whatever you choose to share yourself (a backup, '
-  'the household file, an issue of The Month), which goes only where you send it. None of the requests to '
-  "Apple Maps or to a company's website carries an amount, your name or a line from your bank."),
+  'the household file, an issue of The Month), which goes only where you send it. If you paste a short Google '
+  'Maps link (maps.app.goo.gl) into an address, Tiquet opens it once, at that link’s own address, only to see '
+  'where it leads; it reads the address it ends at, not the page. None of the requests to Apple Maps, to a '
+  "company's website or to a map link carries an amount, your name or a line from your bank."),
  ('Purchases and Family Sharing',
   'Apple handles payments and restoration through the App Store. Tiquet checks your entitlement to Plus or '
   'the trial; it does not receive your card details. Family Sharing shares the Plus entitlement, not your '
@@ -236,8 +243,8 @@ S = {
  ('Permissions',
   'Camera and photos, to scan receipts and attach documents. Location, only if you ask Tiquet to place a '
   'receipt where you are, ask for your places near you, or use the nearby-places widget. Microphone and '
-  'speech recognition, only if you ask by voice; recognition runs on the device. Notifications, for the '
-  'reminders you see in Settings.'),
+  'speech recognition, only if you ask by voice; recognition runs on the device. Face ID, only if you switch '
+  'on the lock. Notifications, for the reminders you see in Settings.'),
  ('No tracking', 'No analytics, no advertising, no third-party code.'),
  ('This website', 'No cookies, no analytics and no third-party code here either. The download buttons carry an App Store campaign label (such as “web” or “linkedin”): the App Store counts, in totals and without identifying you, how many downloads come through each one.'),
  ('Deleting your data',
@@ -483,6 +490,11 @@ S = {
   'enviamos documentos ni cifras a una IA remota. La disponibilidad del modelo depende del dispositivo y de '
   'los ajustes de Apple Intelligence. Las búsquedas de lugares pueden consultar Apple Maps con un nombre, '
   'dirección o coordenada.'),
+ ('Face ID y Touch ID',
+  'El bloqueo está desactivado salvo que lo actives en Ajustes. Cuando lo está, Face ID, Touch ID o el código '
+  'del iPhone los comprueba el sistema, en el dispositivo: Tiquet solo sabe si eras tú o no. Nunca ve ni '
+  'guarda tu cara, tu huella ni tu código, y nada de ello sale del dispositivo. Mientras el bloqueo está '
+  'activado, los widgets muestran ••• en lugar de los importes.'),
  ('Extractos de banco y de tarjeta',
   'Los extractos son archivos que descargas de tu banco y abres con Tiquet. Tiquet nunca se conecta a un '
   'banco ni guarda un acceso bancario. Los números de tarjeta que aparezcan se reducen a sus cuatro últimas '
@@ -492,8 +504,10 @@ S = {
   'local, o una coordenada, enviados a Apple Maps para situar un tique, dibujar un mapa o mostrar la foto de '
   'una calle; una petición a la web de una empresa, una vez, para obtener su logo, si los logos están '
   'activados; y lo que decidas compartir tú (una copia, el archivo de casa, un número de El Mes), que va '
-  'solo a donde lo envíes. Ninguna petición a Apple Maps ni a la web de una empresa lleva un importe, tu '
-  'nombre ni una línea de tu banco.'),
+  'solo a donde lo envíes. Si pegas en una dirección un enlace corto de Google Maps (maps.app.goo.gl), Tiquet '
+  'lo abre una vez, en la dirección del propio enlace, solo para ver a dónde lleva: lee la dirección a la que '
+  'llega, no la página. Ninguna petición a Apple Maps, a la web de una empresa ni a un enlace de mapas lleva '
+  'un importe, tu nombre ni una línea de tu banco.'),
  ('Compras y En Familia',
   'Apple gestiona los pagos y la restauración mediante el App Store. Tiquet comprueba el derecho a usar Plus '
   'o la prueba; no recibe tus datos de tarjeta. En Familia comparte el derecho a Plus, no tus documentos ni '
@@ -504,8 +518,8 @@ S = {
  ('Permisos',
   'Cámara y fotos, para escanear tiques y adjuntar documentos. Ubicación, solo si pides a Tiquet situar un '
   'tique donde estás, preguntas por tus sitios cercanos, o usas el widget de sitios cercanos. Micrófono y '
-  'reconocimiento de voz, solo si preguntas hablando; el reconocimiento se hace en el dispositivo. '
-  'Notificaciones, para los avisos que ves en Ajustes.'),
+  'reconocimiento de voz, solo si preguntas hablando; el reconocimiento se hace en el dispositivo. Face ID, '
+  'solo si activas el bloqueo. Notificaciones, para los avisos que ves en Ajustes.'),
  ('Sin seguimiento', 'Sin analítica, sin publicidad, sin código de terceros.'),
  ('Esta web', 'Aquí tampoco hay cookies, analítica ni código de terceros. Los botones de descarga llevan una etiqueta de campaña del App Store (como «web» o «linkedin»): el App Store cuenta, en total y sin identificarte, cuántas descargas llegan por cada una.'),
  ('Borrar tus datos',
@@ -751,6 +765,11 @@ S = {
   'El reconeixement de text i veu i el model de llenguatge d’Apple s’executen al dispositiu. No enviem '
   'documents ni xifres a una IA remota. La disponibilitat del model depèn del dispositiu i dels ajustos '
   'd’Apple Intelligence. Les cerques de llocs poden consultar Apple Maps amb un nom, adreça o coordenada.'),
+ ('Face ID i Touch ID',
+  "El bloqueig està desactivat tret que l'activis a Configuració. Quan ho està, Face ID, Touch ID o el codi "
+  "de l'iPhone els comprova el sistema, al dispositiu: Tiquet només sap si eres tu o no. No veu ni guarda mai "
+  'la teva cara, la teva empremta ni el teu codi, i res d’això surt del dispositiu. Mentre el bloqueig està '
+  'activat, els widgets mostren ••• en lloc dels imports.'),
  ('Extractes de banc i de targeta',
   'Els extractes són fitxers que descarregues del teu banc i obres amb Tiquet. Tiquet mai es connecta a un '
   'banc ni guarda un accés bancari. Els números de targeta que hi apareguin es redueixen a les quatre '
@@ -760,8 +779,10 @@ S = {
   "o una coordenada, enviats a Apple Maps per situar un tiquet, dibuixar un mapa o mostrar la foto d'un "
   "carrer; una petició al web d'una empresa, una vegada, per obtenir-ne el logo, si els logos estan "
   "activats; i el que decideixis compartir tu (una còpia, el fitxer de casa, un número d'El Mes), que va "
-  "només on ho enviïs. Cap petició a Apple Maps ni al web d'una empresa porta un import, el teu nom ni una "
-  'línia del teu banc.'),
+  "només on ho enviïs. Si enganxes en una adreça un enllaç curt de Google Maps (maps.app.goo.gl), Tiquet "
+  "l'obre un cop, a l'adreça del mateix enllaç, només per veure on porta: llegeix l'adreça on arriba, no la "
+  "pàgina. Cap petició a Apple Maps, al web d'una empresa ni a un enllaç de mapes porta un import, el teu nom "
+  'ni una línia del teu banc.'),
  ('Compres i En Família',
   'Apple gestiona els pagaments i la restauració a través de l’App Store. Tiquet comprova el dret a fer '
   'servir Plus o la prova; no rep les dades de la targeta. En Família comparteix el dret a Plus, no els '
@@ -772,8 +793,8 @@ S = {
  ('Permisos',
   'Càmera i fotos, per escanejar tiquets i adjuntar documents. Ubicació, només si demanes a Tiquet situar un '
   'tiquet on ets, preguntes pels teus llocs propers, o fas servir el widget de llocs propers. Micròfon i '
-  'reconeixement de veu, només si preguntes parlant; el reconeixement es fa al dispositiu. Notificacions, '
-  'pels avisos que veus a Ajustos.'),
+  'reconeixement de veu, només si preguntes parlant; el reconeixement es fa al dispositiu. Face ID, només si '
+  'actives el bloqueig. Notificacions, pels avisos que veus a Configuració.'),
  ('Sense seguiment', 'Sense analítica, sense publicitat, sense codi de tercers.'),
  ('Aquest web', 'Aquí tampoc no hi ha galetes, analítica ni codi de tercers. Els botons de descàrrega porten una etiqueta de campanya de l’App Store (com ara «web» o «linkedin»): l’App Store compta, en total i sense identificar-te, quantes descàrregues arriben per cadascuna.'),
  ('Esborrar les teves dades',
