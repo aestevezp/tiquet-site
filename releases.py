@@ -9,7 +9,7 @@
 
 RELEASES = [
     {
-        "v": "2.0", "date": None,          # set on release day
+        "v": "2.0", "date": "2026-10-12",
         "items": [
             ("inventario",
              "Inventario del seguro de hogar (Plus): tus cosas con varias fotos, dónde están y su precio, comparadas con el capital de contenido de la póliza, y el PDF para la aseguradora o la policía.",
