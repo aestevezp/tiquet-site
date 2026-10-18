@@ -5,9 +5,63 @@
 # own strings in each language (Scripts/es_translations.py, ca_translations.py). Each item may name the guide part it
 # belongs to (an id in guide_*.py), which becomes a link.
 #
-# 2.0's date is set when Apple approves it and it is released (owner's yes): until then the page is not published.
+# Each version's date is set when Apple approves it and it is released (owner's yes): until then the entry has no date
+# and the site is not published. 2.1 (in App Review from 18 Oct 2026) has none yet.
 
 RELEASES = [
+    {
+        "v": "2.1",
+        "items": [
+            ("inicio",
+             "Un Inicio nuevo, más claro y con menos desplazamiento: arriba, lo de hoy, el tique del mes (toca un grupo para ver su informe) y «Esta semana», con lo que se cobra cada día y lo que tienes por hacer; al bajar, el mes, en tarjetas con su cifra y su pequeño gráfico, y «Más de tu casa».",
+             "Un Inici nou, més clar i amb menys desplaçament: a dalt, el d'avui, el tiquet del mes (toca un grup per veure'n l'informe) i «Aquesta setmana», amb el que es cobra cada dia i el que tens per fer; en baixar, el mes, en targetes amb la seva xifra i un petit gràfic, i «Més de casa teva».",
+             "A new Home, clearer and with less scrolling: at the top, today, the month's ticket (tap a group for its report) and «This week», with what is charged each day and what you have to do; scrolling down, the month, in cards with their figure and a small chart, and «More of your home»."),
+            ("inicio",
+             "«Todo Tiquet»: el botón de cuadrícula de arriba enseña cada parte de tu casa con lo que dice hoy, también lo que hayas escondido del Inicio.",
+             "«Tot Tiquet»: el botó de quadrícula de dalt ensenya cada part de casa teva amb el que diu avui, també el que hagis amagat de l'Inici.",
+             "«All of Tiquet»: the grid button at the top shows every part of your home with what it says today, including what you've hidden from Home."),
+            ("privacidad",
+             "Para ocultar los importes, mantén pulsado el total del tique del mes; otra vez, para mostrarlos.",
+             "Per amagar els imports, mantén premut el total del tiquet del mes; un altre cop, per mostrar-los.",
+             "To hide the amounts, hold the total of the month's ticket; hold it again to show them."),
+            ("preguntar",
+             "«Pregunta a Tiquet», a todo el ancho, con preguntas de ejemplo.",
+             "«Pregunta a Tiquet», a tota l'amplada, amb preguntes d'exemple.",
+             "«Ask Tiquet», the whole width, with example questions."),
+            ("etiquetas",
+             "Presupuesto y Ritmo explican lo que ves, y el presupuesto se cambia desde su página. Los objetivos de ahorro, también en «Ajustes».",
+             "Pressupost i Ritme expliquen el que veus, i el pressupost es canvia des de la seva pàgina. Els objectius d'estalvi, també a «Configuració».",
+             "Budget and Pace explain what you see, and the budget changes from its page. Savings goals, in «Settings» too."),
+            ("subidas",
+             "«Dónde gastar menos», más claro.",
+             "«On gastar menys», més clar.",
+             "«Where to spend less», clearer."),
+            ("contratos",
+             "Seguros de hogar: el continente asegurado, y mejor lectura de pólizas largas.",
+             "Assegurances de la llar: el continent assegurat, i millor lectura de pòlisses llargues.",
+             "Home insurance: the building sum insured, and long policies read better."),
+            ("cesta",
+             "La cesta enseña todos tus productos, con buscador.",
+             "La cistella ensenya tots els teus productes, amb cercador.",
+             "The basket shows all your products, with search."),
+            ("inicio",
+             "Lo que Tiquet te dice en el Inicio se guarda en «Ajustes» › «Mensajes de Tiquet»; tus cuentas, también en «Ajustes» › «De tu banco».",
+             "El que Tiquet et diu a l'Inici es desa a «Configuració» › «Missatges de Tiquet»; els teus comptes, també a «Configuració» › «Del teu banc».",
+             "What Tiquet tells you on Home is kept in «Settings» › «Messages from Tiquet»; your accounts, in «Settings» › «From your bank» too."),
+            (None,
+             "Mejor con letra grande: cifras y botones ya no se parten. El punto de los miles, siempre.",
+             "Millor amb lletra gran: xifres i botons ja no es parteixen. El punt dels milers, sempre.",
+             "Better with large text: figures and buttons no longer break. Thousands always marked."),
+            (None,
+             "Correcciones: visitas de bar repetidas al sincronizar dos dispositivos, fichas que se cerraban solas y el Horizonte desde su botón.",
+             "Correccions: visites de bar repetides en sincronitzar dos dispositius, fitxes que es tancaven soles i l'Horitzó des del seu botó.",
+             "Fixes: bar visits repeated when two devices synced, cards that closed by themselves, and Horizon from its button."),
+            ("inicio",
+             "¿Prefieres el Inicio de siempre? Desactiva «Inicio en tiques» en «Ajustes» › «Aspecto».",
+             "Prefereixes l'Inici de sempre? Desactiva «Inici en tiquets» a «Configuració» › «Aspecte».",
+             "Prefer the Home you had? Switch off «Home on tickets» in «Settings» › «Look»."),
+        ],
+    },
     {
         "v": "2.0", "date": "2026-10-12",
         "items": [

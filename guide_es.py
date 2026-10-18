@@ -22,7 +22,7 @@ GUIDE_ES = {
             "short": "Primeros pasos",
             "tier": "free",
             "v11": False,
-            "shot": "home",
+            "shot": "all",
             "hook": (
                 "Tiquet guarda lo que tu casa tiene contratado, lo que paga y lo que caduca, y te avisa antes de que "
                 "un plazo te cueste dinero. No necesitas cuenta ni conectar el banco: te basta con tus papeles."
@@ -92,7 +92,7 @@ GUIDE_ES = {
             ],
             "tips": [
                 "Los pasos, el estado («Funciona: el último…») y el interruptor «Apuntar los pagos con Apple Pay» están en «Ajustes» › «De tu banco». Si lo desactivas, la automatización sigue en Atajos pero Tiquet no apunta nada.",
-                "Desde la 1.3, si pagas con tarjeta y aún no lo tienes, «Requiere atención» te lo ofrece; si abriste los pasos y a los tres días no ha llegado ningún pago, te lo dice; y cuando llega el primero, te lo confirma.",
+                "Desde la 1.3, si pagas con tarjeta y aún no lo tienes, «Por hacer», en «Esta semana», te lo ofrece; si abriste los pasos y a los tres días no ha llegado ningún pago, te lo dice; y cuando llega el primero, te lo confirma.",
                 "Cuando importas el extracto, ese pago se reconoce: no se cuenta dos veces.",
                 "Si después escaneas el tique de papel, ocupa el lugar del pago, con sus artículos.",
                 "Desde la 2.0, si el tique no tiene el mismo importe porque llevaba propina o un descuento, Tiquet pregunta «¿Es el tique de un pago?». Con «Es el mismo pago» se queda solo el tique, por el importe cobrado, y no se cuenta dos veces; con «Son distintos», quedan los dos.",
@@ -110,7 +110,7 @@ GUIDE_ES = {
             "short": "Devoluciones y garantías",
             "tier": "free",
             "v11": False,
-            "shot": None,
+            "shot": "week",
             "hook": (
                 "Cuando algo se rompe o no te convence, lo difícil es saber si aún estás a tiempo. Tiquet saca los plazos "
                 "de devolución y de garantía del tique y te avisa antes de que se cierren."
@@ -174,6 +174,7 @@ GUIDE_ES = {
                 "Toca «Añadir» › «Contrato», o el + de la pestaña «Contratos». Escribe con quién es y cuánto cuesta.",
                 "Toca «Adjuntar la póliza o el contrato» y escanea el papel o elige una foto o un PDF. Tiquet lee número, prima, cobertura, asegurados y teléfono de siniestros, y solo rellena lo que no habías escrito.",
                 "Desde la 2.0, en un seguro también lee el «Tomador» (nombre, documento de identidad, teléfono y correo), la dirección asegurada y el capital de contenido, si la póliza los imprime. Un DNI, NIE o CIF solo se apunta si su letra o dígito de control cuadra. Con Apple Intelligence lo lee el modelo y Tiquet lo comprueba contra el papel; sin él, lo leen reglas que buscan los títulos de la póliza, como Tomador o Situación del riesgo. Solo rellena lo que está vacío.",
+                'Desde la 2.1, en un seguro de hogar también lee el continente («Continente asegurado por»: el capital del edificio), y las pólizas largas se leen mejor.',
                 "Con extractos importados, mira «En tu banco, aún sin ficha» en «Contratos»: un toque crea la ficha de un cargo que se repite.",
                 "Para un móvil a plazos, pon el «Número de pagos». Para una prueba gratis, activa «Prueba gratis» y elige cuándo «Empieza a cobrar».",
                 "Desde la 2.0, un seguro, una garantía ampliada o una financiación puede ser de una de tus cosas: en «Qué cubre», elige «Para qué cosa es» (el seguro del coche, el coche). Lo que cuesta sale entonces en la ficha de esa cosa.",
@@ -229,7 +230,7 @@ GUIDE_ES = {
             ),
             "steps": [
                 "Importa extractos de al menos un año: una subida se ve comparando el mismo cargo en años distintos.",
-                "En el «Inicio», abre la tarjeta «Dónde gastar menos».",
+                "En el «Inicio», abre la tarjeta «Gastar menos»: dice cuánto pasa al año por lo que merece un vistazo.",
                 "Cada hallazgo dice qué se ha visto, por qué puede importar, qué podrías hacer y cuánto dinero pasa por ahí al año, como estimación.",
                 "Toca «Ver los cargos» para ver cada pago que hay detrás, año a año. Cuando lo hayas revisado, toca «Ya lo he mirado».",
             ],
@@ -280,7 +281,7 @@ GUIDE_ES = {
             ),
             "steps": [
                 "Importa tus extractos. Vigilancia revisa los últimos 120 días en el dispositivo, con reglas y sin IA.",
-                "Lo que encuentre sale en la tarjeta «Vigilancia» del «Inicio» y encabeza «Requiere atención». La pantalla completa está en «De tu banco» › «Vigilancia: ¿algo raro?».",
+                "Lo que encuentre sale en la tarjeta «Vigilancia» del «Inicio» y encabeza «Por hacer», en «Esta semana». La pantalla completa está en «De tu banco» › «Vigilancia: ¿algo raro?».",
                 "Si lo reconoces, toca «Es mío» y Tiquet lo aprende en todos tus dispositivos. Para varios a la vez, «Todos son míos».",
                 "Con «No lo reconozco», te dice qué hacer: llamar al banco y bloquear la tarjeta, pedir que te lo devuelvan, denunciarlo y cambiar la contraseña.",
             ],
@@ -332,13 +333,14 @@ GUIDE_ES = {
             ),
             "steps": [
                 "Guarda los tiques del súper. Con dos de la misma tienda con las mismas cosas ya se puede comparar.",
-                "En el «Inicio», la tarjeta «La cesta y la lista de la compra» abre «La cesta»: lo que «Suben», lo que «Bajan» y lo que está «Más barato en tus otras tiendas».",
+                "En el «Inicio», «La cesta» (en «Más de tu casa» o en «Todo Tiquet») abre la cesta: lo que «Suben», lo que «Bajan» y lo que está «Más barato en tus otras tiendas».",
                 "Un producto enseña cada precio que pagaste, por unidad o por kilo. Lo mal leído va a «Precios que parecen mal leídos» y no cuenta: abre su tique y corrige la línea.",
                 "En la «Lista de la compra», escribe tres letras y te sugiere lo que ya compraste, con su tienda y su último precio. También te propone lo que toca reponer.",
                 "En la tienda, toca cada cosa para tacharla; la pantalla no se apaga mientras la usas. Al acabar, «Quitar lo tachado».",
             ],
             "tips": [
                 "La cesta va con Plus, junto a «Dónde gastar menos». La lista de la compra es gratis.",
+                'Desde la 2.1, «Todos tus productos» enseña cada producto que has comprado, con buscador.',
                 "Añade el widget «Lista de la compra» a la pantalla de inicio y tacha desde ahí lo que vas cogiendo, sin abrir la app.",
                 "Dile a Siri «Lista de la compra en Tiquet», o escribe en «Pregunta» «hazme la lista de la compra»: funciona sin Apple Intelligence.",
                 "La lista se guarda en este dispositivo y no se sincroniza por iCloud.",
@@ -357,7 +359,7 @@ GUIDE_ES = {
                 "la app; el modelo de Apple solo las explica, y todo pasa en el dispositivo."
             ),
             "steps": [
-                "Toca «Pregunta sobre tu dinero…» arriba del «Inicio» y escribe, o toca el micrófono para dictar.",
+                "Toca «Pregunta a Tiquet» arriba del «Inicio» y escribe, o toca el micrófono para dictar.",
                 "Para empezar, toca una idea: «¿Cuánto llevamos en la compra este mes?» o «¿Qué puedo devolver todavía?».",
                 "Bajo la respuesta salen tarjetas con los pagos que la respaldan. Toca una para verlos.",
                 "Si pides un cambio, como poner estrellas o cambiar el presupuesto, ves el antes y el después. Nada cambia hasta que tocas «Confirmar», y se puede deshacer.",
@@ -378,23 +380,30 @@ GUIDE_ES = {
             "short": "Inicio, widgets y Siri",
             "tier": "mix",
             "v11": False,
-            "shot": "coming",
+            "shot": "home",
             "hook": (
-                "Al abrir la app, el «Inicio» te dice si tienes que hacer algo, cómo va el mes y qué viene. Fuera de ella, "
-                "los widgets y Siri te lo cuentan sin abrirla."
+                'Al abrir la app, el «Inicio» te cuenta arriba lo de hoy y, al bajar, el mes: qué se cobra esta semana, qué tienes por hacer y cómo va cada parte de tu casa. Fuera de ella, los widgets y Siri te lo cuentan sin abrirla.'
             ),
             "steps": [
-                "«Requiere atención» va arriba: devoluciones, renovaciones, garantías, tiques por revisar. Mantén pulsado un aviso para «Hecho» o «Recordármelo mañana».",
-                "Elige Mes, Año o Fechas arriba: todas las tarjetas siguen ese periodo.",
-                "«Próximos cargos» enseña lo que se cobra pronto. Con Plus, «Semana a semana, mes a mes» abre «Lo que viene»: doce meses, cargo a cargo, y cada previsión dice en qué se apoya.",
-                "Con Plus, gira el iPhone para ver «Horizonte»: lo gastado, hacia dónde va el mes y lo que viene. «¿Y si quito…?» apaga un contrato y redibuja el año.",
-                "Con Plus, «El Mes» saca un número por cada mes terminado, como un periódico de casa, para compartir en PDF.",
-                "«Organizar esta pantalla», al final, cambia el orden de las tarjetas o esconde las que no uses.",
+                'Desde la 2.1, arriba están el mes, el botón de cuadrícula de «Todo Tiquet» y «Ajustes». Debajo, «Pregunta a Tiquet», a todo el ancho, con una pregunta de ejemplo que va cambiando.',
+                'Elige «Mes», «Año» o «Fechas»; las flechas de los lados pasan al periodo anterior o al siguiente. Todo el Inicio sigue ese periodo.',
+                'El tique del mes suma lo gastado por grupos, como un tique de verdad. Toca un grupo para ver su informe. Mantén pulsado el total para ocultar los importes; vuelve a mantenerlo pulsado para mostrarlos.',
+                '«Esta semana» enseña cada día con sus cobros. Tócala para ver lo que tienes «Por hacer», con «Hecho» y «Mañana» bajo cada aviso, los «Cobros» de la semana y lo que viene «Después».',
+                'Al bajar, el mes en tarjetas pequeñas, cada una con su cifra y su dibujo: «Vigilancia», «Contratos», «Gastar menos», «Entra y sale», «Objetivos», «Ritmo»… Toca una para entrar. El resto va en «Más de tu casa», que se desliza de lado.',
+                '«Todo Tiquet» reúne cada parte de tu casa en una cuadrícula, con lo que dice hoy, también lo que hayas escondido del Inicio. Toca una para entrar.',
+                '«Ritmo» y «Presupuesto» explican lo que ves, y el presupuesto se cambia desde su propia página.',
+                'Con Plus, «Hacia dónde va esto: Horizonte», en «Ritmo», gira la pantalla y abre «Horizonte»: lo gastado, hacia dónde va el mes y lo que viene. «¿Y si quito…?» apaga un contrato y redibuja el año. También se abre girando el iPhone.',
+                'Con Plus, «Lo que viene» enseña doce meses, cargo a cargo, y cada previsión dice en qué se apoya. «El Mes» saca un número por cada mes terminado, como un periódico de casa, para compartir en PDF.',
+                '«Organizar esta pantalla», al final de «Todo Tiquet», cambia el orden de las partes o esconde las que no uses: hasta seis van al mes como tarjetas, y el resto, a «Más de tu casa».',
             ],
             "tips": [
+                '¿Prefieres el Inicio de siempre, una página larga con «Requiere atención» arriba? Desactiva «Inicio en tiques» en «Ajustes» › «Aspecto». No se pierde nada: las dos formas enseñan lo mismo.',
+                'Al bajar, una franja arriba guarda el total del mes; tócala para volver arriba del todo.',
+                'Desde la 2.1, con letra grande las cifras y los botones ya no se parten, y los miles llevan siempre su punto.',
                 "Widgets: «Este mes», «Próximo cargo», «Seguros a mano», «Buenos sitios cerca» y «Lista de la compra». El control «Añadir un tique» va en el Centro de control, la pantalla bloqueada o el botón de acción.",
                 "Pregunta a Siri «¿Cuándo se renueva el seguro de hogar en Tiquet?» o «¿Cómo voy este mes en Tiquet?».",
                 "Desde la 1.3, en las listas con acciones al deslizar («Requiere atención», «Sitios», tus cuentas…) la primera fila te enseña las dos primeras veces qué hay detrás: desliza a la izquierda para «Mañana» o «Lunes», a la derecha para «Hecho». Con «Reducir movimiento» activado no se mueve.",
+                'Desde la 2.1, lo que Tiquet te dice en el «Inicio» se guarda en «Ajustes» › «Mensajes de Tiquet», también lo que deslizaste para quitarlo.',
                 "Desde la 2.0, también tus cosas, tus contratos, tus tiques y lo que asegura una póliza. Y donde la acción se abre manteniendo pulsado, la primera fila lo dice las primeras veces, como «Mantén pulsado: de qué es» en los pagos del banco.",
                 "Si aún no tienes Plus, al girar el iPhone Tiquet te explica qué es «Horizonte» y que forma parte de Tiquet Plus, con la prueba de 14 días si no la has usado.",
             ],
@@ -418,7 +427,7 @@ GUIDE_ES = {
                 "Para un documento, en «Cosas» toca + › «Añadir un documento que caduca»: DNI, pasaporte, carné de conducir, ITV, tarjeta sanitaria, carné de familia numerosa, permiso de residencia u otro. Apunta de quién es y hasta cuándo vale.",
             ],
             "tips": [
-                "Un documento te avisa 60 y 15 días antes de caducar (la ITV, 30 y 7), y sale en «Requiere atención» y en «Plazos».",
+                "Un documento te avisa 60 y 15 días antes de caducar (la ITV, 30 y 7), y sale en «Por hacer», en «Esta semana», y en «Plazos».",
                 "Su número es opcional, se oculta en modo discreto y nunca se imprime en la hoja de casa.",
                 "Borrar una cosa no borra su seguro: Tiquet pregunta antes y te dice qué se queda.",
                 "Desde la 2.0, un documento puede ser de una cosa, como la ITV del coche: elígela en su «Es de» y sale en la ficha de esa cosa, en «Sus documentos».",
@@ -463,7 +472,7 @@ GUIDE_ES = {
             "short": "Etiquetas y presupuesto",
             "tier": "mix",
             "v11": False,
-            "shot": None,
+            "shot": "cards",
             "hook": (
                 "Una etiqueta junta lo que va junto aunque llegue por caminos distintos: «Viaje a Roma» suma el hotel escaneado, "
                 "el vuelo del extracto y el seguro de viaje. El presupuesto te dice si el mes va bien."
@@ -473,8 +482,8 @@ GUIDE_ES = {
                 "Las sugerencias empiezan por las etiquetas que ya pusiste en ese comercio; un tique del súper te propone el grupo del súper.",
                 "Los pagos del banco reciben su etiqueta solos. Los que se quedan sin ella esperan en «Clasificar»: un toque etiqueta todos los pagos de ese comercio, pasados y futuros.",
                 "Si algo está mal archivado, «Revisar la clasificación» lo corrige por comercio o por grupo, y se puede deshacer.",
-                "En «Ajustes» › «Presupuesto mensual», pon lo que queréis gastar en un mes normal, con todo incluido.",
-                "Con Plus, en la tarjeta «Ahorrando para» toca «Nuevo objetivo»: cuánto, para cuándo y las palabras que tu banco pone en las transferencias a la hucha.",
+                "En «Ajustes» › «Presupuesto mensual», pon lo que queréis gastar en un mes normal, con todo incluido. Desde la 2.1, también desde la página «Presupuesto» del «Inicio», que explica lo que ves.",
+                "Con Plus, en «Ajustes» › «Objetivos de ahorro» (o en «Objetivos», en el «Inicio») toca «Nuevo objetivo»: cuánto, para cuándo y las palabras que tu banco pone en las transferencias a la hucha.",
             ],
             "tips": [
                 "Cada pago cuenta una vez en la etiqueta: el tique y su línea del banco son el mismo pago.",
@@ -500,7 +509,7 @@ GUIDE_ES = {
                 "Para tener iPhone y iPad iguales, activa «Sincronizar con iCloud» en «Ajustes» › «iPhone y iPad, a la par», en cada dispositivo con tu cuenta de Apple. Usa tu iCloud privado, que el desarrollador no puede leer.",
                 "Para llevártelo todo, «Ajustes» › «Copia y restauración» › «Exportar todo»: un .zip con tiques, fotos, pólizas, movimientos y hojas de cálculo.",
                 "Para borrarlo todo, en esa página toca «Borrar todo lo que hay en Tiquet» y escribe BORRAR. Con iCloud activado, se borra también de tus otros dispositivos.",
-                "El ojo de arriba del «Inicio» activa el modo discreto: cada importe pasa a •••.",
+                "Para ocultar los importes, mantén pulsado el total del tique del mes en el «Inicio»: cada importe pasa a •••. Vuelve a mantenerlo pulsado para mostrarlos. También en «Ajustes» › «Modo discreto».",
                 "Desde la 2.0, «Ajustes» › «Bloquear con Face ID» (o Touch ID) hace que Tiquet lo pida al abrirse y cada vez que vuelves a él; tu código también lo abre siempre. Viene desactivado.",
             ],
             "tips": [

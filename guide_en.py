@@ -22,7 +22,7 @@ GUIDE_EN = {
             "short": "Getting started",
             "tier": "free",
             "v11": False,
-            "shot": "home",
+            "shot": "all",
             "hook": (
                 "Tiquet keeps track of what your household has signed up for, what it pays and what expires, and reminds "
                 "you before a deadline costs you money. You don't need an account or to connect your bank: your paperwork is enough."
@@ -92,7 +92,7 @@ GUIDE_EN = {
             ],
             "tips": [
                 "The steps, whether it's working (“Working: the latest…”) and the “Note Apple Pay payments” switch are in “Settings” › “From your bank”. Switch it off and the automation stays in Shortcuts, but Tiquet notes nothing.",
-                "From 1.3, if you pay by card and haven't set it up, “Needs attention” offers it; if you opened the steps and nothing has arrived three days later, it says so; and when the first payment arrives, it confirms it.",
+                "From 1.3, if you pay by card and haven't set it up, “To do”, in “This week”, offers it; if you opened the steps and nothing has arrived three days later, it says so; and when the first payment arrives, it confirms it.",
                 "When you import the statement, that payment is recognised: it isn't counted twice.",
                 "If you scan the paper receipt later, it takes the payment's place, with its items.",
                 "From 2.0, if the receipt's amount differs because it had a tip or a discount, Tiquet asks “Is this the ticket for a payment?”. With “Same payment” only the receipt stays, at the amount charged, and nothing is counted twice; with “They're different”, both stay.",
@@ -110,7 +110,7 @@ GUIDE_EN = {
             "short": "Returns and warranties",
             "tier": "free",
             "v11": False,
-            "shot": None,
+            "shot": "week",
             "hook": (
                 "When something breaks or you're not happy with it, the hard part is knowing whether you're still in time. "
                 "Tiquet takes the return and warranty deadlines from the receipt and reminds you before they close."
@@ -174,6 +174,7 @@ GUIDE_EN = {
                 "Tap “Add” › “Contract”, or the + on the “Contracts” tab. Type who it's with and what it costs.",
                 "Tap “Attach the policy or contract” and scan the paper or choose a photo or a PDF. Tiquet reads the number, premium, cover, insured people and claims phone number, and only fills in what you hadn't typed.",
                 "From 2.0, on an insurance policy it also reads the “Policyholder” (name, ID document, phone and email), the insured address and the contents sum, when the policy prints them. A DNI, NIE or CIF is only kept if its control letter or digit is right. With Apple Intelligence the model reads them and Tiquet checks them against the paper; without it, rules read the policy's own headings, such as Tomador or Situación del riesgo. It only fills in what is empty.",
+                'From 2.1, on home insurance it also reads the building sum (“Building insured for”), and long policies read better.',
                 "With imported statements, look at “In your bank, without a card yet” in “Contracts”: one tap creates the card for a repeating charge.",
                 "For a phone paid in instalments, set the “Number of payments”. For a free trial, switch on “Free trial” and choose when it “Starts charging”.",
                 "From 2.0, an insurance policy, an extended warranty or a financing plan can belong to one of your things: under “What it covers”, choose “The thing it is for” (the car's insurance, the car). What it costs then shows on that thing's card.",
@@ -229,7 +230,7 @@ GUIDE_EN = {
             ),
             "steps": [
                 "Import statements covering at least a year: a rise shows up by comparing the same charge in different years.",
-                "On “Home”, open the “Where to spend less” card.",
+                "On “Home”, open the “Spend less” card: it says how much a year goes through what is worth a look.",
                 "Each finding says what was seen, why it may matter, what you could do and how much money goes through there each year, as an estimate.",
                 "Tap “See the charges” to see every payment behind it, year by year. Once you've reviewed it, tap “I've looked at it”.",
             ],
@@ -280,7 +281,7 @@ GUIDE_EN = {
             ),
             "steps": [
                 "Import your statements. Watch checks the last 120 days on the device, with rules and no AI.",
-                "Whatever it finds appears on the “Watch” card on “Home” and heads “Needs attention”. The full screen is in “From your bank” › “Watch: anything strange?”.",
+                "Whatever it finds appears on the “Watch” card on “Home” and heads “To do”, in “This week”. The full screen is in “From your bank” › “Watch: anything strange?”.",
                 "If you recognise it, tap “It's mine” and Tiquet learns it on all your devices. For several at once, “All are mine”.",
                 "With “I don't recognise it”, it tells you what to do: call the bank and block the card, ask for the money back, report it and change your password.",
             ],
@@ -332,13 +333,14 @@ GUIDE_EN = {
             ),
             "steps": [
                 "Save your supermarket receipts. With two from the same shop with the same items, it can already compare.",
-                "On “Home”, the “The basket and the shopping list” card opens “The basket”: what's “Going up”, what's “Going down” and what's “Cheaper at your other shops”.",
+                "On “Home”, “The basket” (in “More of your home” or in “All of Tiquet”) opens the basket: what's “Going up”, what's “Going down” and what's “Cheaper at your other shops”.",
                 "A product shows every price you paid, per unit or per kilo. Anything misread goes to “Prices that look misread” and doesn't count: open its receipt and correct the line.",
                 "In the “Shopping list”, type three letters and it suggests what you've bought before, with its shop and its last price. It also suggests what's due to restock.",
                 "In the shop, tap each item to tick it off; the screen stays on while you use it. When you're done, “Clear ticked”.",
             ],
             "tips": [
                 "The basket comes with Plus, alongside “Where to spend less”. The shopping list is free.",
+                "From 2.1, “All your products” shows every product you've bought, with search.",
                 "Add the “Shopping list” widget to your Home Screen and tick things off from there as you pick them up, without opening the app.",
                 "Say “Shopping list in Tiquet” to Siri, or type “make me a shopping list” in “Ask”: it works without Apple Intelligence.",
                 "The list is kept on this device and doesn't sync through iCloud.",
@@ -357,7 +359,7 @@ GUIDE_EN = {
                 "figures; Apple's model only explains them, and everything happens on the device."
             ),
             "steps": [
-                "Tap “Ask about your money…” at the top of “Home” and type, or tap the microphone to dictate.",
+                "Tap “Ask Tiquet” at the top of “Home” and type, or tap the microphone to dictate.",
                 "To start, tap an idea: “How much on groceries this month?” or “What can I still return?”.",
                 "Below the answer, cards show the payments behind it. Tap one to see them.",
                 "If you ask for a change, like adding stars or changing the budget, you see the before and after. Nothing changes until you tap “Confirm”, and it can be undone.",
@@ -378,23 +380,30 @@ GUIDE_EN = {
             "short": "Home, widgets and Siri",
             "tier": "mix",
             "v11": False,
-            "shot": "coming",
+            "shot": "home",
             "hook": (
-                "When you open the app, “Home” tells you whether you need to do something, how the month is going and what's coming. "
-                "Outside the app, the widgets and Siri tell you without opening it."
+                "When you open the app, “Home” tells you about today at the top and the month as you scroll: what's charged this week, what you have to do and how each part of your home is going. Outside the app, the widgets and Siri tell you without opening it."
             ),
             "steps": [
-                "“Needs attention” is at the top: returns, renewals, warranties, receipts to check. Touch and hold a reminder for “Done” or “Remind me tomorrow”.",
-                "Choose Month, Year or Dates at the top: every card follows that period.",
-                "“Coming up” shows what's charged soon. With Plus, “Week by week, month by month” opens “What's coming”: twelve months, charge by charge, and each forecast says what it's based on.",
-                "With Plus, turn your iPhone sideways to see “Horizon”: what you've spent, where the month is heading and what's coming. “What if I drop…” switches off a contract and redraws the year.",
-                "With Plus, “The Month” brings out an issue for each finished month, like a household newspaper, to share as a PDF.",
-                "“Arrange this screen”, at the bottom, changes the order of the cards or hides the ones you don't use.",
+                'From 2.1, at the top are the month, the grid button for “All of Tiquet” and “Settings”. Below, “Ask Tiquet”, the whole width, with an example question that keeps changing.',
+                'Choose “Month”, “Year” or “Dates”; the arrows on either side step to the period before or after. All of Home follows that period.',
+                "The month's ticket adds up what was spent by group, like a real receipt. Tap a group for its report. Touch and hold the total to hide the amounts; hold it again to show them.",
+                "“This week” shows each day with its charges. Tap it to see what you have “To do”, with “Done” and “Tomorrow” under each notice, the week's “Charges” and what comes “Later”.",
+                'Scrolling down, the month in small cards, each with its figure and its drawing: “Watch”, “Contracts”, “Spend less”, “In and out”, “Goals”, “Pace”… Tap one to go in. The rest are in “More of your home”, which slides sideways.',
+                "“All of Tiquet” gathers every part of your home in a grid, with what it says today, including what you've hidden from Home. Tap one to go in.",
+                '“Pace” and “Budget” explain what you see, and the budget changes from its own page.',
+                "With Plus, “Where this is heading: Horizon”, in “Pace”, turns the screen and opens “Horizon”: what you've spent, where the month is heading and what's coming. “What if I drop…” switches off a contract and redraws the year. Turning the iPhone sideways opens it too.",
+                "With Plus, “What's coming” shows twelve months, charge by charge, and each forecast says what it's based on. “The Month” brings out an issue for each finished month, like a household newspaper, to share as a PDF.",
+                "“Arrange this screen”, at the bottom of “All of Tiquet”, changes the order of the parts or hides the ones you don't use: up to six go to the month as cards, the rest to “More of your home”.",
             ],
             "tips": [
+                'Prefer the Home you had, one long page with “Needs attention” at the top? Switch off “Home on tickets” in “Settings” › “Look”. Nothing is lost: both show the same.',
+                "As you scroll, a band at the top keeps the month's total; tap it to go back to the top.",
+                'From 2.1, with large text, figures and buttons no longer break across lines, and thousands are always marked.',
                 "Widgets: “This month”, “Next charge”, “Insurance at hand”, “Good places near you” and “Shopping list”. The “Add a receipt” control goes in Control Centre, on the Lock Screen or on the Action button.",
                 "Ask Siri “When does home insurance renew in Tiquet?” or “How is my month going in Tiquet?”.",
                 "From 1.3, in lists with swipe actions (“Needs attention”, “Places”, your accounts…) the first row shows what's behind it the first two times: swipe left for “Tomorrow” or “Monday”, right for “Done”. With Reduce Motion on, nothing moves.",
+                'From 2.1, what Tiquet tells you on “Home” is kept in “Settings” › “Messages from Tiquet”, also what you swiped away.',
                 "From 2.0, your things, your contracts, your receipts and what a policy insures too. And where an action opens with touch and hold, the first row says so the first times, like “Hold: whose it is” on bank payments.",
                 "Without Plus yet, turning the iPhone sideways explains what “Horizon” is and that it's part of Tiquet Plus, with the 14-day trial if you haven't used it.",
             ],
@@ -418,7 +427,7 @@ GUIDE_EN = {
                 "For a document, in “Things” tap + › “Add a document that expires”: ID card (DNI), passport, driving licence, vehicle inspection (ITV), health card, large family card, residence permit or another. Note whose it is and until when it's valid.",
             ],
             "tips": [
-                "A document reminds you 60 and 15 days before it expires (the vehicle inspection, 30 and 7), and appears in “Needs attention” and in “Deadlines”.",
+                "A document reminds you 60 and 15 days before it expires (the vehicle inspection, 30 and 7), and appears in “To do”, in “This week”, and in “Deadlines”.",
                 "Its number is optional, is hidden in discreet mode and is never printed on the household sheet.",
                 "Deleting a thing doesn't delete its insurance: Tiquet asks first and tells you what stays.",
                 "From 2.0, a document can belong to a thing, like the car's ITV: choose it in the document's “It's for” and it shows on that thing's card, under “Its documents”.",
@@ -463,7 +472,7 @@ GUIDE_EN = {
             "short": "Tags and budget",
             "tier": "mix",
             "v11": False,
-            "shot": None,
+            "shot": "cards",
             "hook": (
                 "A tag brings together what belongs together, even when it arrives by different routes: “Trip to Rome” adds up the "
                 "scanned hotel, the flight from the statement and the travel insurance. The budget tells you whether the month is going well."
@@ -473,8 +482,8 @@ GUIDE_EN = {
                 "Suggestions start with the tags you put on that shop before; a supermarket receipt is offered the groceries group.",
                 "Bank payments get their tag on their own. The ones left without one wait in “Classify”: one tap tags every payment from that merchant, past and future.",
                 "If something is filed wrong, “Review the classification” corrects it by merchant or by group, and it can be undone.",
-                "In “Settings” › “Monthly budget”, set what you want to spend in a normal month, everything included.",
-                "With Plus, on the “Saving for” card tap “New goal”: how much, by when and the words your bank puts on transfers to your savings pot.",
+                "In “Settings” › “Monthly budget”, set what you want to spend in a normal month, everything included. From 2.1, also from the “Budget” page on “Home”, which explains what you see.",
+                "With Plus, in “Settings” › “Savings goals” (or in “Goals”, on “Home”) tap “New goal”: how much, by when and the words your bank puts on transfers to your savings pot.",
             ],
             "tips": [
                 "Each payment counts once in the tag: the receipt and its bank line are the same payment.",
@@ -500,7 +509,7 @@ GUIDE_EN = {
                 "To keep iPhone and iPad the same, switch on “Sync with iCloud” in “Settings” › “iPhone and iPad, in step”, on each device with your Apple Account. It uses your private iCloud, which the developer can't read.",
                 "To take everything with you, “Settings” › “Backup and restore” › “Export everything”: a .zip with receipts, photos, policies, transactions and spreadsheets.",
                 "To delete everything, on that page tap “Delete everything in Tiquet” and type DELETE. With iCloud on, it's also deleted from your other devices.",
-                "The eye at the top of “Home” turns on discreet mode: every amount becomes •••.",
+                "To hide the amounts, touch and hold the total of the month's ticket on “Home”: every amount becomes •••. Hold it again to show them. Also in “Settings” › “Discreet mode”.",
                 "From 2.0, “Settings” › “Lock with Face ID” (or Touch ID) makes Tiquet ask for it when it opens and each time you come back to it; your passcode always opens it too. It's off until you switch it on.",
             ],
             "tips": [

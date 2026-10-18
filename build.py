@@ -94,9 +94,13 @@ S = {
   'Your own iCloud keeps your devices the same, if you switch it on. For the family, one file by AirDrop '
   'with contracts and warranties: no receipts, no bank.',
   'c-clay'),
+ ('Your home at a glance',
+  'The month’s ticket and this week on top; scroll down and each part of your home shows its figure and a small '
+  'drawing. The grid button opens All of Tiquet: everything, on one page.',
+  'c-night'),
  ('Discreet mode',
-  'One tap turns every amount into •••, for the train or the sofa. The app switcher shows a cover, not your '
-  'figures.',
+  'Hold the total of the month’s ticket and every amount turns into •••, for the train or the sofa; hold it '
+  'again to show them. The app switcher shows a cover, not your figures.',
   'c-green'),
  ('Anything strange?',
   'A Bizum to someone new and far above your usual, a transfer to an account never seen, a charge abroad '
@@ -362,9 +366,13 @@ S = {
   'Tu propio iCloud mantiene tus dispositivos iguales, si lo activas. Para la familia, un archivo por '
   'AirDrop con contratos y garantías: sin tiques, sin banco.',
   'c-clay'),
+ ('Tu casa, de un vistazo',
+  'El tique del mes y esta semana, arriba; al bajar, cada parte de tu casa con su cifra y un pequeño dibujo. '
+  'El botón de cuadrícula abre Todo Tiquet: todo, en una página.',
+  'c-night'),
  ('Modo discreto',
-  'Un toque convierte cada importe en •••, para el tren o el sofá. El selector de apps muestra una tapa, no '
-  'tus cifras.',
+  'Mantén pulsado el total del tique del mes y cada importe pasa a •••, para el tren o el sofá; otra vez, '
+  'para mostrarlos. El selector de apps muestra una tapa, no tus cifras.',
   'c-green'),
  ('¿Algo raro?',
   'Un Bizum a alguien nuevo y muy por encima de lo habitual, una transferencia a una cuenta nunca vista, un '
@@ -637,9 +645,13 @@ S = {
   "El teu propi iCloud manté els teus dispositius iguals, si l'actives. Per a la família, un fitxer per "
   'AirDrop amb contractes i garanties: sense tiquets, sense banc.',
   'c-clay'),
+ ('Casa teva, d’un cop d’ull',
+  'El tiquet del mes i aquesta setmana, a dalt; en baixar, cada part de casa teva amb la seva xifra i un petit dibuix. '
+  'El botó de quadrícula obre Tot Tiquet: tot, en una pàgina.',
+  'c-night'),
  ('Mode discret',
-  "Un toc converteix cada import en •••, per al tren o el sofà. El selector d'apps mostra una tapa, no les "
-  'teves xifres.',
+  "Mantén premut el total del tiquet del mes i cada import passa a •••, per al tren o el sofà; un altre cop, "
+  "per mostrar-los. El selector d'apps mostra una tapa, no les teves xifres.",
   'c-green'),
  ('Alguna cosa estranya?',
   'Un Bizum a algú nou i molt per sobre del que és habitual, una transferència a un compte mai vist, un '
@@ -881,7 +893,7 @@ X = {
   'Before the next charge',
   'See what is expected and when, based on contracts and previous payments. Forecasts explain what they are '
   'based on. Included in Plus.'),
- ('home',
+ ('week',
   'When you need to return something',
   'Keep the receipt and look up the return window or warranty. Keep the original document and check the date '
   'that was read.')],
@@ -946,7 +958,7 @@ X = {
   'Antes del próximo cargo',
   'Consulta qué se espera cobrar y cuándo, según tus contratos y pagos anteriores. Las previsiones indican '
   'en qué se apoyan. Incluido en Plus.'),
- ('home',
+ ('week',
   'Cuando necesitas devolver algo',
   'Guarda el tique y consulta el plazo de devolución o la garantía. Conserva el documento original y revisa '
   'la fecha leída.')],
@@ -1011,7 +1023,7 @@ X = {
   'Abans del proper càrrec',
   'Consulta què es preveu cobrar i quan, segons els contractes i els pagaments anteriors. Les previsions '
   'indiquen en què es basen. Inclòs a Plus.'),
- ('home',
+ ('week',
   'Quan necessites tornar alguna cosa',
   'Guarda el tiquet i consulta el termini de devolució o la garantia. Conserva el document original i revisa '
   'la data llegida.')],
