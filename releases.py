@@ -6,11 +6,11 @@
 # belongs to (an id in guide_*.py), which becomes a link.
 #
 # Each version's date is set when Apple approves it and it is released (owner's yes): until then the entry has no date
-# and the site is not published. 2.1 (in App Review from 18 Oct 2026) has none yet.
+# and the site is not published.
 
 RELEASES = [
     {
-        "v": "2.1",
+        "v": "2.1", "date": "2026-10-19",
         "items": [
             ("inicio",
              "Un Inicio nuevo, más claro y con menos desplazamiento: arriba, lo de hoy, el tique del mes (toca un grupo para ver su informe) y «Esta semana», con lo que se cobra cada día y lo que tienes por hacer; al bajar, el mes, en tarjetas con su cifra y su pequeño gráfico, y «Más de tu casa».",
